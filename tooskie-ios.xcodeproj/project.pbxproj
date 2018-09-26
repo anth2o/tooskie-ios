@@ -12,6 +12,7 @@
 		718F6711215B481000F59A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F670F215B481000F59A5C /* Main.storyboard */; };
 		718F6713215B481100F59A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718F6712215B481100F59A5C /* Assets.xcassets */; };
 		718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F6714215B481100F59A5C /* LaunchScreen.storyboard */; };
+		718F671E215B4ABB00F59A5C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 718F671D215B4ABB00F59A5C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		718F6712215B481100F59A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		718F6715215B481100F59A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		718F6717215B481100F59A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		718F671D215B4ABB00F59A5C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		718F66FF215B481000F59A5C = {
 			isa = PBXGroup;
 			children = (
+				718F671D215B4ABB00F59A5C /* .gitignore */,
 				718F670A215B481000F59A5C /* tooskie-ios */,
 				718F6709215B481000F59A5C /* Products */,
 			);
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718F671E215B4ABB00F59A5C /* .gitignore in Resources */,
 				718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */,
 				718F6713215B481100F59A5C /* Assets.xcassets in Resources */,
 				718F6711215B481000F59A5C /* Main.storyboard in Resources */,
