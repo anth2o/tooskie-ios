@@ -11,9 +11,16 @@ import UIKit
 
 class Ingredient {
     var name: String
-//    var picture: UIKit.UIImage
     
-    init() {
-        self.name = "poulet"
+    init(name: String) {
+        self.name = name
+    }
+    
+    convenience init() {
+        self.init(name: "Poulet")
+    }
+    
+    func equals(to: Ingredient) -> Bool {
+        return self.name == to.name
     }
 }

@@ -14,13 +14,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    @IBOutlet weak var label: UILabel!
     
-    @IBAction func changeLabel(_ sender: Any) {
-        let number = Int.random(in: 0 ..< 2)
-        let tab = ["poulet", "cc"]
-        label.text = tab[number]
-    }
 }
 
