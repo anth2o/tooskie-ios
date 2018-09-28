@@ -61,16 +61,48 @@
 		718F670A215B481000F59A5C /* tooskie-ios */ = {
 			isa = PBXGroup;
 			children = (
-				718F670B215B481000F59A5C /* AppDelegate.swift */,
+				71E6F404215EBBB000DC44B6 /* Model */,
+				71E6F406215EBBC100DC44B6 /* Controller */,
+				71E6F405215EBBBC00DC44B6 /* View */,
+				71E6F407215EBC1A00DC44B6 /* Supporting Files */,
+			);
+			path = "tooskie-ios";
+			sourceTree = "<group>";
+		};
+		71E6F404215EBBB000DC44B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				716123B8215B6B7200B458A0 /* Pantry.swift */,
 				716123BA215B6BC200B458A0 /* Ingredient.swift */,
-				718F670D215B481000F59A5C /* ViewController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71E6F405215EBBBC00DC44B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				718F670F215B481000F59A5C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71E6F406215EBBC100DC44B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				718F670D215B481000F59A5C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		71E6F407215EBC1A00DC44B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				718F670B215B481000F59A5C /* AppDelegate.swift */,
 				718F6712215B481100F59A5C /* Assets.xcassets */,
 				718F6714215B481100F59A5C /* LaunchScreen.storyboard */,
 				718F6717215B481100F59A5C /* Info.plist */,
 			);
-			path = "tooskie-ios";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
