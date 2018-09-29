@@ -7,19 +7,29 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var testText: UITextField!
+    @IBAction func searchIngredient(_ sender: Any) {
+        testText.text = checkIngredient()
+    }
+    
+    func checkIngredient() -> String {
+        if let text = searchBar.text {
+            let ingredient = Ingredient(name: text)
+            if pantry.contains(ingredient: ingredient){
+                return ingredient.name
+            }
+        }
+        return "Invalid ingredient"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        pantry.addIngredient(ingredient: fromage)
+        pantry.addIngredient(ingredient: poulet)
     }
-    
-    @IBOutlet weak var ingredientsTable: UITableView!
-    @IBOutlet var ingredientCells: [UITableViewCell]!
-    @IBOutlet var addIngredient: [UIButton]!
-    @IBAction func addIngredient(_ sender: UIButton) {
-    }
-    
 }
+
 

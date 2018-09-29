@@ -10,9 +10,11 @@ import Foundation
 
 
 class Pantry{
+    var name: String
     var ingredients: [Ingredient]
     
     init(){
+        self.name = "tooskie"
         self.ingredients = []
     }
     
@@ -35,3 +37,7 @@ class Pantry{
     }
 
 }
+
+var pantry = Pantry()
+var fromage = Ingredient(name: "Fromage")
+var poulet = Ingredient(name: "Poulet")
