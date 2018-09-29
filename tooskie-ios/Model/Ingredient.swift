@@ -11,6 +11,7 @@ import UIKit
 
 class Ingredient {
     var name: String
+    var picture: String?
     
     init(name: String) {
         self.name = name

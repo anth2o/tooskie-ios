@@ -9,17 +9,19 @@
 import UIKit
 class ViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var testText: UITextField!
-    @IBAction func searchIngredient(_ sender: Any) {
-        testText.text = checkIngredient()
+    @IBOutlet weak var ingredientSearchBar: UISearchBar!
+    
+    @IBAction func ingredientSearchButton(_ sender: Any) {
     }
     
-    func checkIngredient() -> String {
-        if let text = searchBar.text {
-            let ingredient = Ingredient(name: text)
-            if pantry.contains(ingredient: ingredient){
-                return ingredient.name
+    @IBOutlet weak var ingredientsInPantry: UITableView!
+    
+    func addIngredient() -> String {
+        if let text = ingredientSearchBar.text {
+            var chosenIngredient = Ingredient(name: text)
+            if tooskiePantry.contains(ingredient: chosenIngredient){
+                userPantry.addIngredient(ingredient: chosenIngredient)
+                return chosenIngredient.name
             }
         }
         return "Invalid ingredient"
@@ -27,8 +29,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pantry.addIngredient(ingredient: fromage)
-        pantry.addIngredient(ingredient: poulet)
+        tooskiePantry.addIngredient(ingredient: fromage)
+        tooskiePantry.addIngredient(ingredient: poulet)
     }
 }
 

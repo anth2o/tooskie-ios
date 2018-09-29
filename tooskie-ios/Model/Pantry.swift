@@ -13,8 +13,12 @@ class Pantry{
     var name: String
     var ingredients: [Ingredient]
     
-    init(){
-        self.name = "tooskie"
+    convenience init(){
+        self.init(name: "Poulet")
+    }
+    
+    init (name: String) {
+        self.name = name
         self.ingredients = []
     }
     
@@ -22,10 +26,12 @@ class Pantry{
         return self.ingredients.contains(where: {ingredient.equals(to: ($0))})
     }
     
-    func addIngredient(ingredient: Ingredient){
+    func addIngredient(ingredient: Ingredient) -> Ingredient?{
         if !self.contains(ingredient: ingredient){
             self.ingredients.append(ingredient)
+            return ingredient
         }
+        return nil
     }
     
     func removeIngredient(ingredient: Ingredient){
@@ -38,6 +44,8 @@ class Pantry{
 
 }
 
-var pantry = Pantry()
+var tooskiePantry = Pantry()
 var fromage = Ingredient(name: "Fromage")
 var poulet = Ingredient(name: "Poulet")
+var userPantry = Pantry()
+
