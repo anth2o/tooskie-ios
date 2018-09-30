@@ -25,7 +25,12 @@ class PantryTableView: UITableView {
         if self.pantry != nil {
             let ingredientAdded = self.pantry!.addIngredient(ingredient: ingredient)
             if ingredientAdded != nil {
-                self.ingredientCells[ingredientAdded!.name] = IngredientTableViewCell(ingredient: ingredientAdded!)
+                let ingredientName = ingredientAdded!.getName()
+                self.ingredientCells[ingredientName] = IngredientTableViewCell(ingredient: ingredientAdded!)
+                self.beginUpdates()
+                self.insertRows(at: [IndexPath(row: lastIndex, section: 0)], with: .automatic)
+                lastIndex += 1
+                self.endUpdates()
             }
         }
     }

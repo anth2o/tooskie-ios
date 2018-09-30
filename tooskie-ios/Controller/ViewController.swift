@@ -9,28 +9,38 @@
 import UIKit
 class ViewController: UIViewController {
     
+    let tooskiePantry = Pantry()
+    let fromage = Ingredient(name: "Fromage")
+    let poulet = Ingredient(name: "Poulet")
+    var userPantry = Pantry()
+    
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
+    @IBOutlet weak var pantryTable: PantryTableView!
+    @IBOutlet weak var textIngredient: UITextField!
     
     @IBAction func ingredientSearchButton(_ sender: Any) {
+        let ingredientAdded = addIngredient()
+        if !ingredientAdded{
+            textIngredient.text = "Ingrédient inconnu"
+        }
     }
     
-    @IBOutlet weak var ingredientsInPantry: UITableView!
-    
-    func addIngredient() -> String {
+    func addIngredient() -> Bool {
         if let text = ingredientSearchBar.text {
-            var chosenIngredient = Ingredient(name: text)
+            let chosenIngredient = Ingredient(name: text)
             if tooskiePantry.contains(ingredient: chosenIngredient){
-                userPantry.addIngredient(ingredient: chosenIngredient)
-                return chosenIngredient.name
+                pantryTable.addIngredient(ingredient: chosenIngredient)
+                return true
             }
         }
-        return "Invalid ingredient"
+        return false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tooskiePantry.addIngredient(ingredient: fromage)
         tooskiePantry.addIngredient(ingredient: poulet)
+        pantryTable.pantry = userPantry
     }
 }
 

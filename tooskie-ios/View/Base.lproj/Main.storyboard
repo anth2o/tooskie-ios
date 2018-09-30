@@ -25,7 +25,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHA-Jr-SgH" customClass="PantryTableView" customModule="tooskie_ios" customModuleProvider="target">
-                                <rect key="frame" x="48" y="117" width="279" height="433"/>
+                                <rect key="frame" x="48" y="117" width="279" height="410"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -76,18 +76,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="ingredientSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SKe-xb-Ry8"/>
+                                    <action selector="ingredientSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nSI-m5-Z3v"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2E-wP-p12">
+                                <rect key="frame" x="111" y="559" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textIngredient:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yZS-eK-cS0"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95294117647058818" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ingredientSearch" destination="YQn-gn-XRX" id="ICr-ek-KK0"/>
-                        <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="L5r-qC-QP0"/>
-                        <outlet property="ingredientSearchResults" destination="WHA-Jr-SgH" id="vSA-bt-4y9"/>
-                        <outlet property="searchDisplayController" destination="UZm-bv-oO9" id="Vxm-zH-7ZI"/>
+                        <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="W0y-zL-cLr"/>
+                        <outlet property="pantryTable" destination="WHA-Jr-SgH" id="inY-wW-SwN"/>
+                        <outlet property="textIngredient" destination="D2E-wP-p12" id="9Iq-9s-sHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

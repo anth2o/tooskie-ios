@@ -11,11 +11,16 @@ import UIKit
 class IngredientTableViewCell: UITableViewCell {
     
     var ingredient: Ingredient?
+//    @IBOutlet weak var ingredientPicture: UIImageView!
+    @IBOutlet weak var ingredientName: UITextField!
+    @IBAction func ingredientButton(_ sender: Any) {
+    }
+//    @IBOutlet weak var ingredientButtonDisplay: UIButton!
     
     init(ingredient: Ingredient){
         self.ingredient = ingredient
-        self.ingredient = self.ingredient!
-        self.ingredientName.text = ingredient.name
+        let ingredientName = ingredient.getName()
+        self.ingredientName.text = ingredientName
 //        if let picture = self.ingredient.picture {
 //            self.ingredientPicture.te = picture
 //        }
@@ -25,12 +30,6 @@ class IngredientTableViewCell: UITableViewCell {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
-    
-    @IBOutlet weak var ingredientPicture: UIImageView!
-    @IBOutlet weak var ingredientName: UITextField!
-    @IBAction func ingredientButton(_ sender: Any) {
-    }
-    @IBOutlet weak var ingredientButtonDisplay: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

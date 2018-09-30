@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class Ingredient {
-    var name: String
-    var picture: String?
+    private var name: String
+    private var picture: String?
     
     init(name: String) {
         self.name = name
@@ -21,7 +21,11 @@ class Ingredient {
         self.init(name: "Poulet")
     }
     
-    func equals(to: Ingredient) -> Bool {
+    public func equals(to: Ingredient) -> Bool {
         return self.name == to.name
+    }
+    
+    public func getName() -> String {
+        return self.name
     }
 }
