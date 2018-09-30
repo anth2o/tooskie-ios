@@ -11,8 +11,8 @@ import UIKit
 class IngredientTableViewCell: UITableViewCell {
     
     //MARK: Properties
-    @IBOutlet weak var ingredientName: UILabel!
     
+    @IBOutlet weak var ingredientName: UILabel!
     var ingredient: Ingredient?
 //    @IBOutlet weak var ingredientPicture: UIImageView!
 //    @IBAction func ingredientButton(_ sender: Any) {
