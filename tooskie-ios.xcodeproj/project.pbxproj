@@ -17,6 +17,7 @@
 		718F6713215B481100F59A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 718F6712215B481100F59A5C /* Assets.xcassets */; };
 		718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F6714215B481100F59A5C /* LaunchScreen.storyboard */; };
 		718F671E215B4ABB00F59A5C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 718F671D215B4ABB00F59A5C /* .gitignore */; };
+		71AFB13E21615D70003EF3B5 /* PantryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB13D21615D70003EF3B5 /* PantryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		718F6715215B481100F59A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		718F6717215B481100F59A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		718F671D215B4ABB00F59A5C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		71AFB13D21615D70003EF3B5 /* PantryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				718F670D215B481000F59A5C /* ViewController.swift */,
 				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
 				710D923F215FE51200E192C8 /* PantryTableView.swift */,
+				71AFB13D21615D70003EF3B5 /* PantryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,
 				716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */,
 				716123B9215B6B7200B458A0 /* Pantry.swift in Sources */,
+				71AFB13E21615D70003EF3B5 /* PantryTableViewController.swift in Sources */,
 				710D9240215FE51200E192C8 /* PantryTableView.swift in Sources */,
 				718F670E215B481000F59A5C /* ViewController.swift in Sources */,
 				718F670C215B481000F59A5C /* AppDelegate.swift in Sources */,

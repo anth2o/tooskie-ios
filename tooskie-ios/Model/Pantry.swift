@@ -12,6 +12,9 @@ import Foundation
 class Pantry{
     private var name: String
     private var ingredients: [Ingredient]
+    public var count: Int{
+        return self.ingredients.count
+    }
     
     convenience init(){
         self.init(name: "Poulet")
@@ -41,6 +44,9 @@ class Pantry{
     public func refresh() {
         self.ingredients = []
     }
-
+    
+    public func getIngredient(index: Int) -> Ingredient{
+        return self.ingredients[index]
+    }
 }
 

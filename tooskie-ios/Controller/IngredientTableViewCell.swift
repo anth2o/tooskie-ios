@@ -10,17 +10,17 @@ import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
     
+    //MARK: Properties
+    @IBOutlet weak var ingredientName: UILabel!
+    
     var ingredient: Ingredient?
 //    @IBOutlet weak var ingredientPicture: UIImageView!
-    @IBOutlet weak var ingredientName: UITextField!
-    @IBAction func ingredientButton(_ sender: Any) {
-    }
-//    @IBOutlet weak var ingredientButtonDisplay: UIButton!
+//    @IBAction func ingredientButton(_ sender: Any) {
+//    }
+    //    @IBOutlet weak var ingredientButtonDisplay: UIButton!
     
     init(ingredient: Ingredient){
         self.ingredient = ingredient
-        let ingredientName = ingredient.getName()
-        self.ingredientName.text = ingredientName
 //        if let picture = self.ingredient.picture {
 //            self.ingredientPicture.te = picture
 //        }

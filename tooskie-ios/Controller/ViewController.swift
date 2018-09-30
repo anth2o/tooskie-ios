@@ -16,13 +16,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
     @IBOutlet weak var pantryTable: PantryTableView!
-    @IBOutlet weak var textIngredient: UITextField!
     
     @IBAction func ingredientSearchButton(_ sender: Any) {
         let ingredientAdded = addIngredient()
-        if !ingredientAdded{
-            textIngredient.text = "Ingrédient inconnu"
-        }
+//        if !ingredientAdded{
+//            textIngredient.text = "Ingrédient inconnu"
+//        }
+//        else{
+//            textIngredient.text = ""
+//        }
     }
     
     func addIngredient() -> Bool {
