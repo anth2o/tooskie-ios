@@ -27,9 +27,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         addIngredient()
     }
     
+    func capitalize(string: String) -> String {
+        return string.prefix(1).uppercased() + string.dropFirst()
+    }
+    
     func addIngredient(){
         if let text = ingredientSearchBar.text {
-            let chosenIngredient = Ingredient(name: text)
+            let chosenIngredient = Ingredient(name: capitalize(string: text))
             if tooskiePantry.contains(ingredient: chosenIngredient){
                 userPantry.addIngredient(ingredient: chosenIngredient)
                 self.reload()
