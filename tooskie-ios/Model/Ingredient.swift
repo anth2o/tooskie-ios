@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Ingredient {
+    private var id: Int?
     private var name: String
     private var picture: String?
     
