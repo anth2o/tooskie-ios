@@ -9,18 +9,21 @@
 import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let ingredientName = [
+        "Fromage",
+        "Poulet",
+        "Pommes de terre",
+        "Endives",
+        "Foie gras",
+        "Tomates"
+    ]
     let tooskiePantry = Pantry(name: "Tooskie pantry")
-    let fromage = Ingredient(name: "Fromage")
-    let poulet = Ingredient(name: "Poulet")
     var userPantry = Pantry(name: "User pantry")
     
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
     
     @IBAction func ingredientSearchButton(_ sender: Any) {
-        if userPantry.count > 0 {
-            print(userPantry.getIngredient(index: 0).getName())
-        }
         addIngredient()
     }
     
@@ -43,12 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func loadPantry() {
-        tooskiePantry.addIngredient(ingredient: fromage)
-        tooskiePantry.addIngredient(ingredient: poulet)
+        for i in 0..<self.ingredientName.count{
+            let ingredient = Ingredient(name: self.ingredientName[i])
+            self.tooskiePantry.addIngredient(ingredient: ingredient)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection")
         return self.userPantry.count
     }
     
@@ -77,7 +81,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func reload(){
-        DispatchQueue.main.async { self.pantryTableView.reloadData() }
+//        DispatchQueue.main.async {
+        self.pantryTableView.reloadData()
+        try self.pantryTableView.scrollToRow(at: IndexPath(item: self.userPantry.count-1, section: 0), at: .top, animated: true)
+//        }
     }
 }
 
