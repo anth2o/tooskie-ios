@@ -44,7 +44,7 @@
                                 <state key="normal" title="C'est parti !"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6P-TN-UQH">
-                                <rect key="frame" x="47" y="87" width="281" height="350"/>
+                                <rect key="frame" x="47" y="86" width="281" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -55,8 +55,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="281" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNB-cT-MsO">
+                                                    <rect key="frame" x="236" y="30" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <state key="normal" title="Button" image="MinusButton"/>
+                                                    <connections>
+                                                        <action selector="discardIngredient:" destination="85w-SF-hUl" eventType="touchUpInside" id="02f-4t-BOB"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-Od-tm3">
-                                                    <rect key="frame" x="40" y="33" width="200" height="21.999999999999943"/>
+                                                    <rect key="frame" x="40" y="34" width="200" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -92,4 +100,7 @@
             <point key="canvasLocation" x="-1319.2" y="-543.77811094452773"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MinusButton" width="256" height="256"/>
+    </resources>
 </document>

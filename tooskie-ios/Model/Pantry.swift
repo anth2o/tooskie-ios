@@ -48,5 +48,9 @@ class Pantry{
     public func getIngredient(index: Int) -> Ingredient{
         return self.ingredients[index]
     }
+    
+    public func getIndex(ingredient: Ingredient) -> Int? {
+        return self.ingredients.firstIndex(where: {$0.equals(to: ingredient)})
+    }
 }
 

@@ -13,17 +13,18 @@ class IngredientTableViewCell: UITableViewCell {
     //MARK: Properties
     
     @IBOutlet weak var ingredientName: UILabel!
-    var ingredient: Ingredient?
-//    @IBOutlet weak var ingredientPicture: UIImageView!
-//    @IBAction func ingredientButton(_ sender: Any) {
-//    }
-    //    @IBOutlet weak var ingredientButtonDisplay: UIButton!
+    @IBAction func discardIngredient(_ sender: Any) {
+        if self.viewController != nil && self.ingredient != nil {
+            self.viewController!.removeIngredient(ingredient: self.ingredient!)
+        }
+    }
     
-    init(ingredient: Ingredient){
+    var ingredient: Ingredient?
+    var viewController: ViewController?
+    
+    init(ingredient: Ingredient, pantry: Pantry, viewController: ViewController){
         self.ingredient = ingredient
-//        if let picture = self.ingredient.picture {
-//            self.ingredientPicture.te = picture
-//        }
+        self.viewController = viewController
         super.init(style: .default, reuseIdentifier: nil)
     }
     

@@ -9,10 +9,10 @@
 import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let tooskiePantry = Pantry()
+    let tooskiePantry = Pantry(name: "Tooskie pantry")
     let fromage = Ingredient(name: "Fromage")
     let poulet = Ingredient(name: "Poulet")
-    var userPantry = Pantry()
+    var userPantry = Pantry(name: "User pantry")
     
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let chosenIngredient = Ingredient(name: text)
             if tooskiePantry.contains(ingredient: chosenIngredient){
                 userPantry.addIngredient(ingredient: chosenIngredient)
-                DispatchQueue.main.async { self.pantryTableView.reloadData() }
+                self.reload()
             }
         }
     }
@@ -61,7 +61,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         let ingredient = self.userPantry.getIngredient(index: indexPath.row)
         cell.ingredientName.text = ingredient.getName()
+        cell.ingredient = ingredient
+        cell.viewController = self
         return cell
+    }
+    
+    func removeIngredient(ingredient: Ingredient) {
+        let potentielIndexIngredient = self.userPantry.getIndex(ingredient: ingredient)
+        if let indexIngredient = potentielIndexIngredient {
+            self.userPantry.removeIngredient(ingredient: ingredient)
+            let indexPath = IndexPath(item: indexIngredient, section: 0)
+            pantryTableView.deleteRows(at: [indexPath], with: .fade)
+            self.reload()
+        }
+    }
+    
+    private func reload(){
+        DispatchQueue.main.async { self.pantryTableView.reloadData() }
     }
 }
 
