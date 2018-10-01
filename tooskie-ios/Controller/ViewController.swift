@@ -83,7 +83,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private func reload(){
 //        DispatchQueue.main.async {
         self.pantryTableView.reloadData()
-        try self.pantryTableView.scrollToRow(at: IndexPath(item: self.userPantry.count-1, section: 0), at: .top, animated: true)
+        if self.userPantry.count > 0 {
+            try self.pantryTableView.scrollToRow(at: IndexPath(item: self.userPantry.count-1, section: 0), at: .top, animated: true)
+        }
 //        }
     }
 }
