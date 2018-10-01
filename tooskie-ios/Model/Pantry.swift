@@ -29,12 +29,10 @@ class Pantry{
         return self.ingredients.contains(where: {ingredient.equals(to: ($0))})
     }
     
-    public func addIngredient(ingredient: Ingredient) -> Ingredient?{
+    public func addIngredient(ingredient: Ingredient){
         if !self.contains(ingredient: ingredient){
             self.ingredients.append(ingredient)
-            return ingredient
         }
-        return nil
     }
     
     public func removeIngredient(ingredient: Ingredient){

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     let ingredientName = [
         "Fromage",
@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if tooskiePantry.contains(ingredient: chosenIngredient){
                 userPantry.addIngredient(ingredient: chosenIngredient)
                 self.reload()
+                self.ingredientSearchBar.text = ""
             }
         }
     }
@@ -42,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.loadPantry()
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
+        ingredientSearchBar.delegate = self
         print("View did load")
     }
     
