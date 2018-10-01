@@ -35,7 +35,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.reload()
                 self.ingredientSearchBar.text = ""
             }
+            else {
+                self.alertIngredientNotAvailable()
+            }
+
         }
+    }
+    
+    func alertIngredientNotAvailable() {
+        let alert = UIAlertController(title: "Erreur", message: "Cet ingrédient n'est pas disponible", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
