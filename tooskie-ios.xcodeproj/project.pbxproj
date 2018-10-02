@@ -11,6 +11,7 @@
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
 		7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C49E21637B7F000886B0 /* ServerConfig.swift */; };
+		7184C4A12163B840000886B0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C4A02163B840000886B0 /* Utils.swift */; };
 		718F670C215B481000F59A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670B215B481000F59A5C /* AppDelegate.swift */; };
 		718F670E215B481000F59A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670D215B481000F59A5C /* ViewController.swift */; };
 		718F6711215B481000F59A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F670F215B481000F59A5C /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		7184C49E21637B7F000886B0 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
+		7184C4A02163B840000886B0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		718F6708215B481000F59A5C /* tooskie-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tooskie-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		718F670B215B481000F59A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718F670D215B481000F59A5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				716123B8215B6B7200B458A0 /* Pantry.swift */,
 				7184C49E21637B7F000886B0 /* ServerConfig.swift */,
+				7184C4A02163B840000886B0 /* Utils.swift */,
 				716123BA215B6BC200B458A0 /* Ingredient.swift */,
 			);
 			path = Model;
@@ -186,6 +189,7 @@
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,
 				716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */,
 				716123B9215B6B7200B458A0 /* Pantry.swift in Sources */,
+				7184C4A12163B840000886B0 /* Utils.swift in Sources */,
 				718F670E215B481000F59A5C /* ViewController.swift in Sources */,
 				7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */,
 				718F670C215B481000F59A5C /* AppDelegate.swift in Sources */,

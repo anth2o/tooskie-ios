@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ajouter"/>
                                 <connections>
-                                    <action selector="ingredientSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nSI-m5-Z3v"/>
+                                    <action selector="ingredientSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ajx-lx-Bpb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="T'as quoi au frigo ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-SY-xBl">
@@ -43,8 +43,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="C'est parti !"/>
                                 <connections>
-                                    <action selector="ingredientSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oob-3t-Evl"/>
-                                    <action selector="launchRecipes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ut-K5-gfX"/>
+                                    <action selector="launchRecipes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jF2-Mp-PmD"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6P-TN-UQH">
