@@ -18,5 +18,6 @@ class ServerConfig {
     
     public func getUrlHost() -> String {
         return self.host
+    
     }
 }

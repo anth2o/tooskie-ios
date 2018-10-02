@@ -13,6 +13,12 @@ class Ingredient: Codable {
     private var id: Int?
     private var name: String
     private var picture: String?
+    public var permaname: String? {
+        if let slug = self.name.convertedToSlug(){
+            return slug
+        }
+        return nil
+    }
     
     init(name: String) {
         self.name = name
@@ -33,5 +39,22 @@ class Ingredient: Codable {
     
     public func setPicture(picture: String) {
         self.picture = picture
+    }
+}
+
+extension String {
+    private static let slugSafeCharacters = CharacterSet(charactersIn: "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-")
+    
+    public func convertedToSlug() -> String? {
+        if let latin = self.applyingTransform(StringTransform("Any-Latin; Latin-ASCII; Lower;"), reverse: false) {
+            let urlComponents = latin.components(separatedBy: String.slugSafeCharacters.inverted)
+            let result = urlComponents.filter { $0 != "" }.joined(separator: "-")
+            
+            if result.count > 0 {
+                return result
+            }
+        }
+        
+        return nil
     }
 }

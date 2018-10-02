@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let tooskiePantry = Pantry(name: "Tooskie pantry")
     var userPantry = Pantry(name: "User pantry")
     var serverConfig = ServerConfig()
+    let loadAllIngredients = true
 
     
     @IBOutlet weak var pantryTableView: UITableView!
@@ -31,15 +32,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func addIngredient(){
         if let text = ingredientSearchBar.text {
             let chosenIngredient = Ingredient(name: capitalize(string: text))
-            if tooskiePantry.contains(ingredient: chosenIngredient){
-                userPantry.addIngredient(ingredient: chosenIngredient)
-                self.reload()
-                self.ingredientSearchBar.text = ""
+            if self.loadAllIngredients {
+                if self.tooskiePantry.contains(ingredient: chosenIngredient){
+                    userPantry.addIngredient(ingredient: chosenIngredient)
+                    self.reload()
+                    self.ingredientSearchBar.text = ""
+                }
+                else {
+                    self.alertIngredientNotAvailable()
+                }
             }
             else {
-                self.alertIngredientNotAvailable()
+                self.requestAndAddIngredient(ingredient: chosenIngredient)
             }
-
         }
     }
     
@@ -51,7 +56,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadPantry()
+        if self.loadAllIngredients {
+            self.loadPantry()
+        }
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
         ingredientSearchBar.delegate = self
@@ -115,6 +122,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             pantryTableView.deleteRows(at: [indexPath], with: .fade)
             self.reload()
         }
+    }
+    
+    func requestAndAddIngredient(ingredient: Ingredient) {
+        if ingredient.permaname == nil {
+            print("Ingredient " + ingredient.getName() + " hasn't a valid permaname")
+            return
+        }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = self.serverConfig.getUrlScheme()
+        urlComponents.host = self.serverConfig.getUrlHost()
+        urlComponents.path = "/ingredient/" + ingredient.permaname!
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            DispatchQueue.main.async {
+                if let error = responseError {
+                    print(error.localizedDescription)
+                } else if let jsonData = responseData {
+                    let decoder = JSONDecoder()
+                    do {
+                        let ingredient = try decoder.decode(Ingredient.self, from: jsonData)
+                        self.userPantry.addIngredient(ingredient: ingredient)
+                    } catch {
+                        print("Error")
+                    }
+                } else {
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
     }
     
     private func reload(){
