@@ -114,8 +114,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func scrollToBottom(){
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
-            self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            if self.userPantry.count > 0 {
+                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
+                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
     }
 }
