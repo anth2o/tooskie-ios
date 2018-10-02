@@ -34,9 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let chosenIngredient = Ingredient(name: capitalize(string: text))
             if self.loadAllIngredients {
                 if self.tooskiePantry.contains(ingredient: chosenIngredient){
-                    userPantry.addIngredient(ingredient: chosenIngredient)
-                    self.reload()
-                    self.ingredientSearchBar.text = ""
+                    self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
                 }
                 else {
                     self.alertIngredientNotAvailable()
@@ -46,6 +44,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.requestAndAddIngredient(ingredient: chosenIngredient)
             }
         }
+    }
+    
+    func addAndDisplayNewIngredient(ingredient: Ingredient) {
+        userPantry.addIngredient(ingredient: ingredient)
+        self.reload()
+        self.ingredientSearchBar.text = ""
     }
     
     func alertIngredientNotAvailable() {
@@ -146,7 +150,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     let decoder = JSONDecoder()
                     do {
                         let ingredient = try decoder.decode(Ingredient.self, from: jsonData)
-                        self.userPantry.addIngredient(ingredient: ingredient)
+                        self.addAndDisplayNewIngredient(ingredient: ingredient)
                     } catch {
                         print("Error")
                     }
