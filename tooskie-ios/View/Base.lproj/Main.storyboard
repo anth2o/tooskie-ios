@@ -74,10 +74,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zfb-Yd-pfH">
+                                                    <rect key="frame" x="15" y="16" width="60" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientName" destination="rD7-Od-tm3" id="t4o-8Z-ibG"/>
+                                            <outlet property="ingredientPicture" destination="Zfb-Yd-pfH" id="tOm-vE-EJl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

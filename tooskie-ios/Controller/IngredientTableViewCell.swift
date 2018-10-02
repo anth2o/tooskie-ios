@@ -13,18 +13,24 @@ class IngredientTableViewCell: UITableViewCell {
     var viewController: ViewController?
     
     @IBOutlet weak var ingredientName: UILabel!
+    @IBOutlet weak var ingredientPicture: UIImageView!
     @IBAction func discardIngredient(_ sender: Any) {
         if self.viewController != nil && self.ingredient != nil {
             self.viewController!.removeIngredient(ingredient: self.ingredient!)
         }
     }
     
-    init(ingredient: Ingredient, pantry: Pantry, viewController: ViewController){
+    func configure(ingredient: Ingredient, viewController: ViewController) {
         self.ingredient = ingredient
         self.viewController = viewController
-        super.init(style: .default, reuseIdentifier: nil)
+        self.ingredientName.text = ingredient.getName()
+        if let pictureString = ingredient.getPictureString() {
+            let url = URL(string: pictureString)
+            let data = try? Data(contentsOf: url!)
+            self.ingredientPicture.image = UIImage(data: data!)
+        }
     }
-    
+
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }

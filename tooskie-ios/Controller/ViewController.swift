@@ -31,17 +31,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func addIngredient(){
         if let text = ingredientSearchBar.text {
-            let chosenIngredient = Ingredient(name: capitalize(string: text))
             if self.loadAllIngredients {
-                if self.tooskiePantry.contains(ingredient: chosenIngredient){
+                if let chosenIngredient = self.tooskiePantry.getIngredientByName(ingredientName: text){
                     self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
                 }
                 else {
                     self.alertIngredientNotAvailable()
                 }
-            }
-            else {
-                self.requestAndAddIngredient(ingredient: chosenIngredient)
             }
         }
     }
@@ -112,9 +108,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
         let ingredient = self.userPantry.getIngredient(index: indexPath.row)
-        cell.ingredientName.text = ingredient.getName()
-        cell.ingredient = ingredient
-        cell.viewController = self
+        cell.configure(ingredient: ingredient, viewController: self)
         return cell
     }
     

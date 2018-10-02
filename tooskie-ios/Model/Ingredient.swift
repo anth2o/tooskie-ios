@@ -29,12 +29,25 @@ class Ingredient: Codable {
         self.id = id
     }
     
+    init(name: String, id: Int, picture: String) {
+        self.name = name
+        self.id = id
+        self.picture = picture
+    }
+    
     public func equals(to: Ingredient) -> Bool {
         return self.name == to.name
     }
     
     public func getName() -> String {
         return self.name
+    }
+    
+    public func getPictureString() -> String? {
+        if let picture = self.picture {
+            return picture
+        }
+        return nil
     }
     
     public func setPicture(picture: String) {

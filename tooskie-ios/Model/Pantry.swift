@@ -29,6 +29,13 @@ class Pantry{
         return self.ingredients.contains(where: {ingredient.equals(to: ($0))})
     }
     
+    public func getIngredientByName(ingredientName: String) -> Ingredient? {
+        if let index = self.getIndex(ingredient: Ingredient(name: ingredientName)) {
+            return self.ingredients[index]
+        }
+        return nil
+    }
+    
     public func addIngredient(ingredient: Ingredient){
         if !self.contains(ingredient: ingredient){
             self.ingredients.append(ingredient)
