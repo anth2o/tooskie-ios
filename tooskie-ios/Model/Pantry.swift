@@ -35,6 +35,10 @@ class Pantry{
         }
     }
     
+    public func setIngredientList(list: [Ingredient]) {
+        self.ingredients = list
+    }
+    
     public func removeIngredient(ingredient: Ingredient){
         self.ingredients.removeAll(where: {ingredient.equals(to: ($0))})
     }

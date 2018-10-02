@@ -9,8 +9,8 @@
 import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
-    
-    //MARK: Properties
+    var ingredient: Ingredient?
+    var viewController: ViewController?
     
     @IBOutlet weak var ingredientName: UILabel!
     @IBAction func discardIngredient(_ sender: Any) {
@@ -18,9 +18,6 @@ class IngredientTableViewCell: UITableViewCell {
             self.viewController!.removeIngredient(ingredient: self.ingredient!)
         }
     }
-    
-    var ingredient: Ingredient?
-    var viewController: ViewController?
     
     init(ingredient: Ingredient, pantry: Pantry, viewController: ViewController){
         self.ingredient = ingredient

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Ingredient {
+class Ingredient: Codable {
     private var id: Int?
     private var name: String
     private var picture: String?
@@ -18,8 +18,9 @@ class Ingredient {
         self.name = name
     }
     
-    convenience init() {
-        self.init(name: "Poulet")
+    init(name: String, id: Int) {
+        self.name = name
+        self.id = id
     }
     
     public func equals(to: Ingredient) -> Bool {
@@ -28,5 +29,9 @@ class Ingredient {
     
     public func getName() -> String {
         return self.name
+    }
+    
+    public func setPicture(picture: String) {
+        self.picture = picture
     }
 }

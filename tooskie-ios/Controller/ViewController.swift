@@ -8,20 +8,17 @@
 
 import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-    
-    let ingredientName = [
-        "Fromage",
-        "Poulet",
-        "Pommes de terre",
-        "Endives",
-        "Foie gras",
-        "Tomates"
-    ]
     let tooskiePantry = Pantry(name: "Tooskie pantry")
     var userPantry = Pantry(name: "User pantry")
+    var serverConfig = ServerConfig()
+
     
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
+    
+    @IBAction func launchRecipes(_ sender: Any) {
+        self.loadPantry()
+    }
     
     @IBAction func ingredientSearchButton(_ sender: Any) {
         addIngredient()
@@ -62,10 +59,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func loadPantry() {
-        for i in 0..<self.ingredientName.count{
-            let ingredient = Ingredient(name: self.ingredientName[i])
-            self.tooskiePantry.addIngredient(ingredient: ingredient)
+        var urlComponents = URLComponents()
+        urlComponents.scheme = self.serverConfig.getUrlScheme()
+        urlComponents.host = self.serverConfig.getUrlHost()
+        urlComponents.path = "/ingredient/4547"
+//        urlComponents.queryItems = [userIdItem]
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            DispatchQueue.main.async {
+                if let error = responseError {
+                    print(error.localizedDescription)
+                } else if let jsonData = responseData {
+                    // Now we have jsonData, Data representation of the JSON returned to us
+                    // from our URLRequest...
+                    
+                    // Create an instance of JSONDecoder to decode the JSON data to our
+                    // Codable struct
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        // We would use Post.self for JSON representing a single Post
+                        // object, and [Post].self for JSON representing an array of
+                        // Post objects
+                        let ingredient = try decoder.decode(Ingredient.self, from: jsonData)
+                        self.tooskiePantry.addIngredient(ingredient: ingredient)
+                    } catch {
+                        print("Error")
+                    }
+                } else {
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                    print(error.localizedDescription)
+                }
+            }
         }
+        
+        task.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,12 +129,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func reload(){
-//        DispatchQueue.main.async {
         self.pantryTableView.reloadData()
         if self.userPantry.count > 0 {
             try self.pantryTableView.scrollToRow(at: IndexPath(item: self.userPantry.count-1, section: 0), at: .top, animated: true)
         }
-//        }
     }
 }
 
