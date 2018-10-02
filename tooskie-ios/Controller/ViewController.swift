@@ -62,8 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var urlComponents = URLComponents()
         urlComponents.scheme = self.serverConfig.getUrlScheme()
         urlComponents.host = self.serverConfig.getUrlHost()
-        urlComponents.path = "/ingredient/4547"
-//        urlComponents.queryItems = [userIdItem]
+        urlComponents.path = "/ingredient/"
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -74,19 +73,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let error = responseError {
                     print(error.localizedDescription)
                 } else if let jsonData = responseData {
-                    // Now we have jsonData, Data representation of the JSON returned to us
-                    // from our URLRequest...
-                    
-                    // Create an instance of JSONDecoder to decode the JSON data to our
-                    // Codable struct
                     let decoder = JSONDecoder()
-                    
                     do {
-                        // We would use Post.self for JSON representing a single Post
-                        // object, and [Post].self for JSON representing an array of
-                        // Post objects
-                        let ingredient = try decoder.decode(Ingredient.self, from: jsonData)
-                        self.tooskiePantry.addIngredient(ingredient: ingredient)
+                        let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
+                        self.tooskiePantry.setIngredientList(list: ingredients)
                     } catch {
                         print("Error")
                     }
@@ -96,7 +86,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
         }
-        
         task.resume()
     }
     
