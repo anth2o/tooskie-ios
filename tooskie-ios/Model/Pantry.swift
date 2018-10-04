@@ -10,6 +10,7 @@ import Foundation
 
 
 class Pantry{
+    private var id: Int?
     private var name: String
     private var ingredients: [Ingredient]
     public var count: Int{
@@ -61,5 +62,22 @@ class Pantry{
     public func getIndex(ingredient: Ingredient) -> Int? {
         return self.ingredients.firstIndex(where: {$0.equals(to: ingredient)})
     }
+    
+    public func getIngredientsToString() -> [String] {
+        var ingredientsString = [String]()
+        for i in 0..<self.ingredients.count {
+            ingredientsString.append(self.ingredients[i].getName())
+        }
+        return ingredientsString
+    }
+    
+    public func toPost() -> PostPantry {
+        return PostPantry(name: self.name, ingredients: self.getIngredientsToString())
+    }
+}
+
+struct PostPantry: Codable {
+    let name: String
+    let ingredients: [String]
 }
 
