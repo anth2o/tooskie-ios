@@ -9,12 +9,18 @@
 import Foundation
 
 
-class Pantry{
+class Pantry: Codable{
     private var id: Int?
     private var name: String
     private var ingredients: [Ingredient]
     public var count: Int{
         return self.ingredients.count
+    }
+    public var permaname: String? {
+        if let slug = self.name.convertedToSlug(){
+            return slug
+        }
+        return nil
     }
     
     convenience init(){

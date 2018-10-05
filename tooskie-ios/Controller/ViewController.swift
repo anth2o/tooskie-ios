@@ -4,6 +4,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let tooskiePantry = Pantry(name: "Tooskie pantry")
     var userPantry = Pantry(name: "iOS")
     var serverConfig = ServerConfig()
+    var pantryPosted = false {
+        didSet {
+            self.getRecipes()
+        }
+    }
+    var recipes = [Recipe]()
 
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
@@ -11,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
         self.sendPantry()
+        
     }
     
     @IBAction func ingredientSearch(_ sender: Any) {
@@ -137,6 +144,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
                 print("response: ", utf8Representation)
+                self.pantryPosted = true
             } else {
                 print("no readable data received in response")
             }
@@ -144,6 +152,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.resume()
     }
 
+    public func getRecipes() {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = self.serverConfig.getUrlScheme()
+        urlComponents.host = self.serverConfig.getUrlHost()
+        if let permaname = self.userPantry.permaname {
+            urlComponents.path = "/recipe/" + permaname
+            guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            let config = URLSessionConfiguration.default
+            let session = URLSession(configuration: config)
+            let task = session.dataTask(with: request) { (responseData, response, responseError) in
+                DispatchQueue.main.async {
+                    if let error = responseError {
+                        print(error.localizedDescription)
+                    } else if let jsonData = responseData {
+                        let decoder = JSONDecoder()
+                        do {
+                            let recipes = try decoder.decode([Recipe].self, from: jsonData)
+                            self.recipes = recipes
+                        } catch {
+                            print("Error")
+                        }
+                    } else {
+                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
     
     private func reload(){
         self.pantryTableView.reloadData()
