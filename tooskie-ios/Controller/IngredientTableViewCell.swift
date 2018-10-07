@@ -10,7 +10,7 @@ import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
     var ingredient: Ingredient?
-    var viewController: ViewController?
+    var viewController: PantryFillViewController?
     
     @IBOutlet weak var ingredientName: UILabel!
     @IBOutlet weak var ingredientPicture: UIImageView!
@@ -20,7 +20,7 @@ class IngredientTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(ingredient: Ingredient, viewController: ViewController) {
+    func configure(ingredient: Ingredient, viewController: PantryFillViewController) {
         self.ingredient = ingredient
         self.viewController = viewController
         self.ingredientName.text = ingredient.getName()

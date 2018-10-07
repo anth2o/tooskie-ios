@@ -9,16 +9,16 @@
 import Foundation
 
 class Recipe: Codable{
-    var name: String
-    var picture: String?
-    var cooking_time: Int?
-    var preparation_time: Int?
-    var budget_level: String?
-    var difficulty_level: String?
+    public var name: String
+    public var picture: String?
+    var cookingTime: Int?
+    var preparationTime: Int?
+    var budgetLevel: String?
+    var difficultyLevel: String?
     var tag: [String]?
     var steps: [String]?
     private var _numberOfSteps: Int?
-    var number_of_steps: Int?
+    var numberOfSteps: Int?
     {
         get {
             if let trueSteps = steps {
@@ -35,17 +35,6 @@ class Recipe: Codable{
             }
         }
     }
-
-//    enum CodingKeys: String {
-//        case name = "name"
-//        case picture = "picture"
-//        case cookingTime = "cooking_time"
-//        case preparationTime = "preparation_time"
-//        case budgetLevel = "budget_level"
-//        case difficultyLevel = "difficulty_level"
-//        case tag = "tag"
-//        case numberOfSteps = "number_of_steps"
-//    }
     
     init(name: String) {
         self.name = name
@@ -53,7 +42,7 @@ class Recipe: Codable{
     
     init(name: String, numberOfSteps: Int) {
         self.name = name
-        self.number_of_steps = numberOfSteps
+        self.numberOfSteps = numberOfSteps
     }
     
     convenience init() {

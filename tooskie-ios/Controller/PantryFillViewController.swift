@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class PantryFillViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     let tooskiePantry = Pantry(name: "Tooskie pantry")
     var userPantry = Pantry(name: "iOS")
     var serverConfig = ServerConfig()
