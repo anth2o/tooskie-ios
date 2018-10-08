@@ -44,10 +44,13 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadPantry() {
-        let request = self.serverConfig.getRequest(path: "/ingredients/", method: "GET")
+        let request = self.serverConfig.getRequest(path: "/ingredient/", method: "GET")
         let session = self.serverConfig.getSession()
         let task = session.dataTask(with: request) { (data, response, responseError) in
             DispatchQueue.main.async {
+                if let response = response {
+                    print(response)
+                }
                 if let error = responseError {
                     print(error.localizedDescription)
                 } else if let jsonData = data {
