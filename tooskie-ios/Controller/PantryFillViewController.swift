@@ -17,8 +17,16 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
         self.sendPantry()
+        sleep(10)
         performSegue(withIdentifier: "RecipeSuggestion", sender: self)
     }
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
+        destVC.pantryPermaname = self.userPantry.permaname!
+        destVC.serverConfig = self.serverConfig
+        destVC.recipes = self.recipes
+     }
     
     @IBAction func ingredientSearch(_ sender: Any) {
         print("Add")
@@ -151,7 +159,21 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
         task.resume()
     }
-
+    
+    private func reload(){
+        self.pantryTableView.reloadData()
+        self.scrollToBottom()
+    }
+    
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            if self.userPantry.count > 0 {
+                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
+                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+        }
+    }
+    
     public func getRecipes() {
         var urlComponents = URLComponents()
         urlComponents.scheme = self.serverConfig.getUrlScheme()
@@ -182,20 +204,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
             task.resume()
-        }
-    }
-    
-    private func reload(){
-        self.pantryTableView.reloadData()
-        self.scrollToBottom()
-    }
-    
-    func scrollToBottom(){
-        DispatchQueue.main.async {
-            if self.userPantry.count > 0 {
-                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
-                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-            }
         }
     }
 }
