@@ -152,29 +152,81 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-9d-hY3" customClass="SingleRecipe" customModule="tooskie_ios" customModuleProvider="target">
                                 <rect key="frame" x="60" y="90" width="255" height="377"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MinusButton" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Poulet" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
                                         <rect key="frame" x="40" y="81" width="175" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poulet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fM-p5-4Vi">
-                                        <rect key="frame" x="100" y="30" width="55" height="23.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="2fM-p5-4Vi" secondAttribute="height" multiplier="7:3" id="8d8-dW-5rz"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poulet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fM-p5-4Vi">
+                                        <rect key="frame" x="20" y="30" width="215" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cooking" translatesAutoresizingMaskIntoConstraints="NO" id="bpr-Ck-TLG">
+                                        <rect key="frame" x="107.5" y="277" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="5NN-PZ-1lb"/>
+                                            <constraint firstAttribute="height" constant="40" id="BRk-ez-J7v"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Steps" translatesAutoresizingMaskIntoConstraints="NO" id="hv4-GE-Tsl">
+                                        <rect key="frame" x="195" y="277" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ccP-Z2-DVN"/>
+                                            <constraint firstAttribute="width" constant="40" id="qaO-wm-zqT"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Preparation" translatesAutoresizingMaskIntoConstraints="NO" id="f10-l5-qVM">
+                                        <rect key="frame" x="20" y="277" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="N0Q-gE-lx9"/>
+                                            <constraint firstAttribute="width" constant="40" id="Sn3-9Z-OWN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2In-Hb-yl8">
+                                        <rect key="frame" x="16.5" y="327" width="47" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfU-RB-DXk">
+                                        <rect key="frame" x="210.5" y="327" width="9.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Se4-GO-b0Y">
+                                        <rect key="frame" x="105" y="327" width="45" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.85490196080000003" green="0.91372549020000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bpr-Ck-TLG" secondAttribute="bottom" constant="60" id="0wH-xW-ebO"/>
+                                    <constraint firstAttribute="trailing" secondItem="2fM-p5-4Vi" secondAttribute="trailing" constant="20" id="10J-QQ-xfe"/>
                                     <constraint firstItem="2fM-p5-4Vi" firstAttribute="top" secondItem="jgQ-9d-hY3" secondAttribute="top" constant="30" id="86Z-Df-J2z"/>
-                                    <constraint firstAttribute="trailing" secondItem="2fM-p5-4Vi" secondAttribute="trailing" constant="100" id="nAj-Uy-DGy"/>
-                                    <constraint firstItem="2fM-p5-4Vi" firstAttribute="leading" secondItem="jgQ-9d-hY3" secondAttribute="leading" constant="100" id="zf3-LH-LGG"/>
+                                    <constraint firstAttribute="bottom" secondItem="f10-l5-qVM" secondAttribute="bottom" constant="60" id="GJf-M0-jfG"/>
+                                    <constraint firstItem="TfU-RB-DXk" firstAttribute="top" secondItem="hv4-GE-Tsl" secondAttribute="bottom" constant="10" id="RQ8-YP-7W9"/>
+                                    <constraint firstItem="2fM-p5-4Vi" firstAttribute="leading" secondItem="jgQ-9d-hY3" secondAttribute="leading" constant="20" id="asv-6x-XYP"/>
+                                    <constraint firstItem="bpr-Ck-TLG" firstAttribute="centerX" secondItem="jgQ-9d-hY3" secondAttribute="centerX" id="eeF-xm-EY2"/>
+                                    <constraint firstItem="2In-Hb-yl8" firstAttribute="top" secondItem="f10-l5-qVM" secondAttribute="bottom" constant="10" id="fof-Aw-tGn"/>
+                                    <constraint firstAttribute="trailing" secondItem="hv4-GE-Tsl" secondAttribute="trailing" constant="20" id="gql-GC-jhf"/>
+                                    <constraint firstItem="Se4-GO-b0Y" firstAttribute="centerX" secondItem="bpr-Ck-TLG" secondAttribute="centerX" id="npD-EF-oUu"/>
+                                    <constraint firstItem="Se4-GO-b0Y" firstAttribute="top" secondItem="bpr-Ck-TLG" secondAttribute="bottom" constant="10" id="pLM-PQ-mDj"/>
+                                    <constraint firstItem="2In-Hb-yl8" firstAttribute="centerX" secondItem="f10-l5-qVM" secondAttribute="centerX" id="sLZ-A4-sAJ"/>
+                                    <constraint firstItem="TfU-RB-DXk" firstAttribute="centerX" secondItem="hv4-GE-Tsl" secondAttribute="centerX" id="ue5-S5-kBo"/>
+                                    <constraint firstItem="f10-l5-qVM" firstAttribute="leading" secondItem="jgQ-9d-hY3" secondAttribute="leading" constant="20" id="v0b-cD-s9z"/>
+                                    <constraint firstAttribute="bottom" secondItem="hv4-GE-Tsl" secondAttribute="bottom" constant="60" id="ws5-VR-L6F"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="cookingTime" destination="Se4-GO-b0Y" id="q0C-R8-esZ"/>
                                     <outlet property="icon" destination="yq6-He-NzD" id="Xue-tU-5Kp"/>
                                     <outlet property="label" destination="2fM-p5-4Vi" id="0Dx-8V-LJF"/>
+                                    <outlet property="numberOfSteps" destination="TfU-RB-DXk" id="tew-Y3-XJ2"/>
+                                    <outlet property="preparationTime" destination="2In-Hb-yl8" id="8Uv-9z-xbi"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkI-wM-ShR">
@@ -200,6 +252,10 @@
                         <viewLayoutGuide key="safeArea" id="FPf-0n-Bzp"/>
                     </view>
                     <connections>
+                        <outlet property="cookingTime" destination="Se4-GO-b0Y" id="aUM-Bc-GfR"/>
+                        <outlet property="numberOfSteps" destination="TfU-RB-DXk" id="oV3-2p-IrU"/>
+                        <outlet property="preparation" destination="f10-l5-qVM" id="9iy-Az-52k"/>
+                        <outlet property="preparationTime" destination="2In-Hb-yl8" id="hPt-Jx-tzL"/>
                         <outlet property="recipeView" destination="jgQ-9d-hY3" id="Xdz-M0-cfg"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoBack" id="oa7-CM-PcB"/>
                     </connections>
@@ -210,6 +266,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cooking" width="409.60000610351562" height="409.60000610351562"/>
         <image name="MinusButton" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="Poulet" width="500" height="500"/>
+        <image name="Preparation" width="512" height="512"/>
+        <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>

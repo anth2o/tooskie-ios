@@ -4,12 +4,16 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     let tooskiePantry = Pantry(name: "Tooskie pantry")
     var userPantry = Pantry(name: "iOS")
     var serverConfig = ServerConfig()
-    var pantryPosted = false {
+    private var pantryPosted = false {
         didSet {
             self.getRecipes()
         }
     }
-    var recipes = [Recipe]()
+    private var recipes = [Recipe](){
+        didSet {
+            performSegue(withIdentifier: "RecipeSuggestion", sender: self)
+        }
+    }
 
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
@@ -17,13 +21,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
         self.sendPantry()
-        sleep(10)
-        performSegue(withIdentifier: "RecipeSuggestion", sender: self)
     }
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
-        destVC.pantryPermaname = self.userPantry.permaname!
         destVC.serverConfig = self.serverConfig
         destVC.recipes = self.recipes
      }
@@ -43,20 +44,13 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadPantry() {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = self.serverConfig.getUrlScheme()
-        urlComponents.host = self.serverConfig.getUrlHost()
-        urlComponents.path = "/ingredient/"
-        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+        let request = self.serverConfig.getRequest(path: "/ingredients/", method: "GET")
+        let session = self.serverConfig.getSession()
+        let task = session.dataTask(with: request) { (data, response, responseError) in
             DispatchQueue.main.async {
                 if let error = responseError {
                     print(error.localizedDescription)
-                } else if let jsonData = responseData {
+                } else if let jsonData = data {
                     let decoder = JSONDecoder()
                     do {
                         let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
@@ -124,33 +118,15 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func sendPantry() {
         let myPost = userPantry.toPost()
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = self.serverConfig.getUrlScheme()
-        urlComponents.host = self.serverConfig.getUrlHost()
-        urlComponents.path = "/pantry/"
-        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        var headers = request.allHTTPHeaderFields ?? [:]
-        headers["Content-Type"] = "application/json"
-        request.allHTTPHeaderFields = headers
-        let encoder = JSONEncoder()
-        do {
-            let jsonData = try encoder.encode(myPost)
-            request.httpBody = jsonData
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
-        } catch {
-            print(error)
-        }
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request) { (responseData, response, responseError) in
-            guard responseError == nil else {
-                print(responseError!)
+        var request = self.serverConfig.getRequest(path: "/pantry/", method: "POST")
+        let session = self.serverConfig.getSession()
+        request = self.serverConfig.encodeDataForPost(post: myPost, request: request)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                print(error!)
                 return
             }
-            if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
+            if let data = data, let utf8Representation = String(data: data, encoding: .utf8) {
                 print("response: ", utf8Representation)
                 self.pantryPosted = true
             } else {
@@ -175,16 +151,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     public func getRecipes() {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = self.serverConfig.getUrlScheme()
-        urlComponents.host = self.serverConfig.getUrlHost()
         if let permaname = self.userPantry.permaname {
-            urlComponents.path = "/recipe/" + permaname
-            guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config)
+            let session = self.serverConfig.getSession()
+            let request = self.serverConfig.getRequest(path: "/recipe/" + permaname, method: "GET")
             let task = session.dataTask(with: request) { (responseData, response, responseError) in
                 DispatchQueue.main.async {
                     if let error = responseError {
