@@ -9,10 +9,14 @@
 import UIKit
 
 class RecipeSuggestionViewController: UIViewController {
+    
+    var recipe = Recipe(name: "Test")
 
+    @IBOutlet weak var recipeView: SingleRecipe!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.recipeView!.setRecipe(recipe: self.recipe)
         // Do any additional setup after loading the view.
     }
     
