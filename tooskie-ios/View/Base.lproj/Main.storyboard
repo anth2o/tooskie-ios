@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFG-tp-c9v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -126,6 +126,7 @@
                     <connections>
                         <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="W0y-zL-cLr"/>
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
+                        <segue destination="VFG-tp-c9v" kind="presentation" identifier="RecipeSuggestion" id="Uqw-eL-WEw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -149,7 +150,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-9d-hY3" customClass="SingleRecipe" customModule="tooskie_ios" customModuleProvider="target">
-                                <rect key="frame" x="60" y="90" width="255" height="362"/>
+                                <rect key="frame" x="60" y="90" width="255" height="377"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MinusButton" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
                                         <rect key="frame" x="40" y="81" width="175" height="175"/>
@@ -168,7 +169,6 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="2fM-p5-4Vi" firstAttribute="top" secondItem="jgQ-9d-hY3" secondAttribute="top" constant="30" id="86Z-Df-J2z"/>
-                                    <constraint firstAttribute="width" secondItem="jgQ-9d-hY3" secondAttribute="height" multiplier="255:362" id="Cqy-Df-aE5"/>
                                     <constraint firstAttribute="trailing" secondItem="2fM-p5-4Vi" secondAttribute="trailing" constant="100" id="nAj-Uy-DGy"/>
                                     <constraint firstItem="2fM-p5-4Vi" firstAttribute="leading" secondItem="jgQ-9d-hY3" secondAttribute="leading" constant="100" id="zf3-LH-LGG"/>
                                 </constraints>
@@ -177,10 +177,23 @@
                                     <outlet property="label" destination="2fM-p5-4Vi" id="0Dx-8V-LJF"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkI-wM-ShR">
+                                <rect key="frame" x="100.5" y="607" width="174" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VkI-wM-ShR" secondAttribute="height" multiplier="29:5" id="Ble-N4-dOb"/>
+                                </constraints>
+                                <state key="normal" title="Revenir au garde-manger"/>
+                                <connections>
+                                    <action selector="goBack:" destination="VFG-tp-c9v" eventType="touchUpInside" id="XyO-ui-F08"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jgQ-9d-hY3" firstAttribute="top" secondItem="FPf-0n-Bzp" secondAttribute="top" constant="70" id="0g8-jQ-g0W"/>
+                            <constraint firstItem="FPf-0n-Bzp" firstAttribute="bottom" secondItem="VkI-wM-ShR" secondAttribute="bottom" constant="30" id="5Pd-Mb-hvc"/>
+                            <constraint firstItem="VkI-wM-ShR" firstAttribute="top" secondItem="jgQ-9d-hY3" secondAttribute="bottom" constant="140" id="l4p-yR-aJr"/>
+                            <constraint firstItem="VkI-wM-ShR" firstAttribute="centerX" secondItem="KUz-YT-zx2" secondAttribute="centerX" id="pSg-cz-lTx"/>
                             <constraint firstItem="jgQ-9d-hY3" firstAttribute="leading" secondItem="FPf-0n-Bzp" secondAttribute="leading" constant="60" id="sEU-ht-yeB"/>
                             <constraint firstItem="FPf-0n-Bzp" firstAttribute="trailing" secondItem="jgQ-9d-hY3" secondAttribute="trailing" constant="60" id="wz1-vS-ihK"/>
                         </constraints>
@@ -188,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="recipeView" destination="jgQ-9d-hY3" id="Xdz-M0-cfg"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoBack" id="oa7-CM-PcB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVj-Na-B8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

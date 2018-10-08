@@ -14,6 +14,9 @@ class RecipeSuggestionViewController: UIViewController {
 
     @IBOutlet weak var recipeView: SingleRecipe!
     
+    @IBAction func goBack(_ sender: Any) {
+        performSegue(withIdentifier: "GoBack", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.recipeView!.setRecipe(recipe: self.recipe)

@@ -17,7 +17,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
         self.sendPantry()
-        
+        performSegue(withIdentifier: "RecipeSuggestion", sender: self)
     }
     
     @IBAction func ingredientSearch(_ sender: Any) {
