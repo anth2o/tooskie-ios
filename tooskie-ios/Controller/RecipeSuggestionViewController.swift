@@ -14,7 +14,7 @@ class RecipeSuggestionViewController: UIViewController {
     var recipes = [Recipe]()
     
     @IBOutlet weak var recipeView: SingleRecipe!
-
+    
     @IBAction func goBack(_ sender: Any) {
         performSegue(withIdentifier: "GoBack", sender: self)
     }
