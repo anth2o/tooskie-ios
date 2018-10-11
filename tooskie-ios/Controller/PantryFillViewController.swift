@@ -187,7 +187,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     public func getRecipes() {
         if let permaname = self.userPantry.permaname {
             let session = self.serverConfig.getSession()
-            let request = self.serverConfig.getRequest(path: "/recipe/" + permaname, method: "GET")
+            let request = self.serverConfig.getRequest(path: "/recipe-with-pantry/" + permaname, method: "GET")
             let task = session.dataTask(with: request) { (responseData, response, responseError) in
                 DispatchQueue.main.async {
                     if let error = responseError {
