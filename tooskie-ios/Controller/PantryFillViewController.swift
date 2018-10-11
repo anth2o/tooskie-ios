@@ -37,6 +37,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPantry()
+        self.loadUserPantry()
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
         ingredientSearchBar.delegate = self
@@ -68,6 +69,36 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         task.resume()
+    }
+    
+    func loadUserPantry() {
+        if let permaname = userPantry.permaname {
+            let request = self.serverConfig.getRequest(path: "/pantry/" + permaname, method: "GET")
+            let session = self.serverConfig.getSession()
+            let task = session.dataTask(with: request) { (data, response, responseError) in
+                DispatchQueue.main.async {
+                    if let response = response {
+                        print(response)
+                    }
+                    if let error = responseError {
+                        print(error.localizedDescription)
+                    } else if let jsonData = data {
+                        let decoder = JSONDecoder()
+                        do {
+                            let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
+                            self.userPantry.setIngredientList(list: ingredients)
+                            self.reload()
+                        } catch {
+                            print("Error")
+                        }
+                    } else {
+                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            task.resume()
+        }
     }
     
     func addIngredient(){
