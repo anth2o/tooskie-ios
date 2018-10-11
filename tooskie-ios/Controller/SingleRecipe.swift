@@ -18,15 +18,23 @@ class SingleRecipe: UIView {
     @IBOutlet weak var numberOfSteps: UILabel!
     @IBOutlet weak var difficultyLevel: UILabel!
     @IBOutlet weak var budgetLevel: UILabel!
+    
+    enum Status {
+        case accepted, declined, waiting
+    }
+    
+    var status: Status = .waiting
 
     public func setRecipe(recipe: Recipe) {
         self.recipe = recipe
         self.label.text = recipe.name
         if let pictureString = recipe.picture{
-            let url = URL(string: pictureString)
-            let data = try? Data(contentsOf: url!)
-            if let data = data {
-                self.icon.image = UIImage(data: data)
+            if pictureString != "" {
+                let url = URL(string: pictureString)
+                let data = try? Data(contentsOf: url!)
+                if let data = data {
+                    self.icon.image = UIImage(data: data)
+                }
             }
         }
         if let preparationTime = recipe.preparationTime{
