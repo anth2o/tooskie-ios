@@ -9,10 +9,12 @@
 import UIKit
 
 class SingleRecipe: UIView {
+    
+    private var recipe: Recipe?
+
 
     @IBOutlet public var label: UILabel!
     @IBOutlet private var icon: UIImageView!
-    private var recipe: Recipe?
     @IBOutlet weak var preparationTime: UILabel!
     @IBOutlet weak var cookingTime: UILabel!
     @IBOutlet weak var numberOfSteps: UILabel!
@@ -24,8 +26,19 @@ class SingleRecipe: UIView {
     }
     
     var status: Status = .waiting
+    
+    private func clear() {
+        self.label.text = nil
+        self.icon.image = nil
+        self.preparationTime.text = nil
+        self.cookingTime.text = nil
+        self.numberOfSteps.text = nil
+        self.difficultyLevel.text = nil
+        self.budgetLevel.text = nil
+    }
 
     public func setRecipe(recipe: Recipe) {
+        self.clear()
         self.recipe = recipe
         self.label.text = recipe.name
         if let pictureString = recipe.picture{

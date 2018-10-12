@@ -146,7 +146,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             self.userPantry.removeIngredient(ingredient: ingredient)
             let indexPath = IndexPath(item: indexIngredient, section: 0)
             pantryTableView.deleteRows(at: [indexPath], with: .fade)
-            self.reload()
+            self.pantryTableView.reloadData()
         }
     }
     

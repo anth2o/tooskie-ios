@@ -70,6 +70,9 @@ class RecipeSuggestionViewController: UIViewController {
                 self.recipeView!.setRecipe(recipe: self.recipes[index])
                 index += 1
             }
+            else {
+                self.recipeView.setRecipe(recipe: Recipe(name: "No more recipe available"))
+            }
         case .waiting:
             break
         }
