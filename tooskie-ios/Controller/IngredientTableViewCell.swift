@@ -27,7 +27,12 @@ class IngredientTableViewCell: UITableViewCell {
         if let pictureString = ingredient.getPictureString() {
             let url = URL(string: pictureString)
             let data = try? Data(contentsOf: url!)
-            self.ingredientPicture.image = UIImage(data: data!)
+            if let data = data {
+                self.ingredientPicture.image = UIImage(data: data)
+            }
+            else {
+                self.ingredientPicture.image = UIImage(named: "NoNetwork")
+            }
         }
     }
 

@@ -48,6 +48,9 @@ class SingleRecipe: UIView {
                 if let data = data {
                     self.icon.image = UIImage(data: data)
                 }
+                else {
+                    self.icon.image = UIImage(named: "NoNetwork")
+                }
             }
         }
         if let preparationTime = recipe.preparationTime{
