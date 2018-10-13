@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */; };
 		7136B1302172394800712CC0 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B12F2172394800712CC0 /* Step.swift */; };
+		7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B131217240B800712CC0 /* RecipeViewController.swift */; };
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		7136B12F2172394800712CC0 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		7136B131217240B800712CC0 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				718F670D215B481000F59A5C /* PantryFillViewController.swift */,
 				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
 				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
+				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */,
 			);
 			path = Controller;
@@ -206,6 +209,7 @@
 				7184C4A12163B840000886B0 /* Utils.swift in Sources */,
 				71D55AA8216A08D000906BFD /* RecipeSuggestionViewController.swift in Sources */,
 				718F670E215B481000F59A5C /* PantryFillViewController.swift in Sources */,
+				7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */,
 				7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */,
 				718F670C215B481000F59A5C /* AppDelegate.swift in Sources */,
 				714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */,

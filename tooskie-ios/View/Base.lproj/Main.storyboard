@@ -152,7 +152,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-9d-hY3" customClass="SingleRecipe" customModule="tooskie_ios" customModuleProvider="target">
                                 <rect key="frame" x="60" y="60" width="255" height="477"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poulet" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poulet" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
                                         <rect key="frame" x="40" y="80.5" width="175" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yq6-He-NzD" secondAttribute="height" multiplier="1:1" id="nZc-eG-CMg"/>
@@ -246,7 +246,6 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85490196080000003" green="0.91372549020000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="2fM-p5-4Vi" secondAttribute="trailing" constant="20" id="10J-QQ-xfe"/>
                                     <constraint firstItem="2fM-p5-4Vi" firstAttribute="top" secondItem="jgQ-9d-hY3" secondAttribute="top" constant="30" id="86Z-Df-J2z"/>
@@ -310,11 +309,71 @@
                     <connections>
                         <outlet property="recipeView" destination="jgQ-9d-hY3" id="Xdz-M0-cfg"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoBack" id="oa7-CM-PcB"/>
+                        <segue destination="YAH-LX-tAp" kind="presentation" identifier="LaunchRecipe" id="e8g-JV-Toy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVj-Na-B8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-479.19999999999999" y="-545.57721139430294"/>
+        </scene>
+        <!--Recipe View Controller-->
+        <scene sceneID="F1R-MT-9IP">
+            <objects>
+                <viewController id="YAH-LX-tAp" customClass="RecipeViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gQf-hg-ZyR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOP-06-Gf5">
+                                <rect key="frame" x="67" y="87.5" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="noU-6B-u6X"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCh-vq-be6">
+                                <rect key="frame" x="164.5" y="307.5" width="46.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFq-2Y-qZe">
+                                <rect key="frame" x="160" y="40" width="55" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPi-xL-agn">
+                                <rect key="frame" x="40" y="350.5" width="295" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZOP-06-Gf5" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="GBq-Mp-yvh"/>
+                            <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="PB5-kM-6CM"/>
+                            <constraint firstItem="MPi-xL-agn" firstAttribute="top" secondItem="fCh-vq-be6" secondAttribute="bottom" constant="20" id="SsZ-N6-GCs"/>
+                            <constraint firstItem="MPi-xL-agn" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="ceh-II-vPK"/>
+                            <constraint firstItem="fCh-vq-be6" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="dsb-dQ-s3n"/>
+                            <constraint firstItem="MPi-xL-agn" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="eVj-7x-cC1"/>
+                            <constraint firstItem="MFq-2Y-qZe" firstAttribute="top" secondItem="9uB-XJ-Cax" secondAttribute="top" constant="20" id="hx5-oH-lqI"/>
+                            <constraint firstItem="ZOP-06-Gf5" firstAttribute="top" secondItem="MFq-2Y-qZe" secondAttribute="bottom" constant="20" id="lhT-hf-Ygb"/>
+                            <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="qLc-78-c6O"/>
+                            <constraint firstItem="fCh-vq-be6" firstAttribute="top" secondItem="ZOP-06-Gf5" secondAttribute="bottom" constant="20" id="t7G-MU-mLi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9uB-XJ-Cax"/>
+                    </view>
+                    <connections>
+                        <outlet property="recipeName" destination="MFq-2Y-qZe" id="vGN-uJ-HWZ"/>
+                        <outlet property="recipePicture" destination="ZOP-06-Gf5" id="gHr-BE-TdU"/>
+                        <outlet property="stepDescription" destination="MPi-xL-agn" id="0JR-OS-Hp0"/>
+                        <outlet property="stepNumber" destination="fCh-vq-be6" id="zYn-NL-LCg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1V8-34-NLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="-546.47676161919048"/>
         </scene>
     </scenes>
     <resources>

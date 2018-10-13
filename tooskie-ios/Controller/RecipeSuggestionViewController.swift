@@ -24,10 +24,16 @@ class RecipeSuggestionViewController: UIViewController {
         super.viewDidLoad()
         if self.recipes.count > 0 {
             self.recipeView!.setRecipe(recipe: self.recipes[self.index])
-            self.index += 1
         }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragRecipeView(_:)))
         recipeView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != nil && segue.identifier == "LaunchRecipe" {
+            let destVC : RecipeViewController = segue.destination as! RecipeViewController
+            destVC.recipe = self.recipes[index]
+        }
     }
     
     @objc
@@ -64,11 +70,11 @@ class RecipeSuggestionViewController: UIViewController {
     private func processRecipe() {
         switch recipeView.status {
         case .accepted:
-            print("Accepted")
+            performSegue(withIdentifier: "LaunchRecipe", sender: self)
         case .declined:
             if self.index < self.recipes.count {
-                self.recipeView!.setRecipe(recipe: self.recipes[index])
                 index += 1
+                self.recipeView!.setRecipe(recipe: self.recipes[index])
             }
             else {
                 self.recipeView.setRecipe(recipe: Recipe(name: "No more recipe available"))
