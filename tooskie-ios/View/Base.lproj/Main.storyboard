@@ -362,12 +362,20 @@
                                     <action selector="nextStep:" destination="YAH-LX-tAp" eventType="touchUpInside" id="FPI-GL-mcZ"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a7t-Th-Iw7">
+                                <rect key="frame" x="112.5" y="645" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="OO6-pA-Fos"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="h6C-n1-fAG" secondAttribute="bottom" constant="40" id="9an-RM-xxP"/>
                             <constraint firstItem="O3h-e5-kwW" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="BEL-1j-yc8"/>
                             <constraint firstItem="ZOP-06-Gf5" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="GBq-Mp-yvh"/>
+                            <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="a7t-Th-Iw7" secondAttribute="bottom" constant="20" id="Ne3-qx-SVF"/>
+                            <constraint firstItem="a7t-Th-Iw7" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="O9V-Jg-v1Z"/>
                             <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="PB5-kM-6CM"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="top" secondItem="fCh-vq-be6" secondAttribute="bottom" constant="20" id="SsZ-N6-GCs"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="ceh-II-vPK"/>
@@ -383,6 +391,7 @@
                         <viewLayoutGuide key="safeArea" id="9uB-XJ-Cax"/>
                     </view>
                     <connections>
+                        <outlet property="progressStep" destination="a7t-Th-Iw7" id="r14-7n-QAk"/>
                         <outlet property="recipeName" destination="MFq-2Y-qZe" id="vGN-uJ-HWZ"/>
                         <outlet property="recipePicture" destination="ZOP-06-Gf5" id="gHr-BE-TdU"/>
                         <outlet property="stepDescription" destination="MPi-xL-agn" id="0JR-OS-Hp0"/>

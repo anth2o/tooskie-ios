@@ -33,6 +33,7 @@ class RecipeViewController: UIViewController {
             }
         }
     }
+    @IBOutlet weak var progressStep: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,9 @@ class RecipeViewController: UIViewController {
             self.stepNumber.text = "Etape " + String(self.stepIndex)
             if let description = step.description {
                 self.stepDescription.text = description
+            }
+            if let length = self.recipe?.steps?.count {
+                self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
             }
         }
     }
