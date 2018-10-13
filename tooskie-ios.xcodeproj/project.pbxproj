@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */; };
+		7136B1302172394800712CC0 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B12F2172394800712CC0 /* Step.swift */; };
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		7136B12F2172394800712CC0 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				7184C49E21637B7F000886B0 /* ServerConfig.swift */,
 				7184C4A02163B840000886B0 /* Utils.swift */,
 				716123BA215B6BC200B458A0 /* Ingredient.swift */,
+				7136B12F2172394800712CC0 /* Step.swift */,
 				714BB49921675F6E00ACB4B9 /* Recipe.swift */,
 			);
 			path = Model;
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7136B1302172394800712CC0 /* Step.swift in Sources */,
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,
 				716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */,
 				716123B9215B6B7200B458A0 /* Pantry.swift in Sources */,

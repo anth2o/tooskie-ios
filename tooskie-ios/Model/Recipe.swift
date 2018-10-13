@@ -15,34 +15,20 @@ class Recipe: Codable{
     var preparationTime: Int?
     var budgetLevel: String?
     var difficultyLevel: String?
-    var tag: [String]?
-    var steps: [String]?
-    private var _numberOfSteps: Int?
+    var tags: [String]?
+    var steps: [Step]?
+    var ustensils: [String]?
+    var ingredients: [Ingredient]?
     var numberOfSteps: Int?
     {
-        get {
-            if let trueSteps = steps {
-                return trueSteps.count
-            }
-            else if let trueNumberOfSteps = _numberOfSteps {
-                return trueNumberOfSteps
-            }
-            return nil
+        if let trueSteps = steps {
+            return trueSteps.count
         }
-        set {
-            if steps == nil {
-                _numberOfSteps = newValue
-            }
-        }
+        return nil
     }
     
     init(name: String) {
         self.name = name
-    }
-    
-    init(name: String, numberOfSteps: Int) {
-        self.name = name
-        self.numberOfSteps = numberOfSteps
     }
     
     convenience init() {

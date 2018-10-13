@@ -12,6 +12,12 @@ import UIKit
 class Ingredient: Codable {
     private var id: Int?
     private var name: String
+    private var namePlural: String?
+    private var complement: String?
+    private var complementPlural: String?
+    private var unit: String?
+    private var unitPlural: String?
+    private var quantity: Float?
     private var picture: String?
     public var permaname: String? {
         if let slug = self.name.convertedToSlug(){
