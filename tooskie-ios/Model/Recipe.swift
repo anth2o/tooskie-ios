@@ -34,7 +34,7 @@ class Recipe: Codable{
     convenience init() {
         self.init(name: "Poulet au fromage")
     }
-    
+        
     func getStep(stepNumber: Int) -> Step?{
         if let steps = self.steps {
             for i in 0..<steps.count {

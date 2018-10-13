@@ -35,7 +35,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
-        destVC.serverConfig = self.serverConfig
         destVC.recipes = self.recipes
      }
     

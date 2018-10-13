@@ -309,12 +309,47 @@
                     <connections>
                         <outlet property="recipeView" destination="jgQ-9d-hY3" id="Xdz-M0-cfg"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoBack" id="oa7-CM-PcB"/>
-                        <segue destination="YAH-LX-tAp" kind="presentation" identifier="LaunchRecipe" id="e8g-JV-Toy"/>
+                        <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="LaunchRecipe" id="V3u-QB-b9T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVj-Na-B8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-479.19999999999999" y="-545.57721139430294"/>
+        </scene>
+        <!--Recipe Resume View Controller-->
+        <scene sceneID="TBU-Ch-4E9">
+            <objects>
+                <viewController id="8Zs-aM-MBJ" customClass="RecipeResumeViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kuZ-ih-X9b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2T-fk-8hj">
+                                <rect key="frame" x="87.5" y="597" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="AjS-MI-NZ1"/>
+                                </constraints>
+                                <state key="normal" title="Commencer la recette"/>
+                                <connections>
+                                    <action selector="backToResume:" destination="YAH-LX-tAp" eventType="touchUpInside" id="aZT-rD-ZjG"/>
+                                    <action selector="startRecipe:" destination="8Zs-aM-MBJ" eventType="touchUpInside" id="uBt-ar-cHa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dUP-s7-ufh" firstAttribute="bottom" secondItem="l2T-fk-8hj" secondAttribute="bottom" constant="40" id="RPb-fJ-Zov"/>
+                            <constraint firstItem="l2T-fk-8hj" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="spA-Fj-uaJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dUP-s7-ufh"/>
+                    </view>
+                    <connections>
+                        <segue destination="YAH-LX-tAp" kind="presentation" identifier="LaunchRecipeStep" id="qw4-Gu-uZZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xYi-hp-Ajn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="-550"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="F1R-MT-9IP">
@@ -368,23 +403,28 @@
                                     <constraint firstAttribute="width" constant="150" id="OO6-pA-Fos"/>
                                 </constraints>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wob-KU-nYz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wob-KU-nYz">
                                 <rect key="frame" x="112.5" y="597" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="j9p-0Q-xcd"/>
                                 </constraints>
                                 <state key="normal" title="Résumé de la recette"/>
+                                <connections>
+                                    <action selector="backToResume:" destination="YAH-LX-tAp" eventType="touchUpInside" id="nyU-1m-RWh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="h6C-n1-fAG" secondAttribute="bottom" constant="40" id="9an-RM-xxP"/>
+                            <constraint firstItem="wob-KU-nYz" firstAttribute="centerY" secondItem="O3h-e5-kwW" secondAttribute="centerY" id="A2C-vM-GIv"/>
                             <constraint firstItem="O3h-e5-kwW" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="BEL-1j-yc8"/>
                             <constraint firstItem="ZOP-06-Gf5" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="GBq-Mp-yvh"/>
                             <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="a7t-Th-Iw7" secondAttribute="bottom" constant="20" id="Ne3-qx-SVF"/>
                             <constraint firstItem="wob-KU-nYz" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="Nvi-Hc-JUY"/>
                             <constraint firstItem="a7t-Th-Iw7" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="O9V-Jg-v1Z"/>
                             <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="PB5-kM-6CM"/>
+                            <constraint firstItem="h6C-n1-fAG" firstAttribute="centerY" secondItem="O3h-e5-kwW" secondAttribute="centerY" id="Qvf-ZI-VdH"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="top" secondItem="fCh-vq-be6" secondAttribute="bottom" constant="20" id="SsZ-N6-GCs"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="ceh-II-vPK"/>
                             <constraint firstItem="fCh-vq-be6" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="dsb-dQ-s3n"/>
@@ -404,11 +444,12 @@
                         <outlet property="recipePicture" destination="ZOP-06-Gf5" id="gHr-BE-TdU"/>
                         <outlet property="stepDescription" destination="MPi-xL-agn" id="0JR-OS-Hp0"/>
                         <outlet property="stepNumber" destination="fCh-vq-be6" id="zYn-NL-LCg"/>
+                        <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="BackToResume" id="Vlw-og-T2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1V8-34-NLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="404" y="-546.47676161919048"/>
+            <point key="canvasLocation" x="1146" y="-545"/>
         </scene>
     </scenes>
     <resources>
@@ -420,4 +461,8 @@
         <image name="Preparation" width="512" height="512"/>
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qw4-Gu-uZZ"/>
+        <segue reference="Vlw-og-T2E"/>
+    </inferredMetricsTieBreakers>
 </document>

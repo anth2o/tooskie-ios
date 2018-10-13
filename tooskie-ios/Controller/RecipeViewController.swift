@@ -23,6 +23,7 @@ class RecipeViewController: UIViewController {
             self.updateStepDisplay()
         }
     }
+    
     @IBAction func nextStep(_ sender: Any) {
         if let recipe = self.recipe {
             if let steps = recipe.steps {
@@ -33,6 +34,11 @@ class RecipeViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func backToResume(_ sender: Any) {
+        performSegue(withIdentifier: "BackToResume", sender: self)
+    }
+    
     @IBOutlet weak var progressStep: UIProgressView!
     
     override func viewDidLoad() {

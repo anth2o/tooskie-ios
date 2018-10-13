@@ -10,7 +10,6 @@ import UIKit
 
 class RecipeSuggestionViewController: UIViewController {
     
-    var serverConfig = ServerConfig()
     var recipes = [Recipe]()
     var index = 0
     
@@ -31,7 +30,7 @@ class RecipeSuggestionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != nil && segue.identifier == "LaunchRecipe" {
-            let destVC : RecipeViewController = segue.destination as! RecipeViewController
+            let destVC : RecipeResumeViewController = segue.destination as! RecipeResumeViewController
             destVC.recipe = self.recipes[index]
         }
     }
