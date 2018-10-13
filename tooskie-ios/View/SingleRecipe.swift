@@ -38,6 +38,7 @@ class SingleRecipe: UIView {
     }
 
     public func setRecipe(recipe: Recipe) {
+        self.setBorder()
         self.clear()
         self.recipe = recipe
         self.label.text = recipe.name
@@ -68,5 +69,10 @@ class SingleRecipe: UIView {
         if let budgetLevel = recipe.budgetLevel{
             self.budgetLevel.text = budgetLevel
         }
+    }
+    
+    private func setBorder() {
+        self.layer.cornerRadius = 8.0
+        self.clipsToBounds = true
     }
 }
