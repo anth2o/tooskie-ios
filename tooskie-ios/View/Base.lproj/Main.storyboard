@@ -348,19 +348,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-e5-kwW">
+                                <rect key="frame" x="40" y="597" width="46" height="30"/>
+                                <state key="normal" title="Retour"/>
+                                <connections>
+                                    <action selector="previousStep:" destination="YAH-LX-tAp" eventType="touchUpInside" id="AQY-Yr-HWN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6C-n1-fAG">
+                                <rect key="frame" x="284" y="597" width="51" height="30"/>
+                                <state key="normal" title="Suivant"/>
+                                <connections>
+                                    <action selector="nextStep:" destination="YAH-LX-tAp" eventType="touchUpInside" id="FPI-GL-mcZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="h6C-n1-fAG" secondAttribute="bottom" constant="40" id="9an-RM-xxP"/>
+                            <constraint firstItem="O3h-e5-kwW" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="BEL-1j-yc8"/>
                             <constraint firstItem="ZOP-06-Gf5" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="GBq-Mp-yvh"/>
                             <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="PB5-kM-6CM"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="top" secondItem="fCh-vq-be6" secondAttribute="bottom" constant="20" id="SsZ-N6-GCs"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="ceh-II-vPK"/>
                             <constraint firstItem="fCh-vq-be6" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="dsb-dQ-s3n"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="eVj-7x-cC1"/>
+                            <constraint firstItem="9uB-XJ-Cax" firstAttribute="trailing" secondItem="h6C-n1-fAG" secondAttribute="trailing" constant="40" id="gzj-im-e90"/>
                             <constraint firstItem="MFq-2Y-qZe" firstAttribute="top" secondItem="9uB-XJ-Cax" secondAttribute="top" constant="20" id="hx5-oH-lqI"/>
                             <constraint firstItem="ZOP-06-Gf5" firstAttribute="top" secondItem="MFq-2Y-qZe" secondAttribute="bottom" constant="20" id="lhT-hf-Ygb"/>
                             <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="qLc-78-c6O"/>
                             <constraint firstItem="fCh-vq-be6" firstAttribute="top" secondItem="ZOP-06-Gf5" secondAttribute="bottom" constant="20" id="t7G-MU-mLi"/>
+                            <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="O3h-e5-kwW" secondAttribute="bottom" constant="40" id="xIp-21-DsD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9uB-XJ-Cax"/>
                     </view>

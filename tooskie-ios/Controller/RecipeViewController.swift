@@ -11,12 +11,28 @@ import UIKit
 class RecipeViewController: UIViewController {
     
     var recipe: Recipe?
-    var stepIndex = 0
+    var stepIndex = 1
 
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var stepNumber: UILabel!
     @IBOutlet weak var stepDescription: UILabel!
+    @IBAction func previousStep(_ sender: Any) {
+        if self.stepIndex > 1 {
+            self.stepIndex -= 1
+            self.updateStepDisplay()
+        }
+    }
+    @IBAction func nextStep(_ sender: Any) {
+        if let recipe = self.recipe {
+            if let steps = recipe.steps {
+                if self.stepIndex < steps.count {
+                    self.stepIndex += 1
+                    self.updateStepDisplay()
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +52,15 @@ class RecipeViewController: UIViewController {
                     self.recipePicture.image = UIImage(named: "NoNetwork")
                 }
             }
-            if let step = self.recipe?.getStep(stepNumber: 1) {
-                self.stepNumber.text = "Etape 1"
-                if let description = step.description {
-                    self.stepDescription.text = description
-                }
+            self.updateStepDisplay()
+        }
+    }
+    
+    private func updateStepDisplay() {
+        if let step = self.recipe?.getStep(stepNumber: self.stepIndex) {
+            self.stepNumber.text = "Etape " + String(self.stepIndex)
+            if let description = step.description {
+                self.stepDescription.text = description
             }
         }
     }
