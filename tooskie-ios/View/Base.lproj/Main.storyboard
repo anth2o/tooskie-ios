@@ -368,6 +368,13 @@
                                     <constraint firstAttribute="width" constant="150" id="OO6-pA-Fos"/>
                                 </constraints>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wob-KU-nYz">
+                                <rect key="frame" x="112.5" y="597" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="j9p-0Q-xcd"/>
+                                </constraints>
+                                <state key="normal" title="Résumé de la recette"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -375,6 +382,7 @@
                             <constraint firstItem="O3h-e5-kwW" firstAttribute="leading" secondItem="9uB-XJ-Cax" secondAttribute="leading" constant="40" id="BEL-1j-yc8"/>
                             <constraint firstItem="ZOP-06-Gf5" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="GBq-Mp-yvh"/>
                             <constraint firstItem="9uB-XJ-Cax" firstAttribute="bottom" secondItem="a7t-Th-Iw7" secondAttribute="bottom" constant="20" id="Ne3-qx-SVF"/>
+                            <constraint firstItem="wob-KU-nYz" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="Nvi-Hc-JUY"/>
                             <constraint firstItem="a7t-Th-Iw7" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="O9V-Jg-v1Z"/>
                             <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="gQf-hg-ZyR" secondAttribute="centerX" id="PB5-kM-6CM"/>
                             <constraint firstItem="MPi-xL-agn" firstAttribute="top" secondItem="fCh-vq-be6" secondAttribute="bottom" constant="20" id="SsZ-N6-GCs"/>

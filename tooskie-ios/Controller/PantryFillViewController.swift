@@ -23,6 +23,16 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.sendPantry()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.loadPantry()
+        self.loadUserPantry()
+        pantryTableView.delegate = self
+        pantryTableView.dataSource = self
+        ingredientSearchBar.delegate = self
+        print("View did load")
+    }
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
         destVC.serverConfig = self.serverConfig
@@ -32,16 +42,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBAction func ingredientSearch(_ sender: Any) {
         print("Add")
         self.addIngredient()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.loadPantry()
-        self.loadUserPantry()
-        pantryTableView.delegate = self
-        pantryTableView.dataSource = self
-        ingredientSearchBar.delegate = self
-        print("View did load")
     }
     
     func loadPantry() {
@@ -136,7 +136,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
 
         let ingredient = self.userPantry.getIngredient(index: indexPath.row)
-        cell.configure(ingredient: ingredient, viewController: self)
+        cell.setIngredient(ingredient: ingredient, viewController: self)
         return cell
     }
     
@@ -146,7 +146,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             self.userPantry.removeIngredient(ingredient: ingredient)
             let indexPath = IndexPath(item: indexIngredient, section: 0)
             pantryTableView.deleteRows(at: [indexPath], with: .fade)
-            self.pantryTableView.reloadData()
         }
     }
     

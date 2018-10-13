@@ -20,7 +20,7 @@ class IngredientTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(ingredient: Ingredient, viewController: PantryFillViewController) {
+    func setIngredient(ingredient: Ingredient, viewController: PantryFillViewController) {
         self.ingredient = ingredient
         self.viewController = viewController
         self.ingredientName.text = ingredient.getName()
@@ -34,20 +34,5 @@ class IngredientTableViewCell: UITableViewCell {
                 self.ingredientPicture.image = UIImage(named: "NoNetwork")
             }
         }
-    }
-
-    required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

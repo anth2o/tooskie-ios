@@ -102,6 +102,8 @@
 		71E6F405215EBBBC00DC44B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
+				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
 				718F670F215B481000F59A5C /* Main.storyboard */,
 			);
 			path = View;
@@ -111,8 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				718F670D215B481000F59A5C /* PantryFillViewController.swift */,
-				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
-				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
 				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */,
 			);
