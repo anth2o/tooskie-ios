@@ -46,6 +46,13 @@ class RecipeViewController: UIViewController {
         self.configure()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != nil && segue.identifier == "BackToResume" {
+            let destVC : RecipeResumeViewController = segue.destination as! RecipeResumeViewController
+            destVC.recipe = self.recipe
+        }
+    }
+    
     private func configure() {
         if let recipe = self.recipe {
             self.recipeName.text = recipe.name

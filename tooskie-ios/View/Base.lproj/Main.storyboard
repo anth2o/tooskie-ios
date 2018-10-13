@@ -335,15 +335,33 @@
                                     <action selector="startRecipe:" destination="8Zs-aM-MBJ" eventType="touchUpInside" id="uBt-ar-cHa"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v8f-jp-SnF">
+                                <rect key="frame" x="67" y="87.5" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="18L-7r-5Jk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mES-kx-Cq2">
+                                <rect key="frame" x="160" y="40" width="55" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="v8f-jp-SnF" firstAttribute="top" secondItem="mES-kx-Cq2" secondAttribute="bottom" constant="20" id="9Fb-cH-Znc"/>
+                            <constraint firstItem="mES-kx-Cq2" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="9gX-8r-deh"/>
+                            <constraint firstItem="v8f-jp-SnF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="AYf-gR-d92"/>
                             <constraint firstItem="dUP-s7-ufh" firstAttribute="bottom" secondItem="l2T-fk-8hj" secondAttribute="bottom" constant="40" id="RPb-fJ-Zov"/>
+                            <constraint firstItem="mES-kx-Cq2" firstAttribute="top" secondItem="dUP-s7-ufh" secondAttribute="top" constant="20" id="otZ-H5-xEO"/>
                             <constraint firstItem="l2T-fk-8hj" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="spA-Fj-uaJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dUP-s7-ufh"/>
                     </view>
                     <connections>
+                        <outlet property="recipeName" destination="mES-kx-Cq2" id="F7d-1K-fYW"/>
+                        <outlet property="recipePicture" destination="v8f-jp-SnF" id="myv-jc-nBD"/>
                         <segue destination="YAH-LX-tAp" kind="presentation" identifier="LaunchRecipeStep" id="qw4-Gu-uZZ"/>
                     </connections>
                 </viewController>
