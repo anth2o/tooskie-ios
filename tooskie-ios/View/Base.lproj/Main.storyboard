@@ -347,19 +347,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H3R-z8-FGF">
+                                <rect key="frame" x="140.5" y="358.5" width="94" height="29"/>
+                                <connections>
+                                    <action selector="numberOfPersonStepperChanged:" destination="8Zs-aM-MBJ" eventType="valueChanged" id="NJY-ED-RrH"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boY-xs-LhE">
+                                <rect key="frame" x="140.5" y="327.5" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v8f-jp-SnF" firstAttribute="top" secondItem="mES-kx-Cq2" secondAttribute="bottom" constant="20" id="9Fb-cH-Znc"/>
                             <constraint firstItem="mES-kx-Cq2" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="9gX-8r-deh"/>
                             <constraint firstItem="v8f-jp-SnF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="AYf-gR-d92"/>
+                            <constraint firstItem="boY-xs-LhE" firstAttribute="top" secondItem="v8f-jp-SnF" secondAttribute="bottom" constant="40" id="IYb-XJ-rKw"/>
                             <constraint firstItem="dUP-s7-ufh" firstAttribute="bottom" secondItem="l2T-fk-8hj" secondAttribute="bottom" constant="40" id="RPb-fJ-Zov"/>
+                            <constraint firstItem="H3R-z8-FGF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="abX-cM-Ee2"/>
+                            <constraint firstItem="H3R-z8-FGF" firstAttribute="top" secondItem="boY-xs-LhE" secondAttribute="bottom" constant="10" id="fD2-rq-gyL"/>
+                            <constraint firstItem="boY-xs-LhE" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="him-ag-DUV"/>
                             <constraint firstItem="mES-kx-Cq2" firstAttribute="top" secondItem="dUP-s7-ufh" secondAttribute="top" constant="20" id="otZ-H5-xEO"/>
+                            <constraint firstItem="H3R-z8-FGF" firstAttribute="leading" secondItem="boY-xs-LhE" secondAttribute="leading" id="s7T-If-RYl"/>
                             <constraint firstItem="l2T-fk-8hj" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="spA-Fj-uaJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dUP-s7-ufh"/>
                     </view>
                     <connections>
+                        <outlet property="numberOfPersonLabel" destination="boY-xs-LhE" id="UR5-RX-xiK"/>
+                        <outlet property="numberOfPersonStepper" destination="H3R-z8-FGF" id="b35-Bu-TVC"/>
                         <outlet property="recipeName" destination="mES-kx-Cq2" id="F7d-1K-fYW"/>
                         <outlet property="recipePicture" destination="v8f-jp-SnF" id="myv-jc-nBD"/>
                         <segue destination="YAH-LX-tAp" kind="presentation" identifier="LaunchRecipeStep" id="qw4-Gu-uZZ"/>

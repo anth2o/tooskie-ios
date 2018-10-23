@@ -44,7 +44,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadPantry() {
-        let request = self.serverConfig.getRequest(path: "/ingredient/", method: "GET")
+        let request = self.serverConfig.getRequest(path: "/api/ingredient/", method: "GET")
         let session = self.serverConfig.getSession()
         let task = session.dataTask(with: request) { (data, response, responseError) in
             DispatchQueue.main.async {
@@ -72,7 +72,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func loadUserPantry() {
         if let permaname = userPantry.permaname {
-            let request = self.serverConfig.getRequest(path: "/pantry/" + permaname, method: "GET")
+            let request = self.serverConfig.getRequest(path: "/api/pantry/" + permaname, method: "GET")
             let session = self.serverConfig.getSession()
             let task = session.dataTask(with: request) { (data, response, responseError) in
                 DispatchQueue.main.async {
@@ -150,7 +150,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func sendPantry() {
         let myPost = userPantry.toPost()
-        var request = self.serverConfig.getRequest(path: "/pantry/", method: "POST")
+        var request = self.serverConfig.getRequest(path: "/api/pantry/", method: "POST")
         let session = self.serverConfig.getSession()
         request = self.serverConfig.encodeDataForPost(post: myPost, request: request)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -185,7 +185,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     public func getRecipes() {
         if let permaname = self.userPantry.permaname {
             let session = self.serverConfig.getSession()
-            let request = self.serverConfig.getRequest(path: "/recipe-with-pantry/" + permaname, method: "GET")
+            let request = self.serverConfig.getRequest(path: "/api/recipe-with-pantry/" + permaname, method: "GET")
             let task = session.dataTask(with: request) { (responseData, response, responseError) in
                 DispatchQueue.main.async {
                     if let error = responseError {

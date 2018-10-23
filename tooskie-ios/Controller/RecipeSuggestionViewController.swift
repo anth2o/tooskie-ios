@@ -71,7 +71,7 @@ class RecipeSuggestionViewController: UIViewController {
         case .accepted:
             performSegue(withIdentifier: "LaunchRecipe", sender: self)
         case .declined:
-            if self.index < self.recipes.count {
+            if self.index < self.recipes.count - 1 {
                 index += 1
                 self.recipeView!.setRecipe(recipe: self.recipes[index])
             }
