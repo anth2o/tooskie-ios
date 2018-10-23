@@ -59,5 +59,30 @@ class Ingredient: Codable {
     public func setPicture(picture: String) {
         self.picture = picture
     }
+    
+    private func getQuantity(peopleNumber: Int?) -> Float?{
+        if let quantity = self.quantity {
+            if let number = peopleNumber {
+                return Float(number) * quantity
+            }
+            return quantity
+        }
+        return nil
+    }
+    
+    public func getDescription(peopleNumber: Int?) -> String{
+        let realQuantity = self.getQuantity(peopleNumber: peopleNumber)
+        var description = "- "
+        if let quantity = realQuantity {
+            description += String(quantity) + " "
+        }
+        if let unit = self.unit {
+            if unit != "None" {
+                description += unit.lowercased() + " de "
+            }
+        }
+        description += name.lowercased()
+        return description
+    }
 }
 

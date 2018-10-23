@@ -152,7 +152,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-9d-hY3" customClass="SingleRecipe" customModule="tooskie_ios" customModuleProvider="target">
                                 <rect key="frame" x="60" y="60" width="255" height="477"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poulet" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-He-NzD">
                                         <rect key="frame" x="40" y="80.5" width="175" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yq6-He-NzD" secondAttribute="height" multiplier="1:1" id="nZc-eG-CMg"/>
@@ -348,35 +348,49 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="H3R-z8-FGF">
-                                <rect key="frame" x="140.5" y="358.5" width="94" height="29"/>
+                                <rect key="frame" x="140.5" y="348.5" width="94" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="kZi-xT-my5"/>
+                                </constraints>
                                 <connections>
                                     <action selector="numberOfPersonStepperChanged:" destination="8Zs-aM-MBJ" eventType="valueChanged" id="NJY-ED-RrH"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boY-xs-LhE">
-                                <rect key="frame" x="140.5" y="327.5" width="94" height="21"/>
+                                <rect key="frame" x="112.5" y="317.5" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2wz-xA-3wu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="udQ-Rb-CZ7">
+                                <rect key="frame" x="67" y="404" width="240" height="185"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v8f-jp-SnF" firstAttribute="top" secondItem="mES-kx-Cq2" secondAttribute="bottom" constant="20" id="9Fb-cH-Znc"/>
                             <constraint firstItem="mES-kx-Cq2" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="9gX-8r-deh"/>
                             <constraint firstItem="v8f-jp-SnF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="AYf-gR-d92"/>
-                            <constraint firstItem="boY-xs-LhE" firstAttribute="top" secondItem="v8f-jp-SnF" secondAttribute="bottom" constant="40" id="IYb-XJ-rKw"/>
+                            <constraint firstItem="boY-xs-LhE" firstAttribute="top" secondItem="v8f-jp-SnF" secondAttribute="bottom" constant="30" id="IYb-XJ-rKw"/>
                             <constraint firstItem="dUP-s7-ufh" firstAttribute="bottom" secondItem="l2T-fk-8hj" secondAttribute="bottom" constant="40" id="RPb-fJ-Zov"/>
                             <constraint firstItem="H3R-z8-FGF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="abX-cM-Ee2"/>
                             <constraint firstItem="H3R-z8-FGF" firstAttribute="top" secondItem="boY-xs-LhE" secondAttribute="bottom" constant="10" id="fD2-rq-gyL"/>
                             <constraint firstItem="boY-xs-LhE" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="him-ag-DUV"/>
                             <constraint firstItem="mES-kx-Cq2" firstAttribute="top" secondItem="dUP-s7-ufh" secondAttribute="top" constant="20" id="otZ-H5-xEO"/>
-                            <constraint firstItem="H3R-z8-FGF" firstAttribute="leading" secondItem="boY-xs-LhE" secondAttribute="leading" id="s7T-If-RYl"/>
                             <constraint firstItem="l2T-fk-8hj" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="spA-Fj-uaJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dUP-s7-ufh"/>
                     </view>
                     <connections>
+                        <outlet property="ingredientsText" destination="udQ-Rb-CZ7" id="yPF-6h-OuH"/>
                         <outlet property="numberOfPersonLabel" destination="boY-xs-LhE" id="UR5-RX-xiK"/>
                         <outlet property="numberOfPersonStepper" destination="H3R-z8-FGF" id="b35-Bu-TVC"/>
                         <outlet property="recipeName" destination="mES-kx-Cq2" id="F7d-1K-fYW"/>
@@ -386,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYi-hp-Ajn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="-550"/>
+            <point key="canvasLocation" x="316" y="-550.07496251874068"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="F1R-MT-9IP">
@@ -494,7 +508,6 @@
         <image name="Cooking" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Difficulty" width="409.60000610351562" height="409.60000610351562"/>
         <image name="MinusButton" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="Poulet" width="500" height="500"/>
         <image name="Preparation" width="512" height="512"/>
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
     </resources>

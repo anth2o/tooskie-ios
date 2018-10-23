@@ -11,6 +11,7 @@ import UIKit
 class RecipeViewController: UIViewController {
     
     var recipe: Recipe?
+    var numberOfPerson = 1
     var stepIndex = 1
 
     @IBOutlet weak var recipePicture: UIImageView!
@@ -50,6 +51,7 @@ class RecipeViewController: UIViewController {
         if segue.identifier != nil && segue.identifier == "BackToResume" {
             let destVC : RecipeResumeViewController = segue.destination as! RecipeResumeViewController
             destVC.recipe = self.recipe
+            destVC.numberOfPerson = self.numberOfPerson
         }
     }
     

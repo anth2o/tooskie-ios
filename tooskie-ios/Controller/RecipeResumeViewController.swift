@@ -18,8 +18,11 @@ class RecipeResumeViewController: UIViewController {
     @IBOutlet weak var numberOfPersonLabel: UILabel!
     @IBOutlet weak var numberOfPersonStepper: UIStepper!
     @IBAction func numberOfPersonStepperChanged(_ sender: UIStepper) {
-        numberOfPersonLabel.text = Int(sender.value).description
+        self.numberOfPerson = Int(sender.value)
+        self.setNumberOfPeopleLabel()
+        self.setIngredients()
     }
+    @IBOutlet weak var ingredientsText: UITextView!
     @IBAction func startRecipe(_ sender: Any) {
         performSegue(withIdentifier: "LaunchRecipeStep", sender: self)
     }
@@ -33,6 +36,7 @@ override func viewDidLoad() {
         if segue.identifier != nil && segue.identifier == "LaunchRecipeStep" {
             let destVC : RecipeViewController = segue.destination as! RecipeViewController
             destVC.recipe = self.recipe
+            destVC.numberOfPerson = self.numberOfPerson
         }
     }
     
@@ -50,9 +54,33 @@ override func viewDidLoad() {
                 }
             }
         }
-        self.numberOfPersonLabel.text = String(self.numberOfPerson)
+        self.setNumberOfPeopleLabel()
         self.numberOfPersonStepper.value = Double(self.numberOfPerson)
         self.numberOfPersonStepper.autorepeat = true
         self.numberOfPersonStepper.minimumValue = 1
+        self.ingredientsText.isEditable = false
+        self.setIngredients()
+    }
+    
+    private func setIngredients() {
+        if let recipe = self.recipe {
+            if let ingredients = recipe.ingredients {
+                self.ingredientsText.text = ""
+                for i in 0..<ingredients.count {
+                    let ingredient = ingredients[i]
+                    let text = ingredient.getDescription(peopleNumber: self.numberOfPerson)
+                    self.ingredientsText.text += text + "\n"
+                }
+            }
+        }
+    }
+    
+    private func setNumberOfPeopleLabel() {
+        if self.numberOfPerson == 1 {
+            self.numberOfPersonLabel.text = String(self.numberOfPerson) + " personne"
+        }
+        else {
+            self.numberOfPersonLabel.text = String(self.numberOfPerson) + " personnes"
+        }
     }
 }
