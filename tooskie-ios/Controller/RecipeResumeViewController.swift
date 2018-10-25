@@ -12,6 +12,8 @@ class RecipeResumeViewController: UIViewController {
     
     var recipe: Recipe?
     var numberOfPerson = 1
+    var recipes = [Recipe]()
+    
     
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -26,6 +28,9 @@ class RecipeResumeViewController: UIViewController {
     @IBAction func startRecipe(_ sender: Any) {
         performSegue(withIdentifier: "LaunchRecipeStep", sender: self)
     }
+    @IBAction func backToSuggestions(_ sender: Any) {
+        performSegue(withIdentifier: "GoBackSuggestions", sender: self)
+    }
     
 override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +42,11 @@ override func viewDidLoad() {
             let destVC : RecipeViewController = segue.destination as! RecipeViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
+            destVC.recipes = self.recipes
+        }
+        if segue.identifier != nil && segue.identifier == "GoBackSuggestions" {
+            let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
+            destVC.recipes = self.recipes
         }
     }
     

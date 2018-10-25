@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -325,11 +326,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2T-fk-8hj">
-                                <rect key="frame" x="87.5" y="597" width="200" height="30"/>
+                                <rect key="frame" x="245" y="617" width="100" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="AjS-MI-NZ1"/>
+                                    <constraint firstAttribute="width" constant="100" id="AjS-MI-NZ1"/>
                                 </constraints>
-                                <state key="normal" title="Commencer la recette"/>
+                                <state key="normal" title="Commencer"/>
                                 <connections>
                                     <action selector="backToResume:" destination="YAH-LX-tAp" eventType="touchUpInside" id="aZT-rD-ZjG"/>
                                     <action selector="startRecipe:" destination="8Zs-aM-MBJ" eventType="touchUpInside" id="uBt-ar-cHa"/>
@@ -373,6 +374,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sag-CR-LnL">
+                                <rect key="frame" x="30" y="617" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Ksb-Qr-hjg"/>
+                                </constraints>
+                                <state key="normal" title="Retour"/>
+                                <connections>
+                                    <action selector="backToResume:" destination="YAH-LX-tAp" eventType="touchUpInside" id="K3f-BX-dvX"/>
+                                    <action selector="backToSuggestions:" destination="8Zs-aM-MBJ" eventType="touchUpInside" id="Fns-2e-X2M"/>
+                                    <action selector="startRecipe:" destination="8Zs-aM-MBJ" eventType="touchUpInside" id="iSw-ei-Pk7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -380,12 +393,14 @@
                             <constraint firstItem="mES-kx-Cq2" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="9gX-8r-deh"/>
                             <constraint firstItem="v8f-jp-SnF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="AYf-gR-d92"/>
                             <constraint firstItem="boY-xs-LhE" firstAttribute="top" secondItem="v8f-jp-SnF" secondAttribute="bottom" constant="30" id="IYb-XJ-rKw"/>
-                            <constraint firstItem="dUP-s7-ufh" firstAttribute="bottom" secondItem="l2T-fk-8hj" secondAttribute="bottom" constant="40" id="RPb-fJ-Zov"/>
+                            <constraint firstItem="dUP-s7-ufh" firstAttribute="trailing" secondItem="l2T-fk-8hj" secondAttribute="trailing" constant="30" id="JhI-Qh-sA5"/>
+                            <constraint firstItem="dUP-s7-ufh" firstAttribute="bottom" secondItem="l2T-fk-8hj" secondAttribute="bottom" constant="20" id="RPb-fJ-Zov"/>
                             <constraint firstItem="H3R-z8-FGF" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="abX-cM-Ee2"/>
                             <constraint firstItem="H3R-z8-FGF" firstAttribute="top" secondItem="boY-xs-LhE" secondAttribute="bottom" constant="10" id="fD2-rq-gyL"/>
                             <constraint firstItem="boY-xs-LhE" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="him-ag-DUV"/>
+                            <constraint firstItem="Sag-CR-LnL" firstAttribute="leading" secondItem="dUP-s7-ufh" secondAttribute="leading" constant="30" id="mRv-Ai-oeL"/>
                             <constraint firstItem="mES-kx-Cq2" firstAttribute="top" secondItem="dUP-s7-ufh" secondAttribute="top" constant="20" id="otZ-H5-xEO"/>
-                            <constraint firstItem="l2T-fk-8hj" firstAttribute="centerX" secondItem="kuZ-ih-X9b" secondAttribute="centerX" id="spA-Fj-uaJ"/>
+                            <constraint firstItem="l2T-fk-8hj" firstAttribute="bottom" secondItem="Sag-CR-LnL" secondAttribute="bottom" id="uRU-Ia-Cal"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dUP-s7-ufh"/>
                     </view>
@@ -396,6 +411,7 @@
                         <outlet property="recipeName" destination="mES-kx-Cq2" id="F7d-1K-fYW"/>
                         <outlet property="recipePicture" destination="v8f-jp-SnF" id="myv-jc-nBD"/>
                         <segue destination="YAH-LX-tAp" kind="presentation" identifier="LaunchRecipeStep" id="qw4-Gu-uZZ"/>
+                        <segue destination="VFG-tp-c9v" kind="presentation" identifier="GoBackSuggestions" id="8M6-7A-Dd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYi-hp-Ajn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -513,5 +529,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V3u-QB-b9T"/>
+        <segue reference="8M6-7A-Dd2"/>
     </inferredMetricsTieBreakers>
 </document>

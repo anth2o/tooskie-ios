@@ -13,6 +13,7 @@ class RecipeViewController: UIViewController {
     var recipe: Recipe?
     var numberOfPerson = 1
     var stepIndex = 1
+    var recipes = [Recipe]()
 
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -52,6 +53,7 @@ class RecipeViewController: UIViewController {
             let destVC : RecipeResumeViewController = segue.destination as! RecipeResumeViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
+            destVC.recipes = self.recipes
         }
     }
     
