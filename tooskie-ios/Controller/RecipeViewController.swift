@@ -62,9 +62,14 @@ class RecipeViewController: UIViewController {
             self.recipeName.text = recipe.name
             if let pictureString = recipe.picture {
                 let url = URL(string: pictureString)
-                let data = try? Data(contentsOf: url!)
-                if let data = data {
-                    self.recipePicture.image = UIImage(data: data)
+                if url != nil {
+                    let data = try? Data(contentsOf: url!)
+                    if let data = data {
+                        self.recipePicture.image = UIImage(data: data)
+                    }
+                    else {
+                        self.recipePicture.image = UIImage(named: "NoNetwork")
+                    }
                 }
                 else {
                     self.recipePicture.image = UIImage(named: "NoNetwork")

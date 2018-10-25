@@ -10,7 +10,8 @@ import Foundation
 
 class ServerConfig {
     var scheme = "http"
-    var host = "localhost"
+    var host = "ec2-52-47-163-208.eu-west-3.compute.amazonaws.com"
+    var port = 8000
     
     public func getUrlScheme() -> String {
         return self.scheme
@@ -25,6 +26,7 @@ class ServerConfig {
         var urlComponents = URLComponents()
         urlComponents.scheme = self.scheme
         urlComponents.host = self.host
+        urlComponents.port = self.port
         urlComponents.path = path
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         var request = URLRequest(url: url)
