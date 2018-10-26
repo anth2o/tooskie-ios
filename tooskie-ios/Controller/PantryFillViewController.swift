@@ -32,9 +32,13 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.ingredientSearchBar.resignFirstResponder()
     }
     
-//    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
-//        print("Swipe")
-//    }
+    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
+        print("Swipe")
+        let translation = sender.translation(in: self.view)
+        if translation.y > 0 && translation.y > abs(translation.x) {
+            self.ingredientSearchBar.resignFirstResponder()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
