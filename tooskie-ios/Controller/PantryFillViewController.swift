@@ -22,6 +22,11 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         print("Launch")
         self.sendPantry()
     }
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        print("Touch")
+        self.ingredientSearchBar.resignFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

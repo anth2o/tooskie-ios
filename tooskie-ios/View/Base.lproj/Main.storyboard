@@ -105,6 +105,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95294117647058818" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="K6P-TN-UQH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5f6-fR-ilY"/>
                             <constraint firstItem="AVr-Rc-0FL" firstAttribute="top" secondItem="YQn-gn-XRX" secondAttribute="bottom" constant="20" id="62R-3q-oLm"/>
@@ -123,6 +124,9 @@
                             <constraint firstItem="K6P-TN-UQH" firstAttribute="top" secondItem="NzP-SY-xBl" secondAttribute="bottom" constant="20" id="wc8-ds-Kx4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Kf1-W7-2o7" appends="YES" id="G93-Rq-hA9"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="W0y-zL-cLr"/>
@@ -139,6 +143,11 @@
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="Opm-Gp-7iR"/>
                     </connections>
                 </searchDisplayController>
+                <tapGestureRecognizer id="Kf1-W7-2o7">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="ScP-Pu-HQ5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1320.289855072464" y="-544.56521739130437"/>
         </scene>
@@ -529,6 +538,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V3u-QB-b9T"/>
-        <segue reference="8M6-7A-Dd2"/>
+        <segue reference="Uqw-eL-WEw"/>
     </inferredMetricsTieBreakers>
 </document>
