@@ -19,6 +19,13 @@ class RecipeSuggestionViewController: UIViewController {
         performSegue(withIdentifier: "GoBack", sender: self)
     }
     
+    @IBAction func cancelSwipe(_ sender: Any) {
+        if self.index > 0 && self.recipes.count > 0 {
+            self.index -= 1
+            self.recipeView!.setRecipe(recipe:self.recipes[self.index])
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.recipes.count > 0 {
@@ -70,10 +77,15 @@ class RecipeSuggestionViewController: UIViewController {
     private func processRecipe() {
         switch recipeView.status {
         case .accepted:
-            performSegue(withIdentifier: "LaunchRecipe", sender: self)
+            if self.index < self.recipes.count {
+                performSegue(withIdentifier: "LaunchRecipe", sender: self)
+            }
+            else {
+                // TODO : create "shopping" page
+            }
         case .declined:
-            if self.index < self.recipes.count - 1 {
-                index += 1
+            index += 1
+            if self.index < self.recipes.count {
                 self.recipeView!.setRecipe(recipe: self.recipes[index])
             }
             else {
