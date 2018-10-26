@@ -1,6 +1,7 @@
 import UIKit
 
 class PantryFillViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+//    Properties
     let tooskiePantry = Pantry(name: "Tooskie pantry")
     var userPantry = Pantry(name: "iOS")
     var serverConfig = ServerConfig()
@@ -15,9 +16,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
 
+//    Outlets
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
-
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+//    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
         self.sendPantry()
@@ -28,25 +32,125 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.ingredientSearchBar.resignFirstResponder()
     }
     
+//    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
+//        print("Swipe")
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPantry()
         self.loadUserPantry()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
+        self.pantryTableView.rowHeight = 60.0
         ingredientSearchBar.delegate = self
         print("View did load")
     }
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
         destVC.recipes = self.recipes
-     }
-
+    }
+    
+    @objc
+    func keyboardWillShow(notification:NSNotification) {
+        adjustingHeight(show: true, notification: notification)
+    }
+    
+    @objc
+    func keyboardWillHide(notification:NSNotification) {
+        adjustingHeight(show: false, notification: notification)
+    }
+    
+    func adjustingHeight(show:Bool, notification:NSNotification) {
+        var userInfo = notification.userInfo!
+        let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let changeInHeight = keyboardFrame.height * (show ? 1 : -1)
+        self.bottomConstraint.constant += changeInHeight
+        UIView.animate(withDuration: animationDurarion) {
+            self.view.layoutIfNeeded()
+        }
+        
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Search and add ingredient")
         self.addIngredient()
     }
+    
+// Handle ingredients
+    
+    func addIngredient(){
+        if let text = ingredientSearchBar.text {
+            if let chosenIngredient = self.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
+                self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
+            }
+            else {
+                self.alertIngredientNotAvailable()
+            }
+        }
+    }
+    
+    func addAndDisplayNewIngredient(ingredient: Ingredient) {
+        userPantry.addIngredient(ingredient: ingredient)
+        self.reload()
+        self.ingredientSearchBar.text = ""
+    }
+    
+    func alertIngredientNotAvailable() {
+        let alert = UIAlertController(title: "Erreur", message: "Cet ingrédient n'est pas disponible", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func removeIngredient(ingredient: Ingredient) {
+        let potentialIndexIngredient = self.userPantry.getIndex(ingredient: ingredient)
+        if let indexIngredient = potentialIndexIngredient {
+            self.userPantry.removeIngredient(ingredient: ingredient)
+            let indexPath = IndexPath(item: indexIngredient, section: 0)
+            pantryTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+//    Table View methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.userPantry.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "IngredientTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
+        }
+
+        let ingredient = self.userPantry.getIngredient(index: indexPath.row)
+        cell.ingredient = ingredient
+        cell.viewController = self
+        cell.ingredientName.text = ingredient.getName()
+        cell.ingredientPicture.image = self.getPictureFromString(picture: ingredient.getPictureString())
+        return cell
+    }
+    
+    private func reload(){
+        self.pantryTableView.reloadData()
+        self.scrollToBottom()
+    }
+    
+    private func scrollToBottom(){
+        DispatchQueue.main.async {
+            if self.userPantry.count > 0 {
+                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
+                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+        }
+    }
+    
+//    API requests
     
     func loadPantry() {
         let request = self.serverConfig.getRequest(path: "/api/ingredient/", method: "GET")
@@ -105,57 +209,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func addIngredient(){
-        if let text = ingredientSearchBar.text {
-            if let chosenIngredient = self.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
-                self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
-            }
-            else {
-                self.alertIngredientNotAvailable()
-            }
-        }
-    }
-    
-    func addAndDisplayNewIngredient(ingredient: Ingredient) {
-        userPantry.addIngredient(ingredient: ingredient)
-        self.reload()
-        self.ingredientSearchBar.text = ""
-    }
-    
-    func alertIngredientNotAvailable() {
-        let alert = UIAlertController(title: "Erreur", message: "Cet ingrédient n'est pas disponible", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.userPantry.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "IngredientTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
-        }
-
-        let ingredient = self.userPantry.getIngredient(index: indexPath.row)
-        cell.ingredient = ingredient
-        cell.viewController = self
-        cell.ingredientName.text = ingredient.getName()
-        cell.ingredientPicture.image = self.getPictureFromString(picture: ingredient.getPictureString())
-        return cell
-    }
-    
-    func removeIngredient(ingredient: Ingredient) {
-        let potentialIndexIngredient = self.userPantry.getIndex(ingredient: ingredient)
-        if let indexIngredient = potentialIndexIngredient {
-            self.userPantry.removeIngredient(ingredient: ingredient)
-            let indexPath = IndexPath(item: indexIngredient, section: 0)
-            pantryTableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
     func sendPantry() {
         let myPost = userPantry.toPost()
         var request = self.serverConfig.getRequest(path: "/api/pantry/", method: "POST")
@@ -174,20 +227,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         task.resume()
-    }
-    
-    private func reload(){
-        self.pantryTableView.reloadData()
-        self.scrollToBottom()
-    }
-    
-    func scrollToBottom(){
-        DispatchQueue.main.async {
-            if self.userPantry.count > 0 {
-                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
-                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-            }
-        }
     }
     
     public func getRecipes() {
