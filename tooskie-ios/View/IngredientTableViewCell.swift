@@ -19,25 +19,4 @@ class IngredientTableViewCell: UITableViewCell {
             self.viewController!.removeIngredient(ingredient: self.ingredient!)
         }
     }
-    
-    func setIngredient(ingredient: Ingredient, viewController: PantryFillViewController) {
-        self.ingredient = ingredient
-        self.viewController = viewController
-        self.ingredientName.text = ingredient.getName()
-        if let pictureString = ingredient.getPictureString() {
-            let url = URL(string: pictureString)
-            if url != nil {
-                let data = try? Data(contentsOf: url!)
-                if let data = data {
-                    self.ingredientPicture.image = UIImage(data: data)
-                }
-                else {
-                    self.ingredientPicture.image = UIImage(named: "NoNetwork")
-                }
-            }
-            else {
-                self.ingredientPicture.image = UIImage(named: "NoNetwork")
-            }
-        }
-    }
 }

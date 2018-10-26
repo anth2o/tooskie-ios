@@ -13,6 +13,7 @@
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
+		718366F1218314F1002E4277 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718366F0218314F1002E4277 /* UIViewController.swift */; };
 		7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C49E21637B7F000886B0 /* ServerConfig.swift */; };
 		7184C4A12163B840000886B0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C4A02163B840000886B0 /* Utils.swift */; };
 		718F670C215B481000F59A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670B215B481000F59A5C /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		718366F0218314F1002E4277 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		7184C49E21637B7F000886B0 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		7184C4A02163B840000886B0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		718F6708215B481000F59A5C /* tooskie-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tooskie-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				718F670D215B481000F59A5C /* PantryFillViewController.swift */,
+				718366F0218314F1002E4277 /* UIViewController.swift */,
 				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D44F2521726CA2009EE89F /* RecipeResumeViewController.swift */,
 				71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */,
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718366F1218314F1002E4277 /* UIViewController.swift in Sources */,
 				7136B1302172394800712CC0 /* Step.swift in Sources */,
 				71D44F2621726CA2009EE89F /* RecipeResumeViewController.swift in Sources */,
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,
@@ -293,7 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -348,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -362,14 +366,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YNGC395ZP7;
 				INFOPLIST_FILE = "tooskie-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antoine.tooskie-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -379,14 +387,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YNGC395ZP7;
 				INFOPLIST_FILE = "tooskie-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "antoine.tooskie-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -135,7 +135,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
 
         let ingredient = self.userPantry.getIngredient(index: indexPath.row)
-        cell.setIngredient(ingredient: ingredient, viewController: self)
+        cell.ingredient = ingredient
+        cell.viewController = self
+        cell.ingredientName.text = ingredient.getName()
+        cell.ingredientPicture.image = self.getPictureFromString(picture: ingredient.getPictureString())
         return cell
     }
     

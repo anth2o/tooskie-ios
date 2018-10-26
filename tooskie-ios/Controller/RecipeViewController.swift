@@ -60,21 +60,7 @@ class RecipeViewController: UIViewController {
     private func configure() {
         if let recipe = self.recipe {
             self.recipeName.text = recipe.name
-            if let pictureString = recipe.picture {
-                let url = URL(string: pictureString)
-                if url != nil {
-                    let data = try? Data(contentsOf: url!)
-                    if let data = data {
-                        self.recipePicture.image = UIImage(data: data)
-                    }
-                    else {
-                        self.recipePicture.image = UIImage(named: "NoNetwork")
-                    }
-                }
-                else {
-                    self.recipePicture.image = UIImage(named: "NoNetwork")
-                }
-            }
+            self.recipePicture.image = self.getPictureFromString(picture: recipe.picture)
             self.updateStepDisplay()
         }
     }
