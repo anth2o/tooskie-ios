@@ -6,7 +6,6 @@
 //  Copyright © 2018 Antoine Hoorelbeke. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension UIViewController {
