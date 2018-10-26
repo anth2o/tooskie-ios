@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-gn-XRX">
-                                <rect key="frame" x="0.0" y="533" width="275" height="56"/>
+                                <rect key="frame" x="0.0" y="533" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T'as quoi au frigo ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-SY-xBl">
@@ -37,16 +37,6 @@
                                 <state key="normal" title="C'est parti !"/>
                                 <connections>
                                     <action selector="launchRecipes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jF2-Mp-PmD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leQ-gR-Cmz">
-                                <rect key="frame" x="275" y="533" width="100" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="5La-hL-OY6"/>
-                                </constraints>
-                                <state key="normal" title="Ajouter"/>
-                                <connections>
-                                    <action selector="ingredientSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ajx-lx-Bpb"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6P-TN-UQH">
@@ -111,17 +101,14 @@
                             <constraint firstItem="AVr-Rc-0FL" firstAttribute="top" secondItem="YQn-gn-XRX" secondAttribute="bottom" constant="20" id="62R-3q-oLm"/>
                             <constraint firstItem="K6P-TN-UQH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="88y-0n-QP6"/>
                             <constraint firstItem="NzP-SY-xBl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Itc-rw-Kd9"/>
-                            <constraint firstItem="leQ-gR-Cmz" firstAttribute="top" secondItem="YQn-gn-XRX" secondAttribute="top" id="SdA-jC-7g4"/>
                             <constraint firstItem="AVr-Rc-0FL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dYH-ie-bJc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K6P-TN-UQH" secondAttribute="trailing" constant="40" id="eeH-2H-Y7N"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AVr-Rc-0FL" secondAttribute="bottom" constant="20" id="gQs-nW-c2g"/>
                             <constraint firstItem="YQn-gn-XRX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gcj-8I-c0g"/>
                             <constraint firstItem="YQn-gn-XRX" firstAttribute="top" secondItem="K6P-TN-UQH" secondAttribute="bottom" constant="30" id="ghj-Pi-a4E"/>
-                            <constraint firstItem="leQ-gR-Cmz" firstAttribute="bottom" secondItem="YQn-gn-XRX" secondAttribute="bottom" id="hni-BS-gc6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="leQ-gR-Cmz" secondAttribute="trailing" id="imy-NS-em1"/>
                             <constraint firstItem="NzP-SY-xBl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sAK-FI-A8M"/>
-                            <constraint firstItem="leQ-gR-Cmz" firstAttribute="leading" secondItem="YQn-gn-XRX" secondAttribute="trailing" id="tqG-oC-Ov8"/>
                             <constraint firstItem="K6P-TN-UQH" firstAttribute="top" secondItem="NzP-SY-xBl" secondAttribute="bottom" constant="20" id="wc8-ds-Kx4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YQn-gn-XRX" secondAttribute="trailing" id="wg4-cs-oDS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>

@@ -42,9 +42,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
         destVC.recipes = self.recipes
      }
-    
-    @IBAction func ingredientSearch(_ sender: Any) {
-        print("Add")
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Search and add ingredient")
         self.addIngredient()
     }
     
