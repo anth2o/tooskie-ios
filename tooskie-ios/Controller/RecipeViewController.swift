@@ -18,7 +18,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var stepNumber: UILabel!
-    @IBOutlet weak var stepDescription: UILabel!
+    @IBOutlet weak var stepDescription: UITextView!
     @IBAction func previousStep(_ sender: Any) {
         if self.stepIndex > 1 {
             self.stepIndex -= 1
