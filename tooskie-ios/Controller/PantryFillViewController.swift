@@ -80,14 +80,17 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         let changeInHeight = (keyboardFrame.height - self.launchRecipesButton.frame.height - self.searchBarConstraint.constant) * (show ? 1 : -1)
-//        self.scrollToBottom()
         self.pantryTableView.isUserInteractionEnabled = !show
         self.launchRecipesButton.isHidden = show
         self.bottomConstraint.constant += changeInHeight
         UIView.animate(withDuration: animationDurarion) {
             self.view.layoutIfNeeded()
+            if self.userPantry.count > 0 {
+                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
+                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
+            self.pantryTableView.layoutIfNeeded()
         }
-        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
