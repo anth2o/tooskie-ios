@@ -24,6 +24,9 @@ class RecipeViewController: UIViewController {
             self.stepIndex -= 1
             self.updateStepDisplay()
         }
+        else {
+            performSegue(withIdentifier: "BackToResume", sender: self)
+        }
     }
     
     @IBAction func nextStep(_ sender: Any) {
@@ -35,10 +38,6 @@ class RecipeViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    @IBAction func backToResume(_ sender: Any) {
-        performSegue(withIdentifier: "BackToResume", sender: self)
     }
     
     @IBOutlet weak var progressStep: UIProgressView!
