@@ -73,9 +73,4 @@ class SingleRecipe: UIView {
             self.budgetLevel.text = budgetLevel
         }
     }
-    
-    private func setBorder() {
-        self.layer.cornerRadius = 8.0
-        self.clipsToBounds = true
-    }
 }

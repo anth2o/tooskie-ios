@@ -18,9 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-gn-XRX">
+                            <searchBar clearsContextBeforeDrawing="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-gn-XRX">
                                 <rect key="frame" x="0.0" y="533" width="375" height="56"/>
+                                <color key="backgroundColor" red="0.95977503060000002" green="0.95239013429999997" blue="0.93872982260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.95977503060000002" green="0.95239013429999997" blue="0.93872982260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T'as quoi au frigo ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-SY-xBl">
                                 <rect key="frame" x="102" y="30" width="171" height="26"/>
@@ -30,6 +36,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVr-Rc-0FL">
                                 <rect key="frame" x="135.5" y="609" width="104" height="38"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AVr-Rc-0FL" secondAttribute="height" multiplier="52:19" id="5tH-AT-qtO"/>
                                 </constraints>
@@ -47,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="28" width="295" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="85w-SF-hUl" id="dsV-Tr-gIc">
-                                            <rect key="frame" x="0.0" y="0.0" width="295" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="295" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-Od-tm3">
@@ -63,24 +70,24 @@
                                                         <constraint firstAttribute="width" constant="40" id="w2n-7Q-wi3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNB-cT-MsO">
-                                                    <rect key="frame" x="255" y="17.5" width="25" height="25"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB0-5a-LOw">
+                                                    <rect key="frame" x="255" y="18.5" width="25" height="22.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="QUj-2n-cA4"/>
-                                                        <constraint firstAttribute="width" constant="25" id="Wfw-A3-epB"/>
+                                                        <constraint firstAttribute="width" secondItem="nB0-5a-LOw" secondAttribute="height" multiplier="641:585" id="d3O-9o-D5e"/>
+                                                        <constraint firstAttribute="width" constant="25" id="zTM-zi-Sbi"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="MinusButton"/>
                                                     <connections>
-                                                        <action selector="discardIngredient:" destination="85w-SF-hUl" eventType="touchUpInside" id="02f-4t-BOB"/>
+                                                        <action selector="discardIngredient:" destination="85w-SF-hUl" eventType="touchUpInside" id="DCj-W1-7tw"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="rD7-Od-tm3" firstAttribute="centerX" secondItem="dsV-Tr-gIc" secondAttribute="centerX" id="539-Jz-gwL"/>
                                                 <constraint firstItem="rD7-Od-tm3" firstAttribute="centerY" secondItem="dsV-Tr-gIc" secondAttribute="centerY" id="5XE-Rs-NFZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="QNB-cT-MsO" secondAttribute="trailing" constant="15" id="9D3-hy-EmA"/>
-                                                <constraint firstItem="QNB-cT-MsO" firstAttribute="centerY" secondItem="dsV-Tr-gIc" secondAttribute="centerY" id="Lbv-4E-u7m"/>
+                                                <constraint firstAttribute="trailing" secondItem="nB0-5a-LOw" secondAttribute="trailing" constant="15" id="WCN-7p-hzL"/>
                                                 <constraint firstItem="Zfb-Yd-pfH" firstAttribute="centerY" secondItem="dsV-Tr-gIc" secondAttribute="centerY" id="pBg-qC-RFq"/>
+                                                <constraint firstItem="nB0-5a-LOw" firstAttribute="centerY" secondItem="dsV-Tr-gIc" secondAttribute="centerY" id="pnJ-GP-yV0"/>
                                                 <constraint firstItem="Zfb-Yd-pfH" firstAttribute="leading" secondItem="dsV-Tr-gIc" secondAttribute="leading" constant="15" id="sCo-qr-1Uu"/>
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
@@ -119,7 +126,9 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="gQs-nW-c2g" id="1uJ-4A-WHk"/>
                         <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="W0y-zL-cLr"/>
+                        <outlet property="launchRecipesButton" destination="AVr-Rc-0FL" id="Sp3-Fz-K7G"/>
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
+                        <outlet property="searchBarConstraint" destination="62R-3q-oLm" id="dCC-Th-5E8"/>
                         <segue destination="VFG-tp-c9v" kind="presentation" identifier="RecipeSuggestion" id="Uqw-eL-WEw"/>
                     </connections>
                 </viewController>
@@ -143,7 +152,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1320.289855072464" y="-544.56521739130437"/>
+            <point key="canvasLocation" x="-1320.8" y="-545.57721139430294"/>
         </scene>
         <!--Recipe Suggestion View Controller-->
         <scene sceneID="DEz-K5-DuA">
@@ -622,12 +631,12 @@
         <image name="Cart" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Cooking" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Difficulty" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="MinusButton" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="MinusButton" width="587" height="585"/>
         <image name="Preparation" width="512" height="512"/>
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="V3u-QB-b9T"/>
-        <segue reference="8M6-7A-Dd2"/>
+        <segue reference="Uqw-eL-WEw"/>
     </inferredMetricsTieBreakers>
 </document>

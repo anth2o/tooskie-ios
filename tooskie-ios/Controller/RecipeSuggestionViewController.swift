@@ -80,16 +80,13 @@ class RecipeSuggestionViewController: UIViewController {
             if self.index < self.recipes.count {
                 performSegue(withIdentifier: "LaunchRecipe", sender: self)
             }
-            else {
-                // TODO : create "shopping" page
-            }
         case .declined:
             index += 1
             if self.index < self.recipes.count {
                 self.recipeView!.setRecipe(recipe: self.recipes[index])
             }
             else {
-                self.recipeView.setRecipe(recipe: Recipe(name: "No more recipe available"))
+                performSegue(withIdentifier: "GoShopping", sender: self)
             }
         case .waiting:
             break

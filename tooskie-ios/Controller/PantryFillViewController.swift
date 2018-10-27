@@ -20,6 +20,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBarConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchRecipesButton: UIButton!
     
 //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
@@ -50,6 +52,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         pantryTableView.dataSource = self
         self.pantryTableView.rowHeight = 60.0
         ingredientSearchBar.delegate = self
+        ingredientSearchBar.backgroundImage = UIImage()
+        launchRecipesButton.setBorder()
         print("View did load")
     }
     
@@ -72,7 +76,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         var userInfo = notification.userInfo!
         let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-        let changeInHeight = keyboardFrame.height * (show ? 1 : -1)
+        let changeInHeight = (keyboardFrame.height - self.launchRecipesButton.frame.height - self.searchBarConstraint.constant) * (show ? 1 : -1)
+//        self.scrollToBottom()
+        self.launchRecipesButton.isHidden = show
         self.bottomConstraint.constant += changeInHeight
         UIView.animate(withDuration: animationDurarion) {
             self.view.layoutIfNeeded()
@@ -93,7 +99,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                 self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
             }
             else {
-                self.alertIngredientNotAvailable()
+//                self.alertIngredientNotAvailable()
             }
         }
     }

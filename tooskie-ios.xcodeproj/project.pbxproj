@@ -13,6 +13,7 @@
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
+		716BAFF921838774001119DD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716BAFF821838774001119DD /* UIView.swift */; };
 		718062BA218352E800248657 /* ShoppingProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718062B9218352E800248657 /* ShoppingProposalViewController.swift */; };
 		718366F1218314F1002E4277 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718366F0218314F1002E4277 /* UIViewController.swift */; };
 		7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C49E21637B7F000886B0 /* ServerConfig.swift */; };
@@ -35,6 +36,7 @@
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		716BAFF821838774001119DD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		718062B9218352E800248657 /* ShoppingProposalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingProposalViewController.swift; sourceTree = "<group>"; };
 		718366F0218314F1002E4277 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		7184C49E21637B7F000886B0 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
 				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
+				716BAFF821838774001119DD /* UIView.swift */,
 				718F670F215B481000F59A5C /* Main.storyboard */,
 			);
 			path = View;
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716BAFF921838774001119DD /* UIView.swift in Sources */,
 				718366F1218314F1002E4277 /* UIViewController.swift in Sources */,
 				718062BA218352E800248657 /* ShoppingProposalViewController.swift in Sources */,
 				7136B1302172394800712CC0 /* Step.swift in Sources */,
