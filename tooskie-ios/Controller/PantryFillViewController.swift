@@ -78,6 +78,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         let changeInHeight = (keyboardFrame.height - self.launchRecipesButton.frame.height - self.searchBarConstraint.constant) * (show ? 1 : -1)
 //        self.scrollToBottom()
+        self.pantryTableView.isUserInteractionEnabled = !show
         self.launchRecipesButton.isHidden = show
         self.bottomConstraint.constant += changeInHeight
         UIView.animate(withDuration: animationDurarion) {
@@ -142,7 +143,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         cell.ingredient = ingredient
         cell.viewController = self
         cell.ingredientName.text = ingredient.getName()
-        cell.ingredientPicture.image = self.getPictureFromString(picture: ingredient.getPictureString())
+        if let pictureData = ingredient.getPictureData() {
+            cell.ingredientPicture.image = UIImage(data: pictureData)
+        }
+        else {
+            cell.ingredientPicture.image = UIImage(named: "NoNetwork")
+        }
         return cell
     }
     
@@ -165,7 +171,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     func loadPantry() {
         let request = self.serverConfig.getRequest(path: "/api/ingredient/", method: "GET")
         let session = self.serverConfig.getSession()
-        let task = session.dataTask(with: request) { (data, response, responseError) in
+         let task = session.dataTask(with: request) { (data, response, responseError) in
             DispatchQueue.main.async {
                 if let response = response {
                     print(response)

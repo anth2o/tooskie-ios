@@ -19,6 +19,7 @@ class Ingredient: Codable {
     private var unitPlural: String?
     private var quantity: Float?
     private var picture: String?
+    public var pictureData: Data?
     public var permaname: String? {
         if let slug = self.name.convertedToSlug(){
             return slug
@@ -83,6 +84,22 @@ class Ingredient: Codable {
         }
         description += name.lowercased()
         return description
+    }
+    
+    public func getPictureData() -> Data?{
+        if self.pictureData != nil {
+            return self.pictureData
+        }
+        if let picture = self.picture {
+            if let url = URL(string: picture) {
+                let data = try? Data(contentsOf: url)
+                if let data = data {
+                    self.pictureData = data
+                    return data
+                }
+            }
+        }
+        return nil
     }
 }
 
