@@ -37,7 +37,7 @@ class RecipeSuggestionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != nil && segue.identifier == "LaunchRecipe" {
-            let destVC : RecipeResumeViewController = segue.destination as! RecipeResumeViewController
+            let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
             destVC.recipe = self.recipes[index]
             destVC.recipes = self.recipes
         }

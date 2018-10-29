@@ -25,7 +25,7 @@ class RecipeViewController: UIViewController {
             self.updateStepDisplay()
         }
         else {
-            performSegue(withIdentifier: "BackToResume", sender: self)
+            performSegue(withIdentifier: "BackToIntro", sender: self)
         }
     }
     
@@ -48,8 +48,8 @@ class RecipeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != nil && segue.identifier == "BackToResume" {
-            let destVC : RecipeResumeViewController = segue.destination as! RecipeResumeViewController
+        if segue.identifier != nil && segue.identifier == "BackToIntro" {
+            let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
             destVC.recipes = self.recipes

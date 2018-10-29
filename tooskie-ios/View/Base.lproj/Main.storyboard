@@ -342,10 +342,10 @@
             </objects>
             <point key="canvasLocation" x="-502" y="-545"/>
         </scene>
-        <!--Recipe Resume View Controller-->
+        <!--Recipe Intro View Controller-->
         <scene sceneID="TBU-Ch-4E9">
             <objects>
-                <viewController id="8Zs-aM-MBJ" customClass="RecipeResumeViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8Zs-aM-MBJ" customClass="RecipeIntroViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kuZ-ih-X9b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -619,7 +619,7 @@
                         <outlet property="recipePicture" destination="ZOP-06-Gf5" id="gHr-BE-TdU"/>
                         <outlet property="stepDescription" destination="xJi-cT-GxX" id="P4F-0h-LGD"/>
                         <outlet property="stepNumber" destination="fCh-vq-be6" id="zYn-NL-LCg"/>
-                        <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="BackToResume" id="Vlw-og-T2E"/>
+                        <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="BackToIntro" id="Vlw-og-T2E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1V8-34-NLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,7 +638,7 @@
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V3u-QB-b9T"/>
+        <segue reference="Vlw-og-T2E"/>
         <segue reference="8M6-7A-Dd2"/>
         <segue reference="oa7-CM-PcB"/>
     </inferredMetricsTieBreakers>

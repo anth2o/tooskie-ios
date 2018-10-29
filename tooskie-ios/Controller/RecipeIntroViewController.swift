@@ -1,5 +1,5 @@
 //
-//  RecipeResumeViewController.swift
+//  RecipeIntroViewController.swift
 //  tooskie-ios
 //
 //  Created by Antoine Hoorelbeke on 13/10/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeResumeViewController: UIViewController {
+class RecipeIntroViewController: UIViewController {
     
     var recipe: Recipe?
     var numberOfPerson = 1
