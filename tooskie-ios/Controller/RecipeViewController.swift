@@ -14,11 +14,20 @@ class RecipeViewController: UIViewController {
     var numberOfPerson = 1
     var stepIndex = 1
     var recipes = [Recipe]()
+    var infoString = ""
+    var ingredientsString = ""
 
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
+    @IBOutlet weak var recipeNameHelp: UILabel!
+    @IBOutlet weak var recipePictureHelp: UIImageView!
+    @IBOutlet weak var resumeOption: UISegmentedControl!
+    @IBOutlet weak var resumeText: UITextView!
     @IBOutlet weak var stepNumber: UILabel!
     @IBOutlet weak var stepDescription: UITextView!
+    @IBOutlet weak var progressStep: UIProgressView!
+    @IBOutlet weak var helpView: UIView!
+    
     @IBAction func previousStep(_ sender: Any) {
         if self.stepIndex > 1 {
             self.stepIndex -= 1
@@ -40,11 +49,33 @@ class RecipeViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var progressStep: UIProgressView!
+    @IBAction func displayHelp(_ sender: Any) {
+        self.helpView.isHidden = false
+        self.view.backgroundColor = UIColor.darkGray
+    }
+    
+    @IBAction func hideHelp(_ sender: Any) {
+        self.helpView.isHidden = true
+        self.view.backgroundColor = UIColor.white
+    }
+    
+    @IBAction func choseResumeOption(_ sender: Any) {
+        switch resumeOption.selectedSegmentIndex
+        {
+        case 0:
+            resumeText.text = self.infoString;
+        case 1:
+            resumeText.text = self.ingredientsString;
+        default:
+            break
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
+        self.helpView.setBorder()
+        self.helpView.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,7 +91,31 @@ class RecipeViewController: UIViewController {
         if let recipe = self.recipe {
             self.recipeName.text = recipe.name
             self.recipePicture.image = self.getPictureFromString(picture: recipe.picture)
+            self.recipeNameHelp.text = recipe.name
+            self.recipePictureHelp.image = self.getPictureFromString(picture: recipe.picture)
+            self.setIngredientsString()
+            self.setInfoString()
+            self.resumeText.text = self.infoString
             self.updateStepDisplay()
+        }
+    }
+    
+    private func setIngredientsString() {
+        if let recipe = self.recipe {
+            if let ingredients = recipe.ingredients {
+                self.ingredientsString = ""
+                for i in 0..<ingredients.count {
+                    let ingredient = ingredients[i]
+                    let text = ingredient.getDescription(peopleNumber: self.numberOfPerson)
+                    self.ingredientsString += text + "\n"
+                }
+            }
+        }
+    }
+    
+    private func setInfoString() {
+        if let recipe = self.recipe {
+            self.infoString = recipe.name
         }
     }
     
