@@ -115,7 +115,21 @@ class RecipeViewController: UIViewController {
     
     private func setInfoString() {
         if let recipe = self.recipe {
-            self.infoString = recipe.name
+            if let preparationTime = recipe.preparationTime {
+                self.infoString += "Temps de préparation: " + String(preparationTime) + " min\n"
+            }
+            if let cookingTime = recipe.cookingTime {
+                self.infoString += "Temps de cuisson: " + String(cookingTime) + " min\n"
+            }
+            if let budgetLevel = recipe.budgetLevel {
+                self.infoString += "Budget: " + budgetLevel + "\n"
+            }
+            if let difficultyLevel = recipe.difficultyLevel {
+                self.infoString += "Difficulté: " + difficultyLevel + "\n"
+            }
+            if let numberOfSteps = recipe.numberOfSteps {
+                self.infoString += "Nombre d'étapes: " + String(numberOfSteps) + "\n"
+            }
         }
     }
     

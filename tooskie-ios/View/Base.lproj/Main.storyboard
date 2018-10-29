@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="28" width="295" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="85w-SF-hUl" id="dsV-Tr-gIc">
-                                            <rect key="frame" x="0.0" y="0.0" width="295" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="295" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-Od-tm3">
@@ -625,10 +625,10 @@
                                             <action selector="choseResumeOption:" destination="YAH-LX-tAp" eventType="valueChanged" id="yv5-Z8-NAW"/>
                                         </connections>
                                     </segmentedControl>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f7v-EJ-3qC">
-                                        <rect key="frame" x="30" y="356" width="235" height="181"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7v-EJ-3qC">
+                                        <rect key="frame" x="25" y="356" width="245" height="181"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore mag \n</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -643,11 +643,11 @@
                                     <constraint firstItem="IS2-0L-A4B" firstAttribute="top" secondItem="Uo5-Nu-1if" secondAttribute="bottom" constant="20" id="FAI-lQ-p6o"/>
                                     <constraint firstAttribute="trailing" secondItem="TF8-Oc-4Mq" secondAttribute="trailing" constant="20" id="LPc-xU-OcF"/>
                                     <constraint firstItem="qUg-74-kxO" firstAttribute="top" secondItem="OJZ-uq-aiK" secondAttribute="top" constant="70" id="MAM-bw-wNB"/>
-                                    <constraint firstAttribute="trailing" secondItem="f7v-EJ-3qC" secondAttribute="trailing" constant="30" id="PSB-5Z-qxK"/>
+                                    <constraint firstAttribute="trailing" secondItem="f7v-EJ-3qC" secondAttribute="trailing" constant="25" id="PSB-5Z-qxK"/>
                                     <constraint firstItem="IS2-0L-A4B" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="Vgu-ze-viG"/>
                                     <constraint firstItem="qUg-74-kxO" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="acS-mf-wz9"/>
                                     <constraint firstItem="TF8-Oc-4Mq" firstAttribute="top" secondItem="OJZ-uq-aiK" secondAttribute="top" constant="20" id="hQO-8x-DMU"/>
-                                    <constraint firstItem="f7v-EJ-3qC" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="30" id="tne-OD-KmV"/>
+                                    <constraint firstItem="f7v-EJ-3qC" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="25" id="tne-OD-KmV"/>
                                     <constraint firstItem="qUg-74-kxO" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="10" id="zBy-wB-rk4"/>
                                 </constraints>
                             </view>
