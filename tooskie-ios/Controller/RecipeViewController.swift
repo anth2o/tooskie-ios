@@ -31,6 +31,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var stepNumber: UILabel!
     @IBOutlet weak var stepDescription: UITextView!
     @IBOutlet weak var progressStep: UIProgressView!
+    @IBOutlet weak var stepView: UIView!
     @IBOutlet weak var helpView: UIView!
     
     @IBAction func previousStep(_ sender: Any) {
@@ -43,12 +44,12 @@ class RecipeViewController: UIViewController {
     
     @IBAction func displayHelp(_ sender: Any) {
         self.helpView.isHidden = false
-        self.view.backgroundColor = UIColor.darkGray
+        self.stepView.backgroundColor = UIColor.darkGray
     }
     
     @IBAction func hideHelp(_ sender: Any) {
         self.helpView.isHidden = true
-        self.view.backgroundColor = UIColor.white
+        self.stepView.backgroundColor = UIColor.white
     }
     
     @IBAction func choseResumeOption(_ sender: Any) {
@@ -68,8 +69,9 @@ class RecipeViewController: UIViewController {
         self.configure()
         self.helpView.setBorder()
         self.helpView.isHidden = true
+        self.stepView.backgroundColor = UIColor.white
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
-        self.view.addGestureRecognizer(panGestureRecognizer)
+        self.stepView.addGestureRecognizer(panGestureRecognizer)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
