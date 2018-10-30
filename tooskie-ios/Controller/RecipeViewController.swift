@@ -16,6 +16,11 @@ class RecipeViewController: UIViewController {
     var recipes = [Recipe]()
     var infoString = ""
     var ingredientsString = ""
+    
+    enum Status {
+        case back, forward, waiting
+    }
+    var status: Status = .waiting
 
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -29,24 +34,11 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var helpView: UIView!
     
     @IBAction func previousStep(_ sender: Any) {
-        if self.stepIndex > 1 {
-            self.stepIndex -= 1
-            self.updateStepDisplay()
-        }
-        else {
-            performSegue(withIdentifier: "BackToIntro", sender: self)
-        }
+        self.stepBack()
     }
     
     @IBAction func nextStep(_ sender: Any) {
-        if let recipe = self.recipe {
-            if let steps = recipe.steps {
-                if self.stepIndex < steps.count {
-                    self.stepIndex += 1
-                    self.updateStepDisplay()
-                }
-            }
-        }
+        self.stepForward()
     }
     
     @IBAction func displayHelp(_ sender: Any) {
@@ -76,6 +68,8 @@ class RecipeViewController: UIViewController {
         self.configure()
         self.helpView.setBorder()
         self.helpView.isHidden = true
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        self.view.addGestureRecognizer(panGestureRecognizer)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,6 +91,66 @@ class RecipeViewController: UIViewController {
             self.setInfoString()
             self.resumeText.text = self.infoString
             self.updateStepDisplay()
+        }
+    }
+    
+    private func stepBack() {
+        if self.stepIndex > 1 {
+            self.stepIndex -= 1
+            self.updateStepDisplay()
+        }
+        else {
+            performSegue(withIdentifier: "BackToIntro", sender: self)
+        }
+    }
+    
+    private func stepForward () {
+        if let recipe = self.recipe {
+            if let steps = recipe.steps {
+                if self.stepIndex < steps.count {
+                    self.stepIndex += 1
+                    self.updateStepDisplay()
+                }
+            }
+        }
+    }
+    
+    @objc
+    private func handleSwipe(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed:
+            getTranslationData(gesture: sender)
+        case .ended, .cancelled:
+            processStep()
+        default:
+            break
+        }
+    }
+    
+    private func getTranslationData(gesture: UIPanGestureRecognizer) {
+        print("Transform")
+        let translation = gesture.translation(in: self.view)
+        let translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
+        if abs(translationPercent) > 0.25 {
+            if translation.x > 0 {
+                self.status = .forward
+            } else {
+                self.status = .back
+            }
+        }
+        else {
+            self.status = .waiting
+        }
+    }
+    
+    private func processStep() {
+        switch self.status {
+        case .forward:
+            stepForward()
+        case .back:
+            stepBack()
+        case .waiting:
+            break
         }
     }
     
