@@ -58,7 +58,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-Od-tm3">
-                                                    <rect key="frame" x="98" y="19" width="44" height="22"/>
+                                                    <rect key="frame" x="145" y="19" width="44" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB0-5a-LOw">
-                                                    <rect key="frame" x="200" y="18.333333333333332" width="25" height="22.999999999999996"/>
+                                                    <rect key="frame" x="294" y="18.333333333333332" width="25" height="22.999999999999996"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="nB0-5a-LOw" secondAttribute="height" multiplier="641:585" id="d3O-9o-D5e"/>
                                                         <constraint firstAttribute="width" constant="25" id="zTM-zi-Sbi"/>
@@ -540,7 +540,7 @@
                                         <rect key="frame" x="40" y="346" width="334" height="392"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCh-vq-be6">
@@ -598,7 +598,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="a7t-Th-Iw7" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="05O-8R-4eT"/>
                                     <constraint firstAttribute="trailing" secondItem="xJi-cT-GxX" secondAttribute="trailing" constant="40" id="92F-Jy-LTk"/>
@@ -621,7 +621,7 @@
                                     <constraint firstItem="fCh-vq-be6" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="zeo-ET-YRl"/>
                                 </constraints>
                             </view>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
+                            <view hidden="YES" clearsContextBeforeDrawing="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
                                 <rect key="frame" x="30" y="74" width="354" height="738"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TF8-Oc-4Mq">
@@ -729,7 +729,7 @@
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V3u-QB-b9T"/>
+        <segue reference="Vlw-og-T2E"/>
         <segue reference="Uqw-eL-WEw"/>
         <segue reference="oa7-CM-PcB"/>
     </inferredMetricsTieBreakers>

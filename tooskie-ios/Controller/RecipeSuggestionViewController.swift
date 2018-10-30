@@ -67,7 +67,8 @@ class RecipeSuggestionViewController: UIViewController {
         
         let transform = translationTransform.concatenating(rotationTransform)
         recipeView.transform = transform
-        if abs(translationPercent) > 0.15 {
+        print(translationPercent)
+        if abs(translationPercent) > 0.65 {
             if translation.x > 0 {
                 recipeView.status = .accepted
             } else {

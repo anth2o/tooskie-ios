@@ -35,7 +35,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var helpView: UIView!
     
     @IBAction func previousStep(_ sender: Any) {
-        self.stepBack()
+        self.stepBack(swipe: false)
     }
     
     @IBAction func nextStep(_ sender: Any) {
@@ -96,13 +96,15 @@ class RecipeViewController: UIViewController {
         }
     }
     
-    private func stepBack() {
+    private func stepBack(swipe: Bool) {
         if self.stepIndex > 1 {
             self.stepIndex -= 1
             self.updateStepDisplay()
         }
         else {
-            performSegue(withIdentifier: "BackToIntro", sender: self)
+            if !swipe {
+                performSegue(withIdentifier: "BackToIntro", sender: self)
+            }
         }
     }
     
@@ -133,8 +135,8 @@ class RecipeViewController: UIViewController {
         print("Transform")
         let translation = gesture.translation(in: self.view)
         let translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
-        if abs(translationPercent) > 0.25 {
-            if translation.x > 0 {
+        if abs(translationPercent) > 0.25 && abs(translation.x) > 2 * abs(translation.y){
+            if translation.x < 0 {
                 self.status = .forward
             } else {
                 self.status = .back
@@ -150,7 +152,7 @@ class RecipeViewController: UIViewController {
         case .forward:
             stepForward()
         case .back:
-            stepBack()
+            stepBack(swipe: true)
         case .waiting:
             break
         }
