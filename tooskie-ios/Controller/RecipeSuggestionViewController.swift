@@ -62,16 +62,23 @@ class RecipeSuggestionViewController: UIViewController {
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
         
         let translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
-        let rotationAngle = (CGFloat.pi / 3) * translationPercent
+        let rotationAngle = (CGFloat.pi / 6) * translationPercent
         let rotationTransform = CGAffineTransform(rotationAngle: rotationAngle)
         
         let transform = translationTransform.concatenating(rotationTransform)
         recipeView.transform = transform
-        if translation.x > 0 {
-            recipeView.status = .accepted
-        } else {
-            recipeView.status = .declined
+        if abs(translationPercent) > 0.15 {
+            if translation.x > 0 {
+                recipeView.status = .accepted
+            } else {
+                recipeView.status = .declined
+            }
         }
+        else {
+            recipeView.status = .waiting
+        }
+        print(translation.x)
+        print(translationPercent)
     }
     
     private func processRecipe() {
