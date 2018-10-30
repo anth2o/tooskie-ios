@@ -15,6 +15,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             performSegue(withIdentifier: "RecipeSuggestion", sender: self)
         }
     }
+    private var keyboardIsVisible = false
 
 //    Outlets
     @IBOutlet weak var pantryTableView: UITableView!
@@ -56,7 +57,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.pantryTableView.rowHeight = 60.0
         ingredientSearchBar.delegate = self
         ingredientSearchBar.backgroundImage = UIImage()
-        launchRecipesButton.setBorder()
         print("View did load")
     }
     
@@ -68,14 +68,19 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @objc
     func keyboardWillShow(notification:NSNotification) {
         adjustingHeight(show: true, notification: notification)
+        self.keyboardIsVisible = true
     }
     
     @objc
     func keyboardWillHide(notification:NSNotification) {
         adjustingHeight(show: false, notification: notification)
+        self.keyboardIsVisible = false
     }
     
     func adjustingHeight(show:Bool, notification:NSNotification) {
+        if self.keyboardIsVisible == show {
+            return
+        }
         var userInfo = notification.userInfo!
         let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
@@ -106,7 +111,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                 self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
             }
             else {
-//                self.alertIngredientNotAvailable()
+                self.alertIngredientNotAvailable()
             }
         }
     }
