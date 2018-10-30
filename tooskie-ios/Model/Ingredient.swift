@@ -17,6 +17,8 @@ class Ingredient: Codable {
     private var complementPlural: String?
     private var unit: String?
     private var unitPlural: String?
+    private var linkingWord: String?
+    private var linkingWordPlural: String?
     private var quantity: Float?
     private var picture: String?
     public var pictureData: Data?
@@ -74,15 +76,44 @@ class Ingredient: Codable {
     public func getDescription(peopleNumber: Int?) -> String{
         let realQuantity = self.getQuantity(peopleNumber: peopleNumber)
         var description = "- "
+        var isPlural = false
         if let quantity = realQuantity {
-            description += String(quantity) + " "
-        }
-        if let unit = self.unit {
-            if unit != "None" {
-                description += unit.lowercased() + " de "
+            var quantityString = String(quantity)
+            if Float(Int(quantity)) == quantity {
+                quantityString = String(Int(quantity))
+            }
+            description += quantityString + " "
+            if quantity >= 2.0 {
+                isPlural = true
             }
         }
-        description += name.lowercased()
+        var trueUnit: String?
+        if isPlural {
+            if self.unitPlural != nil {
+                trueUnit = self.unitPlural!
+            }
+        }
+        else {
+            if self.unit != nil {
+                trueUnit = self.unit!
+            }
+        }
+        if let unit = trueUnit {
+            if unit != "None" && unit != "" {
+                if let linkingWord = self.linkingWord {
+                    description += unit.lowercased() + " " +  linkingWord
+                    if linkingWord.last! != "'" {
+                        description += " "
+                    }
+                }
+            }
+        }
+        if isPlural && self.namePlural != nil {
+            description += namePlural!.lowercased()
+        }
+        else{
+            description += name.lowercased()
+        }
         return description
     }
     

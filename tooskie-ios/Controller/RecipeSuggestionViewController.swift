@@ -77,8 +77,6 @@ class RecipeSuggestionViewController: UIViewController {
         else {
             recipeView.status = .waiting
         }
-        print(translation.x)
-        print(translationPercent)
     }
     
     private func processRecipe() {
