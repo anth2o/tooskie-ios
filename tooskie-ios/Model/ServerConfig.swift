@@ -10,10 +10,25 @@ import Foundation
 
 class ServerConfig {
     var scheme = "http"
-    var host = "ec2-52-47-163-208.eu-west-3.compute.amazonaws.com"
-    var port = 8000
-//    var host = "localhost"
-//    var port = 80
+
+    enum Config {
+        case local, dev
+    }
+    
+    var config: Config = .local
+    
+    var host = "localhost"
+    var port = 80
+    
+    init(){
+        switch self.config {
+        case .local:
+            break
+        case .dev:
+            host = "ec2-52-47-163-208.eu-west-3.compute.amazonaws.com"
+            port = 8000
+        }
+    }
     
     public func getUrlScheme() -> String {
         return self.scheme
