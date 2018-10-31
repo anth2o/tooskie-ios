@@ -45,6 +45,19 @@ class RecipeSuggestionViewController: UIViewController {
     
     @objc
     func dragRecipeView(_ sender: UIPanGestureRecognizer) {
+        let point = sender.location(in: self.view)
+        print(point.x)
+        let margin = CGFloat(5)
+        if abs(point.y - self.view.frame.minY) < margin || abs(point.y - self.view.frame.minY) < margin {
+            sender.state = .cancelled
+        }
+        if abs(point.x - self.view.frame.minX) < margin {
+            sender.state = .ended
+        }
+        if abs(point.x - self.view.frame.maxX) < margin {
+            sender.state = .ended
+        }
+        print(sender.state)
         switch sender.state {
         case .began, .changed:
             transformRecipeViewWith(gesture: sender)
@@ -67,9 +80,8 @@ class RecipeSuggestionViewController: UIViewController {
         
         let transform = translationTransform.concatenating(rotationTransform)
         recipeView.transform = transform
-        print(gesture.velocity(in: recipeView).x)
-        print(translation.x)
-        if abs(translationPercent) > 0.65 || (abs(gesture.velocity(in: recipeView).x) > 1000 && abs(translationPercent) > 0.35) {
+        let speed = gesture.velocity(in: self.recipeView)
+        if abs(translationPercent) > 0.65 || (abs(speed.x) > 1000 && abs(translationPercent) > 0.35) {
             if translation.x > 0 {
                 recipeView.status = .accepted
             } else {

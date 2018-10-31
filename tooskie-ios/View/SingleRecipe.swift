@@ -64,7 +64,7 @@ class SingleRecipe: UIView {
             self.cookingTime.text = String(cookingTime) + " min"
         }
         if let numberOfSteps = recipe.numberOfSteps{
-            self.numberOfSteps.text = String(numberOfSteps) + " steps"
+            self.numberOfSteps.text = String(numberOfSteps) + " étapes"
         }
         if let difficultyLevel = recipe.difficultyLevel{
             self.difficultyLevel.text = difficultyLevel
