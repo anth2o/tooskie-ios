@@ -16,11 +16,20 @@ class RecipeViewController: UIViewController {
     var recipes = [Recipe]()
     var infoString = ""
     var ingredientsString = ""
+    var bottomConstraintConstant = 40
+    var topConstraintConstant = 40
     
     enum Status {
         case back, forward, waiting
     }
     var status: Status = .waiting
+    
+    enum ViewDisplayed {
+        case help, step
+    }
+    
+    var viewDisplayed: ViewDisplayed = .step
+//    var helpDisplayed = false
 
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -33,6 +42,8 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var progressStep: UIProgressView!
     @IBOutlet weak var stepView: UIView!
     @IBOutlet weak var helpView: UIView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     @IBAction func previousStep(_ sender: Any) {
         self.stepBack(swipe: false)
@@ -43,13 +54,15 @@ class RecipeViewController: UIViewController {
     }
     
     @IBAction func displayHelp(_ sender: Any) {
-        self.helpView.isHidden = false
-        self.stepView.backgroundColor = UIColor.darkGray
+        self.viewDisplayed = .help
+        self.updateViewDisplayed()
+//        self.helpDisplayed = true
     }
     
     @IBAction func hideHelp(_ sender: Any) {
-        self.helpView.isHidden = true
-        self.stepView.backgroundColor = UIColor.white
+        self.viewDisplayed = .step
+        self.updateViewDisplayed()
+//        self.helpDisplayed = false
     }
     
     @IBAction func choseResumeOption(_ sender: Any) {
@@ -68,10 +81,12 @@ class RecipeViewController: UIViewController {
         super.viewDidLoad()
         self.configure()
         self.helpView.setBorder()
-        self.helpView.isHidden = true
-        self.stepView.backgroundColor = UIColor.white
+        self.helpView.alpha = 1
+//        self.bottomConstraint.constant = -1 * self.helpView.frame.height
+//        self.bottomConstraint.constant = -1 * self.helpView.frame.height
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         self.stepView.addGestureRecognizer(panGestureRecognizer)
+        self.updateViewDisplayed()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,6 +109,31 @@ class RecipeViewController: UIViewController {
             self.resumeText.text = self.infoString
             self.updateStepDisplay()
         }
+    }
+    
+    private func updateViewDisplayed () {
+//        var show = false
+        switch self.viewDisplayed {
+        case .step:
+            self.helpView.isHidden = true
+            self.view.backgroundColor = UIColor.white
+            self.stepView.backgroundColor = UIColor.white
+        case .help:
+            self.helpView.isHidden = false
+            self.view.backgroundColor = UIColor.darkGray
+            self.stepView.backgroundColor = UIColor.darkGray
+//            show = true
+        }
+//        if self.helpDisplayed == show {
+//            return
+//        }
+//        let viewFrame = self.helpView.frame
+//        let animationDurarion = 0.5
+//        let changeInHeight = (viewFrame.height + CGFloat(self.bottomConstraintConstant)) * (show ? 1 : -1)
+//        self.bottomConstraint.constant += changeInHeight
+//        UIView.animate(withDuration: animationDurarion) {
+//            self.helpView.layoutIfNeeded()
+//        }
     }
     
     private func stepBack(swipe: Bool) {

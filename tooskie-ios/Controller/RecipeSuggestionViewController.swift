@@ -67,8 +67,9 @@ class RecipeSuggestionViewController: UIViewController {
         
         let transform = translationTransform.concatenating(rotationTransform)
         recipeView.transform = transform
-        print(translationPercent)
-        if abs(translationPercent) > 0.65 {
+        print(gesture.velocity(in: recipeView).x)
+        print(translation.x)
+        if abs(translationPercent) > 0.65 || (abs(gesture.velocity(in: recipeView).x) > 1000 && abs(translationPercent) > 0.35) {
             if translation.x > 0 {
                 recipeView.status = .accepted
             } else {
@@ -99,6 +100,10 @@ class RecipeSuggestionViewController: UIViewController {
         }
         
         recipeView.transform = .identity
+        let animationDurarion = 0.5
+        UIView.animate(withDuration: animationDurarion) {
+            self.recipeView.layoutIfNeeded()
+        }
         recipeView.status = .waiting
     }
 }
