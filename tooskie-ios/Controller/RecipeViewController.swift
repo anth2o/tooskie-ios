@@ -16,8 +16,9 @@ class RecipeViewController: UIViewController {
     var recipes = [Recipe]()
     var infoString = ""
     var ingredientsString = ""
-    var bottomConstraintConstant = 40
-    var topConstraintConstant = 40
+    let bottomConstraintConstant = CGFloat(40)
+    let topConstraintConstant = CGFloat(30)
+    var helpHeight = CGFloat(0)
     
     enum Status {
         case back, forward, waiting
@@ -29,7 +30,7 @@ class RecipeViewController: UIViewController {
     }
     
     var viewDisplayed: ViewDisplayed = .step
-//    var helpDisplayed = false
+    var helpDisplayed = false
 
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -56,13 +57,13 @@ class RecipeViewController: UIViewController {
     @IBAction func displayHelp(_ sender: Any) {
         self.viewDisplayed = .help
         self.updateViewDisplayed()
-//        self.helpDisplayed = true
+        self.helpDisplayed = true
     }
     
     @IBAction func hideHelp(_ sender: Any) {
         self.viewDisplayed = .step
         self.updateViewDisplayed()
-//        self.helpDisplayed = false
+        self.helpDisplayed = false
     }
     
     @IBAction func choseResumeOption(_ sender: Any) {
@@ -82,8 +83,13 @@ class RecipeViewController: UIViewController {
         self.configure()
         self.helpView.setBorder()
         self.helpView.alpha = 1
-//        self.bottomConstraint.constant = -1 * self.helpView.frame.height
-//        self.bottomConstraint.constant = -1 * self.helpView.frame.height
+        self.helpView.isHidden = false
+        self.bottomConstraint.constant = self.bottomConstraintConstant
+        self.topConstraint.constant = self.topConstraintConstant
+        self.helpHeight = self.helpView.frame.height
+        // TODO : rather use safe area height
+        self.topConstraint.constant = self.view.frame.height
+        self.bottomConstraint.constant = -1 * self.helpHeight
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         self.stepView.addGestureRecognizer(panGestureRecognizer)
         self.updateViewDisplayed()
@@ -119,28 +125,28 @@ class RecipeViewController: UIViewController {
     }
     
     private func updateViewDisplayed () {
-//        var show = false
+        var show = false
         switch self.viewDisplayed {
         case .step:
-            self.helpView.isHidden = true
             self.view.backgroundColor = UIColor.white
             self.stepView.backgroundColor = UIColor.white
         case .help:
-            self.helpView.isHidden = false
             self.view.backgroundColor = UIColor.darkGray
             self.stepView.backgroundColor = UIColor.darkGray
-//            show = true
+            show = true
         }
-//        if self.helpDisplayed == show {
-//            return
-//        }
-//        let viewFrame = self.helpView.frame
-//        let animationDurarion = 0.5
-//        let changeInHeight = (viewFrame.height + CGFloat(self.bottomConstraintConstant)) * (show ? 1 : -1)
-//        self.bottomConstraint.constant += changeInHeight
-//        UIView.animate(withDuration: animationDurarion) {
-//            self.helpView.layoutIfNeeded()
-//        }
+        if self.helpDisplayed == show {
+            return
+        }
+        let animationDurarion = 0.5
+        let changeInHeight = (self.helpHeight + self.bottomConstraintConstant) * (show ? 1 : -1)
+        self.bottomConstraint.constant += changeInHeight
+        self.topConstraint.constant -= changeInHeight
+        UIView.animate(withDuration: animationDurarion) {
+            self.view.layoutIfNeeded()
+            self.helpView.layoutIfNeeded()
+            self.stepView.layoutIfNeeded()
+        }
     }
     
     private func stepBack(swipe: Bool) {
