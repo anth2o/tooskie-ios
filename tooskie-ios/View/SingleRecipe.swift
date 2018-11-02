@@ -42,20 +42,11 @@ class SingleRecipe: UIView {
         self.clear()
         self.recipe = recipe
         self.label.text = recipe.name
-        if let pictureString = recipe.picture{
-            let url = URL(string: pictureString)
-            if url != nil {
-                let data = try? Data(contentsOf: url!)
-                if let data = data {
-                    self.icon.image = UIImage(data: data)
-                }
-                else {
-                    self.icon.image = UIImage(named: "NoNetwork")
-                }
-            }
-            else {
-                self.icon.image = UIImage(named: "NoNetwork")
-            }
+        if let pictureData = recipe.getPictureData() {
+            self.icon.image = UIImage(data: pictureData)
+        }
+        else {
+            self.icon.image = UIImage(named: "NoNetwork")
         }
         if let preparationTime = recipe.preparationTime{
             self.preparationTime.text = String(preparationTime) + " min"

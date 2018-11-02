@@ -12,6 +12,8 @@ import UIKit
 class Ingredient: Codable {
     private var id: Int?
     private var name: String
+    public var picture: String?
+    public var pictureData: Data?
     private var namePlural: String?
     private var complement: String?
     private var complementPlural: String?
@@ -20,8 +22,6 @@ class Ingredient: Codable {
     private var linkingWord: String?
     private var linkingWordPlural: String?
     private var quantity: Float?
-    private var picture: String?
-    public var pictureData: Data?
     public var permaname: String? {
         if let slug = self.name.convertedToSlug(){
             return slug
@@ -29,19 +29,8 @@ class Ingredient: Codable {
         return nil
     }
     
-    init(name: String) {
+    init(name: String){
         self.name = name
-    }
-    
-    init(name: String, id: Int) {
-        self.name = name
-        self.id = id
-    }
-    
-    init(name: String, id: Int, picture: String) {
-        self.name = name
-        self.id = id
-        self.picture = picture
     }
     
     public func equals(to: Ingredient) -> Bool {

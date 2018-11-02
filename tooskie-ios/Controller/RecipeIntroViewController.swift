@@ -53,7 +53,12 @@ override func viewDidLoad() {
     private func configure() {
         if let recipe = self.recipe {
             self.recipeName.text = recipe.name
-            self.recipePicture.image = self.getPictureFromString(picture: recipe.picture)
+            if let pictureData = recipe.getPictureData() {
+                self.recipePicture.image = UIImage(data: pictureData)
+            }
+            else {
+                self.recipePicture.image = UIImage(named: "NoNetwork")
+            }
         }
         self.setNumberOfPeopleLabel()
         self.numberOfPersonStepper.value = Double(self.numberOfPerson)

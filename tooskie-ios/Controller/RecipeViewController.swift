@@ -101,9 +101,16 @@ class RecipeViewController: UIViewController {
     private func configure() {
         if let recipe = self.recipe {
             self.recipeName.text = recipe.name
-            self.recipePicture.image = self.getPictureFromString(picture: recipe.picture)
+            if let pictureData = recipe.getPictureData() {
+                self.recipePicture.image = UIImage(data: pictureData)
+                self.recipePictureHelp.image = UIImage(data: pictureData)
+            }
+            else {
+                self.recipePicture.image = UIImage(named: "NoNetwork")
+                self.recipePictureHelp.image = UIImage(named: "NoNetwork")
+
+            }
             self.recipeNameHelp.text = recipe.name
-            self.recipePictureHelp.image = self.getPictureFromString(picture: recipe.picture)
             self.setIngredientsString()
             self.setInfoString()
             self.resumeText.text = self.infoString

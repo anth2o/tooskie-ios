@@ -8,9 +8,10 @@
 
 import Foundation
 
-class Recipe: Codable{
+class Recipe: Codable {
     public var name: String
     public var picture: String?
+    public var pictureData: Data?
     var cookingTime: Int?
     var preparationTime: Int?
     var budgetLevel: String?
@@ -27,14 +28,6 @@ class Recipe: Codable{
         return nil
     }
     
-    init(name: String) {
-        self.name = name
-    }
-    
-    convenience init() {
-        self.init(name: "Poulet au fromage")
-    }
-        
     func getStep(stepNumber: Int) -> Step?{
         if let steps = self.steps {
             for i in 0..<steps.count {
@@ -42,6 +35,22 @@ class Recipe: Codable{
                     if number == stepNumber {
                         return steps[i]
                     }
+                }
+            }
+        }
+        return nil
+    }
+    
+    public func getPictureData() -> Data?{
+        if self.pictureData != nil {
+            return self.pictureData
+        }
+        if let picture = self.picture {
+            if let url = URL(string: picture) {
+                let data = try? Data(contentsOf: url)
+                if let data = data {
+                    self.pictureData = data
+                    return data
                 }
             }
         }
