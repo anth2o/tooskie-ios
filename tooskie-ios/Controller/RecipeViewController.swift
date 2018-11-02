@@ -17,7 +17,7 @@ class RecipeViewController: UIViewController {
     var infoString = ""
     var ingredientsString = ""
     let bottomConstraintConstant = CGFloat(40)
-    let topConstraintConstant = CGFloat(30)
+    let topConstraintConstant = CGFloat(40)
     var helpHeight = CGFloat(0)
     
     enum Status {
@@ -55,12 +55,20 @@ class RecipeViewController: UIViewController {
     }
     
     @IBAction func displayHelp(_ sender: Any) {
+        self._displayHelp()
+    }
+    
+    private func _displayHelp() {
         self.viewDisplayed = .help
         self.updateViewDisplayed()
         self.helpDisplayed = true
     }
     
     @IBAction func hideHelp(_ sender: Any) {
+        self._hideHelp()
+    }
+    
+    private func _hideHelp() {
         self.viewDisplayed = .step
         self.updateViewDisplayed()
         self.helpDisplayed = false
@@ -81,15 +89,7 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
-        self.helpView.setBorder()
-        self.helpView.alpha = 1
-        self.helpView.isHidden = false
-        self.bottomConstraint.constant = self.bottomConstraintConstant
-        self.topConstraint.constant = self.topConstraintConstant
-        self.helpHeight = self.helpView.frame.height
-        // TODO : rather use safe area height
-        self.topConstraint.constant = self.view.frame.height
-        self.bottomConstraint.constant = -1 * self.helpHeight
+        self.handleConstraint()
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
         self.updateViewDisplayed()
@@ -122,6 +122,20 @@ class RecipeViewController: UIViewController {
             self.resumeText.text = self.infoString
             self.updateStepDisplay()
         }
+        self.helpView.setBorder()
+        self.helpView.alpha = 1
+        self.helpView.isHidden = false
+    }
+    
+    private func handleConstraint() {
+        self.bottomConstraint.constant = self.bottomConstraintConstant
+        self.topConstraint.constant = self.topConstraintConstant
+        self.helpHeight = self.helpView.frame.height
+        self.topConstraint.constant = self.view.frame.height
+        if let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top {
+            self.topConstraint.constant -= topPadding
+        }
+        self.bottomConstraint.constant = -1 * self.helpHeight
     }
     
     private func updateViewDisplayed () {
@@ -201,13 +215,9 @@ class RecipeViewController: UIViewController {
             let margin = CGFloat(0.25)
             if translationPercent > margin && abs(translation.y) > abs(translation.x) && self.helpDisplayed {
                 self.viewDisplayed = .step
-                self.updateViewDisplayed()
-                self.helpDisplayed = false
             }
             if translationPercent < -1*margin && abs(translation.y) > abs(translation.x) && !self.helpDisplayed {
                 self.viewDisplayed = .help
-                self.updateViewDisplayed()
-                self.helpDisplayed = true
             }
         }
     }
@@ -219,7 +229,12 @@ class RecipeViewController: UIViewController {
         case .back:
             stepBack(swipe: true)
         case .waiting:
-            break
+            switch self.viewDisplayed {
+            case .step:
+                self._hideHelp()
+            case .help:
+                self._displayHelp()
+            }
         }
     }
     
