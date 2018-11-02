@@ -91,7 +91,7 @@ class RecipeViewController: UIViewController {
         self.topConstraint.constant = self.view.frame.height
         self.bottomConstraint.constant = -1 * self.helpHeight
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
-        self.stepView.addGestureRecognizer(panGestureRecognizer)
+        self.view.addGestureRecognizer(panGestureRecognizer)
         self.updateViewDisplayed()
     }
     
@@ -187,7 +187,7 @@ class RecipeViewController: UIViewController {
     private func getTranslationData(gesture: UIPanGestureRecognizer) {
         print("Transform")
         let translation = gesture.translation(in: self.view)
-        let translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
+        var translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
         if abs(translationPercent) > 0.25 && abs(translation.x) > 2 * abs(translation.y){
             if translation.x < 0 {
                 self.status = .forward
@@ -197,6 +197,18 @@ class RecipeViewController: UIViewController {
         }
         else {
             self.status = .waiting
+            translationPercent = translation.y/(UIScreen.main.bounds.height / 2)
+            let margin = CGFloat(0.25)
+            if translationPercent > margin && abs(translation.y) > abs(translation.x) && self.helpDisplayed {
+                self.viewDisplayed = .step
+                self.updateViewDisplayed()
+                self.helpDisplayed = false
+            }
+            if translationPercent < -1*margin && abs(translation.y) > abs(translation.x) && !self.helpDisplayed {
+                self.viewDisplayed = .help
+                self.updateViewDisplayed()
+                self.helpDisplayed = true
+            }
         }
     }
     
