@@ -153,9 +153,14 @@ class RecipeViewController: UIViewController {
             return
         }
         let animationDurarion = 0.5
-        let changeInHeight = (self.helpHeight + self.bottomConstraintConstant) * (show ? 1 : -1)
-        self.bottomConstraint.constant += changeInHeight
-        self.topConstraint.constant -= changeInHeight
+        if show {
+            self.bottomConstraint.constant = self.bottomConstraintConstant
+            self.topConstraint.constant = self.topConstraintConstant
+        }
+        else {
+            self.topConstraint.constant = self.view.frame.height
+            self.bottomConstraint.constant = -1 * self.helpHeight
+        }
         UIView.animate(withDuration: animationDurarion) {
             self.view.layoutIfNeeded()
             self.helpView.layoutIfNeeded()
