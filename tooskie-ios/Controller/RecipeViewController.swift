@@ -86,6 +86,9 @@ class RecipeViewController: UIViewController {
             break
         }
     }
+    @IBAction func backHome(_ sender: Any) {
+        performSegue(withIdentifier: "GoHomeFromRecipe", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +130,7 @@ class RecipeViewController: UIViewController {
         self.helpView.alpha = 1
         self.helpView.isHidden = false
         self.tintView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        self.tintView.frame = CGRect(x: 0, y: 0, width: self.recipePicture.contentClippingRect.width, height: self.recipePicture.contentClippingRect.height)
+        self.tintView.frame = CGRect(x: self.recipePicture.contentClippingRect.minX, y: self.recipePicture.contentClippingRect.minY, width: self.recipePicture.contentClippingRect.width, height: self.recipePicture.contentClippingRect.height)
         self.tintView.isOpaque = false
     }
     

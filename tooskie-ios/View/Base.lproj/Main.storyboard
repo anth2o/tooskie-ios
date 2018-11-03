@@ -595,10 +595,23 @@
                                             <action selector="previousStep:" destination="YAH-LX-tAp" eventType="touchUpInside" id="AQY-Yr-HWN"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xp-hr-GI4">
+                                        <rect key="frame" x="10" y="10" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4xp-hr-GI4" secondAttribute="height" multiplier="1:1" id="2P9-du-lqT"/>
+                                            <constraint firstAttribute="width" constant="35" id="Nnk-OM-uzy"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Home"/>
+                                        <connections>
+                                            <action selector="backHome:" destination="YAH-LX-tAp" eventType="touchUpInside" id="i2t-wj-0Vv"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="a7t-Th-Iw7" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="05O-8R-4eT"/>
+                                    <constraint firstItem="4xp-hr-GI4" firstAttribute="top" secondItem="VCd-az-SWY" secondAttribute="top" constant="10" id="4X8-ld-tBM"/>
+                                    <constraint firstItem="4xp-hr-GI4" firstAttribute="leading" secondItem="VCd-az-SWY" secondAttribute="leading" constant="10" id="8RU-H2-lSY"/>
                                     <constraint firstAttribute="trailing" secondItem="xJi-cT-GxX" secondAttribute="trailing" constant="40" id="92F-Jy-LTk"/>
                                     <constraint firstItem="xJi-cT-GxX" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="CUz-LE-u4V"/>
                                     <constraint firstAttribute="trailing" secondItem="38O-WR-Vyl" secondAttribute="trailing" constant="10" id="HhU-Vl-eoc"/>
@@ -619,7 +632,7 @@
                                     <constraint firstItem="fCh-vq-be6" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="zeo-ET-YRl"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
+                            <view hidden="YES" clearsContextBeforeDrawing="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
                                 <rect key="frame" x="30" y="50" width="315" height="577"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TF8-Oc-4Mq">
@@ -712,6 +725,7 @@
                         <outlet property="stepView" destination="VCd-az-SWY" id="hz7-gr-7Zg"/>
                         <outlet property="topConstraint" destination="3wo-Za-Yme" id="lf1-wh-vY2"/>
                         <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="BackToIntro" id="Vlw-og-T2E"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoHomeFromRecipe" id="YNy-kQ-qs6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1V8-34-NLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -726,6 +740,7 @@
         <image name="Cooking" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Difficulty" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Help" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="Home" width="409.60000610351562" height="409.60000610351562"/>
         <image name="MinusButton" width="587" height="585"/>
         <image name="Preparation" width="512" height="512"/>
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
@@ -733,6 +748,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Vlw-og-T2E"/>
         <segue reference="8M6-7A-Dd2"/>
-        <segue reference="oa7-CM-PcB"/>
+        <segue reference="YNy-kQ-qs6"/>
     </inferredMetricsTieBreakers>
 </document>
