@@ -19,6 +19,7 @@ class RecipeViewController: UIViewController {
     let bottomConstraintConstant = CGFloat(40)
     let topConstraintConstant = CGFloat(40)
     var helpHeight = CGFloat(0)
+    let tintView = UIView()
     
     enum Status {
         case back, forward, waiting
@@ -125,6 +126,9 @@ class RecipeViewController: UIViewController {
         self.helpView.setBorder()
         self.helpView.alpha = 1
         self.helpView.isHidden = false
+        self.tintView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        self.tintView.frame = CGRect(x: 0, y: 0, width: self.recipePicture.contentClippingRect.width, height: self.recipePicture.contentClippingRect.height)
+        self.tintView.isOpaque = false
     }
     
     private func handleConstraint() {
@@ -144,9 +148,11 @@ class RecipeViewController: UIViewController {
         case .step:
             self.view.backgroundColor = UIColor.white
             self.stepView.backgroundColor = UIColor.white
+            self.tintView.removeFromSuperview()
         case .help:
             self.view.backgroundColor = UIColor.darkGray
             self.stepView.backgroundColor = UIColor.darkGray
+            self.recipePicture.addSubview(tintView)
             show = true
         }
         if self.helpDisplayed == show {
