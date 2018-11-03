@@ -145,38 +145,6 @@ class RecipeViewController: UIViewController {
         self.bottomConstraint.constant = -1 * self.helpHeight
     }
     
-    private func updateViewDisplayed () {
-        var show = false
-        switch self.viewDisplayed {
-        case .step:
-            self.view.backgroundColor = UIColor.white
-            self.stepView.backgroundColor = UIColor.white
-            self.tintView.removeFromSuperview()
-        case .help:
-            self.view.backgroundColor = UIColor.darkGray
-            self.stepView.backgroundColor = UIColor.darkGray
-            self.recipePicture.addSubview(tintView)
-            show = true
-        }
-        if self.helpDisplayed == show {
-            return
-        }
-        let animationDurarion = 0.5
-        if show {
-            self.bottomConstraint.constant = self.bottomConstraintConstant
-            self.topConstraint.constant = self.topConstraintConstant
-        }
-        else {
-            self.topConstraint.constant = self.view.frame.height
-            self.bottomConstraint.constant = -1 * self.helpHeight
-        }
-        UIView.animate(withDuration: animationDurarion) {
-            self.view.layoutIfNeeded()
-            self.helpView.layoutIfNeeded()
-            self.stepView.layoutIfNeeded()
-        }
-    }
-    
     private func stepBack(swipe: Bool) {
         if self.stepIndex > 1 {
             self.stepIndex -= 1
@@ -196,6 +164,18 @@ class RecipeViewController: UIViewController {
                     self.stepIndex += 1
                     self.updateStepDisplay()
                 }
+            }
+        }
+    }
+
+    private func updateStepDisplay() {
+        if let step = self.recipe?.getStep(stepNumber: self.stepIndex) {
+            self.stepNumber.text = "Etape " + String(self.stepIndex)
+            if let description = step.description {
+                self.stepDescription.text = description
+            }
+            if let length = self.recipe?.steps?.count {
+                self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
             }
         }
     }
@@ -252,6 +232,41 @@ class RecipeViewController: UIViewController {
         }
     }
     
+    
+    
+    private func updateViewDisplayed () {
+        var show = false
+        switch self.viewDisplayed {
+        case .step:
+            self.view.backgroundColor = UIColor.white
+            self.stepView.backgroundColor = UIColor.white
+            self.tintView.removeFromSuperview()
+        case .help:
+            self.view.backgroundColor = UIColor.darkGray
+            self.stepView.backgroundColor = UIColor.darkGray
+            self.recipePicture.addSubview(tintView)
+            show = true
+        }
+        if self.helpDisplayed == show {
+            return
+        }
+        let animationDurarion = 0.5
+        if show {
+            self.bottomConstraint.constant = self.bottomConstraintConstant
+            self.topConstraint.constant = self.topConstraintConstant
+        }
+        else {
+            self.topConstraint.constant = self.view.frame.height
+            self.bottomConstraint.constant = -1 * self.helpHeight
+        }
+        UIView.animate(withDuration: animationDurarion) {
+            self.view.layoutIfNeeded()
+            self.helpView.layoutIfNeeded()
+            self.stepView.layoutIfNeeded()
+        }
+    }
+
+    
     private func setIngredientsString() {
         if let recipe = self.recipe {
             if let ingredients = recipe.ingredients {
@@ -281,18 +296,6 @@ class RecipeViewController: UIViewController {
             }
             if let numberOfSteps = recipe.numberOfSteps {
                 self.infoString += "Nombre d'étapes: " + String(numberOfSteps) + "\n"
-            }
-        }
-    }
-    
-    private func updateStepDisplay() {
-        if let step = self.recipe?.getStep(stepNumber: self.stepIndex) {
-            self.stepNumber.text = "Etape " + String(self.stepIndex)
-            if let description = step.description {
-                self.stepDescription.text = description
-            }
-            if let length = self.recipe?.steps?.count {
-                self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
             }
         }
     }
