@@ -160,7 +160,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         else {
             cell.ingredientPicture.image = UIImage(named: "NoNetwork")
         }
-        cell.isUserInteractionEnabled = false
+        cell.userInteractionEnabledWhileDragging = false
+        cell.selectionStyle = .none
         return cell
     }
     
