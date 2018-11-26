@@ -54,7 +54,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
-        self.pantryTableView.rowHeight = 60.0
+        pantryTableView.rowHeight = 60.0
+        pantryTableView.setBorder()
         ingredientSearchBar.delegate = self
         ingredientSearchBar.backgroundImage = UIImage()
         print("View did load")

@@ -53,6 +53,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nextStepDisplay: UIButton!
     
     @IBAction func previousStep(_ sender: Any) {
         self.stepBack(swipe: false)
@@ -194,6 +195,12 @@ class RecipeViewController: UIViewController {
             }
             if let length = self.recipe?.steps?.count {
                 self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
+//                if self.stepIndex == length {
+//                    self.nextStepDisplay.titleLabel?.text = "Fini"
+//                }
+//                else {
+//                    self.nextStepDisplay.titleLabel?.text = "Suivant"
+//                }
             }
         }
     }

@@ -20,10 +20,23 @@ class RecipeSuggestionViewController: UIViewController {
     }
     
     @IBAction func cancelSwipe(_ sender: Any) {
+        if self.index == 0 {
+            performSegue(withIdentifier: "GoBack", sender: self)
+        }
         if self.index > 0 && self.recipes.count > 0 {
             self.index -= 1
             self.recipeView!.setRecipe(recipe:self.recipes[self.index])
         }
+    }
+    
+    @IBAction func validateRecipe(_ sender: UIButton) {
+        recipeView.status = .accepted
+        processRecipe()
+    }
+    
+    @IBAction func passRecipe(_ sender: UIButton) {
+        recipeView.status = .declined
+        processRecipe()
     }
     
     override func viewDidLoad() {

@@ -10,8 +10,15 @@ import UIKit
 
 extension UIView {
     public func setBorder() {
+        let color = UIColor.darkGray.cgColor
+        self.layer.borderWidth = 1
+        self.layer.borderColor = color
         self.layer.cornerRadius = 8.0
+        self.layer.shadowColor = color
+        self.layer.shadowOpacity = 10
+        self.layer.shadowRadius = 10
         self.clipsToBounds = true
+
     }
 }
 
