@@ -46,18 +46,32 @@ class RecipeSuggestionViewController: UIViewController {
     @objc
     func dragRecipeView(_ sender: UIPanGestureRecognizer) {
         let point = sender.location(in: self.view)
-        print(point.x)
         let margin = CGFloat(5)
-        if abs(point.y - self.view.frame.minY) < margin || abs(point.y - self.view.frame.minY) < margin {
+        var topMargin = margin
+        var bottomMargin = margin
+        if #available(iOS 11.0, *) {
+            if let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top {
+                topMargin += topPadding
+            }
+            if let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
+                bottomMargin += bottomPadding
+            }
+        }
+        if abs(point.y - self.view.frame.minY) < topMargin || abs(point.y - self.view.frame.maxY) < bottomMargin {
+            print(point.y)
+            print(self.view.frame.minY)
+            print(self.view.frame.maxY)
             sender.state = .cancelled
+            self.recipeView.status = .waiting
         }
         if abs(point.x - self.view.frame.minX) < margin {
             sender.state = .ended
         }
         if abs(point.x - self.view.frame.maxX) < margin {
+            print(self.view.frame.maxX)
             sender.state = .ended
         }
-        print(sender.state)
+        print(sender.state.rawValue)
         switch sender.state {
         case .began, .changed:
             transformRecipeViewWith(gesture: sender)
@@ -70,7 +84,7 @@ class RecipeSuggestionViewController: UIViewController {
     
     private func transformRecipeViewWith(gesture: UIPanGestureRecognizer) {
         print("Transform")
-        let translation = gesture.translation(in: recipeView)
+        let translation = gesture.translation(in: self.recipeView)
         
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
         
@@ -81,7 +95,9 @@ class RecipeSuggestionViewController: UIViewController {
         let transform = translationTransform.concatenating(rotationTransform)
         recipeView.transform = transform
         let speed = gesture.velocity(in: self.recipeView)
-        if abs(translationPercent) > 0.65 || (abs(speed.x) > 1000 && abs(translationPercent) > 0.35) {
+        print(translation.x)
+        print(translation.y)
+        if (abs(translationPercent) > 0.65 || (abs(speed.x) > 1000 && abs(translationPercent) > 0.35)) && abs(translation.x) > 1.5 * abs(translation.y) {
             if translation.x > 0 {
                 recipeView.status = .accepted
             } else {
