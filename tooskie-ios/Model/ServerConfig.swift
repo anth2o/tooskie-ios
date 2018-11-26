@@ -15,7 +15,7 @@ class ServerConfig {
         case local, dev
     }
     
-    var config: Config = .local
+    var config: Config = .dev
     
     var host = "localhost"
     var port = 80
@@ -25,7 +25,7 @@ class ServerConfig {
         case .local:
             break
         case .dev:
-            host = "ec2-52-47-96-150.eu-west-3.compute.amazonaws.com"
+            host = "ec2-35-180-98-224.eu-west-3.compute.amazonaws.com"
             port = 8000
         }
     }

@@ -108,9 +108,8 @@ class RecipeSuggestionViewController: UIViewController {
         let transform = translationTransform.concatenating(rotationTransform)
         recipeView.transform = transform
         let speed = gesture.velocity(in: self.recipeView)
-        print(translation.x)
-        print(translation.y)
-        if (abs(translationPercent) > 0.65 || (abs(speed.x) > 1000 && abs(translationPercent) > 0.35)) && abs(translation.x) > 1.5 * abs(translation.y) {
+        print(speed.x)
+        if abs(translationPercent) > 0.65 || (abs(speed.x) > 600 && abs(translationPercent) > 0.35) {
             if translation.x > 0 {
                 recipeView.status = .accepted
             } else {
@@ -127,6 +126,7 @@ class RecipeSuggestionViewController: UIViewController {
         case .accepted:
             if self.index < self.recipes.count {
                 performSegue(withIdentifier: "LaunchRecipe", sender: self)
+                self.recipeView.isHidden = true
             }
         case .declined:
             index += 1
@@ -135,6 +135,7 @@ class RecipeSuggestionViewController: UIViewController {
             }
             else {
                 performSegue(withIdentifier: "GoShopping", sender: self)
+                self.recipeView.isHidden = true
             }
         case .waiting:
             break
