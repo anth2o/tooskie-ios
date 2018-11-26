@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar clearsContextBeforeDrawing="NO" contentMode="redraw" placeholder="Rechercher ingrédient" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-gn-XRX">
+                            <searchBar clearsContextBeforeDrawing="NO" contentMode="redraw" placeholder="Ajouter ingrédient" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-gn-XRX">
                                 <rect key="frame" x="0.0" y="533" width="375" height="56"/>
                                 <color key="backgroundColor" red="0.95977503060000002" green="0.95239013429999997" blue="0.93872982260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.95977503060000002" green="0.95239013429999997" blue="0.93872982260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

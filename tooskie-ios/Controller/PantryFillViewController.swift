@@ -108,7 +108,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     func addIngredient(){
         if let text = ingredientSearchBar.text {
             if let chosenIngredient = self.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
-                self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
+                if self.userPantry.contains(ingredient: chosenIngredient) {
+                    self.alertIngredientAlreadyThere()
+                }
+                else {
+                    self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
+                }
             }
             else {
                 self.alertIngredientNotAvailable()
@@ -124,6 +129,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func alertIngredientNotAvailable() {
         let alert = UIAlertController(title: "Erreur", message: "Cet ingrédient n'est pas disponible", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func alertIngredientAlreadyThere() {
+        let alert = UIAlertController(title: "Déjà là", message: "Cet ingrédient est déjà présent dans le garde-manger", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
