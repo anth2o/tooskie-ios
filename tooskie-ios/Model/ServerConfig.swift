@@ -25,7 +25,7 @@ class ServerConfig {
         case .local:
             break
         case .dev:
-            host = "ec2-52-47-135-186.eu-west-3.compute.amazonaws.com"
+            host = "ec2-52-47-96-150.eu-west-3.compute.amazonaws.com"
             port = 8000
         }
     }

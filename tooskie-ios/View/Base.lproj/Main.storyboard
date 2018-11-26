@@ -41,7 +41,9 @@
                                     <constraint firstAttribute="width" secondItem="AVr-Rc-0FL" secondAttribute="height" multiplier="52:19" id="5tH-AT-qtO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="C'est parti !"/>
+                                <state key="normal" title="C'est parti !">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="launchRecipes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jF2-Mp-PmD"/>
                                 </connections>
