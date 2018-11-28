@@ -164,6 +164,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-Jy-Wzp">
+                                <rect key="frame" x="40" y="554" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DVG-Jy-Wzp" secondAttribute="height" multiplier="1:1" id="MOw-nJ-Usk"/>
+                                    <constraint firstAttribute="width" constant="60" id="dxP-0n-vhx"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Pass"/>
+                                <connections>
+                                    <action selector="passRecipe:" destination="VFG-tp-c9v" eventType="touchUpInside" id="Q9f-nv-jRm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-gN-fbx">
+                                <rect key="frame" x="275" y="554" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kZw-gN-fbx" secondAttribute="height" multiplier="1:1" id="Uzq-yp-Peb"/>
+                                    <constraint firstAttribute="width" constant="60" id="uo5-3g-MkU"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Valid"/>
+                                <connections>
+                                    <action selector="validateRecipe:" destination="VFG-tp-c9v" eventType="touchUpInside" id="eBb-5W-G9c"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVn-8k-cOc">
                                 <rect key="frame" x="157.5" y="554" width="60" height="60"/>
                                 <constraints>
@@ -311,28 +333,6 @@
                                     <outlet property="preparationTime" destination="2In-Hb-yl8" id="8Uv-9z-xbi"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-gN-fbx">
-                                <rect key="frame" x="275" y="554" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kZw-gN-fbx" secondAttribute="height" multiplier="1:1" id="Uzq-yp-Peb"/>
-                                    <constraint firstAttribute="width" constant="60" id="uo5-3g-MkU"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="Valid"/>
-                                <connections>
-                                    <action selector="validateRecipe:" destination="VFG-tp-c9v" eventType="touchUpInside" id="eBb-5W-G9c"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-Jy-Wzp">
-                                <rect key="frame" x="40" y="554" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DVG-Jy-Wzp" secondAttribute="height" multiplier="1:1" id="MOw-nJ-Usk"/>
-                                    <constraint firstAttribute="width" constant="60" id="dxP-0n-vhx"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="Pass"/>
-                                <connections>
-                                    <action selector="passRecipe:" destination="VFG-tp-c9v" eventType="touchUpInside" id="Q9f-nv-jRm"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
