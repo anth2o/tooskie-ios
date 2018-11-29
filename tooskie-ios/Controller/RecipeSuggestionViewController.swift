@@ -11,8 +11,9 @@ import UIKit
 class RecipeSuggestionViewController: UIViewController {
     
     var index = 0
-    let translationX = UIScreen.main.bounds.width
-    let translationY = CGFloat(0)
+    let translationX = UIScreen.main.bounds.width / 2
+    let translationY = CGFloat(-50)
+    let animationDurarion = 0.2
     
     @IBOutlet weak var recipeView: SingleRecipe!
     
@@ -21,23 +22,25 @@ class RecipeSuggestionViewController: UIViewController {
     }
     
     @IBAction func validateRecipe(_ sender: UIButton) {
+        self.recipeView.status = .accepted
         let transform = self.transformRecipeView(x: self.translationX, y: self.translationY).0
-        let animationDurarion = 0.5
-        UIView.animate(withDuration: animationDurarion, animations: {
-            self.recipeView.transform = transform
-        }, completion: nil)
-        recipeView.status = .accepted
-        processRecipe()
+        self.handleSwipeByButton(transform: transform)
     }
     
     @IBAction func passRecipe(_ sender: UIButton) {
+        self.recipeView.status = .declined
         let transform = self.transformRecipeView(x: -1*self.translationX, y: self.translationY).0
-        let animationDurarion = 0.5
+        self.handleSwipeByButton(transform: transform)
+    }
+    
+    private func handleSwipeByButton(transform: CGAffineTransform) {
         UIView.animate(withDuration: animationDurarion, animations: {
             self.recipeView.transform = transform
-        }, completion: nil)
-        recipeView.status = .declined
-        processRecipe()
+        }, completion: { (success) in
+            if success {
+                self.processRecipe()
+            }
+        })
     }
     
     override func viewDidLoad() {
