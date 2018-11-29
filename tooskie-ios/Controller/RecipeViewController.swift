@@ -155,11 +155,6 @@ class RecipeViewController: UIViewController {
         self.topConstraint.constant = self.topConstraintConstant
         self.helpHeight = self.helpView.frame.height
         self.topConstraint.constant = self.view.frame.height
-        if #available(iOS 11.0, *) {
-            if let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top {
-                self.topConstraint.constant -= topPadding
-            }
-        }
         self.bottomConstraint.constant = -1 * self.helpHeight
     }
     
