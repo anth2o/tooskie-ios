@@ -64,13 +64,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         print("View did load")
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier != nil && segue.identifier == "RecipeSuggestion" {
-//            let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
-//            destVC.recipes = self.recipes
-//        }
-//    }
-    
     @objc
     func keyboardWillShow(notification:NSNotification) {
         adjustingHeight(show: true, notification: notification)

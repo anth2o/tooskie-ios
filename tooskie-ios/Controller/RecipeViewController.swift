@@ -120,7 +120,6 @@ class RecipeViewController: UIViewController {
             let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
-//            destVC.recipes = self.recipes
         }
     }
     
@@ -182,18 +181,18 @@ class RecipeViewController: UIViewController {
 
     private func updateStepDisplay() {
         if let step = self.recipe?.getStep(stepNumber: self.stepIndex) {
-            self.stepNumber.text = "Etape " + String(self.stepIndex)
-            if let description = step.description {
-                self.stepDescription.text = description
-            }
             if let length = self.recipe?.steps?.count {
                 self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
 //                if self.stepIndex == length {
-//                    self.nextStepDisplay.titleLabel?.text = "Fini"
+//                    self.nextStepDisplay.setTitle("Fini", for: .normal)
 //                }
 //                else {
-//                    self.nextStepDisplay.titleLabel?.text = "Suivant"
+//                    self.nextStepDisplay.setTitle("Suivant", for: .normal)
 //                }
+            }
+            self.stepNumber.text = "Etape " + String(self.stepIndex)
+            if let description = step.description {
+                self.stepDescription.text = description
             }
         }
     }

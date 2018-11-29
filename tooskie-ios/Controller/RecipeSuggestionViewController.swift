@@ -47,7 +47,6 @@ class RecipeSuggestionViewController: UIViewController {
         if segue.identifier != nil && segue.identifier == "LaunchRecipe" {
             let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
             destVC.recipe = GlobalVariables.recipes[index]
-//            destVC.recipes = GlobalVariables.recipes
         }
     }
     

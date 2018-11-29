@@ -40,12 +40,7 @@ override func viewDidLoad() {
             let destVC : RecipeViewController = segue.destination as! RecipeViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
-//            destVC.recipes = self.recipes
         }
-//        if segue.identifier != nil && segue.identifier == "GoBackSuggestions" {
-//            let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
-//            destVC.recipes = self.recipes
-//        }
     }
     
     private func configure() {
