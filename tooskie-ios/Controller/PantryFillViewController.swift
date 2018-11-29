@@ -18,6 +18,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     private var keyboardIsVisible = false
 
 //    Outlets
+    @IBOutlet weak var ingredientsView: UIView!
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -50,14 +51,14 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         self.loadPantry()
         self.loadUserPantry()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
         pantryTableView.rowHeight = 60.0
-        pantryTableView.setBorder()
         ingredientSearchBar.delegate = self
         ingredientSearchBar.backgroundImage = UIImage()
+        ingredientsView.setBorder()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         print("View did load")
     }
     
