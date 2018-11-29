@@ -1,18 +1,20 @@
 import UIKit
 
 class PantryFillViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-//    Properties
-    let tooskiePantry = Pantry(name: "Tooskie pantry")
-    var userPantry = Pantry(name: "iOS")
-    var serverConfig = ServerConfig()
     private var pantryPosted = false {
         didSet {
             self.getRecipes()
         }
     }
-    private var recipes = [Recipe](){
+    private var recipes = GlobalVariables.recipes{
         didSet {
-            performSegue(withIdentifier: "RecipeSuggestion", sender: self)
+            GlobalVariables.recipes = recipes
+            if recipes.count > 0 {
+                performSegue(withIdentifier: "RecipeSuggestion", sender: self)
+            }
+            else {
+                performSegue(withIdentifier: "PantryToShopping", sender: self)
+            }
         }
     }
     private var keyboardIsVisible = false
@@ -62,10 +64,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         print("View did load")
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
-        destVC.recipes = self.recipes
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier != nil && segue.identifier == "RecipeSuggestion" {
+//            let destVC : RecipeSuggestionViewController = segue.destination as! RecipeSuggestionViewController
+//            destVC.recipes = self.recipes
+//        }
+//    }
     
     @objc
     func keyboardWillShow(notification:NSNotification) {
@@ -92,8 +96,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.bottomConstraint.constant += changeInHeight
         UIView.animate(withDuration: animationDurarion) {
             self.view.layoutIfNeeded()
-            if self.userPantry.count > 0 {
-                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
+            if GlobalVariables.userPantry.count > 0 {
+                let indexPath = IndexPath(row: GlobalVariables.userPantry.count-1, section: 0)
                 self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
             self.pantryTableView.layoutIfNeeded()
@@ -109,8 +113,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func addIngredient(){
         if let text = ingredientSearchBar.text {
-            if let chosenIngredient = self.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
-                if self.userPantry.contains(ingredient: chosenIngredient) {
+            if let chosenIngredient = GlobalVariables.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
+                if GlobalVariables.userPantry.contains(ingredient: chosenIngredient) {
                     self.alertIngredientAlreadyThere()
                 }
                 else {
@@ -124,7 +128,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func addAndDisplayNewIngredient(ingredient: Ingredient) {
-        userPantry.addIngredient(ingredient: ingredient)
+        GlobalVariables.userPantry.addIngredient(ingredient: ingredient)
         self.reload()
         self.ingredientSearchBar.text = ""
     }
@@ -142,9 +146,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func removeIngredient(ingredient: Ingredient) {
-        let potentialIndexIngredient = self.userPantry.getIndex(ingredient: ingredient)
+        let potentialIndexIngredient = GlobalVariables.userPantry.getIndex(ingredient: ingredient)
         if let indexIngredient = potentialIndexIngredient {
-            self.userPantry.removeIngredient(ingredient: ingredient)
+            GlobalVariables.userPantry.removeIngredient(ingredient: ingredient)
             let indexPath = IndexPath(item: indexIngredient, section: 0)
             pantryTableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -153,7 +157,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
 //    Table View methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.userPantry.count
+        return GlobalVariables.userPantry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,7 +167,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
         }
 
-        let ingredient = self.userPantry.getIngredient(index: indexPath.row)
+        let ingredient = GlobalVariables.userPantry.getIngredient(index: indexPath.row)
         cell.ingredient = ingredient
         cell.viewController = self
         cell.ingredientName.text = ingredient.getName()
@@ -187,8 +191,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     private func scrollToBottom(){
         DispatchQueue.main.async {
-            if self.userPantry.count > 0 {
-                let indexPath = IndexPath(row: self.userPantry.count-1, section: 0)
+            if GlobalVariables.userPantry.count > 0 {
+                let indexPath = IndexPath(row: GlobalVariables.userPantry.count-1, section: 0)
                 self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
         }
@@ -197,8 +201,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
 //    API requests
     
     func loadPantry() {
-        let request = self.serverConfig.getRequest(path: "/api/ingredient/", method: "GET")
-        let session = self.serverConfig.getSession()
+        let request = GlobalVariables.serverConfig.getRequest(path: "/api/ingredient/", method: "GET")
+        let session = GlobalVariables.serverConfig.getSession()
          let task = session.dataTask(with: request) { (data, response, responseError) in
             DispatchQueue.main.async {
                 if let response = response {
@@ -210,7 +214,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                     let decoder = JSONDecoder()
                     do {
                         let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
-                        self.tooskiePantry.setIngredientList(list: ingredients)
+                        GlobalVariables.tooskiePantry.setIngredientList(list: ingredients)
                     } catch {
                         print("Error")
                     }
@@ -224,9 +228,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadUserPantry() {
-        if let permaname = userPantry.permaname {
-            let request = self.serverConfig.getRequest(path: "/api/pantry/" + permaname, method: "GET")
-            let session = self.serverConfig.getSession()
+        if let permaname = GlobalVariables.userPantry.permaname {
+            let request = GlobalVariables.serverConfig.getRequest(path: "/api/pantry/" + permaname, method: "GET")
+            let session = GlobalVariables.serverConfig.getSession()
             let task = session.dataTask(with: request) { (data, response, responseError) in
                 DispatchQueue.main.async {
                     if let response = response {
@@ -238,7 +242,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                         let decoder = JSONDecoder()
                         do {
                             let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
-                            self.userPantry.setIngredientList(list: ingredients)
+                            GlobalVariables.userPantry.setIngredientList(list: ingredients)
                             self.reload()
                         } catch {
                             print("Error")
@@ -254,10 +258,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func sendPantry() {
-        let myPost = userPantry.toPost()
-        var request = self.serverConfig.getRequest(path: "/api/pantry/", method: "POST")
-        let session = self.serverConfig.getSession()
-        request = self.serverConfig.encodeDataForPost(post: myPost, request: request)
+        let myPost = GlobalVariables.userPantry.toPost()
+        var request = GlobalVariables.serverConfig.getRequest(path: "/api/pantry/", method: "POST")
+        let session = GlobalVariables.serverConfig.getSession()
+        request = GlobalVariables.serverConfig.encodeDataForPost(post: myPost, request: request)
         let task = session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 print(error!)
@@ -274,9 +278,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     public func getRecipes() {
-        if let permaname = self.userPantry.permaname {
-            let session = self.serverConfig.getSession()
-            let request = self.serverConfig.getRequest(path: "/api/recipe-with-pantry/" + permaname, method: "GET")
+        if let permaname = GlobalVariables.userPantry.permaname {
+            let session = GlobalVariables.serverConfig.getSession()
+            let request = GlobalVariables.serverConfig.getRequest(path: "/api/recipe-with-pantry/" + permaname, method: "GET")
             let task = session.dataTask(with: request) { (responseData, response, responseError) in
                 DispatchQueue.main.async {
                     if let error = responseError {

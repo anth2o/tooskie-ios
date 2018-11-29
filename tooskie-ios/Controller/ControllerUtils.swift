@@ -22,3 +22,10 @@ extension UIViewController {
         return UIImage(named: "NoNetwork")!
     }
 }
+
+struct GlobalVariables {
+    static let tooskiePantry = Pantry(name: "Tooskie pantry")
+    static let userPantry = Pantry(name: "iOS")
+    static let serverConfig = ServerConfig()
+    static var recipes = [Recipe]()
+}

@@ -10,22 +10,17 @@ import UIKit
 
 class RecipeSuggestionViewController: UIViewController {
     
-    var recipes = [Recipe]()
     var index = 0
     
     @IBOutlet weak var recipeView: SingleRecipe!
-    
-    @IBAction func goBack(_ sender: Any) {
-        performSegue(withIdentifier: "GoBack", sender: self)
-    }
     
     @IBAction func cancelSwipe(_ sender: Any) {
         if self.index == 0 {
             performSegue(withIdentifier: "GoBack", sender: self)
         }
-        if self.index > 0 && self.recipes.count > 0 {
+        if self.index > 0 && GlobalVariables.recipes.count > 0 {
             self.index -= 1
-            self.recipeView!.setRecipe(recipe:self.recipes[self.index])
+            self.recipeView!.setRecipe(recipe:GlobalVariables.recipes[self.index])
         }
     }
     
@@ -41,8 +36,8 @@ class RecipeSuggestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.recipes.count > 0 {
-            self.recipeView!.setRecipe(recipe: self.recipes[self.index])
+        if GlobalVariables.recipes.count > 0 {
+            self.recipeView!.setRecipe(recipe: GlobalVariables.recipes[self.index])
         }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragRecipeView(_:)))
         recipeView.addGestureRecognizer(panGestureRecognizer)
@@ -51,8 +46,8 @@ class RecipeSuggestionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != nil && segue.identifier == "LaunchRecipe" {
             let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
-            destVC.recipe = self.recipes[index]
-            destVC.recipes = self.recipes
+            destVC.recipe = GlobalVariables.recipes[index]
+//            destVC.recipes = GlobalVariables.recipes
         }
     }
     
@@ -124,14 +119,14 @@ class RecipeSuggestionViewController: UIViewController {
     private func processRecipe() {
         switch recipeView.status {
         case .accepted:
-            if self.index < self.recipes.count {
+            if self.index < GlobalVariables.recipes.count {
                 performSegue(withIdentifier: "LaunchRecipe", sender: self)
                 self.recipeView.isHidden = true
             }
         case .declined:
             index += 1
-            if self.index < self.recipes.count {
-                self.recipeView!.setRecipe(recipe: self.recipes[index])
+            if self.index < GlobalVariables.recipes.count {
+                self.recipeView!.setRecipe(recipe: GlobalVariables.recipes[index])
             }
             else {
                 performSegue(withIdentifier: "GoShopping", sender: self)

@@ -144,6 +144,7 @@
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
                         <outlet property="searchBarConstraint" destination="0iH-A8-evJ" id="RmW-ae-1Bw"/>
                         <segue destination="VFG-tp-c9v" kind="presentation" identifier="RecipeSuggestion" id="Uqw-eL-WEw"/>
+                        <segue destination="56O-ta-ca4" kind="presentation" identifier="PantryToShopping" id="tjP-ZE-fwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -779,8 +780,9 @@
         <image name="Valid" width="229" height="229"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tjP-ZE-fwQ"/>
         <segue reference="V3u-QB-b9T"/>
         <segue reference="Uqw-eL-WEw"/>
-        <segue reference="oa7-CM-PcB"/>
+        <segue reference="aUG-sN-5Qe"/>
     </inferredMetricsTieBreakers>
 </document>

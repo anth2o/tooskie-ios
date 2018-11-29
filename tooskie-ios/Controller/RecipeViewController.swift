@@ -13,7 +13,6 @@ class RecipeViewController: UIViewController {
     var recipe: Recipe?
     var numberOfPerson = 1
     var stepIndex = 1
-    var recipes = [Recipe]()
     var infoString = ""
     var ingredientsString = ""
     let bottomConstraintConstant = CGFloat(40)
@@ -121,7 +120,7 @@ class RecipeViewController: UIViewController {
             let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
-            destVC.recipes = self.recipes
+//            destVC.recipes = self.recipes
         }
     }
     
