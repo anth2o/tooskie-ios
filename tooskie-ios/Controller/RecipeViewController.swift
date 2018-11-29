@@ -183,12 +183,14 @@ class RecipeViewController: UIViewController {
         if let step = self.recipe?.getStep(stepNumber: self.stepIndex) {
             if let length = self.recipe?.steps?.count {
                 self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
-//                if self.stepIndex == length {
+                if self.stepIndex == length {
+                    self.nextStepDisplay.isEnabled = false
 //                    self.nextStepDisplay.setTitle("Fini", for: .normal)
-//                }
-//                else {
+                }
+                else {
+                    self.nextStepDisplay.isEnabled = true
 //                    self.nextStepDisplay.setTitle("Suivant", for: .normal)
-//                }
+                }
             }
             self.stepNumber.text = "Etape " + String(self.stepIndex)
             if let description = step.description {
