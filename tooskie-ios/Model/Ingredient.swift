@@ -34,7 +34,18 @@ class Ingredient: Codable {
     }
     
     public func equals(to: Ingredient) -> Bool {
-        return self.name == to.name
+        if let permaname1 = self.name.convertedToSlug() {
+            if let permaname2 = to.name.convertedToSlug() {
+                if let namePlural = self.namePlural {
+                    if let permanamePlural = self.namePlural?.convertedToSlug() {
+                        return permanamePlural == permaname2 || permaname1 == permaname2
+                    }
+                    return to.name == namePlural
+                }
+                return permaname1 == permaname2
+            }
+        }
+        return name == to.name
     }
     
     public func getName() -> String {
