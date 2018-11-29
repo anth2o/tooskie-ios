@@ -11,25 +11,31 @@ import UIKit
 class RecipeSuggestionViewController: UIViewController {
     
     var index = 0
+    let translationX = UIScreen.main.bounds.width
+    let translationY = CGFloat(0)
     
     @IBOutlet weak var recipeView: SingleRecipe!
     
-    @IBAction func cancelSwipe(_ sender: Any) {
-        if self.index == 0 {
-            performSegue(withIdentifier: "GoBack", sender: self)
-        }
-        if self.index > 0 && GlobalVariables.recipes.count > 0 {
-            self.index -= 1
-            self.recipeView!.setRecipe(recipe:GlobalVariables.recipes[self.index])
-        }
+    @IBAction func goHome(_ sender: Any) {
+        performSegue(withIdentifier: "RecipeSuggestionToHome", sender: self)
     }
     
     @IBAction func validateRecipe(_ sender: UIButton) {
+        let transform = self.transformRecipeView(x: self.translationX, y: self.translationY).0
+        let animationDurarion = 0.5
+        UIView.animate(withDuration: animationDurarion, animations: {
+            self.recipeView.transform = transform
+        }, completion: nil)
         recipeView.status = .accepted
         processRecipe()
     }
     
     @IBAction func passRecipe(_ sender: UIButton) {
+        let transform = self.transformRecipeView(x: -1*self.translationX, y: self.translationY).0
+        let animationDurarion = 0.5
+        UIView.animate(withDuration: animationDurarion, animations: {
+            self.recipeView.transform = transform
+        }, completion: nil)
         recipeView.status = .declined
         processRecipe()
     }
@@ -65,9 +71,6 @@ class RecipeSuggestionViewController: UIViewController {
             }
         }
         if abs(point.y - self.view.frame.minY) < topMargin || abs(point.y - self.view.frame.maxY) < bottomMargin {
-            print(point.y)
-            print(self.view.frame.minY)
-            print(self.view.frame.maxY)
             sender.state = .cancelled
             self.recipeView.status = .waiting
         }
@@ -75,10 +78,8 @@ class RecipeSuggestionViewController: UIViewController {
             sender.state = .ended
         }
         if abs(point.x - self.view.frame.maxX) < margin {
-            print(self.view.frame.maxX)
             sender.state = .ended
         }
-        print(sender.state.rawValue)
         switch sender.state {
         case .began, .changed:
             transformRecipeViewWith(gesture: sender)
@@ -90,19 +91,13 @@ class RecipeSuggestionViewController: UIViewController {
     }
     
     private func transformRecipeViewWith(gesture: UIPanGestureRecognizer) {
-        print("Transform")
         let translation = gesture.translation(in: self.recipeView)
         
-        let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
+        let (transform, translationPercent) = self.transformRecipeView(x: translation.x, y: translation.y)
+
+        self.recipeView.transform = transform
         
-        let translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
-        let rotationAngle = (CGFloat.pi / 6) * translationPercent
-        let rotationTransform = CGAffineTransform(rotationAngle: rotationAngle)
-        
-        let transform = translationTransform.concatenating(rotationTransform)
-        recipeView.transform = transform
         let speed = gesture.velocity(in: self.recipeView)
-        print(speed.x)
         if abs(translationPercent) > 0.65 || (abs(speed.x) > 600 && abs(translationPercent) > 0.35) {
             if translation.x > 0 {
                 recipeView.status = .accepted
@@ -113,6 +108,16 @@ class RecipeSuggestionViewController: UIViewController {
         else {
             recipeView.status = .waiting
         }
+    }
+    
+    private func transformRecipeView(x: CGFloat, y: CGFloat) -> (CGAffineTransform, CGFloat) {
+        let translationTransform = CGAffineTransform(translationX: x, y: y)
+        let translationPercent = x/(UIScreen.main.bounds.width / 2)
+        let rotationAngle = (CGFloat.pi / 6) * translationPercent
+        let rotationTransform = CGAffineTransform(rotationAngle: rotationAngle)
+    
+        let transform = translationTransform.concatenating(rotationTransform)
+        return (transform, translationPercent)
     }
     
     private func processRecipe() {

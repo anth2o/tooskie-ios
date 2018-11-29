@@ -34,7 +34,7 @@ class RecipeViewController: UIViewController {
     var goHome = false {
         didSet {
             if goHome {
-                performSegue(withIdentifier: "GoHomeFromRecipe", sender: self)
+                performSegue(withIdentifier: "RecipeToHome", sender: self)
             }
         }
     }

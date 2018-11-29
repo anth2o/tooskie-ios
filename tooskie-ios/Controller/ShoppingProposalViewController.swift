@@ -11,7 +11,7 @@ import UIKit
 class ShoppingProposalViewController: UIViewController {
     
     @IBAction func goHome(_ sender: Any) {
-        performSegue(withIdentifier: "GoHome", sender: self)
+        performSegue(withIdentifier: "ShoppingToHome", sender: self)
     }
     
     override func viewDidLoad() {

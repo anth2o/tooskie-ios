@@ -205,9 +205,9 @@
                                     <constraint firstAttribute="width" constant="60" id="eg1-5h-FeZ"/>
                                     <constraint firstAttribute="width" secondItem="uVn-8k-cOc" secondAttribute="height" multiplier="1:1" id="rob-HQ-kma"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="Undo"/>
+                                <state key="normal" title="Button" image="HomePurple"/>
                                 <connections>
-                                    <action selector="cancelSwipe:" destination="VFG-tp-c9v" eventType="touchUpInside" id="YvI-4Q-1GB"/>
+                                    <action selector="goHome:" destination="VFG-tp-c9v" eventType="touchUpInside" id="3Y2-2q-sXe"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-9d-hY3" customClass="SingleRecipe" customModule="tooskie_ios" customModuleProvider="target">
@@ -365,7 +365,7 @@
                     </view>
                     <connections>
                         <outlet property="recipeView" destination="jgQ-9d-hY3" id="Xdz-M0-cfg"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoBack" id="oa7-CM-PcB"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="RecipeSuggestionToHome" id="oa7-CM-PcB"/>
                         <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="LaunchRecipe" id="V3u-QB-b9T"/>
                         <segue destination="56O-ta-ca4" kind="presentation" identifier="GoShopping" id="Oq1-Ss-TLG"/>
                     </connections>
@@ -547,7 +547,7 @@
                         <viewLayoutGuide key="safeArea" id="4HE-KH-0hL"/>
                     </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="GoHome" id="aUG-sN-5Qe"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShoppingToHome" id="aUG-sN-5Qe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usW-fX-awb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -631,7 +631,7 @@
                                             <constraint firstAttribute="width" secondItem="4xp-hr-GI4" secondAttribute="height" multiplier="1:1" id="2P9-du-lqT"/>
                                             <constraint firstAttribute="width" constant="35" id="Nnk-OM-uzy"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Home"/>
+                                        <state key="normal" title="Button" image="HomeBlack"/>
                                         <connections>
                                             <action selector="backHome:" destination="YAH-LX-tAp" eventType="touchUpInside" id="i2t-wj-0Vv"/>
                                         </connections>
@@ -756,7 +756,7 @@
                         <outlet property="stepView" destination="VCd-az-SWY" id="hz7-gr-7Zg"/>
                         <outlet property="topConstraint" destination="3wo-Za-Yme" id="lf1-wh-vY2"/>
                         <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="BackToIntro" id="Vlw-og-T2E"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="GoHomeFromRecipe" id="YNy-kQ-qs6"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="RecipeToHome" id="YNy-kQ-qs6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1V8-34-NLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -771,18 +771,18 @@
         <image name="Cooking" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Difficulty" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Help" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="Home" width="65" height="65"/>
+        <image name="HomeBlack" width="230" height="229"/>
+        <image name="HomePurple" width="230" height="229"/>
         <image name="MinusButton" width="587" height="585"/>
         <image name="Pass" width="229" height="229"/>
         <image name="Preparation" width="512" height="512"/>
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="Undo" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Valid" width="229" height="229"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tjP-ZE-fwQ"/>
-        <segue reference="V3u-QB-b9T"/>
+        <segue reference="Oq1-Ss-TLG"/>
+        <segue reference="Vlw-og-T2E"/>
         <segue reference="Uqw-eL-WEw"/>
-        <segue reference="aUG-sN-5Qe"/>
+        <segue reference="YNy-kQ-qs6"/>
     </inferredMetricsTieBreakers>
 </document>
