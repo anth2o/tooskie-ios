@@ -96,11 +96,9 @@ class RecipeViewController: UIViewController {
     @IBAction func backHome(_ sender: Any) {
         let alert = UIAlertController(title: "Revenir à l'accueil", message: "Êtes vous sûr de vouloir revenir à l'écran d'accueil ?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Accueil", style: .destructive, handler: { action in
-            print("Go home")
             self.goHome = true
         }))
         alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { action in
-            print("Cancel")
             print(action)
         }))
         self.present(alert, animated: true, completion: nil)
@@ -185,11 +183,9 @@ class RecipeViewController: UIViewController {
                 self.progressStep.setProgress(Float(self.stepIndex) / Float(length), animated: true)
                 if self.stepIndex == length {
                     self.nextStepDisplay.isEnabled = false
-//                    self.nextStepDisplay.setTitle("Fini", for: .normal)
                 }
                 else {
                     self.nextStepDisplay.isEnabled = true
-//                    self.nextStepDisplay.setTitle("Suivant", for: .normal)
                 }
             }
             self.stepNumber.text = "Etape " + String(self.stepIndex)

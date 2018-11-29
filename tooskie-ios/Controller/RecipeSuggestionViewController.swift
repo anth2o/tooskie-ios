@@ -11,8 +11,10 @@ import UIKit
 class RecipeSuggestionViewController: UIViewController {
     
     var index = 0
-    let translationX = UIScreen.main.bounds.width / 2
-    let translationY = CGFloat(-50)
+    let defaultTranslationX = UIScreen.main.bounds.width / 2
+    let defaultTranslationY = CGFloat(-50)
+    let maxTranslationY = CGFloat(20)
+    let minTranslationY = CGFloat(-60)
     let animationDurarion = 0.2
     
     @IBOutlet weak var recipeView: SingleRecipe!
@@ -23,13 +25,13 @@ class RecipeSuggestionViewController: UIViewController {
     
     @IBAction func validateRecipe(_ sender: UIButton) {
         self.recipeView.status = .accepted
-        let transform = self.transformRecipeView(x: self.translationX, y: self.translationY).0
+        let transform = self.transformRecipeView(x: self.defaultTranslationX, y: self.defaultTranslationY).0
         self.handleSwipeByButton(transform: transform)
     }
     
     @IBAction func passRecipe(_ sender: UIButton) {
         self.recipeView.status = .declined
-        let transform = self.transformRecipeView(x: -1*self.translationX, y: self.translationY).0
+        let transform = self.transformRecipeView(x: -1*self.defaultTranslationX, y: self.defaultTranslationY).0
         self.handleSwipeByButton(transform: transform)
     }
     
@@ -96,7 +98,9 @@ class RecipeSuggestionViewController: UIViewController {
     private func transformRecipeViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.recipeView)
         
-        let (transform, translationPercent) = self.transformRecipeView(x: translation.x, y: translation.y)
+        let y = max(min(translation.y, maxTranslationY), minTranslationY)
+        
+        let (transform, translationPercent) = self.transformRecipeView(x: translation.x, y: y)
 
         self.recipeView.transform = transform
         
@@ -143,11 +147,9 @@ class RecipeSuggestionViewController: UIViewController {
             break
         }
         
-        recipeView.transform = .identity
-        let animationDurarion = 0.5
-        UIView.animate(withDuration: animationDurarion) {
-            self.recipeView.layoutIfNeeded()
-        }
+        UIView.animate(withDuration: animationDurarion, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.recipeView.transform = .identity
+        }, completion:nil)
         recipeView.status = .waiting
     }
 }
