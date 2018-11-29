@@ -12,6 +12,8 @@
 		7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B131217240B800712CC0 /* RecipeViewController.swift */; };
 		714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B35AA218C87310079BAE1 /* ModelWithPicture.swift */; };
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
+		714C430021B01592004065ED /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C42FF21B01592004065ED /* KeyboardViewController.swift */; };
+		714C430421B01593004065ED /* TooskieKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 714C42FD21B01592004065ED /* TooskieKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
 		716BAFF921838774001119DD /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716BAFF821838774001119DD /* ViewUtils.swift */; };
@@ -30,12 +32,39 @@
 		71FE6ADD216BAC6600562741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71FE6ADC216BAC6600562741 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		714C430221B01593004065ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 718F6700215B481000F59A5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 714C42FC21B01592004065ED;
+			remoteInfo = TooskieKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		714C430821B01593004065ED /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				714C430421B01593004065ED /* TooskieKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		7136B12F2172394800712CC0 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		7136B131217240B800712CC0 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		714B35AA218C87310079BAE1 /* ModelWithPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWithPicture.swift; sourceTree = "<group>"; };
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		714C42FD21B01592004065ED /* TooskieKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TooskieKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		714C42FF21B01592004065ED /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		714C430121B01593004065ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		716BAFF821838774001119DD /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
@@ -57,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		714C42FA21B01592004065ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		718F6705215B481000F59A5C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,11 +103,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		714C42FE21B01592004065ED /* TooskieKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				714C42FF21B01592004065ED /* KeyboardViewController.swift */,
+				714C430121B01593004065ED /* Info.plist */,
+			);
+			path = TooskieKeyboard;
+			sourceTree = "<group>";
+		};
 		718F66FF215B481000F59A5C = {
 			isa = PBXGroup;
 			children = (
 				718F671D215B4ABB00F59A5C /* .gitignore */,
 				718F670A215B481000F59A5C /* tooskie-ios */,
+				714C42FE21B01592004065ED /* TooskieKeyboard */,
 				718F6709215B481000F59A5C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				718F6708215B481000F59A5C /* tooskie-ios.app */,
+				714C42FD21B01592004065ED /* TooskieKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +194,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		714C42FC21B01592004065ED /* TooskieKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 714C430721B01593004065ED /* Build configuration list for PBXNativeTarget "TooskieKeyboard" */;
+			buildPhases = (
+				714C42F921B01592004065ED /* Sources */,
+				714C42FA21B01592004065ED /* Frameworks */,
+				714C42FB21B01592004065ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TooskieKeyboard;
+			productName = TooskieKeyboard;
+			productReference = 714C42FD21B01592004065ED /* TooskieKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		718F6707215B481000F59A5C /* tooskie-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 718F671A215B481100F59A5C /* Build configuration list for PBXNativeTarget "tooskie-ios" */;
@@ -154,10 +218,12 @@
 				718F6704215B481000F59A5C /* Sources */,
 				718F6705215B481000F59A5C /* Frameworks */,
 				718F6706215B481000F59A5C /* Resources */,
+				714C430821B01593004065ED /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				714C430321B01593004065ED /* PBXTargetDependency */,
 			);
 			name = "tooskie-ios";
 			productName = "tooskie-ios";
@@ -170,10 +236,13 @@
 		718F6700215B481000F59A5C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Antoine Hoorelbeke";
 				TargetAttributes = {
+					714C42FC21B01592004065ED = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					718F6707215B481000F59A5C = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -193,11 +262,19 @@
 			projectRoot = "";
 			targets = (
 				718F6707215B481000F59A5C /* tooskie-ios */,
+				714C42FC21B01592004065ED /* TooskieKeyboard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		714C42FB21B01592004065ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		718F6706215B481000F59A5C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +289,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		714C42F921B01592004065ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				714C430021B01592004065ED /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		718F6704215B481000F59A5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +323,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		714C430321B01593004065ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 714C42FC21B01592004065ED /* TooskieKeyboard */;
+			targetProxy = 714C430221B01593004065ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		718F670F215B481000F59A5C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -258,6 +351,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		714C430521B01593004065ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YNGC395ZP7;
+				INFOPLIST_FILE = TooskieKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "antoine.tooskie-ios.TooskieKeyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		714C430621B01593004065ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YNGC395ZP7;
+				INFOPLIST_FILE = TooskieKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "antoine.tooskie-ios.TooskieKeyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		718F6718215B481100F59A5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -377,6 +512,7 @@
 		718F671B215B481100F59A5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -398,6 +534,7 @@
 		718F671C215B481100F59A5C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -419,6 +556,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		714C430721B01593004065ED /* Build configuration list for PBXNativeTarget "TooskieKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				714C430521B01593004065ED /* Debug */,
+				714C430621B01593004065ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		718F6703215B481000F59A5C /* Build configuration list for PBXProject "tooskie-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

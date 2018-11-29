@@ -18,7 +18,12 @@ extension UIView {
         self.layer.shadowOpacity = 10
         self.layer.shadowRadius = 10
         self.clipsToBounds = true
-
+    }
+    
+    public func removeBorder() {
+        let color = UIColor.white.cgColor
+        self.layer.borderWidth = 1
+        self.layer.borderColor = color
     }
 }
 

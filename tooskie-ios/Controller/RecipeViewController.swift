@@ -143,7 +143,6 @@ class RecipeViewController: UIViewController {
             self.resumeText.text = self.infoString
             self.updateStepDisplay()
         }
-        self.helpView.setBorder()
         self.helpView.alpha = 1
         self.helpView.isHidden = false
         self.tintView.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -266,10 +265,12 @@ class RecipeViewController: UIViewController {
             self.view.backgroundColor = UIColor.white
             self.stepView.backgroundColor = UIColor.white
             self.tintView.removeFromSuperview()
+            self.helpView.removeBorder()
         case .help:
             self.view.backgroundColor = UIColor.darkGray
             self.stepView.backgroundColor = UIColor.darkGray
             self.recipePicture.addSubview(tintView)
+            self.helpView.setBorder()
             show = true
         }
         if self.helpDisplayed == show {
