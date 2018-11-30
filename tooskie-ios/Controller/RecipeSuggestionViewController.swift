@@ -16,7 +16,7 @@ class RecipeSuggestionViewController: UIViewController {
     let maxTranslationY = CGFloat(20)
     let minTranslationY = CGFloat(-60)
     let minY = CGFloat(120)
-    let maxY = CGFloat(300)
+    let maxY = CGFloat(500)
     let animationDurarion = 0.2
     var translation = CGPoint(x: 0, y: 0)
     var speed = CGPoint(x: 0, y: 0)

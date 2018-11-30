@@ -194,6 +194,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
 //    API requests
     
     func loadPantry() {
+        if GlobalVariables.tooskiePantry.count > 0 {
+            return
+        }
         let request = GlobalVariables.serverConfig.getRequest(path: "/api/ingredient/", method: "GET")
         let session = GlobalVariables.serverConfig.getSession()
          let task = session.dataTask(with: request) { (data, response, responseError) in
@@ -221,6 +224,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadUserPantry() {
+        if GlobalVariables.userPantry.count > 0 {
+            return
+        }
         if let permaname = GlobalVariables.userPantry.permaname {
             let request = GlobalVariables.serverConfig.getRequest(path: "/api/pantry/" + permaname, method: "GET")
             let session = GlobalVariables.serverConfig.getSession()
