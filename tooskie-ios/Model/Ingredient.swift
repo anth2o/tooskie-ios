@@ -77,8 +77,11 @@ class Ingredient: Codable {
         let realQuantity = self.getQuantity(peopleNumber: peopleNumber)
         var description = "- "
         var isPlural = false
-        if let quantity = realQuantity {
+        if realQuantity != nil {
+            var quantity = realQuantity!
+            quantity = round(quantity*10)/10
             var quantityString = String(quantity)
+            // if the quantity is an integer we remove the .0 at the end
             if Float(Int(quantity)) == quantity {
                 quantityString = String(Int(quantity))
             }

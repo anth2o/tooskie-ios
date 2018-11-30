@@ -15,7 +15,11 @@ class RecipeSuggestionViewController: UIViewController {
     let defaultTranslationY = CGFloat(-50)
     let maxTranslationY = CGFloat(20)
     let minTranslationY = CGFloat(-60)
+    let minY = CGFloat(120)
+    let maxY = CGFloat(300)
     let animationDurarion = 0.2
+    var translation = CGPoint(x: 0, y: 0)
+    var speed = CGPoint(x: 0, y: 0)
     
     @IBOutlet weak var recipeView: SingleRecipe!
     
@@ -97,14 +101,18 @@ class RecipeSuggestionViewController: UIViewController {
     
     private func transformRecipeViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.recipeView)
-        
-        let y = max(min(translation.y, maxTranslationY), minTranslationY)
-        
-        let (transform, translationPercent) = self.transformRecipeView(x: translation.x, y: y)
-
-        self.recipeView.transform = transform
-        
-        let speed = gesture.velocity(in: self.recipeView)
+        let point = gesture.location(in: self.view)
+        var translationPercent = CGFloat(0)
+        var transform = CGAffineTransform()
+        if (point.y >= minY && point.y <= maxY) {
+            (transform, translationPercent) = self.transformRecipeView(x: translation.x, y: translation.y)
+            self.recipeView.transform = transform
+            self.speed = gesture.velocity(in: self.recipeView)
+            self.translation = translation
+        }
+        else {
+            translationPercent = self.translation.x/(UIScreen.main.bounds.width / 2)
+        }
         if abs(translationPercent) > 0.65 || (abs(speed.x) > 600 && abs(translationPercent) > 0.35) {
             if translation.x > 0 {
                 recipeView.status = .accepted
