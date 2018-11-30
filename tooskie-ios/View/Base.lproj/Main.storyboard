@@ -491,30 +491,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="065-uX-s7D">
-                                <rect key="frame" x="135" y="508" width="50" height="30"/>
-                                <state key="normal" title="Accueil"/>
-                                <connections>
-                                    <action selector="goHome:" destination="56O-ta-ca4" eventType="touchUpInside" id="arW-42-mVd"/>
-                                </connections>
-                            </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-5r-bVT">
-                                <rect key="frame" x="60" y="49" width="200" height="477"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-5r-bVT">
+                                <rect key="frame" x="30" y="40" width="260" height="408"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cart" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-qI-lae">
-                                        <rect key="frame" x="20" y="80.5" width="160" height="160"/>
+                                        <rect key="frame" x="20" y="80.5" width="220" height="220"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aHN-qI-lae" secondAttribute="height" multiplier="1:1" id="aXd-7A-Zph"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fichtre !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpe-pu-Cfc">
-                                        <rect key="frame" x="69" y="30" width="62.5" height="20.5"/>
+                                        <rect key="frame" x="99" y="30" width="62.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="C'est vraiment la hess là, va falloir faire des courses morray" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZR-aj-4Z8">
-                                        <rect key="frame" x="20" y="250.5" width="160" height="80"/>
+                                        <rect key="frame" x="20" y="310.5" width="220" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Mee-Yf-Eyb"/>
@@ -523,7 +516,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.85490196080000003" green="0.91372549020000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aHN-qI-lae" secondAttribute="trailing" constant="20" id="C1U-Wo-90V"/>
                                     <constraint firstAttribute="trailing" secondItem="aZR-aj-4Z8" secondAttribute="trailing" constant="20" id="GJR-xc-AMu"/>
@@ -535,14 +528,26 @@
                                     <constraint firstItem="aZR-aj-4Z8" firstAttribute="top" secondItem="aHN-qI-lae" secondAttribute="bottom" constant="10" id="psQ-Lg-UgU"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFd-dX-I3h">
+                                <rect key="frame" x="130" y="468" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="92X-Nv-YEm"/>
+                                    <constraint firstAttribute="width" secondItem="qFd-dX-I3h" secondAttribute="height" multiplier="1:1" id="eT4-us-ryD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="HomeBlack"/>
+                                <connections>
+                                    <action selector="goHome:" destination="56O-ta-ca4" eventType="touchUpInside" id="oKk-WM-q8m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="f6N-5r-bVT" firstAttribute="leading" secondItem="4HE-KH-0hL" secondAttribute="leading" constant="60" id="BV7-fn-ucv"/>
-                            <constraint firstItem="f6N-5r-bVT" firstAttribute="top" secondItem="4HE-KH-0hL" secondAttribute="top" constant="30" id="XWB-RR-JX0"/>
-                            <constraint firstItem="4HE-KH-0hL" firstAttribute="trailing" secondItem="f6N-5r-bVT" secondAttribute="trailing" constant="60" id="deG-hm-tug"/>
-                            <constraint firstItem="065-uX-s7D" firstAttribute="centerX" secondItem="372-AG-ghx" secondAttribute="centerX" id="e3u-On-BtZ"/>
-                            <constraint firstItem="4HE-KH-0hL" firstAttribute="bottom" secondItem="065-uX-s7D" secondAttribute="bottom" constant="30" id="s7e-Ze-6Vf"/>
+                            <constraint firstItem="f6N-5r-bVT" firstAttribute="leading" secondItem="4HE-KH-0hL" secondAttribute="leading" constant="30" id="BV7-fn-ucv"/>
+                            <constraint firstItem="4HE-KH-0hL" firstAttribute="bottom" secondItem="qFd-dX-I3h" secondAttribute="bottom" constant="40" id="Ot3-qS-mx1"/>
+                            <constraint firstItem="qFd-dX-I3h" firstAttribute="centerX" secondItem="372-AG-ghx" secondAttribute="centerX" id="Pj7-7n-Jio"/>
+                            <constraint firstItem="qFd-dX-I3h" firstAttribute="top" secondItem="f6N-5r-bVT" secondAttribute="bottom" constant="20" id="QqD-EB-LaE"/>
+                            <constraint firstItem="f6N-5r-bVT" firstAttribute="top" secondItem="4HE-KH-0hL" secondAttribute="top" constant="20" id="XWB-RR-JX0"/>
+                            <constraint firstItem="4HE-KH-0hL" firstAttribute="trailing" secondItem="f6N-5r-bVT" secondAttribute="trailing" constant="30" id="deG-hm-tug"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4HE-KH-0hL"/>
                     </view>
@@ -552,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usW-fX-awb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="-255.02248875562222"/>
+            <point key="canvasLocation" x="322.5" y="-255.63380281690141"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="F1R-MT-9IP">
@@ -781,8 +786,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Oq1-Ss-TLG"/>
-        <segue reference="Vlw-og-T2E"/>
+        <segue reference="V3u-QB-b9T"/>
         <segue reference="Uqw-eL-WEw"/>
-        <segue reference="YNy-kQ-qs6"/>
+        <segue reference="aUG-sN-5Qe"/>
     </inferredMetricsTieBreakers>
 </document>
