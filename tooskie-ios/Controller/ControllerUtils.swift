@@ -23,6 +23,27 @@ extension UIViewController {
     }
 }
 
+extension UITableView {
+    
+    func scrollToBottom(){
+        
+        DispatchQueue.main.async {
+            let inSection = self.numberOfSections - 1
+            let row = self.numberOfRows(inSection: inSection) - 1
+            let indexPath = NSIndexPath(row: row, section: self.numberOfSections - 1)
+            self.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    func scrollToTop() {
+        
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.scrollToRow(at: indexPath, at: .top, animated: false)
+        }
+    }
+}
+
 struct GlobalVariables {
     static let tooskiePantry = Pantry(name: "Tooskie pantry")
     static let userPantry = Pantry(name: "iOS")

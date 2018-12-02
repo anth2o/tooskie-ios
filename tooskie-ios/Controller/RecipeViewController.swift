@@ -111,6 +111,8 @@ class RecipeViewController: UIViewController {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
         self.updateViewDisplayed()
+        progressStep.transform = progressStep.transform.scaledBy(x: 1, y: 5)
+//        progressStep.setBorder(color: UIColor(red: 20, green: 120, blue: 246).cgColor, cornerRadius: 0.0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

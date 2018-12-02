@@ -109,6 +109,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             if let chosenIngredient = GlobalVariables.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
                 if GlobalVariables.userPantry.contains(ingredient: chosenIngredient) {
                     self.alertIngredientAlreadyThere()
+                    self.ingredientSearchBar.text = ""
                 }
                 else {
                     self.addAndDisplayNewIngredient(ingredient: chosenIngredient)
@@ -179,16 +180,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     private func reload(){
         self.pantryTableView.reloadData()
-        self.scrollToBottom()
-    }
-    
-    private func scrollToBottom(){
-        DispatchQueue.main.async {
-            if GlobalVariables.userPantry.count > 0 {
-                let indexPath = IndexPath(row: GlobalVariables.userPantry.count-1, section: 0)
-                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-            }
-        }
+        self.pantryTableView.scrollToBottom()
     }
     
 //    API requests

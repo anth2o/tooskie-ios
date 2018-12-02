@@ -9,14 +9,17 @@
 import UIKit
 
 extension UIView {
-    public func setBorder() {
-        let color = UIColor.darkGray.cgColor
+    public func setBorder(color: CGColor = UIColor.darkGray.cgColor, withShadow: Bool = true, cornerRadius: CGFloat = 8.0) {
         self.layer.borderWidth = 1
         self.layer.borderColor = color
-        self.layer.cornerRadius = 8.0
-        self.layer.shadowColor = color
-        self.layer.shadowOpacity = 10
-        self.layer.shadowRadius = 10
+        if cornerRadius > 0 {
+            self.layer.cornerRadius = cornerRadius
+        }
+        if withShadow {
+            self.layer.shadowColor = color
+            self.layer.shadowOpacity = 10
+            self.layer.shadowRadius = 10
+        }
         self.clipsToBounds = true
     }
     
@@ -45,5 +48,15 @@ extension UIImageView {
         let y = (bounds.height - size.height) / 2.0
         
         return CGRect(x: x, y: y, width: size.width, height: size.height)
+    }
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 }
