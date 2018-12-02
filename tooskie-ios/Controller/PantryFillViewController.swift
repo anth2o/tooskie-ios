@@ -25,9 +25,11 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBarConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var launchRecipesButton: UIButton!
     
-//    Actions
+    @IBOutlet weak var toolbar: UIStackView!
+    //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
         self.sendPantry()
@@ -83,17 +85,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         var userInfo = notification.userInfo!
         let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-        let changeInHeight = (keyboardFrame.height - self.launchRecipesButton.frame.height - self.searchBarConstraint.constant) * (show ? 1 : -1)
         self.pantryTableView.isUserInteractionEnabled = !show
-        self.launchRecipesButton.isHidden = show
-        self.bottomConstraint.constant += changeInHeight
+        self.searchBarConstraint.constant += (keyboardFrame.height - self.launchRecipesButton.frame.height - self.launchButtonConstraint.constant - self.toolbar.frame.height) * (show ? 1 : -1)
+        self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
+            self.launchRecipesButton.isHidden = show
             self.view.layoutIfNeeded()
-            if GlobalVariables.userPantry.count > 0 {
-                let indexPath = IndexPath(row: GlobalVariables.userPantry.count-1, section: 0)
-                self.pantryTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-            }
-            self.pantryTableView.layoutIfNeeded()
         }
     }
     
