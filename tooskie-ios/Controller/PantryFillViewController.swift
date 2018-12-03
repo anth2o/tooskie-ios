@@ -23,12 +23,14 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var ingredientsView: UIView!
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var searchBarConstraint: NSLayoutConstraint!
-    @IBOutlet weak var launchButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ingredientsViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var launchRecipesButton: UIButton!
-    
     @IBOutlet weak var toolbar: UIStackView!
+    @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var suggestionBar: UIStackView!
+    
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
@@ -61,6 +63,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         ingredientSearchBar.delegate = self
         ingredientSearchBar.backgroundImage = UIImage()
         ingredientsView.setBorder()
+        suggestionBar.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         print("View did load")
@@ -86,7 +89,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         self.pantryTableView.isUserInteractionEnabled = !show
-        self.searchBarConstraint.constant += (keyboardFrame.height - self.launchRecipesButton.frame.height - self.launchButtonConstraint.constant - self.toolbar.frame.height) * (show ? 1 : -1)
+        self.mainViewBottomConstraint.constant += keyboardFrame.height * (show ? 1 : -1)
+        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.toolbar.frame.height) * (show ? 1 : -1)
+        self.suggestionBar.isHidden = !show
+        self.suggestionBarBottomConstraint.constant -= keyboardFrame.height * (show ? 1 : -1)
         self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
             self.launchRecipesButton.isHidden = show
