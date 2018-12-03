@@ -19,6 +19,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     private var keyboardIsVisible = false
     private let minLettersSuggestion = 3
+    private var currentIngredient: Ingredient?
 
 //    Outlets
     @IBOutlet weak var ingredientsView: UIView!
@@ -55,20 +56,27 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             self.ingredientSearchBar.becomeFirstResponder()
         }
     }
+    @IBAction func addSuggestedIngredient1(_ sender: UIButton) {
+        if let ingredient = self.currentIngredient {
+            self.addAndDisplayNewIngredient(ingredient: ingredient)
+            self.suggestion1.setTitle("", for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadPantry()
-        self.loadUserPantry()
         pantryTableView.delegate = self
         pantryTableView.dataSource = self
+        self.loadPantry()
+        self.loadUserPantry()
         pantryTableView.rowHeight = 60.0
         ingredientSearchBar.delegate = self
         ingredientSearchBar.backgroundImage = UIImage()
-        ingredientsView.setBorder()
+        ingredientsView.setBorder(borderWidth: 3.0)
         suggestionBar.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.pantryTableView.scrollToBottom()
         print("View did load")
     }
     
@@ -191,8 +199,17 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count >= minLettersSuggestion {
-            let tempIngredients = GlobalVariables.tooskiePantry.getIngredientsByPrefix(prefix: searchText)
-            self.suggestion1.setTitle(tempIngredients[0].getName(), for: .normal)
+            let tempIngredientList = GlobalVariables.tooskiePantry.getIngredientsByPrefix(prefix: searchText)
+            var i = 0
+            while i < tempIngredientList.count {
+                let tempIngredient = tempIngredientList[i]
+                if !GlobalVariables.userPantry.contains(ingredient: tempIngredient) {
+                    self.suggestion1.setTitle(tempIngredient.getName(), for: .normal)
+                    self.currentIngredient = tempIngredient
+                    return
+                }
+                i += 1
+            }
         }
     }
     

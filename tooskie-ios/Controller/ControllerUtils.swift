@@ -30,8 +30,10 @@ extension UITableView {
         DispatchQueue.main.async {
             let inSection = self.numberOfSections - 1
             let row = self.numberOfRows(inSection: inSection) - 1
-            let indexPath = NSIndexPath(row: row, section: self.numberOfSections - 1)
-            self.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
+            if row > 0 {
+                let indexPath = NSIndexPath(row: row, section: self.numberOfSections - 1)
+                self.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
+            }
         }
     }
     
