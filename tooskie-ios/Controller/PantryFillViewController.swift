@@ -30,6 +30,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var toolbar: UIStackView!
     @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestionBar: UIStackView!
+    @IBOutlet weak var mainView: UIView!
     
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
@@ -91,11 +92,11 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.pantryTableView.isUserInteractionEnabled = !show
         self.mainViewBottomConstraint.constant += keyboardFrame.height * (show ? 1 : -1)
         self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.toolbar.frame.height) * (show ? 1 : -1)
-        self.suggestionBar.isHidden = !show
         self.suggestionBarBottomConstraint.constant -= keyboardFrame.height * (show ? 1 : -1)
         self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
             self.launchRecipesButton.isHidden = show
+            self.suggestionBar.isHidden = !show
             self.view.layoutIfNeeded()
         }
     }

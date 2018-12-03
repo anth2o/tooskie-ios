@@ -137,8 +137,12 @@
                                     <constraint firstItem="AVr-Rc-0FL" firstAttribute="centerX" secondItem="32G-ab-Pa3" secondAttribute="centerX" id="lg0-k8-sCo"/>
                                     <constraint firstItem="bEg-CQ-cVS" firstAttribute="centerX" secondItem="32G-ab-Pa3" secondAttribute="centerX" id="u5R-hv-Oab"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DB0-iA-nfB" appends="YES" id="lU6-kW-t71"/>
+                                    <outletCollection property="gestureRecognizers" destination="7zk-vd-u7N" appends="YES" id="Gn3-gP-5fQ"/>
+                                </connections>
                             </view>
-                            <stackView contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZVY-pq-9WB">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZVY-pq-9WB">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Na2-yr-wO2">
@@ -265,10 +269,10 @@
                                 <rect key="frame" x="0.0" y="627" width="375" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVu-wq-3G7">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sph-y7-2vx">
-                                                <rect key="frame" x="39.5" y="5" width="46" height="30"/>
+                                                <rect key="frame" x="164.5" y="5" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                         </subviews>
@@ -278,36 +282,8 @@
                                             <constraint firstItem="Sph-y7-2vx" firstAttribute="centerX" secondItem="tVu-wq-3G7" secondAttribute="centerX" id="eCf-u5-pT6"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRN-uO-EvG">
-                                        <rect key="frame" x="125" y="0.0" width="125" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ne-7w-5rU">
-                                                <rect key="frame" x="39.5" y="5" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="7ne-7w-5rU" firstAttribute="centerX" secondItem="WRN-uO-EvG" secondAttribute="centerX" id="PcU-Ry-BZj"/>
-                                            <constraint firstItem="7ne-7w-5rU" firstAttribute="centerY" secondItem="WRN-uO-EvG" secondAttribute="centerY" id="cxb-xJ-iyy"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNB-Jv-1Qz">
-                                        <rect key="frame" x="250" y="0.0" width="125" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ss-G2-ewb">
-                                                <rect key="frame" x="39.5" y="5" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="1ss-G2-ewb" firstAttribute="centerY" secondItem="fNB-Jv-1Qz" secondAttribute="centerY" id="fa1-vf-kl1"/>
-                                            <constraint firstItem="1ss-G2-ewb" firstAttribute="centerX" secondItem="fNB-Jv-1Qz" secondAttribute="centerX" id="mhb-3h-mQG"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="tVu-wq-3G7" secondAttribute="bottom" id="UmP-PD-vUW"/>
                                     <constraint firstAttribute="height" constant="40" id="cnV-fu-EdO"/>
@@ -338,6 +314,7 @@
                         <outlet property="ingredientsViewBottomConstraint" destination="DQc-0S-5O9" id="Qy5-rC-3rB"/>
                         <outlet property="launchButtonBottomConstraint" destination="EpI-zc-QLf" id="N0C-dP-wKc"/>
                         <outlet property="launchRecipesButton" destination="AVr-Rc-0FL" id="Sp3-Fz-K7G"/>
+                        <outlet property="mainView" destination="32G-ab-Pa3" id="hK2-F7-hep"/>
                         <outlet property="mainViewBottomConstraint" destination="Nay-yp-xTY" id="L8g-eg-qy2"/>
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
                         <outlet property="suggestionBar" destination="l36-Y7-cMn" id="t96-1K-ine"/>
@@ -349,14 +326,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="frE-H6-f1f" userLabel="Exit" sceneMemberID="exit"/>
-                <searchDisplayController id="UZm-bv-oO9">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="DB0-iA-nfB">
                     <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="CrH-Dh-M8H"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="xiz-HK-yeW"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="pIA-fI-6wB"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="Opm-Gp-7iR"/>
+                        <action selector="dismissKeyboardSwipe:" destination="BYZ-38-t0r" id="46b-eH-K4Z"/>
                     </connections>
-                </searchDisplayController>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="7zk-vd-u7N">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="Qai-dh-ORi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1320.8" y="-545.57721139430294"/>
         </scene>
