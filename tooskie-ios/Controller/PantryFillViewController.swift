@@ -19,7 +19,19 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     private var keyboardIsVisible = false
     private let minLettersSuggestion = 3
+    private let numberWordsSuggested = 3
     private var currentIngredient: Ingredient?
+    
+    struct SuggestedWord {
+        var button = UIButton()
+        var ingredient: Ingredient?
+        
+        init(button: UIButton){
+            self.button = button
+        }
+    }
+    
+    private var listSuggestedWord  = [SuggestedWord]()
 
 //    Outlets
     @IBOutlet weak var ingredientsView: UIView!
@@ -33,8 +45,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
-    
-    @IBOutlet weak var suggestion1: UIButton!
+
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
@@ -56,10 +67,11 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             self.ingredientSearchBar.becomeFirstResponder()
         }
     }
-    @IBAction func addSuggestedIngredient1(_ sender: UIButton) {
-        if let ingredient = self.currentIngredient {
+    
+    @objc func pressButton(_ button: UIButton) {
+        if let ingredient = self.listSuggestedWord[button.tag].ingredient {
             self.addAndDisplayNewIngredient(ingredient: ingredient)
-            self.suggestion1.setTitle("", for: .normal)
+            self.clearSuggestions()
         }
     }
     
@@ -74,10 +86,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         ingredientSearchBar.backgroundImage = UIImage()
         ingredientsView.setBorder(borderWidth: 3.0)
         suggestionBar.isHidden = true
+        suggestionBar.setBorder()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.pantryTableView.scrollToBottom()
-        print("View did load")
+        self.addSubviews()
+        print(suggestionBar.subviews)
     }
     
     @objc
@@ -114,6 +128,23 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Search and add ingredient")
         self.addIngredient()
+    }
+    
+    func addSubviews() {
+        for i in 0..<self.numberWordsSuggested {
+            let subview = UIButton()
+            subview.backgroundColor = UIColor.lightGray
+            subview.titleLabel?.textAlignment = .center
+            subview.setTitle("", for: .normal)
+            subview.tag = i
+            subview.addTarget(self, action: #selector(pressButton(_:)), for: .touchUpInside)
+            subview.heightAnchor.constraint(equalToConstant: self.suggestionBar.frame.height).isActive = true
+            subview.translatesAutoresizingMaskIntoConstraints = false
+            subview.titleLabel?.lineBreakMode = .byTruncatingTail
+            self.suggestionBar.addArrangedSubview(subview)
+            let suggestedWord = SuggestedWord(button: subview)
+            self.listSuggestedWord.append(suggestedWord)
+        }
     }
     
 // Handle ingredients
@@ -200,16 +231,26 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count >= minLettersSuggestion {
             let tempIngredientList = GlobalVariables.tooskiePantry.getIngredientsByPrefix(prefix: searchText)
-            var i = 0
-            while i < tempIngredientList.count {
-                let tempIngredient = tempIngredientList[i]
+            var ingredientCount = 0
+            var wordSuggestedCount = 0
+            while ingredientCount < tempIngredientList.count && wordSuggestedCount < self.numberWordsSuggested {
+                let tempIngredient = tempIngredientList[ingredientCount]
                 if !GlobalVariables.userPantry.contains(ingredient: tempIngredient) {
-                    self.suggestion1.setTitle(tempIngredient.getName(), for: .normal)
-                    self.currentIngredient = tempIngredient
-                    return
+                    self.listSuggestedWord[wordSuggestedCount].button.setTitle(tempIngredient.getName(), for: .normal)
+                    self.listSuggestedWord[wordSuggestedCount].ingredient = tempIngredient
+                    wordSuggestedCount += 1
                 }
-                i += 1
+                ingredientCount += 1
             }
+        }
+        else {
+            self.clearSuggestions()
+        }
+    }
+    
+    private func clearSuggestions() {
+        for i in 0..<self.numberWordsSuggested {
+            self.listSuggestedWord[i].button.setTitle("", for: .normal)
         }
     }
     
