@@ -272,8 +272,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sph-y7-2vx">
-                                                <rect key="frame" x="164.5" y="5" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <rect key="frame" x="172.5" y="5" width="30" height="30"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -317,6 +316,7 @@
                         <outlet property="mainView" destination="32G-ab-Pa3" id="hK2-F7-hep"/>
                         <outlet property="mainViewBottomConstraint" destination="Nay-yp-xTY" id="L8g-eg-qy2"/>
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
+                        <outlet property="suggestion1" destination="Sph-y7-2vx" id="vrb-kN-brY"/>
                         <outlet property="suggestionBar" destination="l36-Y7-cMn" id="t96-1K-ine"/>
                         <outlet property="suggestionBarBottomConstraint" destination="Yem-iL-tFW" id="JZk-Wu-ViD"/>
                         <outlet property="toolbar" destination="ZVY-pq-9WB" id="Vd4-iM-TeX"/>

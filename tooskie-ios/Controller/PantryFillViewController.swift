@@ -18,6 +18,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     private var keyboardIsVisible = false
+    private let minLettersSuggestion = 3
 
 //    Outlets
     @IBOutlet weak var ingredientsView: UIView!
@@ -32,6 +33,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
     
+    @IBOutlet weak var suggestion1: UIButton!
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
@@ -185,6 +187,13 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     private func reload(){
         self.pantryTableView.reloadData()
         self.pantryTableView.scrollToBottom()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count >= minLettersSuggestion {
+            let tempIngredients = GlobalVariables.tooskiePantry.getIngredientsByPrefix(prefix: searchText)
+            self.suggestion1.setTitle(tempIngredients[0].getName(), for: .normal)
+        }
     }
     
 //    API requests

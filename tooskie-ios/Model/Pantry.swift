@@ -69,6 +69,11 @@ class Pantry: Codable{
         return self.ingredients.firstIndex(where: {$0.equals(to: ingredient)})
     }
     
+    public func getIngredientsByPrefix(prefix: String) -> [Ingredient]{
+        let filtered = self.ingredients.filter { $0.getName().hasPrefix(prefix) }
+        return filtered
+    }
+    
     public func getIngredientsToString() -> [String] {
         var ingredientsString = [String]()
         for i in 0..<self.ingredients.count {
