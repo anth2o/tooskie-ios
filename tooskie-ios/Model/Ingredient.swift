@@ -75,14 +75,16 @@ class Ingredient: Codable {
     
     public func getDescription(peopleNumber: Int?) -> String{
         let realQuantity = self.getQuantity(peopleNumber: peopleNumber)
+        let fmt = NumberFormatter()
+        fmt.numberStyle = .decimal
+        fmt.maximumSignificantDigits = 2
         var description = "- "
         var isPlural = false
         if realQuantity != nil {
-            var quantity = realQuantity!
-            quantity = round(quantity*10)/10
-            var quantityString = String(quantity)
+            let quantity = Double(realQuantity!)
+            var quantityString = fmt.string(for: quantity)!
             // if the quantity is an integer we remove the .0 at the end
-            if Float(Int(quantity)) == quantity {
+            if Double(Int(quantity)) == quantity {
                 quantityString = String(Int(quantity))
             }
             description += quantityString + " "

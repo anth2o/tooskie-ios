@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */; };
+		7133783921B68D7A00A2277A /* SpecificStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133783821B68D7A00A2277A /* SpecificStepView.xib */; };
 		7136B1302172394800712CC0 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B12F2172394800712CC0 /* Step.swift */; };
 		7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B131217240B800712CC0 /* RecipeViewController.swift */; };
 		714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B35AA218C87310079BAE1 /* ModelWithPicture.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		7133783821B68D7A00A2277A /* SpecificStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecificStepView.xib; sourceTree = "<group>"; };
 		7136B12F2172394800712CC0 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		7136B131217240B800712CC0 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		714B35AA218C87310079BAE1 /* ModelWithPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWithPicture.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
 				716BAFF821838774001119DD /* ViewUtils.swift */,
 				718F670F215B481000F59A5C /* Main.storyboard */,
+				7133783821B68D7A00A2277A /* SpecificStepView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7133783921B68D7A00A2277A /* SpecificStepView.xib in Resources */,
 				718F671E215B4ABB00F59A5C /* .gitignore in Resources */,
 				718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */,
 				71FE6ADD216BAC6600562741 /* Assets.xcassets in Resources */,
