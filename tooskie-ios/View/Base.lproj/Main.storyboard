@@ -833,70 +833,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
-                                <rect key="frame" x="30" y="50" width="315" height="577"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TF8-Oc-4Mq">
-                                        <rect key="frame" x="265" y="15" width="35" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="TF8-Oc-4Mq" secondAttribute="height" multiplier="1:1" id="JNI-C9-6E2"/>
-                                            <constraint firstAttribute="width" constant="35" id="Vx3-Fb-HGQ"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="Cancel"/>
-                                        <connections>
-                                            <action selector="hideHelp:" destination="YAH-LX-tAp" eventType="touchUpInside" id="Kus-7G-bMd"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de recette extrêemne tlong lalalalalala vkrbvea" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUg-74-kxO">
-                                        <rect key="frame" x="10" y="50" width="295" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uo5-Nu-1if">
-                                        <rect key="frame" x="82.5" y="108" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="9df-FS-Wga"/>
-                                            <constraint firstAttribute="width" secondItem="Uo5-Nu-1if" secondAttribute="height" multiplier="1:1" id="gkw-on-o5e"/>
-                                        </constraints>
-                                    </imageView>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-0L-A4B">
-                                        <rect key="frame" x="75" y="278" width="165" height="29"/>
-                                        <segments>
-                                            <segment title="Infos"/>
-                                            <segment title="Ingrédients"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="choseResumeOption:" destination="YAH-LX-tAp" eventType="valueChanged" id="yv5-Z8-NAW"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="lvbiv" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7v-EJ-3qC">
-                                        <rect key="frame" x="25" y="326" width="265" height="231"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="f7v-EJ-3qC" secondAttribute="bottom" constant="20" id="2zB-4A-uaA"/>
-                                    <constraint firstAttribute="trailing" secondItem="qUg-74-kxO" secondAttribute="trailing" constant="10" id="4by-xg-epL"/>
-                                    <constraint firstItem="Uo5-Nu-1if" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="4dn-16-E85"/>
-                                    <constraint firstItem="f7v-EJ-3qC" firstAttribute="top" secondItem="IS2-0L-A4B" secondAttribute="bottom" constant="20" id="6Nz-Js-tSw"/>
-                                    <constraint firstItem="Uo5-Nu-1if" firstAttribute="top" secondItem="qUg-74-kxO" secondAttribute="bottom" constant="15" id="Dns-bh-Dob"/>
-                                    <constraint firstItem="IS2-0L-A4B" firstAttribute="top" secondItem="Uo5-Nu-1if" secondAttribute="bottom" constant="20" id="FAI-lQ-p6o"/>
-                                    <constraint firstAttribute="trailing" secondItem="TF8-Oc-4Mq" secondAttribute="trailing" constant="15" id="LPc-xU-OcF"/>
-                                    <constraint firstItem="qUg-74-kxO" firstAttribute="top" secondItem="OJZ-uq-aiK" secondAttribute="top" constant="50" id="MAM-bw-wNB"/>
-                                    <constraint firstAttribute="trailing" secondItem="f7v-EJ-3qC" secondAttribute="trailing" constant="25" id="PSB-5Z-qxK"/>
-                                    <constraint firstItem="IS2-0L-A4B" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="Vgu-ze-viG"/>
-                                    <constraint firstItem="qUg-74-kxO" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="acS-mf-wz9"/>
-                                    <constraint firstItem="TF8-Oc-4Mq" firstAttribute="top" secondItem="OJZ-uq-aiK" secondAttribute="top" constant="15" id="hQO-8x-DMU"/>
-                                    <constraint firstItem="f7v-EJ-3qC" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="25" id="tne-OD-KmV"/>
-                                    <constraint firstItem="qUg-74-kxO" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="10" id="zBy-wB-rk4"/>
-                                </constraints>
-                                <viewLayoutGuide key="safeArea" id="qcF-fE-BVR"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCd-az-SWY">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
@@ -1015,6 +951,71 @@
                                     <constraint firstItem="h6C-n1-fAG" firstAttribute="centerY" secondItem="a7t-Th-Iw7" secondAttribute="centerY" id="yqo-pS-0EE"/>
                                 </constraints>
                             </view>
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
+                                <rect key="frame" x="30" y="50" width="315" height="577"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TF8-Oc-4Mq">
+                                        <rect key="frame" x="265" y="15" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="TF8-Oc-4Mq" secondAttribute="height" multiplier="1:1" id="JNI-C9-6E2"/>
+                                            <constraint firstAttribute="width" constant="35" id="Vx3-Fb-HGQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Cancel"/>
+                                        <connections>
+                                            <action selector="hideHelp:" destination="YAH-LX-tAp" eventType="touchUpInside" id="Kus-7G-bMd"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom de recette extrêemne tlong lalalalalala vkrbvea" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUg-74-kxO">
+                                        <rect key="frame" x="10" y="50" width="295" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uo5-Nu-1if">
+                                        <rect key="frame" x="82.5" y="108" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="9df-FS-Wga"/>
+                                            <constraint firstAttribute="width" secondItem="Uo5-Nu-1if" secondAttribute="height" multiplier="1:1" id="gkw-on-o5e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-0L-A4B">
+                                        <rect key="frame" x="75" y="278" width="165" height="29"/>
+                                        <segments>
+                                            <segment title="Infos"/>
+                                            <segment title="Ingrédients"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="choseResumeOption:" destination="YAH-LX-tAp" eventType="valueChanged" id="yv5-Z8-NAW"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="lvbiv" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7v-EJ-3qC">
+                                        <rect key="frame" x="25" y="326" width="265" height="231"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="f7v-EJ-3qC" secondAttribute="bottom" constant="20" id="2zB-4A-uaA"/>
+                                    <constraint firstAttribute="trailing" secondItem="qUg-74-kxO" secondAttribute="trailing" constant="10" id="4by-xg-epL"/>
+                                    <constraint firstItem="Uo5-Nu-1if" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="4dn-16-E85"/>
+                                    <constraint firstItem="f7v-EJ-3qC" firstAttribute="top" secondItem="IS2-0L-A4B" secondAttribute="bottom" constant="20" id="6Nz-Js-tSw"/>
+                                    <constraint firstAttribute="width" constant="315" id="AhB-rh-RIx"/>
+                                    <constraint firstItem="Uo5-Nu-1if" firstAttribute="top" secondItem="qUg-74-kxO" secondAttribute="bottom" constant="15" id="Dns-bh-Dob"/>
+                                    <constraint firstItem="IS2-0L-A4B" firstAttribute="top" secondItem="Uo5-Nu-1if" secondAttribute="bottom" constant="20" id="FAI-lQ-p6o"/>
+                                    <constraint firstAttribute="trailing" secondItem="TF8-Oc-4Mq" secondAttribute="trailing" constant="15" id="LPc-xU-OcF"/>
+                                    <constraint firstItem="qUg-74-kxO" firstAttribute="top" secondItem="OJZ-uq-aiK" secondAttribute="top" constant="50" id="MAM-bw-wNB"/>
+                                    <constraint firstAttribute="trailing" secondItem="f7v-EJ-3qC" secondAttribute="trailing" constant="25" id="PSB-5Z-qxK"/>
+                                    <constraint firstItem="IS2-0L-A4B" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="Vgu-ze-viG"/>
+                                    <constraint firstItem="qUg-74-kxO" firstAttribute="centerX" secondItem="OJZ-uq-aiK" secondAttribute="centerX" id="acS-mf-wz9"/>
+                                    <constraint firstItem="TF8-Oc-4Mq" firstAttribute="top" secondItem="OJZ-uq-aiK" secondAttribute="top" constant="15" id="hQO-8x-DMU"/>
+                                    <constraint firstItem="f7v-EJ-3qC" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="25" id="tne-OD-KmV"/>
+                                    <constraint firstItem="qUg-74-kxO" firstAttribute="leading" secondItem="OJZ-uq-aiK" secondAttribute="leading" constant="10" id="zBy-wB-rk4"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="qcF-fE-BVR"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -1080,6 +1081,6 @@
         <segue reference="tjP-ZE-fwQ"/>
         <segue reference="Vlw-og-T2E"/>
         <segue reference="Uqw-eL-WEw"/>
-        <segue reference="YNy-kQ-qs6"/>
+        <segue reference="Lt8-3y-h9e"/>
     </inferredMetricsTieBreakers>
 </document>
