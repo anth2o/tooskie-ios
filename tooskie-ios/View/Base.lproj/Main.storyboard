@@ -265,6 +265,10 @@
                                     <constraint firstItem="IW8-gw-iqG" firstAttribute="centerY" secondItem="ZVY-pq-9WB" secondAttribute="centerY" id="wL6-L2-VEw"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8O-Un-4mH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l36-Y7-cMn">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -272,25 +276,39 @@
                                     <constraint firstAttribute="height" constant="30" id="cnV-fu-EdO"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Auq-sn-42A">
+                                <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="0lz-Ec-cAC"/>
+                                    <constraint firstAttribute="height" constant="60" id="EBp-PD-bk6"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="t8O-Un-4mH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="27b-Hb-QA1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="l36-Y7-cMn" secondAttribute="bottom" id="73s-dP-Btf"/>
                             <constraint firstItem="32G-ab-Pa3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7z8-01-mpD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t8O-Un-4mH" secondAttribute="trailing" id="99A-w0-6c3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="32G-ab-Pa3" secondAttribute="trailing" id="G0M-tW-pgH"/>
                             <constraint firstItem="ZVY-pq-9WB" firstAttribute="top" secondItem="32G-ab-Pa3" secondAttribute="bottom" id="Nay-yp-xTY"/>
                             <constraint firstItem="32G-ab-Pa3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PrT-sl-y4F"/>
+                            <constraint firstItem="Auq-sn-42A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RdT-0r-9G2"/>
                             <constraint firstItem="l36-Y7-cMn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WG0-Tg-kUf"/>
                             <constraint firstItem="l36-Y7-cMn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Yem-iL-tFW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZVY-pq-9WB" secondAttribute="bottom" id="Yk4-xt-bdI"/>
+                            <constraint firstItem="Auq-sn-42A" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dY3-oB-BpJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l36-Y7-cMn" secondAttribute="trailing" id="lqZ-YT-kI7"/>
                             <constraint firstItem="ZVY-pq-9WB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qjb-aT-t9G"/>
+                            <constraint firstItem="t8O-Un-4mH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tAe-d9-Kvq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t8O-Un-4mH" secondAttribute="bottom" id="uht-BZ-vkQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZVY-pq-9WB" secondAttribute="trailing" id="xB8-b2-w6b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="Auq-sn-42A" id="zqh-3u-snV"/>
                         <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="W0y-zL-cLr"/>
                         <outlet property="ingredientsView" destination="bEg-CQ-cVS" id="q5p-S1-iis"/>
                         <outlet property="ingredientsViewBottomConstraint" destination="DQc-0S-5O9" id="Qy5-rC-3rB"/>
@@ -301,6 +319,7 @@
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
                         <outlet property="suggestionBar" destination="l36-Y7-cMn" id="t96-1K-ine"/>
                         <outlet property="suggestionBarBottomConstraint" destination="Yem-iL-tFW" id="JZk-Wu-ViD"/>
+                        <outlet property="tintView" destination="t8O-Un-4mH" id="0Jt-np-TEe"/>
                         <outlet property="toolbar" destination="ZVY-pq-9WB" id="Vd4-iM-TeX"/>
                         <segue destination="VFG-tp-c9v" kind="presentation" identifier="RecipeSuggestion" id="Uqw-eL-WEw"/>
                         <segue destination="56O-ta-ca4" kind="presentation" identifier="PantryToShopping" id="tjP-ZE-fwQ"/>
@@ -1034,7 +1053,7 @@
         <image name="Difficulty" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Fridge" width="409" height="656"/>
         <image name="Help" width="329" height="329"/>
-        <image name="Home" width="417" height="372"/>
+        <image name="Home" width="417" height="418"/>
         <image name="HomeBlack" width="230" height="229"/>
         <image name="HomePurple" width="230" height="229"/>
         <image name="LeftArrow" width="229" height="230"/>
@@ -1047,9 +1066,9 @@
         <image name="Valid" width="229" height="229"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oq1-Ss-TLG"/>
+        <segue reference="tjP-ZE-fwQ"/>
         <segue reference="V3u-QB-b9T"/>
-        <segue reference="8M6-7A-Dd2"/>
+        <segue reference="Uqw-eL-WEw"/>
         <segue reference="oa7-CM-PcB"/>
     </inferredMetricsTieBreakers>
 </document>

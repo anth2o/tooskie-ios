@@ -45,10 +45,15 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
-
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var tintView: UIView!
+    
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
+        self.activity.isHidden = false
+        self.activity.startAnimating()
+        self.tintView.isHidden = false
         self.sendPantry()
     }
 
@@ -91,7 +96,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.pantryTableView.scrollToBottom()
         self.addSubviews()
-        print(suggestionBar.subviews)
+        self.activity.isHidden = true
+        self.configureTintView()
     }
     
     @objc
@@ -145,6 +151,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             let suggestedWord = SuggestedWord(button: subview)
             self.listSuggestedWord.append(suggestedWord)
         }
+    }
+    
+    private func configureTintView() {
+        self.tintView.backgroundColor = UIColor.darkGray
+        self.tintView.alpha = 0.5
+        self.tintView.isHidden = true
     }
     
 // Handle ingredients
