@@ -60,3 +60,6 @@ extension UIColor {
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 }
+
+public let lightBlue = UIColor(red: 20, green: 120, blue: 246)
+

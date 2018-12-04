@@ -23,11 +23,17 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     private var currentIngredient: Ingredient?
     
     struct SuggestedWord {
+        var view = UIView()
         var button = UIButton()
         var ingredient: Ingredient?
         
-        init(button: UIButton){
+        init(view: UIView){
+            self.view = view
+        }
+        
+        init(view: UIView, button: UIButton){
             self.button = button
+            self.view = view
         }
     }
     
@@ -137,19 +143,38 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func addSubviews() {
-        for i in 0..<self.numberWordsSuggested {
-            let subview = UIButton()
-            subview.backgroundColor = UIColor.lightGray
-            subview.titleLabel?.textAlignment = .center
-            subview.setTitle("", for: .normal)
-            subview.tag = i
-            subview.addTarget(self, action: #selector(pressButton(_:)), for: .touchUpInside)
+        for _ in 0..<self.numberWordsSuggested {
+            let subview = UIView()
+            subview.backgroundColor = UIColor.white
             subview.heightAnchor.constraint(equalToConstant: self.suggestionBar.frame.height).isActive = true
             subview.translatesAutoresizingMaskIntoConstraints = false
-            subview.titleLabel?.lineBreakMode = .byTruncatingTail
             self.suggestionBar.addArrangedSubview(subview)
-            let suggestedWord = SuggestedWord(button: subview)
+            self.suggestionBar.layoutSubviews()
+            let suggestedWord = SuggestedWord(view: subview)
             self.listSuggestedWord.append(suggestedWord)
+        }
+        for i in 0..<self.numberWordsSuggested {
+            let subview = self.listSuggestedWord[i].view
+            let button = UIButton()
+            button.titleLabel?.textAlignment = .center
+            button.setTitle("", for: .normal)
+            button.titleLabel?.textColor = UIColor.white
+            button.setBorder(color: lightBlue.cgColor, cornerRadius: CGFloat(4))
+            button.backgroundColor = lightBlue
+            button.tag = i
+            button.addTarget(self, action: #selector(pressButton(_:)), for: .touchUpInside)
+            button.titleLabel?.lineBreakMode = .byTruncatingTail
+            subview.addSubview(button)
+            button.centerXAnchor.constraint(equalTo: subview.centerXAnchor).isActive = true
+            button.centerYAnchor.constraint(equalTo: subview.centerYAnchor).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 2*subview.frame.height/3).isActive = true
+            print(subview.bounds.width)
+            print(subview.frame.width)
+            print(4*subview.frame.width/5)
+            button.widthAnchor.constraint(lessThanOrEqualToConstant: 4*subview.frame.width/5).isActive = true
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.isHidden = true
+            self.listSuggestedWord[i].button = button
         }
     }
     
@@ -249,6 +274,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                 let tempIngredient = tempIngredientList[ingredientCount]
                 if !GlobalVariables.userPantry.contains(ingredient: tempIngredient) {
                     self.listSuggestedWord[wordSuggestedCount].button.setTitle(tempIngredient.getName(), for: .normal)
+                    self.listSuggestedWord[wordSuggestedCount].button.isHidden = false
                     self.listSuggestedWord[wordSuggestedCount].ingredient = tempIngredient
                     wordSuggestedCount += 1
                 }
@@ -262,7 +288,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     private func clearSuggestions() {
         for i in 0..<self.numberWordsSuggested {
+            self.listSuggestedWord[i].button.isHidden = true
             self.listSuggestedWord[i].button.setTitle("", for: .normal)
+            self.listSuggestedWord[i].ingredient = nil
+
         }
     }
     
