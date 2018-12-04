@@ -70,7 +70,7 @@ class Pantry: Codable{
     }
     
     public func getIngredientsByPrefix(prefix: String) -> [Ingredient]{
-        let filtered = self.ingredients.filter { $0.permaname!.hasPrefix(prefix.convertedToSlug()!) }
+        let filtered = self.ingredients.filter { $0.permaname!.split(separator: "-").first{ $0.hasPrefix(prefix.convertedToSlug()!)} != nil }
         return filtered
     }
     

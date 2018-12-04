@@ -19,7 +19,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     private var keyboardIsVisible = false
     private let minLettersSuggestion = 1
-    private let numberWordsSuggested = 3
+    private let numberWordsSuggested = 2
     private var currentIngredient: Ingredient?
     
     struct SuggestedWord {
