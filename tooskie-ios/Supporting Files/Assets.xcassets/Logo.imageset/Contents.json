@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Logo_60pt@2x.png",
+      "filename" : "Logo-1024pt.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Logo_60pt@3x.png",
+      "filename" : "Logo-1024pt-1.png",
       "scale" : "3x"
     }
   ],

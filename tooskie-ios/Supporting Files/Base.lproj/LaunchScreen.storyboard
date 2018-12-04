@@ -19,7 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="0dx-rz-fL6">
-                                <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
+                                <rect key="frame" x="107.5" y="253.5" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="5Og-uw-16b"/>
+                                    <constraint firstAttribute="width" secondItem="0dx-rz-fL6" secondAttribute="height" multiplier="1:1" id="ck8-kz-KS8"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.3510240912437439" green="0.77551251649856567" blue="0.51561355590820312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="60" height="60"/>
+        <image name="Logo" width="1024" height="1024"/>
     </resources>
 </document>

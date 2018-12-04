@@ -187,8 +187,8 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             button.titleLabel?.textAlignment = .center
             button.setTitle("", for: .normal)
             button.titleLabel?.textColor = UIColor.white
-            button.setBorder(color: lightBlue.cgColor, cornerRadius: CGFloat(4))
-            button.backgroundColor = lightBlue
+            button.setBorder(color: customGreen.cgColor, cornerRadius: CGFloat(4))
+            button.backgroundColor = customGreen
             button.tag = i
             button.addTarget(self, action: #selector(pressButton(_:)), for: .touchUpInside)
             button.titleLabel?.lineBreakMode = .byTruncatingTail
@@ -204,7 +204,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     private func configureActivityView() {
-        self.activityView.backgroundColor = UIColor.white
+        self.activityView.backgroundColor = customGreen
         self.activityView.alpha = 1
         self.activityView.isHidden = true
         self.activity.isHidden = false
