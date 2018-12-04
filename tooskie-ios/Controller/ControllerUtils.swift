@@ -51,4 +51,5 @@ struct GlobalVariables {
     static let userPantry = Pantry(name: "iOS")
     static let serverConfig = ServerConfig()
     static var recipes = [Recipe]()
+    static var pantriesLoaded = false
 }

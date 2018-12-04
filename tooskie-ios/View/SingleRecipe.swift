@@ -38,7 +38,7 @@ class SingleRecipe: UIView {
     }
 
     public func setRecipe(recipe: Recipe) {
-        self.setBorder()
+        self.setBorder(borderWidth: 3.0)
         self.clear()
         self.recipe = recipe
         self.label.text = recipe.name

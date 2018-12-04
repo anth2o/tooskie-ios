@@ -65,6 +65,10 @@ class Pantry: Codable{
         return self.ingredients[index]
     }
     
+    public func getIngredients() -> [Ingredient]{
+        return self.ingredients
+    }
+    
     public func getIndex(ingredient: Ingredient) -> Int? {
         return self.ingredients.firstIndex(where: {$0.equals(to: ingredient)})
     }

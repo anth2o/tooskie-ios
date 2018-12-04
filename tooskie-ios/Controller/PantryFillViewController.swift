@@ -21,6 +21,22 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     private let minLettersSuggestion = 1
     private let numberWordsSuggested = 2
     private var currentIngredient: Ingredient?
+    private var tooskiePantryLoaded = false {
+        didSet {
+            if GlobalVariables.pantriesLoaded || (self.tooskiePantryLoaded && self.userPantryLoaded) {
+                self.stopAnimation()
+                GlobalVariables.pantriesLoaded = true
+            }
+        }
+    }
+    private var userPantryLoaded = false {
+        didSet {
+            if GlobalVariables.pantriesLoaded || (self.tooskiePantryLoaded && self.userPantryLoaded) {
+                self.stopAnimation()
+                GlobalVariables.pantriesLoaded = true
+            }
+        }
+    }
     
     struct SuggestedWord {
         var view = UIView()
@@ -57,9 +73,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
-        self.activity.isHidden = false
-        self.activity.startAnimating()
-        self.tintView.isHidden = false
+        self.startAnimation()
         self.sendPantry()
     }
 
@@ -102,8 +116,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.pantryTableView.scrollToBottom()
         self.addSubviews()
-        self.activity.isHidden = true
         self.configureTintView()
+        if !GlobalVariables.pantriesLoaded {
+            self.startAnimation()
+        }
     }
     
     @objc
@@ -142,6 +158,18 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.addIngredient()
     }
     
+    private func startAnimation() {
+        self.activity.isHidden = false
+        self.activity.startAnimating()
+        self.tintView.isHidden = false
+    }
+    
+    private func stopAnimation() {
+        self.activity.isHidden = true
+        self.activity.stopAnimating()
+        self.tintView.isHidden = true
+    }
+    
     func addSubviews() {
         for _ in 0..<self.numberWordsSuggested {
             let subview = UIView()
@@ -168,9 +196,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             button.centerXAnchor.constraint(equalTo: subview.centerXAnchor).isActive = true
             button.centerYAnchor.constraint(equalTo: subview.centerYAnchor).isActive = true
             button.heightAnchor.constraint(equalToConstant: 2*subview.frame.height/3).isActive = true
-            print(subview.bounds.width)
-            print(subview.frame.width)
-            print(4*subview.frame.width/5)
             button.widthAnchor.constraint(lessThanOrEqualToConstant: 4*subview.frame.width/5).isActive = true
             button.translatesAutoresizingMaskIntoConstraints = false
             button.isHidden = true
@@ -315,6 +340,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                     do {
                         let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
                         GlobalVariables.tooskiePantry.setIngredientList(list: ingredients)
+                        self.tooskiePantryLoaded = true
                     } catch {
                         print("Error")
                     }
@@ -346,10 +372,14 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                         do {
                             let ingredients = try decoder.decode([Ingredient].self, from: jsonData)
                             GlobalVariables.userPantry.setIngredientList(list: ingredients)
+                            for ingredient in GlobalVariables.userPantry.getIngredients() {
+                                _ = ingredient.getPictureData()
+                            }
                             self.reload()
                         } catch {
                             print("Error")
                         }
+                        self.userPantryLoaded = true
                     } else {
                         let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
                         print(error.localizedDescription)
