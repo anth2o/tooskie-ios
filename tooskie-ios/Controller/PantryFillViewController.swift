@@ -67,13 +67,14 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var activityView: UIView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var tintView: UIView!
+    @IBOutlet weak var activityLabel: UILabel!
     
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
-        self.startAnimation()
+        self.startAnimation(title: "Génération des recettes en cours")
         self.sendPantry()
     }
 
@@ -116,9 +117,9 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.pantryTableView.scrollToBottom()
         self.addSubviews()
-        self.configureTintView()
+        self.configureActivityView()
         if !GlobalVariables.pantriesLoaded {
-            self.startAnimation()
+            self.startAnimation(title: "Chargement des ingrédients")
         }
     }
     
@@ -158,16 +159,15 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.addIngredient()
     }
     
-    private func startAnimation() {
-        self.activity.isHidden = false
+    private func startAnimation(title: String) {
         self.activity.startAnimating()
-        self.tintView.isHidden = false
+        self.activityView.isHidden = false
+        self.activityLabel.text = title
     }
     
     private func stopAnimation() {
-        self.activity.isHidden = true
         self.activity.stopAnimating()
-        self.tintView.isHidden = true
+        self.activityView.isHidden = true
     }
     
     func addSubviews() {
@@ -203,10 +203,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    private func configureTintView() {
-        self.tintView.backgroundColor = UIColor.darkGray
-        self.tintView.alpha = 0.5
-        self.tintView.isHidden = true
+    private func configureActivityView() {
+        self.activityView.backgroundColor = UIColor.white
+        self.activityView.alpha = 1
+        self.activityView.isHidden = true
+        self.activity.isHidden = false
+        self.activityLabel.isHidden = false
     }
     
 // Handle ingredients
