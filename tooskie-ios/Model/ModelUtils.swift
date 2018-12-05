@@ -53,3 +53,12 @@ func round(_ num: Int, to places: Int) -> Int {
     
     return Int(rnum)
 }
+
+extension Array where Element: Hashable {
+    func difference(from other: [Element]) -> [Element] {
+        var thisSet = Set(self)
+        let otherSet = Set(other)
+        thisSet.subtract(otherSet)
+        return Array(thisSet)
+    }
+}

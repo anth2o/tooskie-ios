@@ -8,18 +8,19 @@
 
 import UIKit
 
-class RecipeIntroViewController: UIViewController {
+class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     
     var recipe: Recipe?
     var numberOfPerson = 1
     
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var numberOfPersonLabel: UILabel!
+    @IBOutlet weak var numberOfPersonButton: UIButton!
     @IBOutlet weak var numberOfPersonStepper: UIStepper!
+    @IBOutlet weak var auxTempField: UITextField!
     @IBAction func numberOfPersonStepperChanged(_ sender: UIStepper) {
         self.numberOfPerson = Int(sender.value)
-        self.setNumberOfPeopleLabel()
+        self.setNumberOfPeopleButton()
         self.setIngredients()
     }
     @IBOutlet weak var ingredientsText: UITextView!
@@ -30,9 +31,19 @@ class RecipeIntroViewController: UIViewController {
         performSegue(withIdentifier: "GoBackSuggestions", sender: self)
     }
     
-override func viewDidLoad() {
+    @IBAction func setNumberOfPeople(_ sender: UIButton) {
+        print("Button clicked")
+        auxTempField.becomeFirstResponder()
+    }
+    
+    @IBAction func removeKeyboard(_ sender: UITapGestureRecognizer) {
+        auxTempField.resignFirstResponder()
+    }
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
+        auxTempField.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +64,7 @@ override func viewDidLoad() {
                 self.recipePicture.image = UIImage(named: "NoNetwork")
             }
         }
-        self.setNumberOfPeopleLabel()
+        self.setNumberOfPeopleButton()
         self.numberOfPersonStepper.value = Double(self.numberOfPerson)
         self.numberOfPersonStepper.autorepeat = true
         self.numberOfPersonStepper.minimumValue = 1
@@ -74,12 +85,12 @@ override func viewDidLoad() {
         }
     }
     
-    private func setNumberOfPeopleLabel() {
+    private func setNumberOfPeopleButton() {
         if self.numberOfPerson == 1 {
-            self.numberOfPersonLabel.text = String(self.numberOfPerson) + " personne"
+            self.numberOfPersonButton.setTitle(String(self.numberOfPerson) + " personne", for: .normal)
         }
         else {
-            self.numberOfPersonLabel.text = String(self.numberOfPerson) + " personnes"
+            self.numberOfPersonButton.setTitle(String(self.numberOfPerson) + " personnes", for: .normal)
         }
     }
 }

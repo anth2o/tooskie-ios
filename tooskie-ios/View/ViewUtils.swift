@@ -62,5 +62,5 @@ extension UIColor {
 }
 
 public let lightBlue = UIColor(red: 20, green: 120, blue: 246)
-public let customGreen = UIColor(red: 89, green: 198, blue: 132)
+public let customGreen = UIColor(red: 60, green: 198, blue: 132)
 

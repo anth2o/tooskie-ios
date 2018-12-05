@@ -74,8 +74,11 @@ class Pantry: Codable{
     }
     
     public func getIngredientsByPrefix(prefix: String) -> [Ingredient]{
-        let filtered = self.ingredients.filter { $0.permaname!.split(separator: "-").first{ $0.hasPrefix(prefix.convertedToSlug()!)} != nil }
-        return filtered
+        let filtered_exact = self.ingredients.filter { $0.permaname!.hasPrefix(prefix.convertedToSlug()!)}
+        let filtered_word = self.ingredients.filter { $0.permaname!.split(separator: "-").first{ $0.hasPrefix(prefix.convertedToSlug()!)} != nil }
+        let filtered_difference = filtered_word.difference(from: filtered_exact)
+        let res = filtered_exact + filtered_difference
+        return res
     }
     
     public func getIngredientsToString() -> [String] {

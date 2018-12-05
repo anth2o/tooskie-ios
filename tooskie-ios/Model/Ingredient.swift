@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Ingredient: Codable {
+class Ingredient: Codable, Hashable {
     private var id: Int?
     private var name: String
     public var picture: String?
@@ -31,6 +31,14 @@ class Ingredient: Codable {
     
     init(name: String){
         self.name = name
+    }
+    
+    static func == (i1: Ingredient, i2: Ingredient) -> Bool {
+        return i1.name == i2.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.name)
     }
     
     public func equals(to: Ingredient) -> Bool {

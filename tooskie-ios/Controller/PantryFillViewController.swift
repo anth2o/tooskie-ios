@@ -60,6 +60,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var pantryTableView: UITableView!
     @IBOutlet weak var ingredientSearchBar: UISearchBar!
     @IBOutlet weak var launchButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var ingredientsViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var launchRecipesButton: UIButton!
@@ -101,6 +102,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    @IBAction func buttonFridge(_ sender: UIButton) {
+        print("Touched")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         pantryTableView.delegate = self
@@ -144,7 +149,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         self.pantryTableView.isUserInteractionEnabled = !show
         self.mainViewBottomConstraint.constant += keyboardFrame.height * (show ? 1 : -1)
-        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.toolbar.frame.height) * (show ? 1 : -1)
+        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonTopConstraint.constant + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.toolbar.frame.height) * (show ? 1 : -1)
         self.suggestionBarBottomConstraint.constant -= keyboardFrame.height * (show ? 1 : -1)
         self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
@@ -215,6 +220,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     func addIngredient(){
         if let text = ingredientSearchBar.text {
+            if text.count == 0 {
+                self.ingredientSearchBar.resignFirstResponder()
+                return
+            }
             if let chosenIngredient = GlobalVariables.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
                 if GlobalVariables.userPantry.contains(ingredient: chosenIngredient) {
                     self.alertIngredientAlreadyThere()
@@ -306,6 +315,11 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
                     wordSuggestedCount += 1
                 }
                 ingredientCount += 1
+            }
+            for i in wordSuggestedCount..<self.numberWordsSuggested {
+                self.listSuggestedWord[i].button.isHidden = true
+                self.listSuggestedWord[i].button.setTitle("", for: .normal)
+                self.listSuggestedWord[i].ingredient = nil
             }
         }
         else {
