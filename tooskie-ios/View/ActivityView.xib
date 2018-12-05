@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityView" customModule="tooskie_ios" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ActivityView" customModule="tooskie_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjj-5X-jxL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pPC-Lb-8U9">
+                            <rect key="frame" x="107.5" y="253.5" width="160" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="LvN-Nf-poj"/>
+                                <constraint firstAttribute="width" secondItem="pPC-Lb-8U9" secondAttribute="height" multiplier="1:1" id="Ybh-GE-qHI"/>
+                            </constraints>
+                        </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zVo-pj-dRX">
+                            <rect key="frame" x="157.5" y="413.5" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="0yu-cA-7CU"/>
+                                <constraint firstAttribute="height" constant="60" id="RZB-xY-hpa"/>
+                            </constraints>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwd-8K-qRb">
+                            <rect key="frame" x="166.5" y="503.5" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.23529411759999999" green="0.77647058820000003" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="zVo-pj-dRX" firstAttribute="top" secondItem="pPC-Lb-8U9" secondAttribute="bottom" id="0hn-Hf-uLE"/>
+                        <constraint firstItem="pPC-Lb-8U9" firstAttribute="centerX" secondItem="Bjj-5X-jxL" secondAttribute="centerX" id="9cC-De-QKp"/>
+                        <constraint firstAttribute="width" constant="375" id="AVR-Na-ahS"/>
+                        <constraint firstItem="rwd-8K-qRb" firstAttribute="centerX" secondItem="Bjj-5X-jxL" secondAttribute="centerX" id="Etp-bZ-dQh"/>
+                        <constraint firstItem="zVo-pj-dRX" firstAttribute="centerX" secondItem="Bjj-5X-jxL" secondAttribute="centerX" id="HZL-Fa-l6u"/>
+                        <constraint firstItem="pPC-Lb-8U9" firstAttribute="centerY" secondItem="Bjj-5X-jxL" secondAttribute="centerY" id="QZH-b2-KZb"/>
+                        <constraint firstItem="rwd-8K-qRb" firstAttribute="centerX" secondItem="Bjj-5X-jxL" secondAttribute="centerX" id="TDr-QY-wVm"/>
+                        <constraint firstItem="rwd-8K-qRb" firstAttribute="top" secondItem="zVo-pj-dRX" secondAttribute="bottom" constant="30" id="zps-y6-kxM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Bjj-5X-jxL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4EZ-wc-UNv"/>
+                <constraint firstAttribute="bottom" secondItem="Bjj-5X-jxL" secondAttribute="bottom" id="OB9-hJ-PET"/>
+                <constraint firstAttribute="trailing" secondItem="Bjj-5X-jxL" secondAttribute="trailing" id="dFI-ak-fGs"/>
+                <constraint firstItem="Bjj-5X-jxL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="snF-yU-aCp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="activityIndicator" destination="zVo-pj-dRX" id="1Ip-lJ-Gt4"/>
+                <outlet property="activityLabel" destination="rwd-8K-qRb" id="kx4-ZO-8TN"/>
+                <outlet property="contentView" destination="Bjj-5X-jxL" id="Af8-fA-1ib"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Logo" width="1024" height="1024"/>
+    </resources>
+</document>

@@ -24,7 +24,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     private var tooskiePantryLoaded = false {
         didSet {
             if GlobalVariables.pantriesLoaded || (self.tooskiePantryLoaded && self.userPantryLoaded) {
-                self.stopAnimation()
+                self.activityView.stopAnimation()
                 GlobalVariables.pantriesLoaded = true
             }
         }
@@ -32,7 +32,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     private var userPantryLoaded = false {
         didSet {
             if GlobalVariables.pantriesLoaded || (self.tooskiePantryLoaded && self.userPantryLoaded) {
-                self.stopAnimation()
+                self.activityView.stopAnimation()
                 GlobalVariables.pantriesLoaded = true
             }
         }
@@ -63,19 +63,18 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var launchButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var ingredientsViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tabbar: UITabBar!
     @IBOutlet weak var launchRecipesButton: UIButton!
-    @IBOutlet weak var toolbar: UIStackView!
     @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var activityView: UIView!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var activityLabel: UILabel!
+    @IBOutlet weak var activityView: ActivityView!
+
     
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
-        self.startAnimation(title: "Génération des recettes en cours")
+        self.activityView.startAnimation(title: "Génération des recettes en cours")
         self.sendPantry()
     }
 
@@ -101,10 +100,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             self.clearSuggestions()
         }
     }
-    
-    @IBAction func buttonFridge(_ sender: UIButton) {
-        print("Touched")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +119,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.addSubviews()
         self.configureActivityView()
         if !GlobalVariables.pantriesLoaded {
-            self.startAnimation(title: "Chargement des ingrédients")
+            self.activityView.startAnimation(title: "Chargement des ingrédients")
         }
     }
     
@@ -149,7 +144,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         self.pantryTableView.isUserInteractionEnabled = !show
         self.mainViewBottomConstraint.constant += keyboardFrame.height * (show ? 1 : -1)
-        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonTopConstraint.constant + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.toolbar.frame.height) * (show ? 1 : -1)
+        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonTopConstraint.constant + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.tabbar.frame.height) * (show ? 1 : -1)
         self.suggestionBarBottomConstraint.constant -= keyboardFrame.height * (show ? 1 : -1)
         self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
@@ -162,17 +157,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Search and add ingredient")
         self.addIngredient()
-    }
-    
-    private func startAnimation(title: String) {
-        self.activity.startAnimating()
-        self.activityView.isHidden = false
-        self.activityLabel.text = title
-    }
-    
-    private func stopAnimation() {
-        self.activity.stopAnimating()
-        self.activityView.isHidden = true
     }
     
     func addSubviews() {
@@ -209,11 +193,11 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     private func configureActivityView() {
+        self.activityView = Bundle.main.loadNibNamed("ActivityView", owner: self, options: nil)?.first as? ActivityView
+        self.view.addSubview(activityView)
         self.activityView.backgroundColor = customGreen
         self.activityView.alpha = 1
         self.activityView.isHidden = true
-        self.activity.isHidden = false
-        self.activityLabel.isHidden = false
     }
     
 // Handle ingredients
