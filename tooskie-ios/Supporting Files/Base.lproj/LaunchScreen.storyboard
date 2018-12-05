@@ -18,19 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="0dx-rz-fL6">
-                                <rect key="frame" x="107.5" y="253.5" width="160" height="160"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-VA-tqR">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="0dx-rz-fL6">
+                                        <rect key="frame" x="107.5" y="243.5" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="5Og-uw-16b"/>
+                                            <constraint firstAttribute="width" secondItem="0dx-rz-fL6" secondAttribute="height" multiplier="1:1" id="ck8-kz-KS8"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.77647058820000003" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="5Og-uw-16b"/>
-                                    <constraint firstAttribute="width" secondItem="0dx-rz-fL6" secondAttribute="height" multiplier="1:1" id="ck8-kz-KS8"/>
+                                    <constraint firstItem="0dx-rz-fL6" firstAttribute="centerX" secondItem="Ret-VA-tqR" secondAttribute="centerX" id="X7h-NZ-NYb"/>
+                                    <constraint firstItem="0dx-rz-fL6" firstAttribute="centerY" secondItem="Ret-VA-tqR" secondAttribute="centerY" id="gyt-Qp-PoW"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.23529411764705882" green="0.77647058823529413" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.23529411759999999" green="0.77647058820000003" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0dx-rz-fL6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ame-RK-bj5"/>
-                            <constraint firstItem="0dx-rz-fL6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Rl3-8g-aW6"/>
+                            <constraint firstItem="Ret-VA-tqR" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="20" symbolic="YES" id="KYo-XT-fMk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ret-VA-tqR" secondAttribute="bottom" id="PGc-G8-TEV"/>
+                            <constraint firstItem="Ret-VA-tqR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f2M-Hr-Ibb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ret-VA-tqR" secondAttribute="trailing" id="i2N-G3-Gz8"/>
+                            <constraint firstItem="Ret-VA-tqR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vZs-d4-mWw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

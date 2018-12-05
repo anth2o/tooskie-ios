@@ -11,13 +11,19 @@ import UIKit
 class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     
     var recipe: Recipe?
-    var numberOfPerson = 1
+    var numberOfPerson = 1 {
+        didSet {
+            self.numberOfPersonStepper.value = Double(numberOfPerson)
+        }
+    }
+    var stringNumberOfPerson = ""
     
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var numberOfPersonButton: UIButton!
+    @IBOutlet weak var numberOfPersonText: UITextField! {
+        didSet { numberOfPersonText?.addDoneCancelToolbar() }
+    }
     @IBOutlet weak var numberOfPersonStepper: UIStepper!
-    @IBOutlet weak var auxTempField: UITextField!
     @IBAction func numberOfPersonStepperChanged(_ sender: UIStepper) {
         self.numberOfPerson = Int(sender.value)
         self.setNumberOfPeopleButton()
@@ -31,19 +37,19 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "GoBackSuggestions", sender: self)
     }
     
-    @IBAction func setNumberOfPeople(_ sender: UIButton) {
-        print("Button clicked")
-        auxTempField.becomeFirstResponder()
-    }
-    
     @IBAction func removeKeyboard(_ sender: UITapGestureRecognizer) {
-        auxTempField.resignFirstResponder()
+        self.numberOfPersonText.resignFirstResponder()
     }
-    
+    @IBAction func removeKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
+        print("Swipe")
+        let translation = sender.translation(in: self.view)
+        if translation.y > 0 && abs(translation.y) > abs(translation.x) {
+            _ = self.textFieldShouldReturn(self.numberOfPersonText)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
-        auxTempField.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,6 +76,7 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
         self.numberOfPersonStepper.minimumValue = 1
         self.ingredientsText.isEditable = false
         self.setIngredients()
+        self.numberOfPersonText.delegate = self
     }
     
     private func setIngredients() {
@@ -86,11 +93,57 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setNumberOfPeopleButton() {
-        if self.numberOfPerson == 1 {
-            self.numberOfPersonButton.setTitle(String(self.numberOfPerson) + " personne", for: .normal)
+        if self.numberOfPerson <= 1 {
+            self.numberOfPersonText.text = String(self.numberOfPerson) + " personne"
         }
         else {
-            self.numberOfPersonButton.setTitle(String(self.numberOfPerson) + " personnes", for: .normal)
+            self.numberOfPersonText.text = String(self.numberOfPerson) + " personnes"
         }
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.stringNumberOfPerson = ""
+        print(textField)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        print("TextField should clear method called")
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "" {
+            self.stringNumberOfPerson = String(self.stringNumberOfPerson.dropLast())
+        }
+        else if Int(string) != nil {
+            self.stringNumberOfPerson += string
+        }
+        else {
+            return false
+        }
+        if self.stringNumberOfPerson == "" {
+            self.numberOfPerson = 0
+        }
+        else {
+            self.numberOfPerson = Int(self.stringNumberOfPerson)!
+        }
+        self.setNumberOfPeopleButton()
+        self.setIngredients()
+        return false
+    }
+    
+    func doneButtonTappedForMyNumericTextField() {
+        print("Done")
+        self.numberOfPersonText.resignFirstResponder()
+    }
+    
 }

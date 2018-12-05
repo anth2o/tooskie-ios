@@ -17,26 +17,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bjj-5X-jxL">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pPC-Lb-8U9">
-                            <rect key="frame" x="107.5" y="253.5" width="160" height="160"/>
+                            <rect key="frame" x="107.5" y="243.5" width="160" height="160"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="160" id="LvN-Nf-poj"/>
                                 <constraint firstAttribute="width" secondItem="pPC-Lb-8U9" secondAttribute="height" multiplier="1:1" id="Ybh-GE-qHI"/>
                             </constraints>
                         </imageView>
-                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zVo-pj-dRX">
-                            <rect key="frame" x="157.5" y="413.5" width="60" height="60"/>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zVo-pj-dRX">
+                            <rect key="frame" x="157.5" y="403.5" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="0yu-cA-7CU"/>
                                 <constraint firstAttribute="height" constant="60" id="RZB-xY-hpa"/>
                             </constraints>
                         </activityIndicatorView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwd-8K-qRb">
-                            <rect key="frame" x="166.5" y="503.5" width="42" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="161.5" y="493.5" width="52.5" height="26.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -53,11 +53,11 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.23529411759999999" green="0.77647058820000003" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Bjj-5X-jxL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4EZ-wc-UNv"/>
                 <constraint firstAttribute="bottom" secondItem="Bjj-5X-jxL" secondAttribute="bottom" id="OB9-hJ-PET"/>
                 <constraint firstAttribute="trailing" secondItem="Bjj-5X-jxL" secondAttribute="trailing" id="dFI-ak-fGs"/>
+                <constraint firstItem="Bjj-5X-jxL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="q4m-gb-vYH"/>
                 <constraint firstItem="Bjj-5X-jxL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="snF-yU-aCp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
