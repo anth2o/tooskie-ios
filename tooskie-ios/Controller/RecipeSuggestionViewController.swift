@@ -138,11 +138,13 @@ class RecipeSuggestionViewController: UIViewController {
     private func processRecipe() {
         switch recipeView.status {
         case .accepted:
+            self.sendRecipeAccepted(accepted: true)
             if self.index < GlobalVariables.recipes.count {
                 performSegue(withIdentifier: "LaunchRecipe", sender: self)
                 self.recipeView.isHidden = true
             }
         case .declined:
+            self.sendRecipeAccepted(accepted: false)
             index += 1
             if self.index < GlobalVariables.recipes.count {
                 self.recipeView!.setRecipe(recipe: GlobalVariables.recipes[index])
@@ -159,5 +161,25 @@ class RecipeSuggestionViewController: UIViewController {
             self.recipeView.transform = .identity
         }, completion:nil)
         recipeView.status = .waiting
+    }
+    
+    private func sendRecipeAccepted(accepted: Bool) {
+        let time = NSDate(timeIntervalSince1970: TimeInterval(TimeInterval(NSDate().timeIntervalSince1970)))
+        let myPost = GlobalVariables.recipes[self.index].toPost(userName: GlobalVariables.userName, isAccepted: accepted, time: time.description)
+        var request = GlobalVariables.logstashConfig.getRequest(path: "/", method: "POST")
+        let session = GlobalVariables.logstashConfig.getSession()
+        request = GlobalVariables.logstashConfig.encodeDataForPost(post: myPost, request: request)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            if let data = data, let utf8Representation = String(data: data, encoding: .utf8) {
+                print("response: ", utf8Representation)
+            } else {
+                print("no readable data received in response")
+            }
+        }
+        task.resume()
     }
 }

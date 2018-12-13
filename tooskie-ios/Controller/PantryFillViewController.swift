@@ -74,7 +74,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
         print("Launch")
-        self.activityView.startAnimation(title: "Génération des recettes en cours")
+        self.activityView.startAnimation(title: "Génération de recettes en cours")
         self.sendPantry()
     }
 

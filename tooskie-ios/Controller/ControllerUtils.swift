@@ -50,8 +50,10 @@ struct GlobalVariables {
     static let tooskiePantry = Pantry(name: "Tooskie pantry")
     static let userPantry = Pantry(name: "iOS")
     static let serverConfig = ServerConfig()
+    static let logstashConfig = ServerConfig(service: .es, config: .local)
     static var recipes = [Recipe]()
     static var pantriesLoaded = false
+    static let userName = "antoine"
 }
 
 extension UITextField {

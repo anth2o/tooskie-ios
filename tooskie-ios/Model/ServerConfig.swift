@@ -15,26 +15,49 @@ class ServerConfig {
         case local, dev
     }
     
-    var config: Config = .dev
+    enum Service {
+        case django, es
+    }
     
-    var host = "localhost"
-    var port = 80
+    var config: Config
+    var service: Service
     
-    init(){
-        switch self.config {
-        case .local:
-            break
-        case .dev:
-            host = "ec2-35-180-98-224.eu-west-3.compute.amazonaws.com"
-            port = 8000
+    var host: String?
+    var port: Int?
+    
+    init(service: Service, config: Config){
+        self.service = service
+        self.config = config
+        switch self.service {
+        case .django:
+            switch self.config {
+            case .local:
+                break
+            case .dev:
+                host = "ec2-35-180-98-224.eu-west-3.compute.amazonaws.com"
+                port = 8000
+            }
+        case .es:
+            switch self.config {
+            case .local:
+                host = "127.0.0.1"
+                port = 31311
+            case .dev:
+                host = nil
+                port = nil
+            }
         }
+    }
+    
+    convenience init() {
+        self.init(service: .django, config: .dev)
     }
     
     public func getUrlScheme() -> String {
         return self.scheme
     }
     
-    public func getUrlHost() -> String {
+    public func getUrlHost() -> String? {
         return self.host
     
     }
@@ -57,7 +80,7 @@ class ServerConfig {
         return session
     }
     
-    public func encodeDataForPost(post: PostPantry, request: URLRequest) -> URLRequest {
+    public func encodeDataForPost<T : Codable>(post: T, request: URLRequest) -> URLRequest {
         var newRequest = request
         var headers = request.allHTTPHeaderFields ?? [:]
         headers["Content-Type"] = "application/json"

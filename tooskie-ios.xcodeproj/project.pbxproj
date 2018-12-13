@@ -26,6 +26,7 @@
 		718F671E215B4ABB00F59A5C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 718F671D215B4ABB00F59A5C /* .gitignore */; };
 		71A1637621B7F62900F4EE44 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A1637521B7F62900F4EE44 /* ActivityView.xib */; };
 		71A1637821B7F7A700F4EE44 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1637721B7F7A700F4EE44 /* ActivityView.swift */; };
+		71A1637A21B8387000F4EE44 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A1637921B8386F00F4EE44 /* TabBarView.xib */; };
 		71D44F2621726CA2009EE89F /* RecipeIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */; };
 		71D55AA8216A08D000906BFD /* RecipeSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */; };
 		71D55AAC216A14F400906BFD /* SingleRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D55AAB216A14F400906BFD /* SingleRecipe.swift */; };
@@ -67,6 +68,7 @@
 		718F671D215B4ABB00F59A5C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		71A1637521B7F62900F4EE44 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
 		71A1637721B7F7A700F4EE44 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		71A1637921B8386F00F4EE44 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIntroViewController.swift; sourceTree = "<group>"; };
 		71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSuggestionViewController.swift; sourceTree = "<group>"; };
 		71D55AAB216A14F400906BFD /* SingleRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipe.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				716BAFF821838774001119DD /* ViewUtils.swift */,
 				718F670F215B481000F59A5C /* Main.storyboard */,
 				71A1637721B7F7A700F4EE44 /* ActivityView.swift */,
+				71A1637921B8386F00F4EE44 /* TabBarView.xib */,
 				71A1637521B7F62900F4EE44 /* ActivityView.xib */,
 			);
 			path = View;
@@ -222,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A1637A21B8387000F4EE44 /* TabBarView.xib in Resources */,
 				718F671E215B4ABB00F59A5C /* .gitignore in Resources */,
 				718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */,
 				71FE6ADD216BAC6600562741 /* Assets.xcassets in Resources */,
