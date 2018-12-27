@@ -11,11 +11,6 @@ import UIKit
 class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     
     var recipe: Recipe?
-    var numberOfPerson = 1 {
-        didSet {
-            self.numberOfPersonStepper.value = Double(numberOfPerson)
-        }
-    }
     var stringNumberOfPerson = ""
     
     @IBOutlet weak var recipePicture: UIImageView!
@@ -24,6 +19,15 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
         didSet { numberOfPersonText?.addDoneCancelToolbar() }
     }
     @IBOutlet weak var numberOfPersonStepper: UIStepper!
+    
+    var numberOfPerson = 1 {
+        didSet {
+            if self.numberOfPersonStepper != nil {
+                self.numberOfPersonStepper.value = Double(numberOfPerson)
+            }
+        }
+    }
+    
     @IBAction func numberOfPersonStepperChanged(_ sender: UIStepper) {
         self.numberOfPerson = Int(sender.value)
         self.setNumberOfPeopleButton()
