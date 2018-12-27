@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -148,10 +147,10 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l36-Y7-cMn">
-                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cnV-fu-EdO"/>
+                                    <constraint firstAttribute="height" constant="45" id="cnV-fu-EdO"/>
                                 </constraints>
                             </stackView>
                             <tabBar contentMode="scaleToFill" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="pDV-wz-e5Q">
@@ -972,9 +971,9 @@
         <image name="Valid" width="229" height="229"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tjP-ZE-fwQ"/>
-        <segue reference="Vlw-og-T2E"/>
+        <segue reference="Oq1-Ss-TLG"/>
+        <segue reference="V3u-QB-b9T"/>
         <segue reference="Uqw-eL-WEw"/>
-        <segue reference="Lt8-3y-h9e"/>
+        <segue reference="oa7-CM-PcB"/>
     </inferredMetricsTieBreakers>
 </document>

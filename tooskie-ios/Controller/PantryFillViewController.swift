@@ -176,6 +176,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             button.titleLabel?.textAlignment = .center
             button.setTitle("", for: .normal)
             button.titleLabel?.textColor = UIColor.white
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
             button.setBorder(color: customGreen.cgColor, cornerRadius: CGFloat(4))
             button.backgroundColor = customGreen
             button.tag = i
@@ -220,6 +221,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
             else {
                 self.alertIngredientNotAvailable()
             }
+            self.clearSuggestions()
         }
     }
     
