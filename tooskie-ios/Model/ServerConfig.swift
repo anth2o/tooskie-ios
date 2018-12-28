@@ -32,7 +32,8 @@ class ServerConfig {
         case .django:
             switch self.config {
             case .local:
-                break
+                host = "127.0.0.1"
+                port = 80
             case .dev:
                 host = "ec2-35-180-98-224.eu-west-3.compute.amazonaws.com"
                 port = 8000

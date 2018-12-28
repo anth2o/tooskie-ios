@@ -49,7 +49,7 @@ extension UITableView {
 struct GlobalVariables {
     static let tooskiePantry = Pantry(name: "Tooskie pantry")
     static let userPantry = Pantry(name: UIDevice.current.identifierForVendor!.uuidString)
-    static let serverConfig = ServerConfig()
+    static let serverConfig = ServerConfig(service: .django, config: .local)
     static let logstashConfig = ServerConfig(service: .es, config: .local)
     static var recipes = [Recipe]()
     static var pantriesLoaded = false
