@@ -63,13 +63,12 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var launchButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var ingredientsViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tabbar: UITabBar!
     @IBOutlet weak var launchRecipesButton: UIButton!
     @IBOutlet weak var suggestionBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var activityView: ActivityView!
-
+    @IBOutlet weak var tabItem: UITabBarItem!
     
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
@@ -144,8 +143,14 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         self.pantryTableView.isUserInteractionEnabled = !show
         self.mainViewBottomConstraint.constant += keyboardFrame.height * (show ? 1 : -1)
-        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonTopConstraint.constant + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height + self.tabbar.frame.height) * (show ? 1 : -1)
+        self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonTopConstraint.constant + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height) * (show ? 1 : -1)
         self.suggestionBarBottomConstraint.constant -= keyboardFrame.height * (show ? 1 : -1)
+        let tabItemView = self.tabItem.value(forKey: "view") as? UIView
+        let tabItemHeight = tabItemView?.frame.height
+        if let height = tabItemHeight {
+            self.ingredientsViewBottomConstraint.constant -= height * (show ? 1 : -1)
+            self.suggestionBarBottomConstraint.constant += height * (show ? 1 : -1)
+        }
         self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
             self.launchRecipesButton.isHidden = show
