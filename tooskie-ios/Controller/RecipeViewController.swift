@@ -112,7 +112,6 @@ class RecipeViewController: UIViewController {
         self.view.addGestureRecognizer(panGestureRecognizer)
         self.updateViewDisplayed()
         progressStep.transform = progressStep.transform.scaledBy(x: 1, y: 5)
-//        progressStep.setBorder(color: UIColor(red: 20, green: 120, blue: 246).cgColor, cornerRadius: 0.0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,6 +146,14 @@ class RecipeViewController: UIViewController {
         self.tintView.frame = CGRect(x: self.recipePicture.contentClippingRect.minX, y: self.recipePicture.contentClippingRect.minY, width: self.recipePicture.contentClippingRect.width, height: self.recipePicture.contentClippingRect.height)
         self.tintView.isOpaque = false
     }
+    
+//    private func createStepViews() {
+//        if let steps = self.recipe!.steps {
+//            for i in 0..<steps.count {
+//                let stepView =
+//            }
+//        }
+//    }
     
     private func handleConstraint() {
         self.bottomConstraint.constant = self.bottomConstraintConstant

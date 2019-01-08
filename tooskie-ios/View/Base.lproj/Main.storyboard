@@ -790,31 +790,6 @@
                                             <action selector="backHome:" destination="YAH-LX-tAp" eventType="touchUpInside" id="i2t-wj-0Vv"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJz-A6-7bP">
-                                        <rect key="frame" x="40" y="313" width="295" height="259"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCh-vq-be6">
-                                                <rect key="frame" x="124" y="0.0" width="47" height="23"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xJi-cT-GxX">
-                                                <rect key="frame" x="0.0" y="33" width="295" height="226"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="xJi-cT-GxX" secondAttribute="bottom" id="D9W-yd-AiT"/>
-                                            <constraint firstAttribute="trailing" secondItem="xJi-cT-GxX" secondAttribute="trailing" id="FxK-aC-dCc"/>
-                                            <constraint firstItem="fCh-vq-be6" firstAttribute="top" secondItem="fJz-A6-7bP" secondAttribute="top" id="Jw2-Ah-9fd"/>
-                                            <constraint firstItem="fCh-vq-be6" firstAttribute="centerX" secondItem="fJz-A6-7bP" secondAttribute="centerX" id="e7U-um-Lly"/>
-                                            <constraint firstItem="xJi-cT-GxX" firstAttribute="top" secondItem="fCh-vq-be6" secondAttribute="bottom" constant="10" id="glw-Nl-SG8"/>
-                                            <constraint firstItem="xJi-cT-GxX" firstAttribute="leading" secondItem="fJz-A6-7bP" secondAttribute="leading" id="hAr-uz-hXE"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -823,7 +798,6 @@
                                     <constraint firstItem="4xp-hr-GI4" firstAttribute="leading" secondItem="VCd-az-SWY" secondAttribute="leading" constant="10" id="8RU-H2-lSY"/>
                                     <constraint firstAttribute="trailing" secondItem="38O-WR-Vyl" secondAttribute="trailing" constant="10" id="HhU-Vl-eoc"/>
                                     <constraint firstItem="ZOP-06-Gf5" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="Kvf-1y-ZS2"/>
-                                    <constraint firstItem="fJz-A6-7bP" firstAttribute="leading" secondItem="VCd-az-SWY" secondAttribute="leading" constant="40" id="N1B-ah-PNg"/>
                                     <constraint firstItem="h6C-n1-fAG" firstAttribute="top" secondItem="O3h-e5-kwW" secondAttribute="top" id="P6W-TP-Sid"/>
                                     <constraint firstItem="MFq-2Y-qZe" firstAttribute="centerX" secondItem="VCd-az-SWY" secondAttribute="centerX" id="VUJ-LX-iQP"/>
                                     <constraint firstItem="ZOP-06-Gf5" firstAttribute="top" secondItem="MFq-2Y-qZe" secondAttribute="bottom" constant="10" id="dpM-Ba-anw"/>
@@ -831,10 +805,7 @@
                                     <constraint firstItem="O3h-e5-kwW" firstAttribute="leading" secondItem="VCd-az-SWY" secondAttribute="leading" constant="25" id="h0s-4I-RRN"/>
                                     <constraint firstAttribute="trailing" secondItem="h6C-n1-fAG" secondAttribute="trailing" constant="25" id="jS3-Pk-B43"/>
                                     <constraint firstItem="MFq-2Y-qZe" firstAttribute="top" secondItem="VCd-az-SWY" secondAttribute="top" constant="40" id="liv-sA-VW9"/>
-                                    <constraint firstItem="h6C-n1-fAG" firstAttribute="top" secondItem="fJz-A6-7bP" secondAttribute="bottom" constant="20" id="m8z-2E-xpR"/>
                                     <constraint firstAttribute="bottom" secondItem="h6C-n1-fAG" secondAttribute="bottom" constant="20" id="oPM-sm-jW1"/>
-                                    <constraint firstItem="fJz-A6-7bP" firstAttribute="top" secondItem="ZOP-06-Gf5" secondAttribute="bottom" constant="8" id="tEq-Dq-n74"/>
-                                    <constraint firstAttribute="trailing" secondItem="fJz-A6-7bP" secondAttribute="trailing" constant="40" id="uKK-TG-J5V"/>
                                     <constraint firstItem="h6C-n1-fAG" firstAttribute="centerY" secondItem="a7t-Th-Iw7" secondAttribute="centerY" id="yqo-pS-0EE"/>
                                 </constraints>
                             </view>
@@ -929,8 +900,6 @@
                         <outlet property="recipePictureHelp" destination="Uo5-Nu-1if" id="cki-4t-ymI"/>
                         <outlet property="resumeOption" destination="IS2-0L-A4B" id="I8G-4E-chu"/>
                         <outlet property="resumeText" destination="f7v-EJ-3qC" id="omr-Ho-oiK"/>
-                        <outlet property="stepDescription" destination="xJi-cT-GxX" id="P4F-0h-LGD"/>
-                        <outlet property="stepNumber" destination="fCh-vq-be6" id="zYn-NL-LCg"/>
                         <outlet property="stepView" destination="VCd-az-SWY" id="hz7-gr-7Zg"/>
                         <outlet property="topConstraint" destination="3wo-Za-Yme" id="lf1-wh-vY2"/>
                         <segue destination="8Zs-aM-MBJ" kind="presentation" identifier="BackToIntro" id="Vlw-og-T2E"/>
@@ -965,9 +934,9 @@
         <image name="Valid" width="229" height="229"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oq1-Ss-TLG"/>
-        <segue reference="V3u-QB-b9T"/>
+        <segue reference="tjP-ZE-fwQ"/>
+        <segue reference="Vlw-og-T2E"/>
         <segue reference="Uqw-eL-WEw"/>
-        <segue reference="oa7-CM-PcB"/>
+        <segue reference="YNy-kQ-qs6"/>
     </inferredMetricsTieBreakers>
 </document>
