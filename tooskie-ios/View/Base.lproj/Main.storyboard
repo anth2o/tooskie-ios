@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Découvrir-->
         <scene sceneID="dxw-92-5ho">
             <objects>
                 <viewController id="twS-pi-amK" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nZe-lJ-UnB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="tLC-mi-Rk6"/>
+                    <tabBarItem key="tabBarItem" title="Découvrir" image="Star" id="tLC-mi-Rk6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FX0-yH-cI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1321" y="258"/>
+            <point key="canvasLocation" x="-1322" y="-1421"/>
         </scene>
-        <!--Item 1-->
+        <!--Accueil-->
         <scene sceneID="cgQ-dr-2vI">
             <objects>
                 <viewController id="fk7-C5-N8o" sceneMemberID="viewController">
@@ -36,11 +36,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hcu-fO-TuV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="IbG-hT-0De"/>
+                    <tabBarItem key="tabBarItem" title="Accueil" image="Home" id="IbG-hT-0De"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSh-YI-ui8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1321" y="-1350"/>
+            <point key="canvasLocation" x="-1322" y="-2135"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yy0-cA-gGE">
@@ -55,13 +55,15 @@
                         <segue destination="fk7-C5-N8o" kind="relationship" relationship="viewControllers" id="SlV-dI-Ccy"/>
                         <segue destination="twS-pi-amK" kind="relationship" relationship="viewControllers" id="Zgk-te-brw"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sSU-UQ-O3b"/>
+                        <segue destination="GdB-YA-0eI" kind="relationship" relationship="viewControllers" id="uOf-Da-Iqg"/>
+                        <segue destination="8h5-mR-Lz2" kind="relationship" relationship="viewControllers" id="XLR-7V-8gt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MR-10-xcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2506" y="-546"/>
         </scene>
-        <!--Item-->
+        <!--Frigo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PantryFillViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -219,7 +221,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="fhd-wh-5Ha"/>
+                    <tabBarItem key="tabBarItem" title="Frigo" image="Fridge" id="fhd-wh-5Ha"/>
                     <connections>
                         <outlet property="ingredientSearchBar" destination="YQn-gn-XRX" id="W0y-zL-cLr"/>
                         <outlet property="ingredientsView" destination="bEg-CQ-cVS" id="q5p-S1-iis"/>
@@ -249,7 +251,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1320.8" y="-545.57721139430294"/>
+            <point key="canvasLocation" x="-1322" y="-546"/>
         </scene>
         <!--Recipe Suggestion View Controller-->
         <scene sceneID="DEz-K5-DuA">
@@ -966,14 +968,50 @@
             </objects>
             <point key="canvasLocation" x="1144.8" y="-545.57721139430294"/>
         </scene>
+        <!--Compte-->
+        <scene sceneID="ccK-co-6It">
+            <objects>
+                <viewController id="8h5-mR-Lz2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1cf-0e-c4e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hhe-61-xjS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Compte" image="Account" id="7OI-ij-kre"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNZ-tQ-knN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1322" y="951"/>
+        </scene>
+        <!--Liste-->
+        <scene sceneID="bjf-3E-kCo">
+            <objects>
+                <viewController id="GdB-YA-0eI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VT1-j3-McX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Dht-ba-1s7"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Liste" image="Checklist" id="6vL-mG-Bei"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSR-SG-XQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1322" y="206"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Account" width="31" height="31"/>
         <image name="Budget" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Cancel" width="228" height="229"/>
         <image name="Cart" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="Checklist" width="31" height="31"/>
         <image name="Cooking" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Difficulty" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="Fridge" width="31" height="31"/>
         <image name="Help" width="329" height="329"/>
+        <image name="Home" width="31" height="31"/>
         <image name="HomeBlack" width="230" height="229"/>
         <image name="HomePurple" width="230" height="229"/>
         <image name="LeftArrow" width="229" height="230"/>
@@ -981,6 +1019,7 @@
         <image name="Pass" width="229" height="229"/>
         <image name="Preparation" width="512" height="512"/>
         <image name="RightArrow" width="229" height="230"/>
+        <image name="Star" width="31" height="31"/>
         <image name="Steps" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Valid" width="229" height="229"/>
     </resources>
