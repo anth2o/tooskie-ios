@@ -455,7 +455,7 @@
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
                         <outlet property="suggestionBar" destination="l36-Y7-cMn" id="t96-1K-ine"/>
                         <outlet property="suggestionBarBottomConstraint" destination="Yem-iL-tFW" id="JZk-Wu-ViD"/>
-                        <outlet property="tabItem" destination="fhd-wh-5Ha" id="vsA-va-GlO"/>
+                        <outlet property="tabItem" destination="abB-8n-lLX" id="cd9-Vf-iC6"/>
                         <segue destination="VFG-tp-c9v" kind="show" identifier="RecipeSuggestion" id="Uqw-eL-WEw"/>
                         <segue destination="56O-ta-ca4" kind="show" identifier="PantryToShopping" id="tjP-ZE-fwQ"/>
                     </connections>
@@ -780,7 +780,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2T-fk-8hj">
-                                <rect key="frame" x="245" y="617" width="100" height="30"/>
+                                <rect key="frame" x="245" y="568" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="AjS-MI-NZ1"/>
                                 </constraints>
@@ -815,7 +815,7 @@
                                 </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sag-CR-LnL">
-                                <rect key="frame" x="30" y="617" width="100" height="30"/>
+                                <rect key="frame" x="30" y="568" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Ksb-Qr-hjg"/>
                                 </constraints>
@@ -825,7 +825,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="udQ-Rb-CZ7">
-                                <rect key="frame" x="40" y="388.5" width="295" height="213.5"/>
+                                <rect key="frame" x="40" y="388.5" width="295" height="164.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -977,7 +977,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCd-az-SWY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZOP-06-Gf5">
                                         <rect key="frame" x="87.5" y="105" width="200" height="200"/>
@@ -987,7 +987,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6C-n1-fAG">
-                                        <rect key="frame" x="315" y="592" width="35" height="35"/>
+                                        <rect key="frame" x="315" y="543" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="h6C-n1-fAG" secondAttribute="height" multiplier="1:1" id="VrU-xq-M7t"/>
                                             <constraint firstAttribute="width" constant="35" id="ldy-hV-0qI"/>
@@ -998,7 +998,7 @@
                                         </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a7t-Th-Iw7">
-                                        <rect key="frame" x="112.5" y="608.5" width="150" height="2"/>
+                                        <rect key="frame" x="112.5" y="559.5" width="150" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="OO6-pA-Fos"/>
                                         </constraints>
@@ -1024,7 +1024,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-e5-kwW">
-                                        <rect key="frame" x="25" y="592" width="35" height="35"/>
+                                        <rect key="frame" x="25" y="543" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="33V-GA-udC"/>
                                             <constraint firstAttribute="width" secondItem="O3h-e5-kwW" secondAttribute="height" multiplier="1:1" id="YGv-yp-uKD"/>
@@ -1046,7 +1046,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qze-at-oZ9">
-                                        <rect key="frame" x="40" y="369" width="295" height="209.5"/>
+                                        <rect key="frame" x="40" y="369" width="295" height="160.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1084,7 +1084,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" clearsContextBeforeDrawing="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-uq-aiK">
-                                <rect key="frame" x="30" y="50" width="315" height="577"/>
+                                <rect key="frame" x="30" y="50" width="315" height="528"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TF8-Oc-4Mq">
                                         <rect key="frame" x="265" y="15" width="35" height="35"/>
@@ -1121,7 +1121,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="lvbiv" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7v-EJ-3qC">
-                                        <rect key="frame" x="25" y="326" width="265" height="231"/>
+                                        <rect key="frame" x="25" y="326" width="265" height="182"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1417,6 +1417,7 @@
         <!--Frigo-->
         <scene sceneID="kz3-eI-SME">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="emt-Wy-jr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="I62-r8-ZBr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Frigo" image="Fridge" id="fhd-wh-5Ha"/>
                     <toolbarItems/>
@@ -1432,7 +1433,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2pa-xr-U5B"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="emt-Wy-jr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1322.4000000000001" y="-546.47676161919048"/>
         </scene>
@@ -1475,7 +1475,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tjP-ZE-fwQ"/>
-        <segue reference="Vlw-og-T2E"/>
+        <segue reference="V3u-QB-b9T"/>
         <segue reference="Uqw-eL-WEw"/>
         <segue reference="2pa-xr-U5B"/>
     </inferredMetricsTieBreakers>

@@ -68,7 +68,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var suggestionBar: UIStackView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var activityView: ActivityView!
-    @IBOutlet weak var tabItem: UITabBarItem!
+    @IBOutlet weak var tabItem: UINavigationItem!
     
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
@@ -145,12 +145,16 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
         self.mainViewBottomConstraint.constant += keyboardFrame.height * (show ? 1 : -1)
         self.ingredientsViewBottomConstraint.constant -= (self.launchRecipesButton.frame.height + self.launchButtonTopConstraint.constant + self.launchButtonBottomConstraint.constant - self.suggestionBar.frame.height) * (show ? 1 : -1)
         self.suggestionBarBottomConstraint.constant -= keyboardFrame.height * (show ? 1 : -1)
-        let tabItemView = self.tabItem.value(forKey: "view") as? UIView
-        let tabItemHeight = tabItemView?.frame.height
-        if let height = tabItemHeight {
-            self.ingredientsViewBottomConstraint.constant -= height * (show ? 1 : -1)
-            self.suggestionBarBottomConstraint.constant += height * (show ? 1 : -1)
-        }
+//        let tabItemView = self.tabItem.value(forKey: "view") as? UIView
+//        let tabItemHeight = tabItemView?.frame.height
+//        if let height = tabItemHeight {
+//            self.ingredientsViewBottomConstraint.constant -= height * (show ? 1 : -1)
+//            self.suggestionBarBottomConstraint.constant += height * (show ? 1 : -1)
+//        }
+        // TODO: need to handle the size of the navigation item in a cleaner way
+        let height = CGFloat(50)
+        self.ingredientsViewBottomConstraint.constant -= height * (show ? 1 : -1)
+        self.suggestionBarBottomConstraint.constant += height * (show ? 1 : -1)
         self.pantryTableView.scrollToBottom()
         UIView.animate(withDuration: animationDurarion) {
             self.launchRecipesButton.isHidden = show
