@@ -19,6 +19,7 @@
 		718366F1218314F1002E4277 /* ControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718366F0218314F1002E4277 /* ControllerUtils.swift */; };
 		7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C49E21637B7F000886B0 /* ServerConfig.swift */; };
 		7184C4A12163B840000886B0 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C4A02163B840000886B0 /* ModelUtils.swift */; };
+		718D315621E62001006A21E4 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D315521E62001006A21E4 /* CustomTabBarViewController.swift */; };
 		718F670C215B481000F59A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670B215B481000F59A5C /* AppDelegate.swift */; };
 		718F670E215B481000F59A5C /* PantryFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670D215B481000F59A5C /* PantryFillViewController.swift */; };
 		718F6711215B481000F59A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F670F215B481000F59A5C /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		718366F0218314F1002E4277 /* ControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerUtils.swift; sourceTree = "<group>"; };
 		7184C49E21637B7F000886B0 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		7184C4A02163B840000886B0 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
+		718D315521E62001006A21E4 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		718F6708215B481000F59A5C /* tooskie-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tooskie-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		718F670B215B481000F59A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718F670D215B481000F59A5C /* PantryFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryFillViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				718F670D215B481000F59A5C /* PantryFillViewController.swift */,
+				718D315521E62001006A21E4 /* CustomTabBarViewController.swift */,
 				718366F0218314F1002E4277 /* ControllerUtils.swift */,
 				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */,
@@ -254,6 +257,7 @@
 				7136B1302172394800712CC0 /* Step.swift in Sources */,
 				71B4C95621D67F2B006CC8DC /* SingleStepView.swift in Sources */,
 				71D44F2621726CA2009EE89F /* RecipeIntroViewController.swift in Sources */,
+				718D315621E62001006A21E4 /* CustomTabBarViewController.swift in Sources */,
 				71A1637821B7F7A700F4EE44 /* ActivityView.swift in Sources */,
 				714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */,
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,

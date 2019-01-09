@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-1322" y="-2135"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar View Controller-->
         <scene sceneID="yy0-cA-gGE">
             <objects>
-                <tabBarController id="peI-0g-Hb6" sceneMemberID="viewController">
+                <tabBarController id="peI-0g-Hb6" customClass="CustomTabBarViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IFL-3E-nBO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
