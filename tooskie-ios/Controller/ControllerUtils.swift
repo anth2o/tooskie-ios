@@ -77,3 +77,16 @@ extension UITextField {
     @objc func doneButtonTapped() { self.resignFirstResponder() }
     @objc func cancelButtonTapped() { self.resignFirstResponder() }
 }
+
+
+public func openUrl (urlString: String) {
+    guard let url = URL(string: urlString) else {
+        return //be safe
+    }
+    
+    if #available(iOS 10.0, *) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    } else {
+        UIApplication.shared.openURL(url)
+    }
+}

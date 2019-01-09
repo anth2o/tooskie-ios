@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Warning" translatesAutoresizingMaskIntoConstraints="NO" id="cS2-Vu-mWd">
+                    <rect key="frame" x="15" y="35" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cS2-Vu-mWd" secondAttribute="height" multiplier="1:1" id="bbm-dL-dzk"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="xEM-1F-1lI"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oups ! Cette page est en cours de développement. Suivez-nous pour être informés des avancées !" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFe-Qv-PVy">
+                    <rect key="frame" x="130" y="35" width="230" height="100"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MtX-kf-OkN">
+                    <rect key="frame" x="0.0" y="145" width="375" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fa5-jv-fGk">
+                            <rect key="frame" x="0.0" y="0.0" width="94" height="100"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhu-s1-g5f">
+                                    <rect key="frame" x="22" y="25" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="vhu-s1-g5f" secondAttribute="height" multiplier="1:1" id="8so-1O-m6b"/>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="P9Y-2e-geA"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Facebook"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="vhu-s1-g5f" firstAttribute="centerX" secondItem="Fa5-jv-fGk" secondAttribute="centerX" id="Nmp-h3-uSL"/>
+                                <constraint firstItem="vhu-s1-g5f" firstAttribute="centerY" secondItem="Fa5-jv-fGk" secondAttribute="centerY" id="qk9-jy-8IQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUM-Uk-Rof">
+                            <rect key="frame" x="94" y="0.0" width="93.5" height="100"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP3-Ha-qVA">
+                                    <rect key="frame" x="21.5" y="25" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="2r4-t4-bRV"/>
+                                        <constraint firstAttribute="width" secondItem="EP3-Ha-qVA" secondAttribute="height" multiplier="1:1" id="can-t9-j5e"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Instagram"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="EP3-Ha-qVA" firstAttribute="centerX" secondItem="SUM-Uk-Rof" secondAttribute="centerX" id="Ouz-VB-a9H"/>
+                                <constraint firstItem="EP3-Ha-qVA" firstAttribute="centerY" secondItem="SUM-Uk-Rof" secondAttribute="centerY" id="SxL-uL-fku"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4M3-gZ-JMy">
+                            <rect key="frame" x="187.5" y="0.0" width="94" height="100"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6u-Vo-uE3">
+                                    <rect key="frame" x="22" y="25" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="GZK-8f-u0F"/>
+                                        <constraint firstAttribute="width" secondItem="D6u-Vo-uE3" secondAttribute="height" multiplier="1:1" id="Pku-sz-ev9"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="LinkedIn"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="D6u-Vo-uE3" firstAttribute="centerY" secondItem="4M3-gZ-JMy" secondAttribute="centerY" id="TXD-ny-4eZ"/>
+                                <constraint firstItem="D6u-Vo-uE3" firstAttribute="centerX" secondItem="4M3-gZ-JMy" secondAttribute="centerX" id="ayb-gb-GQu"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFr-4g-xz6">
+                            <rect key="frame" x="281.5" y="0.0" width="93.5" height="100"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHc-bA-6Ho">
+                                    <rect key="frame" x="21.5" y="25" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="rHc-bA-6Ho" secondAttribute="height" multiplier="1:1" id="GX0-6z-3RD"/>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="gbT-76-gdX"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Youtube"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="rHc-bA-6Ho" firstAttribute="centerY" secondItem="gFr-4g-xz6" secondAttribute="centerY" id="JGT-1h-Fcj"/>
+                                <constraint firstItem="rHc-bA-6Ho" firstAttribute="centerX" secondItem="gFr-4g-xz6" secondAttribute="centerX" id="qG9-F8-wu7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="hpb-57-MyT"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MtX-kf-OkN" secondAttribute="trailing" id="0nk-YO-rHy"/>
+                <constraint firstItem="MtX-kf-OkN" firstAttribute="top" secondItem="cS2-Vu-mWd" secondAttribute="bottom" constant="10" id="2aZ-QB-bei"/>
+                <constraint firstItem="MtX-kf-OkN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2vP-1o-lBE"/>
+                <constraint firstItem="ZFe-Qv-PVy" firstAttribute="top" secondItem="cS2-Vu-mWd" secondAttribute="top" id="FQS-pU-Mar"/>
+                <constraint firstItem="cS2-Vu-mWd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="HLo-r4-UIi"/>
+                <constraint firstItem="ZFe-Qv-PVy" firstAttribute="leading" secondItem="cS2-Vu-mWd" secondAttribute="trailing" constant="15" id="Oby-Wc-Ev5"/>
+                <constraint firstAttribute="trailing" secondItem="ZFe-Qv-PVy" secondAttribute="trailing" constant="15" id="rpf-2D-KlM"/>
+                <constraint firstItem="ZFe-Qv-PVy" firstAttribute="bottom" secondItem="cS2-Vu-mWd" secondAttribute="bottom" id="v3Q-sF-S7D"/>
+                <constraint firstItem="cS2-Vu-mWd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="wGb-Hh-kCX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Facebook" width="326.2301025390625" height="326.2301025390625"/>
+        <image name="Instagram" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="LinkedIn" width="304.66116333007812" height="304.66116333007812"/>
+        <image name="Warning" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="Youtube" width="368.6400146484375" height="368.6400146484375"/>
+    </resources>
+</document>
