@@ -15,7 +15,6 @@
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
 		716BAFF921838774001119DD /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716BAFF821838774001119DD /* ViewUtils.swift */; };
-		718062BA218352E800248657 /* ShoppingProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718062B9218352E800248657 /* ShoppingProposalViewController.swift */; };
 		718366F1218314F1002E4277 /* ControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718366F0218314F1002E4277 /* ControllerUtils.swift */; };
 		7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C49E21637B7F000886B0 /* ServerConfig.swift */; };
 		7184C4A12163B840000886B0 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C4A02163B840000886B0 /* ModelUtils.swift */; };
@@ -58,7 +57,6 @@
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		716BAFF821838774001119DD /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
-		718062B9218352E800248657 /* ShoppingProposalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingProposalViewController.swift; sourceTree = "<group>"; };
 		718366F0218314F1002E4277 /* ControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerUtils.swift; sourceTree = "<group>"; };
 		7184C49E21637B7F000886B0 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		7184C4A02163B840000886B0 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */,
 				71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */,
-				718062B9218352E800248657 /* ShoppingProposalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,7 +250,6 @@
 			files = (
 				716BAFF921838774001119DD /* ViewUtils.swift in Sources */,
 				718366F1218314F1002E4277 /* ControllerUtils.swift in Sources */,
-				718062BA218352E800248657 /* ShoppingProposalViewController.swift in Sources */,
 				7136B1302172394800712CC0 /* Step.swift in Sources */,
 				71B4C95621D67F2B006CC8DC /* SingleStepView.swift in Sources */,
 				71D44F2621726CA2009EE89F /* RecipeIntroViewController.swift in Sources */,
