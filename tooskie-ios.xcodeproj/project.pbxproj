@@ -142,14 +142,14 @@
 		71E6F405215EBBBC00DC44B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
-				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
-				716BAFF821838774001119DD /* ViewUtils.swift */,
 				71A05F6421E79DEF00495471 /* Main.storyboard */,
 				71A1637721B7F7A700F4EE44 /* ActivityView.swift */,
 				71A1637521B7F62900F4EE44 /* ActivityView.xib */,
 				718D315921E62FC9006A21E4 /* BuildingPanel.swift */,
 				718D315721E62991006A21E4 /* BuildingPanel.xib */,
+				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
+				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
+				716BAFF821838774001119DD /* ViewUtils.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

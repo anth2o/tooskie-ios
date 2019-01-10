@@ -1511,19 +1511,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="343" height="432"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Poulet" id="wDD-9z-cYl" customClass="IngredientTableViewCell" customModule="tooskie_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Poulet" rowHeight="40" id="wDD-9z-cYl" customClass="IngredientTableViewCell" customModule="tooskie_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wDD-9z-cYl" id="u14-bY-HLA">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-4d-iuK">
-                                                    <rect key="frame" x="150.5" y="11.5" width="42" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="42" id="8DH-p7-0wq"/>
-                                                        <constraint firstAttribute="height" constant="21" id="FSd-xd-ffY"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="150.5" y="5" width="42" height="29.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1531,7 +1527,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ApJ-4d-iuK" firstAttribute="centerX" secondItem="u14-bY-HLA" secondAttribute="centerX" id="AaY-Ka-FkL"/>
+                                                <constraint firstAttribute="bottom" secondItem="ApJ-4d-iuK" secondAttribute="bottom" constant="5" id="OBq-WQ-dEL"/>
                                                 <constraint firstItem="ApJ-4d-iuK" firstAttribute="centerY" secondItem="u14-bY-HLA" secondAttribute="centerY" id="TPv-0g-xhs"/>
+                                                <constraint firstItem="ApJ-4d-iuK" firstAttribute="top" secondItem="u14-bY-HLA" secondAttribute="top" constant="5" id="sGS-sQ-ZYw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

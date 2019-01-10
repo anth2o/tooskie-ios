@@ -10,10 +10,14 @@ import UIKit
 
 class SearchTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    // We suppose that the list of word that we are goind to search is a Pantry
     private var listOfWords = GlobalVariables.tooskiePantry.getIngredientsToString()
-    private var keywordElement = "ingrédient"
-    private var keywordEnsemble = "le garde-manger"
-    private var cellIdentifier = "Poulet"
+    public var keywordElement = "ingrédient"
+    public var keywordEnsemble = "le garde-manger"
+    public var cellIdentifier = "Poulet"
+    // We suppose here that the table view is going to display a Pantry object (like a pantry, a checklist of ingredient, a list of ingredient intolerances...)
+    // It would be useful to implement a more abstract protocol to use it for any array
+    public var pantry =  GlobalVariables.userPantry
     private enum StatusAlert {
         case already, unknown
     }
@@ -53,27 +57,15 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         if let data = notification.userInfo as? [String: Any]
         {
             let ingredient = data["ingredient"] as! Ingredient
-            let potentialIndexIngredient = GlobalVariables.userPantry.getIndex(ingredient: ingredient)
+            let potentialIndexIngredient = pantry.getIndex(ingredient: ingredient)
             if let indexIngredient = potentialIndexIngredient {
-                GlobalVariables.userPantry.removeIngredient(ingredient: ingredient)
+                pantry.removeIngredient(ingredient: ingredient)
                 let indexPath = IndexPath(item: indexIngredient, section: 0)
                 _tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }
-    
-    public func setKeywordElement(text: String) {
-        keywordElement = text
-    }
-    
-    public func setKeywordEnsemble(text: String) {
-        keywordEnsemble = text
-    }
-    
-    public func setCellIdentifier(text: String) {
-        cellIdentifier = text
-    }
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.addIngredient()
     }
@@ -85,7 +77,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 return
             }
             if let chosenIngredient = GlobalVariables.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
-                if GlobalVariables.userPantry.contains(ingredient: chosenIngredient) {
+                if pantry.contains(ingredient: chosenIngredient) {
                     self.alertIngredient(status: .already)
                     self._searchBar.text = ""
                 }
@@ -100,7 +92,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func addAndDisplayNewIngredient(ingredient: Ingredient) {
-        GlobalVariables.userPantry.addIngredient(ingredient: ingredient)
+        pantry.addIngredient(ingredient: ingredient)
         _tableView.reloadData()
         _tableView.scrollToBottom()
         _searchBar.text = ""
@@ -124,7 +116,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GlobalVariables.userPantry.count
+        return pantry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,7 +125,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
             fatalError("The dequeued cell is not an instance of " + cellIdentifier)
         }
         
-        let ingredient = GlobalVariables.userPantry.getIngredient(index: indexPath.row)
+        let ingredient = pantry.getIngredient(index: indexPath.row)
         cell.ingredient = ingredient
         cell.ingredientName.text = ingredient.getName()
         if cell.ingredientPicture != nil {

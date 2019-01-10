@@ -8,6 +8,18 @@
 
 import UIKit
 
+
+struct GlobalVariables {
+    static let tooskiePantry = Pantry(name: "Tooskie pantry")
+    static let userPantry = Pantry(name: UIDevice.current.identifierForVendor!.uuidString)
+    static let serverConfig = ServerConfig(service: .django, config: .dev)
+    static let logstashConfig = ServerConfig(service: .es, config: .local)
+    static var recipes = [Recipe]()
+    static var pantriesLoaded = false
+    static let userName = "antoine"
+    static var tabItemHeight = CGFloat(50)
+}
+
 extension UIViewController {
     public func getPictureFromString (picture: String?) -> UIImage {
         if let pictureString = picture {
@@ -44,17 +56,6 @@ extension UITableView {
             self.scrollToRow(at: indexPath, at: .top, animated: false)
         }
     }
-}
-
-struct GlobalVariables {
-    static let tooskiePantry = Pantry(name: "Tooskie pantry")
-    static let userPantry = Pantry(name: UIDevice.current.identifierForVendor!.uuidString)
-    static let serverConfig = ServerConfig(service: .django, config: .dev)
-    static let logstashConfig = ServerConfig(service: .es, config: .local)
-    static var recipes = [Recipe]()
-    static var pantriesLoaded = false
-    static let userName = "antoine"
-    static var tabItemHeight = CGFloat(50)
 }
 
 extension UITextField {
