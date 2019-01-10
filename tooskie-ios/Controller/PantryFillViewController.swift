@@ -125,12 +125,14 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     func keyboardWillShow(notification:NSNotification) {
         adjustingHeight(show: true, notification: notification)
         self.keyboardIsVisible = true
+        self.ingredientSearchBar.setImage(UIImage(), for: .search, state: .normal)
     }
     
     @objc
     func keyboardWillHide(notification:NSNotification) {
         adjustingHeight(show: false, notification: notification)
         self.keyboardIsVisible = false
+        self.ingredientSearchBar.setImage(nil, for: .search, state: .normal)
     }
     
     func adjustingHeight(show:Bool, notification:NSNotification) {
@@ -265,7 +267,7 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
 
         let ingredient = GlobalVariables.userPantry.getIngredient(index: indexPath.row)
         cell.ingredient = ingredient
-        cell.viewController = self
+//        cell.viewController = self
         cell.ingredientName.text = ingredient.getName()
         if let pictureData = ingredient.getPictureData() {
             cell.ingredientPicture.image = UIImage(data: pictureData)

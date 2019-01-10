@@ -23,17 +23,18 @@
 		718D315A21E62FC9006A21E4 /* BuildingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D315921E62FC9006A21E4 /* BuildingPanel.swift */; };
 		718F670C215B481000F59A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670B215B481000F59A5C /* AppDelegate.swift */; };
 		718F670E215B481000F59A5C /* PantryFillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718F670D215B481000F59A5C /* PantryFillViewController.swift */; };
-		718F6711215B481000F59A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F670F215B481000F59A5C /* Main.storyboard */; };
 		718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F6714215B481100F59A5C /* LaunchScreen.storyboard */; };
 		718F671E215B4ABB00F59A5C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 718F671D215B4ABB00F59A5C /* .gitignore */; };
+		71A05F6521E79DEF00495471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71A05F6421E79DEF00495471 /* Main.storyboard */; };
 		71A1637621B7F62900F4EE44 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A1637521B7F62900F4EE44 /* ActivityView.xib */; };
 		71A1637821B7F7A700F4EE44 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1637721B7F7A700F4EE44 /* ActivityView.swift */; };
-		71B4C95421D67E20006CC8DC /* SingleStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B4C95321D67E20006CC8DC /* SingleStepView.xib */; };
-		71B4C95621D67F2B006CC8DC /* SingleStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B4C95521D67F2B006CC8DC /* SingleStepView.swift */; };
 		71D44F2621726CA2009EE89F /* RecipeIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */; };
 		71D55AA8216A08D000906BFD /* RecipeSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */; };
 		71D55AAC216A14F400906BFD /* SingleRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D55AAB216A14F400906BFD /* SingleRecipe.swift */; };
 		71FD7EEA21E7811700FF20A9 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD7EE921E7811700FF20A9 /* CustomNavigationController.swift */; };
+		71FD7EEC21E785E800FF20A9 /* SuggestionBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD7EEB21E785E800FF20A9 /* SuggestionBarViewController.swift */; };
+		71FD7EF221E7933200FF20A9 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD7EF121E7933200FF20A9 /* SearchTableViewController.swift */; };
+		71FD7EF421E7978100FF20A9 /* SuggestedSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD7EF321E7978100FF20A9 /* SuggestedSearchTableViewController.swift */; };
 		71FE6ADD216BAC6600562741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71FE6ADC216BAC6600562741 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -68,18 +69,19 @@
 		718F6708215B481000F59A5C /* tooskie-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tooskie-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		718F670B215B481000F59A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		718F670D215B481000F59A5C /* PantryFillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryFillViewController.swift; sourceTree = "<group>"; };
-		718F6710215B481000F59A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		718F6715215B481100F59A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		718F6717215B481100F59A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		718F671D215B4ABB00F59A5C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		71A05F6421E79DEF00495471 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71A1637521B7F62900F4EE44 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
 		71A1637721B7F7A700F4EE44 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
-		71B4C95321D67E20006CC8DC /* SingleStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleStepView.xib; sourceTree = "<group>"; };
-		71B4C95521D67F2B006CC8DC /* SingleStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStepView.swift; sourceTree = "<group>"; };
 		71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIntroViewController.swift; sourceTree = "<group>"; };
 		71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSuggestionViewController.swift; sourceTree = "<group>"; };
 		71D55AAB216A14F400906BFD /* SingleRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipe.swift; sourceTree = "<group>"; };
 		71FD7EE921E7811700FF20A9 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		71FD7EEB21E785E800FF20A9 /* SuggestionBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionBarViewController.swift; sourceTree = "<group>"; };
+		71FD7EF121E7933200FF20A9 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		71FD7EF321E7978100FF20A9 /* SuggestedSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedSearchTableViewController.swift; sourceTree = "<group>"; };
 		71FE6ADC216BAC6600562741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,13 +145,11 @@
 				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
 				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
 				716BAFF821838774001119DD /* ViewUtils.swift */,
-				718F670F215B481000F59A5C /* Main.storyboard */,
+				71A05F6421E79DEF00495471 /* Main.storyboard */,
 				71A1637721B7F7A700F4EE44 /* ActivityView.swift */,
 				71A1637521B7F62900F4EE44 /* ActivityView.xib */,
 				718D315921E62FC9006A21E4 /* BuildingPanel.swift */,
 				718D315721E62991006A21E4 /* BuildingPanel.xib */,
-				71B4C95521D67F2B006CC8DC /* SingleStepView.swift */,
-				71B4C95321D67E20006CC8DC /* SingleStepView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +164,9 @@
 				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */,
 				71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */,
+				71FD7EEB21E785E800FF20A9 /* SuggestionBarViewController.swift */,
+				71FD7EF121E7933200FF20A9 /* SearchTableViewController.swift */,
+				71FD7EF321E7978100FF20A9 /* SuggestedSearchTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,10 +243,9 @@
 				718D315821E62991006A21E4 /* BuildingPanel.xib in Resources */,
 				718F671E215B4ABB00F59A5C /* .gitignore in Resources */,
 				718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */,
+				71A05F6521E79DEF00495471 /* Main.storyboard in Resources */,
 				71FE6ADD216BAC6600562741 /* Assets.xcassets in Resources */,
-				71B4C95421D67E20006CC8DC /* SingleStepView.xib in Resources */,
 				71A1637621B7F62900F4EE44 /* ActivityView.xib in Resources */,
-				718F6711215B481000F59A5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +256,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71FD7EF421E7978100FF20A9 /* SuggestedSearchTableViewController.swift in Sources */,
+				71FD7EEC21E785E800FF20A9 /* SuggestionBarViewController.swift in Sources */,
 				716BAFF921838774001119DD /* ViewUtils.swift in Sources */,
 				718366F1218314F1002E4277 /* ControllerUtils.swift in Sources */,
 				7136B1302172394800712CC0 /* Step.swift in Sources */,
-				71B4C95621D67F2B006CC8DC /* SingleStepView.swift in Sources */,
 				71D44F2621726CA2009EE89F /* RecipeIntroViewController.swift in Sources */,
 				718D315621E62001006A21E4 /* CustomTabBarViewController.swift in Sources */,
 				71FD7EEA21E7811700FF20A9 /* CustomNavigationController.swift in Sources */,
@@ -275,20 +278,13 @@
 				7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */,
 				718F670C215B481000F59A5C /* AppDelegate.swift in Sources */,
 				714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */,
+				71FD7EF221E7933200FF20A9 /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		718F670F215B481000F59A5C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				718F6710215B481000F59A5C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		718F6714215B481100F59A5C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

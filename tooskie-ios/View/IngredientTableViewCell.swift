@@ -10,7 +10,7 @@ import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
     var ingredient: Ingredient?
-    var viewController: PantryFillViewController?
+    var viewController: SearchTableViewController?
     
     @IBOutlet weak var ingredientName: UILabel!
     @IBOutlet weak var ingredientPicture: UIImageView!
