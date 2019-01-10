@@ -10,10 +10,11 @@ import UIKit
 
 class SearchTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    private var rowHeight = CGFloat(60.0)
-    private var keyboardIsVisible = false
-    
-    private enum IngredientAlert {
+    private var listOfWords = GlobalVariables.tooskiePantry.getIngredientsToString()
+    private var keywordElement = "ingrédient"
+    private var keywordEnsemble = "le garde-manger"
+    private var cellIdentifier = "Poulet"
+    private enum StatusAlert {
         case already, unknown
     }
     
@@ -24,22 +25,47 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         _tableView.delegate = self
         _tableView.dataSource = self
-        _tableView.rowHeight = self.rowHeight
         _tableView.scrollToBottom()
         _searchBar.delegate = self
         _searchBar.backgroundImage = UIImage()
         self.view.setBorder(borderWidth: 3.0)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc
+    func keyboardWillShow(notification:NSNotification) {
+        _tableView.isUserInteractionEnabled = false
+        _searchBar.setImage(UIImage(), for: .search, state: .normal)
+    }
+    
+    @objc
+    func keyboardWillHide(notification:NSNotification) {
+        _tableView.isUserInteractionEnabled = true
+        _searchBar.setImage(nil, for: .search, state: .normal)
+    }
+    
+    public func setKeywordElement(text: String) {
+        keywordElement = text
+        
+    }
+    
+    public func setKeywordEnsemble(text: String) {
+        keywordEnsemble = text
+    }
+    
+    public func setCellIdentifier(text: String) {
+        cellIdentifier = text
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Search and add ingredient")
         self.addIngredient()
     }
     
     func addIngredient(){
         if let text = _searchBar.text {
             if text.count == 0 {
-                self._searchBar.resignFirstResponder()
+                _searchBar.resignFirstResponder()
                 return
             }
             if let chosenIngredient = GlobalVariables.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
@@ -73,16 +99,16 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    private func alertIngredient(status: IngredientAlert) {
+    private func alertIngredient(status: StatusAlert) {
         var message = ""
         var title = ""
         switch status
         {
         case .already:
-            message = "Cet ingrédient est déjà présent dans le garde-manger"
+            message = "Cet " + keywordElement + " est déjà présent dans " + keywordEnsemble
             title = "Déjà là";
         case .unknown:
-            message = "Cet ingrédient n'est pas disponible"
+            message = "Cet " + keywordElement + " n'est pas disponible"
             title = "Erreur";
         }
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -95,10 +121,9 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "Poulet"
-        
+//        Implement this in a general way (without IngredientTableViewCell)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? IngredientTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of IngredientTableViewCell.")
+            fatalError("The dequeued cell is not an instance of " + cellIdentifier)
         }
         
         let ingredient = GlobalVariables.userPantry.getIngredient(index: indexPath.row)

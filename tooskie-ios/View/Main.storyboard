@@ -1497,11 +1497,21 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="_searchBar" destination="HeY-vO-KTJ" id="260-Nj-VIw"/>
+                        <outlet property="_searchBar" destination="HeY-vO-KTJ" id="Tm6-dk-ERw"/>
                         <outlet property="_tableView" destination="YNd-nx-hbP" id="FJS-8s-dyz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="589-bp-dJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5cH-v5-IPo">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="P7c-jt-FbP" id="Hgd-Oz-ijw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hd6-Gi-cwF">
+                    <connections>
+                        <action selector="dismissKeyboardSwipe:" destination="P7c-jt-FbP" id="gEa-kZ-e7L"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-498.39999999999998" y="267.61619190404798"/>
         </scene>
