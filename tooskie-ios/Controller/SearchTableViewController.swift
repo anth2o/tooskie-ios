@@ -29,6 +29,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         _tableView.rowHeight = CGFloat(60)
         _searchBar.delegate = self
         _searchBar.backgroundImage = UIImage()
+        _searchBar.placeholder = "Ajouter ingrédient"
         self.view.setBorder(borderWidth: 3.0)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -48,7 +49,6 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     public func setKeywordElement(text: String) {
         keywordElement = text
-        
     }
     
     public func setKeywordEnsemble(text: String) {
@@ -63,7 +63,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         self.addIngredient()
     }
     
-    func addIngredient(){
+    public func addIngredient(){
         if let text = _searchBar.text {
             if text.count == 0 {
                 _searchBar.resignFirstResponder()

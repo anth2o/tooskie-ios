@@ -20,7 +20,6 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(children)
         guard let searchTableTemp = children.last as? SearchTableViewController else  {
             fatalError("Check storyboard for missing SearchTableViewController")
         }
@@ -29,12 +28,12 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         }
         self.searchTable = searchTableTemp
         self.suggestionBar = suggestionBarTemp
-        suggestionBar.search(searchText: "fro")
         searchTable._searchBar.delegate = self
         bottomConstraint.constant = bottomConstraintValue
         view.layoutIfNeeded()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(searchPrefix), name: Notification.Name.suggestionPressed, object: nil)
         // add notification with children (suggestion pressed..)
     }
     
@@ -64,6 +63,19 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         keyboardIsVisible = false
     }
     
+    @objc
+    func searchPrefix(notification:NSNotification) {
+        if let data = notification.userInfo as? [String: Any]
+        {
+            let ingredient = data["ingredient"] as! Ingredient
+            searchTable.addAndDisplayNewIngredient(ingredient: ingredient)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchTable.addIngredient()
+    }
+    
     func adjustingHeight(show:Bool, notification:NSNotification) {
         if self.keyboardIsVisible == show {
             return
@@ -75,5 +87,9 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         UIView.animate(withDuration: animationDurarion) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        suggestionBar.search(searchText: searchText)
     }
 }

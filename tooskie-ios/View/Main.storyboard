@@ -1449,16 +1449,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrC-AY-mf8">
-                                <rect key="frame" x="40" y="553" width="295" height="45"/>
+                                <rect key="frame" x="0.0" y="553" width="375" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="XDq-Xb-uKB"/>
+                                    <constraint firstAttribute="height" constant="45" id="fFQ-bU-Bzv"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="KMB-gm-rhq" kind="embed" id="1DU-CL-zL9"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-cV-gCw">
-                                <rect key="frame" x="40" y="65" width="295" height="488"/>
+                                <rect key="frame" x="16" y="65" width="343" height="488"/>
                                 <connections>
                                     <segue destination="0w2-bz-eEA" kind="embed" id="zr6-1M-zMy"/>
                                 </connections>
@@ -1467,13 +1467,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="ZrC-AY-mf8" firstAttribute="trailing" secondItem="NG9-cV-gCw" secondAttribute="trailing" id="93U-kl-zPs"/>
-                            <constraint firstAttribute="bottom" secondItem="ZrC-AY-mf8" secondAttribute="bottom" id="BuZ-py-6Cf"/>
-                            <constraint firstItem="ZrC-AY-mf8" firstAttribute="leading" secondItem="PkQ-es-cAd" secondAttribute="leading" constant="40" id="Mh5-jm-0BN"/>
-                            <constraint firstItem="ZrC-AY-mf8" firstAttribute="leading" secondItem="NG9-cV-gCw" secondAttribute="leading" id="U0B-3A-dpD"/>
-                            <constraint firstItem="ZrC-AY-mf8" firstAttribute="top" secondItem="NG9-cV-gCw" secondAttribute="bottom" id="Vjz-fq-hoU"/>
-                            <constraint firstAttribute="trailing" secondItem="NG9-cV-gCw" secondAttribute="trailing" constant="40" id="jCz-B9-vlc"/>
-                            <constraint firstItem="NG9-cV-gCw" firstAttribute="top" secondItem="PkQ-es-cAd" secondAttribute="top" constant="65" id="pZv-1i-vHu"/>
+                            <constraint firstItem="ZrC-AY-mf8" firstAttribute="top" secondItem="NG9-cV-gCw" secondAttribute="bottom" id="6b8-Bv-9r6"/>
+                            <constraint firstAttribute="trailing" secondItem="ZrC-AY-mf8" secondAttribute="trailing" id="Z8U-t7-JZ3"/>
+                            <constraint firstAttribute="bottom" secondItem="ZrC-AY-mf8" secondAttribute="bottom" id="ajN-aD-1CY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NG9-cV-gCw" secondAttribute="trailing" id="d1o-2L-k9k"/>
+                            <constraint firstItem="ZrC-AY-mf8" firstAttribute="leading" secondItem="PkQ-es-cAd" secondAttribute="leading" id="gbj-CR-xT8"/>
+                            <constraint firstItem="NG9-cV-gCw" firstAttribute="leading" secondItem="PkQ-es-cAd" secondAttribute="leadingMargin" id="olB-wG-tSB"/>
+                            <constraint firstItem="NG9-cV-gCw" firstAttribute="top" secondItem="PkQ-es-cAd" secondAttribute="topMargin" constant="45" id="sFh-ZC-CX9"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="4cH-lL-cef" appends="YES" id="G7m-bR-x4A"/>
@@ -1481,7 +1481,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="bottomConstraint" destination="BuZ-py-6Cf" id="AO9-hg-EKL"/>
+                        <outlet property="bottomConstraint" destination="ajN-aD-1CY" id="bbs-ts-0fu"/>
                         <outlet property="suggestionBarView" destination="ZrC-AY-mf8" id="kxa-PE-LNf"/>
                     </connections>
                 </viewController>
@@ -1504,18 +1504,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0b-q7-Rx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0w2-bz-eEA" customClass="SearchTableViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bh0-zE-pwX">
-                        <rect key="frame" x="0.0" y="0.0" width="295" height="488"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LWN-4t-BTQ">
-                                <rect key="frame" x="0.0" y="0.0" width="295" height="432"/>
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="432"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Poulet" id="wDD-9z-cYl" customClass="IngredientTableViewCell" customModule="tooskie_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="295" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wDD-9z-cYl" id="u14-bY-HLA">
-                                            <rect key="frame" x="0.0" y="0.0" width="295" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RsH-bV-1VF">
@@ -1551,7 +1551,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p2A-v5-bHQ">
-                                <rect key="frame" x="0.0" y="432" width="295" height="56"/>
+                                <rect key="frame" x="0.0" y="432" width="383" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="oVF-S9-fAp"/>
                                 </constraints>
@@ -1583,11 +1583,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWG-sm-DJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="KMB-gm-rhq" customClass="SuggestionBarViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ceP-sL-mRb">
-                        <rect key="frame" x="0.0" y="0.0" width="295" height="45"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQ2-dH-41V">
-                                <rect key="frame" x="0.0" y="0.0" width="295" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Kcy-bz-65P"/>
                                 </constraints>
