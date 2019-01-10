@@ -455,7 +455,6 @@
                         <outlet property="pantryTableView" destination="K6P-TN-UQH" id="aKp-iT-Ee5"/>
                         <outlet property="suggestionBar" destination="l36-Y7-cMn" id="t96-1K-ine"/>
                         <outlet property="suggestionBarBottomConstraint" destination="Yem-iL-tFW" id="JZk-Wu-ViD"/>
-                        <outlet property="tabItem" destination="abB-8n-lLX" id="cd9-Vf-iC6"/>
                         <segue destination="VFG-tp-c9v" kind="show" identifier="RecipeSuggestion" id="Uqw-eL-WEw"/>
                         <segue destination="56O-ta-ca4" kind="show" identifier="PantryToShopping" id="tjP-ZE-fwQ"/>
                     </connections>
@@ -1328,10 +1327,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Phv-NU-JCi">
-                                <rect key="frame" x="40" y="85.5" width="295" height="412.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-wp-nQW">
                                 <rect key="frame" x="0.0" y="498" width="375" height="100"/>
                                 <subviews>
@@ -1392,19 +1387,77 @@
                                     <constraint firstAttribute="height" constant="100" id="rqJ-uR-R2t"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5c-JI-XpH">
+                                <rect key="frame" x="40" y="85.5" width="295" height="412.5"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="paI-p6-9BJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="356.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientTableViewCell" rowHeight="60" id="4Ph-tj-xWH" customClass="IngredientTableViewCell" customModule="tooskie_ios" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="295" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="4Ph-tj-xWH" id="8jV-to-aX8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="295" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="oGE-Ic-30p">
+                                                            <rect key="frame" x="125.5" y="19" width="44" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="oGE-Ic-30p" firstAttribute="centerY" secondItem="8jV-to-aX8" secondAttribute="centerY" id="QrW-oR-vQ3"/>
+                                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="oGE-Ic-30p" secondAttribute="bottom" constant="5" id="Wcn-KD-EOz"/>
+                                                        <constraint firstItem="oGE-Ic-30p" firstAttribute="centerX" secondItem="8jV-to-aX8" secondAttribute="centerX" id="tAr-T4-T3J"/>
+                                                        <constraint firstItem="oGE-Ic-30p" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8jV-to-aX8" secondAttribute="topMargin" constant="5" id="vQG-hy-Gcb"/>
+                                                    </constraints>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </tableViewCellContentView>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                <connections>
+                                                    <outlet property="ingredientName" destination="oGE-Ic-30p" id="JeE-Vp-PHZ"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <searchBar clearsContextBeforeDrawing="NO" contentMode="redraw" placeholder="Ajouter ingrédient" translatesAutoresizingMaskIntoConstraints="NO" id="eiT-9E-m0N">
+                                        <rect key="frame" x="0.0" y="356.5" width="295" height="56"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="eiT-9E-m0N" firstAttribute="leading" secondItem="L5c-JI-XpH" secondAttribute="leading" id="3lf-s7-vAU"/>
+                                    <constraint firstAttribute="trailing" secondItem="paI-p6-9BJ" secondAttribute="trailing" id="PDl-nC-KgL"/>
+                                    <constraint firstItem="paI-p6-9BJ" firstAttribute="top" secondItem="L5c-JI-XpH" secondAttribute="top" id="SI1-Jq-id5"/>
+                                    <constraint firstItem="paI-p6-9BJ" firstAttribute="leading" secondItem="L5c-JI-XpH" secondAttribute="leading" id="b4f-jG-B5I"/>
+                                    <constraint firstItem="eiT-9E-m0N" firstAttribute="top" secondItem="paI-p6-9BJ" secondAttribute="bottom" id="d3Y-pf-kVg"/>
+                                    <constraint firstAttribute="trailing" secondItem="eiT-9E-m0N" secondAttribute="trailing" id="nJQ-oi-pFU"/>
+                                    <constraint firstAttribute="bottom" secondItem="eiT-9E-m0N" secondAttribute="bottom" id="ttv-pS-wOP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="L5c-JI-XpH" firstAttribute="leading" secondItem="Dht-ba-1s7" secondAttribute="leading" constant="40" id="4QR-Ny-m2a"/>
                             <constraint firstItem="YA6-wp-nQW" firstAttribute="centerX" secondItem="VT1-j3-McX" secondAttribute="centerX" id="7by-ev-ugZ"/>
                             <constraint firstItem="ArO-g8-Xqt" firstAttribute="top" secondItem="Dht-ba-1s7" secondAttribute="top" constant="20" id="GA0-8c-3Qd"/>
-                            <constraint firstItem="YA6-wp-nQW" firstAttribute="top" secondItem="Phv-NU-JCi" secondAttribute="bottom" id="KSi-hV-T1b"/>
+                            <constraint firstItem="L5c-JI-XpH" firstAttribute="top" secondItem="ArO-g8-Xqt" secondAttribute="bottom" constant="20" id="PdK-de-6EX"/>
                             <constraint firstItem="YA6-wp-nQW" firstAttribute="leading" secondItem="Dht-ba-1s7" secondAttribute="leading" id="PdL-h8-cuS"/>
                             <constraint firstItem="Dht-ba-1s7" firstAttribute="bottom" secondItem="YA6-wp-nQW" secondAttribute="bottom" constant="20" id="RD4-Kt-YCa"/>
                             <constraint firstItem="ArO-g8-Xqt" firstAttribute="centerX" secondItem="VT1-j3-McX" secondAttribute="centerX" id="RJe-gk-pJc"/>
+                            <constraint firstItem="YA6-wp-nQW" firstAttribute="top" secondItem="L5c-JI-XpH" secondAttribute="bottom" id="Te9-uJ-vE4"/>
                             <constraint firstAttribute="trailing" secondItem="YA6-wp-nQW" secondAttribute="trailing" id="fjt-gI-38j"/>
-                            <constraint firstItem="Phv-NU-JCi" firstAttribute="top" secondItem="ArO-g8-Xqt" secondAttribute="bottom" constant="20" id="goi-DG-cpB"/>
-                            <constraint firstItem="Phv-NU-JCi" firstAttribute="leading" secondItem="Dht-ba-1s7" secondAttribute="leading" constant="40" id="jKZ-61-lCp"/>
-                            <constraint firstItem="Dht-ba-1s7" firstAttribute="trailing" secondItem="Phv-NU-JCi" secondAttribute="trailing" constant="40" id="s0P-xM-j7e"/>
+                            <constraint firstItem="Dht-ba-1s7" firstAttribute="trailing" secondItem="L5c-JI-XpH" secondAttribute="trailing" constant="40" id="jUl-Eu-CcO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dht-ba-1s7"/>
                     </view>
@@ -1417,8 +1470,7 @@
         <!--Frigo-->
         <scene sceneID="kz3-eI-SME">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="emt-Wy-jr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="I62-r8-ZBr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="I62-r8-ZBr" customClass="CustomNavigationController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Frigo" image="Fridge" id="fhd-wh-5Ha"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -1430,9 +1482,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
+                        <outlet property="tabItem" destination="fhd-wh-5Ha" id="2FX-Dz-iYF"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2pa-xr-U5B"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="emt-Wy-jr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1322.4000000000001" y="-546.47676161919048"/>
         </scene>

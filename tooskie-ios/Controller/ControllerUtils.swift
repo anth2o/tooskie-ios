@@ -54,6 +54,7 @@ struct GlobalVariables {
     static var recipes = [Recipe]()
     static var pantriesLoaded = false
     static let userName = "antoine"
+    static var tabItemHeight = CGFloat(50)
 }
 
 extension UITextField {
