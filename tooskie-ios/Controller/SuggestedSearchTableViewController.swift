@@ -11,44 +11,45 @@ import UIKit
 class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate {
     
     private var keyboardIsVisible = false
-    public var bottomConstraintValue = CGFloat(100)
-    fileprivate var searchTable: SearchTableViewController!
+    public var bottomConstraintValue = CGFloat(-100) {
+        didSet {
+            self.bottomConstraint.constant = bottomConstraintValue
+        }
+    }
+    public var searchTable: SearchTableViewController!
     fileprivate var suggestionBar: SuggestionBarViewController!
     
-    @IBOutlet weak var suggestionBarView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let searchTableTemp = children.last as? SearchTableViewController else  {
+        guard let searchTableTemp = children.first as? SearchTableViewController else  {
             fatalError("Check storyboard for missing SearchTableViewController")
         }
-        guard let suggestionBarTemp = children.first as? SuggestionBarViewController else {
+        guard let suggestionBarTemp = children.last as? SuggestionBarViewController else {
             fatalError("Check storyboard for missing SuggestionBarViewController")
         }
         self.searchTable = searchTableTemp
         self.suggestionBar = suggestionBarTemp
         searchTable._searchBar.delegate = self
-        bottomConstraint.constant = bottomConstraintValue
-        view.layoutIfNeeded()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(searchPrefix), name: Notification.Name.suggestionPressed, object: nil)
     }
-    
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        self.searchTable._searchBar.resignFirstResponder()
-    }
-    
-    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: self.view)
-        if translation.y > 0 && abs(translation.y) > abs(translation.x) {
-            self.searchTable!._searchBar.resignFirstResponder()
-        }
-        if translation.y < 0 && abs(translation.y) > abs(translation.x) {
-            self.searchTable!._searchBar.becomeFirstResponder()
-        }
-    }
+//
+//    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+//        self.searchTable._searchBar.resignFirstResponder()
+//    }
+//
+//    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
+//        let translation = sender.translation(in: self.view)
+//        if translation.y > 0 && abs(translation.y) > abs(translation.x) {
+//            self.searchTable!._searchBar.resignFirstResponder()
+//        }
+//        if translation.y < 0 && abs(translation.y) > abs(translation.x) {
+//            self.searchTable!._searchBar.becomeFirstResponder()
+//        }
+//    }
     
     @objc
     func keyboardWillShow(notification:NSNotification) {
@@ -82,7 +83,7 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         var userInfo = notification.userInfo!
         let keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-        bottomConstraint.constant += (keyboardFrame.height - bottomConstraintValue - GlobalVariables.tabItemHeight) * (show ? 1 : -1)
+        bottomConstraint.constant -= (keyboardFrame.height - GlobalVariables.tabItemHeight + bottomConstraintValue) * (show ? 1 : -1)
         UIView.animate(withDuration: animationDurarion) {
             self.view.layoutIfNeeded()
         }

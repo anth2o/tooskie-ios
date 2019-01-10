@@ -15,7 +15,7 @@ class SuggestionBarViewController: UIViewController {
     private let numberWordsSuggested = 2
     private var currentIngredient: Ingredient?
     private var listSuggestedWord  = [SuggestedWord]()
-
+    
     @IBOutlet weak var stackView: UIStackView!
     
     struct SuggestedWord {
@@ -36,8 +36,8 @@ class SuggestionBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stackView.distribution = UIStackView.Distribution.fillEqually
+        stackView.alignment = UIStackView.Alignment.center
         addSubviews()
-        view.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
