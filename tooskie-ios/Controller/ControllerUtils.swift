@@ -91,3 +91,7 @@ public func openUrl (urlString: String) {
         UIApplication.shared.openURL(url)
     }
 }
+
+extension Notification.Name {
+    static let suggestionPressed = Notification.Name("suggestion-pressed")
+}

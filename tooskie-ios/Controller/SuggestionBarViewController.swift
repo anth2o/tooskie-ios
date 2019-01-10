@@ -15,7 +15,8 @@ class SuggestionBarViewController: UIViewController {
     private let numberWordsSuggested = 2
     private var currentIngredient: Ingredient?
     private var listSuggestedWord  = [SuggestedWord]()
-    private var stackView = UIStackView()
+
+    @IBOutlet weak var stackView: UIStackView!
     
     struct SuggestedWord {
         var view = UIView()
@@ -34,21 +35,24 @@ class SuggestionBarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("suggestion bar loaded")
-        stackView.backgroundColor = UIColor.white
-        stackView.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(stackView)
+        addSubviews()
+        search(searchText: "pou")
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc
+    func keyboardWillHide(notification:NSNotification) {
+        clearSuggestions()
     }
     
     private func addSubviews() {
         for _ in 0..<self.numberWordsSuggested {
             let subview = UIView()
             subview.backgroundColor = UIColor.white
-            subview.heightAnchor.constraint(equalToConstant: self.view.frame.height).isActive = true
+            subview.heightAnchor.constraint(equalToConstant: stackView.frame.height).isActive = true
             subview.translatesAutoresizingMaskIntoConstraints = false
-            self.stackView.addArrangedSubview(subview)
-            self.stackView.layoutSubviews()
+            stackView.addArrangedSubview(subview)
+            stackView.layoutSubviews()
             let suggestedWord = SuggestedWord(view: subview)
             self.listSuggestedWord.append(suggestedWord)
         }
@@ -78,8 +82,8 @@ class SuggestionBarViewController: UIViewController {
     @objc func pressButton(_ button: UIButton) {
         if let ingredient = self.listSuggestedWord[button.tag].ingredient {
             print(ingredient)
+            NotificationCenter.default.post(name: .suggestionPressed, object: self, userInfo: ["ingredient": ingredient])
             self.clearSuggestions()
-//            self.addAndDisplayNewIngredient(ingredient: ingredient)
         }
     }
     
@@ -88,6 +92,8 @@ class SuggestionBarViewController: UIViewController {
             let tempIngredientList = GlobalVariables.tooskiePantry.getIngredientsByPrefix(prefix: searchText)
             var ingredientCount = 0
             var wordSuggestedCount = 0
+            // This loop "fills" the button of the suggestion bar
+            // We could order the result by the relevancy of the ingredients
             while ingredientCount < tempIngredientList.count && wordSuggestedCount < self.numberWordsSuggested {
                 let tempIngredient = tempIngredientList[ingredientCount]
                 if !GlobalVariables.userPantry.contains(ingredient: tempIngredient) {
@@ -115,7 +121,6 @@ class SuggestionBarViewController: UIViewController {
             self.listSuggestedWord[i].button.isHidden = true
             self.listSuggestedWord[i].button.setTitle("", for: .normal)
             self.listSuggestedWord[i].ingredient = nil
-            
         }
     }
 }

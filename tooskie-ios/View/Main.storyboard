@@ -1388,22 +1388,34 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egO-Sc-3wY">
-                                <rect key="frame" x="40" y="85.5" width="295" height="412.5"/>
+                                <rect key="frame" x="40" y="85.5" width="295" height="212.5"/>
                                 <connections>
                                     <segue destination="P7c-jt-FbP" kind="embed" id="Y6h-VK-JUq"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40D-jH-p4l">
+                                <rect key="frame" x="0.0" y="298" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="hB1-Y8-kvM"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="16z-x8-xpo" kind="embed" id="Xf4-bz-TmT"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YA6-wp-nQW" firstAttribute="centerX" secondItem="VT1-j3-McX" secondAttribute="centerX" id="7by-ev-ugZ"/>
-                            <constraint firstItem="YA6-wp-nQW" firstAttribute="top" secondItem="egO-Sc-3wY" secondAttribute="bottom" id="9fU-Jg-iCm"/>
+                            <constraint firstItem="YA6-wp-nQW" firstAttribute="top" secondItem="egO-Sc-3wY" secondAttribute="bottom" constant="200" id="9fU-Jg-iCm"/>
                             <constraint firstItem="ArO-g8-Xqt" firstAttribute="top" secondItem="Dht-ba-1s7" secondAttribute="top" constant="20" id="GA0-8c-3Qd"/>
                             <constraint firstItem="YA6-wp-nQW" firstAttribute="leading" secondItem="Dht-ba-1s7" secondAttribute="leading" id="PdL-h8-cuS"/>
                             <constraint firstItem="Dht-ba-1s7" firstAttribute="bottom" secondItem="YA6-wp-nQW" secondAttribute="bottom" constant="20" id="RD4-Kt-YCa"/>
                             <constraint firstItem="ArO-g8-Xqt" firstAttribute="centerX" secondItem="VT1-j3-McX" secondAttribute="centerX" id="RJe-gk-pJc"/>
+                            <constraint firstItem="40D-jH-p4l" firstAttribute="top" secondItem="egO-Sc-3wY" secondAttribute="bottom" id="UaP-Dp-FaJ"/>
                             <constraint firstAttribute="trailing" secondItem="YA6-wp-nQW" secondAttribute="trailing" id="fjt-gI-38j"/>
                             <constraint firstItem="Dht-ba-1s7" firstAttribute="trailing" secondItem="egO-Sc-3wY" secondAttribute="trailing" constant="40" id="gPv-r3-6da"/>
+                            <constraint firstItem="40D-jH-p4l" firstAttribute="leading" secondItem="Dht-ba-1s7" secondAttribute="leading" id="h0M-N4-Qye"/>
+                            <constraint firstItem="Dht-ba-1s7" firstAttribute="trailing" secondItem="40D-jH-p4l" secondAttribute="trailing" id="ijb-uy-aNt"/>
                             <constraint firstItem="egO-Sc-3wY" firstAttribute="top" secondItem="ArO-g8-Xqt" secondAttribute="bottom" constant="20" id="nph-b9-7Ss"/>
                             <constraint firstItem="egO-Sc-3wY" firstAttribute="leading" secondItem="Dht-ba-1s7" secondAttribute="leading" constant="40" id="oiI-DQ-zPr"/>
                         </constraints>
@@ -1443,18 +1455,18 @@
             <objects>
                 <viewController id="P7c-jt-FbP" customClass="SearchTableViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ep-Hf-mep">
-                        <rect key="frame" x="0.0" y="0.0" width="295" height="412.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="295" height="212.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HeY-vO-KTJ">
-                                <rect key="frame" x="0.0" y="357" width="295" height="56"/>
+                                <rect key="frame" x="0.0" y="157" width="295" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="8co-Eq-IjG"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YNd-nx-hbP">
-                                <rect key="frame" x="16" y="0.0" width="263" height="356.5"/>
+                                <rect key="frame" x="16" y="0.0" width="263" height="156.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Poulet" id="anv-xg-0gY" customClass="IngredientTableViewCell" customModule="tooskie_ios" customModuleProvider="target">
@@ -1513,7 +1525,37 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-498.39999999999998" y="267.61619190404798"/>
+            <point key="canvasLocation" x="-503" y="1"/>
+        </scene>
+        <!--Suggestion Bar View Controller-->
+        <scene sceneID="FRW-vO-3rG">
+            <objects>
+                <viewController id="16z-x8-xpo" customClass="SuggestionBarViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hzp-pM-DN3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tTI-24-nuz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="0JN-Ho-RFq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tTI-24-nuz" secondAttribute="trailing" id="Bgj-Kq-eQU"/>
+                            <constraint firstItem="tTI-24-nuz" firstAttribute="leading" secondItem="Hzp-pM-DN3" secondAttribute="leading" id="YSh-aG-V9Z"/>
+                            <constraint firstAttribute="bottom" secondItem="tTI-24-nuz" secondAttribute="bottom" id="tWc-cl-LWW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="tTI-24-nuz" id="C7Y-ax-2ec"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhe-Sa-g6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-228" y="247"/>
         </scene>
     </scenes>
     <resources>
