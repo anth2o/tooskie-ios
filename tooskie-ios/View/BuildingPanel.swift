@@ -11,19 +11,32 @@ class BuildingPanel: UIView {
     
     let nibName = "BuildingPanel"
     var contentView: UIView?
-//    @IBAction func goFacebook(_ sender: Any) {
-//        openUrl(urlString: "http://img.over-blog-kiwi.com/0/87/19/67/20161023/ob_587fbc_7776583435-comment-cuisiner-un-poulet.jpg")
-//    }
 
+    @IBAction func goFacebook(_ sender: Any) {
+        openUrl(urlString: "https://risibank.fr/cache/stickers/d120/12055-full.png")
+    }
+    
+    @IBAction func goInstagram(_ sender: Any) {
+        openUrl(urlString: "https://static.boredpanda.com/blog/wp-content/uploads/2016/12/funny-donald-trump-queen-elizabeth-photohop-trumpqueen-32-584a764a887b7__700.jpg")
+    }
+    
+    @IBAction func goLinkedin(_ sender: Any) {
+        openUrl(urlString: "https://img-9gag-fun.9cache.com/photo/aA1Ovxg_460sv.mp4")
+    }
+
+    @IBAction func goYoutube(_ sender: Any) {
+        openUrl(urlString: "https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
+        
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         self.addSubview(view)
         contentView = view
     }
-
+    
     func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
