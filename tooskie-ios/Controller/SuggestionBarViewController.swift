@@ -36,13 +36,19 @@ class SuggestionBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
-        search(searchText: "pou")
+        view.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc
+    func keyboardWillShow(notification:NSNotification) {
+        view.isHidden = false
+    }
+    
+    @objc
     func keyboardWillHide(notification:NSNotification) {
-        clearSuggestions()
+        view.isHidden = true
     }
     
     private func addSubviews() {

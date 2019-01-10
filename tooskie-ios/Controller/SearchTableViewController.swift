@@ -26,6 +26,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         _tableView.delegate = self
         _tableView.dataSource = self
         _tableView.scrollToBottom()
+        _tableView.rowHeight = CGFloat(60)
         _searchBar.delegate = self
         _searchBar.backgroundImage = UIImage()
         self.view.setBorder(borderWidth: 3.0)
