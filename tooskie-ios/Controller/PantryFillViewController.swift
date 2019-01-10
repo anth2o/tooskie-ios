@@ -71,18 +71,15 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     
     //    Actions
     @IBAction func launchRecipes(_ sender: Any) {
-        print("Launch")
         self.activityView.startAnimation(title: "Génération de recettes en cours")
         self.sendPantry()
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        print("Touch")
         self.ingredientSearchBar.resignFirstResponder()
     }
     
     @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
-        print("Swipe")
         let translation = sender.translation(in: self.view)
         if translation.y > 0 && abs(translation.y) > abs(translation.x) {
             self.ingredientSearchBar.resignFirstResponder()
@@ -155,7 +152,6 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Search and add ingredient")
         self.addIngredient()
     }
     
@@ -270,10 +266,10 @@ class PantryFillViewController: UIViewController, UITableViewDataSource, UITable
 //        cell.viewController = self
         cell.ingredientName.text = ingredient.getName()
         if let pictureData = ingredient.getPictureData() {
-            cell.ingredientPicture.image = UIImage(data: pictureData)
+            cell.ingredientPicture!.image = UIImage(data: pictureData)
         }
         else {
-            cell.ingredientPicture.image = UIImage(named: "NoNetwork")
+            cell.ingredientPicture!.image = UIImage(named: "NoNetwork")
         }
         if #available(iOS 11.0, *) {
             cell.userInteractionEnabledWhileDragging = false

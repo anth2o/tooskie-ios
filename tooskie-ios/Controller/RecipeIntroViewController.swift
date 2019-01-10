@@ -45,7 +45,6 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
         self.numberOfPersonText.resignFirstResponder()
     }
     @IBAction func removeKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
-        print("Swipe")
         let translation = sender.translation(in: self.view)
         if translation.y > 0 && abs(translation.y) > abs(translation.x) {
             _ = self.textFieldShouldReturn(self.numberOfPersonText)
@@ -107,7 +106,6 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.stringNumberOfPerson = ""
-        print(textField)
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
@@ -120,7 +118,6 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        print("TextField should clear method called")
         return true
     }
     
@@ -146,7 +143,6 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doneButtonTappedForMyNumericTextField() {
-        print("Done")
         self.numberOfPersonText.resignFirstResponder()
     }
     

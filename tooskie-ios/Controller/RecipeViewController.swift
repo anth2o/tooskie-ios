@@ -99,7 +99,6 @@ class RecipeViewController: UIViewController {
             self.goHome = true
         }))
         alert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { action in
-            print(action)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -217,7 +216,6 @@ class RecipeViewController: UIViewController {
     }
     
     private func getTranslationData(gesture: UIPanGestureRecognizer) {
-        print("Transform")
         let translation = gesture.translation(in: self.view)
         var translationPercent = translation.x/(UIScreen.main.bounds.width / 2)
         if abs(translationPercent) > 0.25 && abs(translation.x) > 2 * abs(translation.y){

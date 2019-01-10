@@ -10,13 +10,12 @@ import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
     var ingredient: Ingredient?
-    var viewController: SearchTableViewController?
     
     @IBOutlet weak var ingredientName: UILabel!
-    @IBOutlet weak var ingredientPicture: UIImageView!
+    @IBOutlet weak var ingredientPicture: UIImageView?
     @IBAction func discardIngredient(_ sender: Any) {
-        if self.viewController != nil && self.ingredient != nil {
-            self.viewController!.removeIngredient(ingredient: self.ingredient!)
+        if let ingredient = self.ingredient {
+            NotificationCenter.default.post(name: .removeIngredient, object: self, userInfo: ["ingredient": ingredient])
         }
     }
 }

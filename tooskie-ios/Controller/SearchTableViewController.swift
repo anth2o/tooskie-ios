@@ -33,6 +33,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.setBorder(borderWidth: 3.0)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeIngredient), name: Notification.Name.removeIngredient, object: nil)
     }
     
     @objc
@@ -45,6 +46,20 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     func keyboardWillHide(notification:NSNotification) {
         _tableView.isUserInteractionEnabled = true
         _searchBar.setImage(nil, for: .search, state: .normal)
+    }
+    
+    @objc
+    func removeIngredient(notification:NSNotification) {
+        if let data = notification.userInfo as? [String: Any]
+        {
+            let ingredient = data["ingredient"] as! Ingredient
+            let potentialIndexIngredient = GlobalVariables.userPantry.getIndex(ingredient: ingredient)
+            if let indexIngredient = potentialIndexIngredient {
+                GlobalVariables.userPantry.removeIngredient(ingredient: ingredient)
+                let indexPath = IndexPath(item: indexIngredient, section: 0)
+                _tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
     }
     
     public func setKeywordElement(text: String) {
@@ -91,15 +106,6 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         _searchBar.text = ""
     }
     
-    func removeIngredient(ingredient: Ingredient) {
-        let potentialIndexIngredient = GlobalVariables.userPantry.getIndex(ingredient: ingredient)
-        if let indexIngredient = potentialIndexIngredient {
-            GlobalVariables.userPantry.removeIngredient(ingredient: ingredient)
-            let indexPath = IndexPath(item: indexIngredient, section: 0)
-            _tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
     private func alertIngredient(status: StatusAlert) {
         var message = ""
         var title = ""
@@ -129,13 +135,14 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         
         let ingredient = GlobalVariables.userPantry.getIngredient(index: indexPath.row)
         cell.ingredient = ingredient
-        cell.viewController = self
         cell.ingredientName.text = ingredient.getName()
-        if let pictureData = ingredient.getPictureData() {
-            cell.ingredientPicture.image = UIImage(data: pictureData)
-        }
-        else {
-            cell.ingredientPicture.image = UIImage(named: "NoNetwork")
+        if cell.ingredientPicture != nil {
+            if let pictureData = ingredient.getPictureData() {
+                cell.ingredientPicture!.image = UIImage(data: pictureData)
+            }
+            else {
+                cell.ingredientPicture!.image = UIImage(named: "NoNetwork")
+            }
         }
         if #available(iOS 11.0, *) {
             cell.userInteractionEnabledWhileDragging = false

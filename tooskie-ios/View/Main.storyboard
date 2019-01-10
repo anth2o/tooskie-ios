@@ -1442,7 +1442,6 @@
         <!--Suggested Search Table View Controller-->
         <scene sceneID="RYe-sg-fyF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bJf-QV-nCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="EKX-Qf-vXd" customClass="SuggestedSearchTableViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PkQ-es-cAd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
@@ -1475,6 +1474,7 @@
                             <constraint firstItem="NG9-cV-gCw" firstAttribute="leading" secondItem="PkQ-es-cAd" secondAttribute="leadingMargin" id="olB-wG-tSB"/>
                             <constraint firstItem="NG9-cV-gCw" firstAttribute="top" secondItem="PkQ-es-cAd" secondAttribute="topMargin" constant="45" id="sFh-ZC-CX9"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="C84-QO-Yrc"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="4cH-lL-cef" appends="YES" id="G7m-bR-x4A"/>
                             <outletCollection property="gestureRecognizers" destination="jdp-7m-Bce" appends="YES" id="kgp-vI-h5w"/>
@@ -1485,6 +1485,7 @@
                         <outlet property="suggestionBarView" destination="ZrC-AY-mf8" id="kxa-PE-LNf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJf-QV-nCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="4cH-lL-cef">
                     <connections>
                         <action selector="dismissKeyboard:" destination="EKX-Qf-vXd" id="2NW-Ue-eFb"/>
@@ -1501,7 +1502,6 @@
         <!--Search Table View Controller-->
         <scene sceneID="itI-mN-9eO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V0b-q7-Rx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0w2-bz-eEA" customClass="SearchTableViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bh0-zE-pwX">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="488"/>
@@ -1518,14 +1518,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RsH-bV-1VF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="43.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="j10-mh-CsI"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-4d-iuK">
-                                                    <rect key="frame" x="110.5" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="150.5" y="11.5" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="8DH-p7-0wq"/>
                                                         <constraint firstAttribute="height" constant="21" id="FSd-xd-ffY"/>
@@ -1536,22 +1530,18 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RsH-bV-1VF" firstAttribute="top" secondItem="u14-bY-HLA" secondAttribute="top" id="11F-yd-AlE"/>
-                                                <constraint firstItem="RsH-bV-1VF" firstAttribute="leading" secondItem="u14-bY-HLA" secondAttribute="leading" id="2pj-Tj-YHD"/>
-                                                <constraint firstAttribute="bottom" secondItem="RsH-bV-1VF" secondAttribute="bottom" id="39v-9p-UZW"/>
                                                 <constraint firstItem="ApJ-4d-iuK" firstAttribute="centerX" secondItem="u14-bY-HLA" secondAttribute="centerX" id="AaY-Ka-FkL"/>
                                                 <constraint firstItem="ApJ-4d-iuK" firstAttribute="centerY" secondItem="u14-bY-HLA" secondAttribute="centerY" id="TPv-0g-xhs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientName" destination="ApJ-4d-iuK" id="H1j-aR-0Sm"/>
-                                            <outlet property="ingredientPicture" destination="RsH-bV-1VF" id="hod-bu-H38"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p2A-v5-bHQ">
-                                <rect key="frame" x="0.0" y="432" width="383" height="56"/>
+                                <rect key="frame" x="0.0" y="432" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="oVF-S9-fAp"/>
                                 </constraints>
@@ -1568,19 +1558,20 @@
                             <constraint firstAttribute="trailing" secondItem="LWN-4t-BTQ" secondAttribute="trailing" id="Sqd-kJ-ggJ"/>
                             <constraint firstItem="LWN-4t-BTQ" firstAttribute="top" secondItem="bh0-zE-pwX" secondAttribute="top" id="hKT-IH-rc0"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="LK2-Ms-9jp"/>
                     </view>
                     <connections>
                         <outlet property="_searchBar" destination="p2A-v5-bHQ" id="ygF-O9-fce"/>
                         <outlet property="_tableView" destination="LWN-4t-BTQ" id="ghP-9Z-t72"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V0b-q7-Rx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="324" y="125"/>
         </scene>
         <!--Suggestion Bar View Controller-->
         <scene sceneID="wps-AQ-B0A">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sWG-sm-DJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="KMB-gm-rhq" customClass="SuggestionBarViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ceP-sL-mRb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
@@ -1595,15 +1586,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="iQ2-dH-41V" secondAttribute="bottom" id="BCD-nx-a2f"/>
                             <constraint firstAttribute="trailing" secondItem="iQ2-dH-41V" secondAttribute="trailing" id="OrT-DF-Kd8"/>
                             <constraint firstItem="iQ2-dH-41V" firstAttribute="leading" secondItem="ceP-sL-mRb" secondAttribute="leading" id="WXo-Vc-Idn"/>
+                            <constraint firstItem="iQ2-dH-41V" firstAttribute="top" secondItem="9Bc-X4-R6s" secondAttribute="top" id="ibL-gY-gvR"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Bc-X4-R6s"/>
                     </view>
                     <connections>
                         <outlet property="stackView" destination="iQ2-dH-41V" id="cNz-wc-ow5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWG-sm-DJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135" y="627"/>
         </scene>

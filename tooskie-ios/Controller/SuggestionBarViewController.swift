@@ -88,7 +88,6 @@ class SuggestionBarViewController: UIViewController {
     
     @objc func pressButton(_ button: UIButton) {
         if let ingredient = self.listSuggestedWord[button.tag].ingredient {
-            print(ingredient)
             NotificationCenter.default.post(name: .suggestionPressed, object: self, userInfo: ["ingredient": ingredient])
             self.clearSuggestions()
         }

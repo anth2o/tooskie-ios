@@ -94,4 +94,5 @@ public func openUrl (urlString: String) {
 
 extension Notification.Name {
     static let suggestionPressed = Notification.Name("suggestion-pressed")
+    static let removeIngredient = Notification.Name("remove-ingredient")
 }

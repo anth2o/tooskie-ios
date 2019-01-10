@@ -34,7 +34,6 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(searchPrefix), name: Notification.Name.suggestionPressed, object: nil)
-        // add notification with children (suggestion pressed..)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
