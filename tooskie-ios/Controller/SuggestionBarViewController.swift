@@ -35,6 +35,7 @@ class SuggestionBarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        stackView.distribution = UIStackView.Distribution.fillEqually
         addSubviews()
         view.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

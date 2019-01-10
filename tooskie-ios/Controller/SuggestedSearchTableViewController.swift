@@ -12,8 +12,8 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
     
     private var keyboardIsVisible = false
     public var bottomConstraintValue = CGFloat(100)
-    fileprivate var searchTable: SearchTableViewController?
-    fileprivate var suggestionBar: SuggestionBarViewController?
+    fileprivate var searchTable: SearchTableViewController!
+    fileprivate var suggestionBar: SuggestionBarViewController!
     
     @IBOutlet weak var suggestionBarView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -21,12 +21,14 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(children)
-        guard let searchTable = children.last as? SearchTableViewController else  {
+        guard let searchTableTemp = children.last as? SearchTableViewController else  {
             fatalError("Check storyboard for missing SearchTableViewController")
         }
-        guard let suggestionBar = children.first as? SuggestionBarViewController else {
+        guard let suggestionBarTemp = children.first as? SuggestionBarViewController else {
             fatalError("Check storyboard for missing SuggestionBarViewController")
         }
+        self.searchTable = searchTableTemp
+        self.suggestionBar = suggestionBarTemp
         suggestionBar.search(searchText: "fro")
         searchTable._searchBar.delegate = self
         bottomConstraint.constant = bottomConstraintValue
@@ -37,7 +39,7 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        self.searchTable!._searchBar.resignFirstResponder()
+        self.searchTable._searchBar.resignFirstResponder()
     }
     
     @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
