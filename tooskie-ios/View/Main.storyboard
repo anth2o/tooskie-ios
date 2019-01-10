@@ -334,6 +334,10 @@
                             <constraint firstItem="AVr-Rc-0FL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rr3-XE-7hl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="w72-TH-Tjj" appends="YES" id="hfa-HM-bf8"/>
+                            <outletCollection property="gestureRecognizers" destination="6d2-J8-CL3" appends="YES" id="5il-ex-Gwx"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="abB-8n-lLX"/>
                     <connections>
@@ -343,16 +347,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="DB0-iA-nfB">
+                <tapGestureRecognizer id="6d2-J8-CL3">
                     <connections>
-                        <action selector="dismissKeyboardSwipe:" destination="BYZ-38-t0r" id="46b-eH-K4Z"/>
-                    </connections>
-                </panGestureRecognizer>
-                <tapGestureRecognizer id="7zk-vd-u7N">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="Qai-dh-ORi"/>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="s1s-PL-uw4"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="w72-TH-Tjj">
+                    <connections>
+                        <action selector="dismissKeyboardSwipe:" destination="BYZ-38-t0r" id="69S-6S-Nqp"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-383.19999999999999" y="-546.47676161919048"/>
         </scene>

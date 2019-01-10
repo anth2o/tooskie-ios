@@ -55,20 +55,20 @@ class PantryFillViewController: UIViewController {
         self.activityView.startAnimation(title: "Génération de recettes en cours")
         self.sendPantry()
     }
-//
-//    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-//        self.ingredientSearchBar.resignFirstResponder()
-//    }
-//
-//    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
-//        let translation = sender.translation(in: self.view)
-//        if translation.y > 0 && abs(translation.y) > abs(translation.x) {
-//            self.ingredientSearchBar.resignFirstResponder()
-//        }
-//        if translation.y < 0 && abs(translation.y) > abs(translation.x) {
-//            self.ingredientSearchBar.becomeFirstResponder()
-//        }
-//    }
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        suggestedSearchTable.searchTable._searchBar!.resignFirstResponder()
+    }
+
+    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: self.view)
+        if translation.y > 0 && abs(translation.y) > abs(translation.x) {
+            suggestedSearchTable.searchTable._searchBar!.resignFirstResponder()
+        }
+        if translation.y < 0 && abs(translation.y) > abs(translation.x) {
+            suggestedSearchTable.searchTable._searchBar!.becomeFirstResponder()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +79,6 @@ class PantryFillViewController: UIViewController {
         self.suggestedSearchTable.bottomConstraintValue = -1 * launchButton.frame.height
         self.loadPantry()
         self.loadUserPantry()
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.configureActivityView()
         if !GlobalVariables.pantriesLoaded {
             self.activityView.startAnimation(title: "Chargement des ingrédients")
