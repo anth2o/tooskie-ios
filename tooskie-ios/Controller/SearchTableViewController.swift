@@ -14,7 +14,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
     private var listOfWords = GlobalVariables.tooskiePantry.getIngredientsToString()
     public var keywordElement = "ingrédient"
     public var keywordEnsemble = "le garde-manger"
-    public var cellIdentifier = "Poulet"
+    public var cellIdentifier = "Check"
     // We suppose here that the table view is going to display a Pantry object (like a pantry, a checklist of ingredient, a list of ingredient intolerances...)
     // It would be useful to implement a more abstract protocol to use it for any array
     public var pantry =  GlobalVariables.userPantry

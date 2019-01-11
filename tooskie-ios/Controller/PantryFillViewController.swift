@@ -77,6 +77,7 @@ class PantryFillViewController: UIViewController {
         }
         self.suggestedSearchTable = suggestedSearchTable
         self.suggestedSearchTable.bottomConstraintValue = -1 * launchButton.frame.height
+        self.suggestedSearchTable.searchTable.cellIdentifier = "PictureDelete"
         self.loadPantry()
         self.loadUserPantry()
         self.configureActivityView()

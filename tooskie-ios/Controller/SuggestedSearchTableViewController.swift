@@ -17,17 +17,17 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         }
     }
     public var searchTable: SearchTableViewController!
-    fileprivate var suggestionBar: SuggestionBarViewController!
+    public var suggestionBar: SuggestionBarViewController!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let searchTableTemp = children.first as? SearchTableViewController else  {
-            fatalError("Check storyboard for missing SearchTableViewController")
-        }
-        guard let suggestionBarTemp = children.last as? SuggestionBarViewController else {
-            fatalError("Check storyboard for missing SuggestionBarViewController")
+        var searchTableTemp = children.first as? SearchTableViewController
+        var suggestionBarTemp = children.last as? SuggestionBarViewController
+        if searchTableTemp == nil {
+            searchTableTemp = children.last as? SearchTableViewController
+            suggestionBarTemp = children.first as? SuggestionBarViewController
         }
         self.searchTable = searchTableTemp
         self.suggestionBar = suggestionBarTemp
