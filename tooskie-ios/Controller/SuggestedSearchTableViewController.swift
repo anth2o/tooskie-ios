@@ -78,6 +78,9 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
     
     @objc
     func searchPrefix(notification:NSNotification) {
+        if notification.object as? SuggestionBarViewController != self.suggestionBar {
+            return
+        }
         if let data = notification.userInfo as? [String: Any]
         {
             let ingredient = data["ingredient"] as! Ingredient

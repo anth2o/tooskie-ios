@@ -20,7 +20,7 @@ class ShoppingListViewController: UIViewController {
             fatalError("Check storyboard for missing SuggestedSearchTableViewController")
         }
         self.suggestedSearchTable = suggestedSearchTable
-        self.suggestedSearchTable.bottomConstraintValue = stackView.frame.height
+        self.suggestedSearchTable.bottomConstraintValue = -1 * stackView.frame.height
         self.suggestedSearchTable.searchTable.cellIdentifier = "Check"
         self.suggestedSearchTable.searchTable.keywordEnsemble = "la liste de courses"
         self.suggestedSearchTable.pantry = GlobalVariables.userShoppingList
