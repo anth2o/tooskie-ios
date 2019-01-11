@@ -15,6 +15,11 @@ class SuggestionBarViewController: UIViewController {
     private let numberWordsSuggested = 2
     private var currentIngredient: Ingredient?
     private var listSuggestedWord  = [SuggestedWord]()
+    // We suppose that the dictionnary we are going to search is a Pantry
+    public var globalPantry = GlobalVariables.tooskiePantry
+    // We suppose here that the table view is going to display a Pantry object (like a pantry, a checklist of ingredient, a list of ingredient intolerances...)
+    // It would be useful to implement a more abstract protocol to use it for any array
+    public var pantry = GlobalVariables.userPantry
     
     @IBOutlet weak var stackView: UIStackView!
     
@@ -95,14 +100,14 @@ class SuggestionBarViewController: UIViewController {
     
     public func search(searchText: String) {
         if searchText.count >= minLettersSuggestion {
-            let tempIngredientList = GlobalVariables.tooskiePantry.getIngredientsByPrefix(prefix: searchText)
+            let tempIngredientList = globalPantry.getIngredientsByPrefix(prefix: searchText)
             var ingredientCount = 0
             var wordSuggestedCount = 0
             // This loop "fills" the button of the suggestion bar
             // We could order the result by the relevancy of the ingredients
             while ingredientCount < tempIngredientList.count && wordSuggestedCount < self.numberWordsSuggested {
                 let tempIngredient = tempIngredientList[ingredientCount]
-                if !GlobalVariables.userPantry.contains(ingredient: tempIngredient) {
+                if !pantry.contains(ingredient: tempIngredient) {
                     self.listSuggestedWord[wordSuggestedCount].button.setTitle(tempIngredient.getName(), for: .normal)
                     self.listSuggestedWord[wordSuggestedCount].button.isHidden = false
                     self.listSuggestedWord[wordSuggestedCount].ingredient = tempIngredient

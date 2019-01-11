@@ -19,6 +19,19 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
     public var searchTable: SearchTableViewController!
     public var suggestionBar: SuggestionBarViewController!
     
+    public var globalPantry = GlobalVariables.tooskiePantry {
+        didSet {
+            self.suggestionBar.globalPantry = globalPantry
+            self.searchTable.globalPantry = globalPantry
+        }
+    }
+    public var pantry =  GlobalVariables.userPantry {
+        didSet {
+            self.suggestionBar.pantry = pantry
+            self.searchTable.pantry = pantry
+        }
+    }
+    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {

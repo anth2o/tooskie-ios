@@ -10,13 +10,10 @@ import UIKit
 
 class SearchTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
-    // We suppose that the list of word that we are goind to search is a Pantry
-    private var listOfWords = GlobalVariables.tooskiePantry.getIngredientsToString()
     public var keywordElement = "ingrédient"
     public var keywordEnsemble = "le garde-manger"
     public var cellIdentifier = "Check"
-    // We suppose here that the table view is going to display a Pantry object (like a pantry, a checklist of ingredient, a list of ingredient intolerances...)
-    // It would be useful to implement a more abstract protocol to use it for any array
+    public var globalPantry = GlobalVariables.tooskiePantry
     public var pantry =  GlobalVariables.userPantry
     private enum StatusAlert {
         case already, unknown
@@ -76,7 +73,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
                 _searchBar.resignFirstResponder()
                 return
             }
-            if let chosenIngredient = GlobalVariables.tooskiePantry.getIngredientByName(ingredientName: text.capitalize()){
+            if let chosenIngredient = globalPantry.getIngredientByName(ingredientName: text.capitalize()){
                 if pantry.contains(ingredient: chosenIngredient) {
                     self.alertIngredient(status: .already)
                     self._searchBar.text = ""

@@ -148,6 +148,7 @@ class PantryFillViewController: UIViewController {
                                 _ = ingredient.getPictureData()
                             }
                             self.suggestedSearchTable.searchTable._tableView!.reloadData()
+                            self.suggestedSearchTable.searchTable._tableView!.scrollToBottom()
                         } catch {
                             print("Error")
                         }
