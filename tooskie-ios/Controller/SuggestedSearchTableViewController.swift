@@ -48,6 +48,7 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(searchPrefix), name: Notification.Name.suggestionPressed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clearSuggestions), name: Notification.Name.ingredientAdded, object: nil)
     }
     
     @objc
@@ -72,6 +73,14 @@ class SuggestedSearchTableViewController: UIViewController, UISearchBarDelegate 
             let ingredient = data["ingredient"] as! Ingredient
             searchTable.addAndDisplayNewIngredient(ingredient: ingredient)
         }
+    }
+    
+    @objc
+    func clearSuggestions(notification:NSNotification) {
+        if notification.object as? SearchTableViewController != self.searchTable {
+            return
+        }
+        suggestionBar.clearSuggestions()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

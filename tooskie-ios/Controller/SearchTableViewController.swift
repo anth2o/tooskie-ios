@@ -93,6 +93,7 @@ class SearchTableViewController: UIViewController, UITableViewDataSource, UITabl
         _tableView.reloadData()
         _tableView.scrollToBottom()
         _searchBar.text = ""
+        NotificationCenter.default.post(name: .ingredientAdded, object: self)
     }
     
     private func alertIngredient(status: StatusAlert) {

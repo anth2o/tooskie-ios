@@ -57,6 +57,15 @@ class SuggestionBarViewController: UIViewController {
         view.isHidden = true
     }
     
+    @objc
+    func pressButton(_ button: UIButton) {
+        if let ingredient = self.listSuggestedWord[button.tag].ingredient {
+            NotificationCenter.default.post(name: .suggestionPressed, object: self, userInfo: ["ingredient": ingredient])
+            self.clearSuggestions()
+        }
+    }
+
+    
     private func addSubviews() {
         for _ in 0..<self.numberWordsSuggested {
             let subview = UIView()
@@ -91,13 +100,6 @@ class SuggestionBarViewController: UIViewController {
         }
     }
     
-    @objc func pressButton(_ button: UIButton) {
-        if let ingredient = self.listSuggestedWord[button.tag].ingredient {
-            NotificationCenter.default.post(name: .suggestionPressed, object: self, userInfo: ["ingredient": ingredient])
-            self.clearSuggestions()
-        }
-    }
-    
     public func search(searchText: String) {
         if searchText.count >= minLettersSuggestion {
             let tempIngredientList = globalPantry.getIngredientsByPrefix(prefix: searchText)
@@ -127,7 +129,7 @@ class SuggestionBarViewController: UIViewController {
         }
     }
     
-    private func clearSuggestions() {
+    public func clearSuggestions() {
         for i in 0..<self.numberWordsSuggested {
             self.listSuggestedWord[i].button.isHidden = true
             self.listSuggestedWord[i].button.setTitle("", for: .normal)
