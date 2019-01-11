@@ -33,5 +33,18 @@ class ShoppingListViewController: UIViewController {
     @IBAction func addToPantry(_ sender: Any) {
         print("Add to pantry")
     }
-
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        suggestedSearchTable.searchTable._searchBar!.resignFirstResponder()
+    }
+    
+    @IBAction func dismissKeyboardSwipe(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: self.view)
+        if translation.y > 0 && abs(translation.y) > abs(translation.x) {
+            suggestedSearchTable.searchTable._searchBar!.resignFirstResponder()
+        }
+        if translation.y < 0 && abs(translation.y) > abs(translation.x) {
+            suggestedSearchTable.searchTable._searchBar!.becomeFirstResponder()
+        }
+    }
 }

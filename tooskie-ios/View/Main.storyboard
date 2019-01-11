@@ -1291,6 +1291,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Dht-ba-1s7" firstAttribute="bottom" secondItem="dwZ-9h-mmM" secondAttribute="bottom" id="6X3-He-TRN"/>
                             <constraint firstItem="YA6-wp-nQW" firstAttribute="centerX" secondItem="VT1-j3-McX" secondAttribute="centerX" id="7by-ev-ugZ"/>
@@ -1304,6 +1305,10 @@
                             <constraint firstItem="dwZ-9h-mmM" firstAttribute="top" secondItem="ArO-g8-Xqt" secondAttribute="bottom" constant="20" id="kNR-e4-Zcz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dht-ba-1s7"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dzt-rN-KdQ" appends="YES" id="2eZ-cm-9ew"/>
+                            <outletCollection property="gestureRecognizers" destination="Yjo-Md-pUw" appends="YES" id="WMU-t7-ruK"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="2U3-Dv-IxJ"/>
                     <connections>
@@ -1312,6 +1317,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSR-SG-XQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uU2-ec-PeN" userLabel="Exit" sceneMemberID="exit"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="dzt-rN-KdQ">
+                    <connections>
+                        <action selector="dismissKeyboardSwipe:" destination="GdB-YA-0eI" id="Nbo-6P-FJ1"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="Yjo-Md-pUw">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="GdB-YA-0eI" id="AHa-K7-bEO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-383.19999999999999" y="205.54722638680661"/>
         </scene>
@@ -1379,16 +1394,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uni-v6-JaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="9PK-4R-tmf">
-                    <connections>
-                        <action selector="dismissKeyboardSwipe:" destination="1JH-GE-giq" id="FGu-3J-shL"/>
-                    </connections>
-                </panGestureRecognizer>
-                <tapGestureRecognizer id="ytf-pK-sUu">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="1JH-GE-giq" id="IsY-yv-7y8"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="321" y="-1266"/>
         </scene>
