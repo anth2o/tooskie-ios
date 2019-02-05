@@ -13,6 +13,7 @@
 		714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B35AA218C87310079BAE1 /* ModelWithPicture.swift */; };
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
 		715BD6DA21E8C65500135A7B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BD6D921E8C65500135A7B /* ShoppingListViewController.swift */; };
+		715BD6DC21E8E6A000135A7B /* RecipeHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 715BD6DB21E8E6A000135A7B /* RecipeHelpView.xib */; };
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
 		716BAFF921838774001119DD /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716BAFF821838774001119DD /* ViewUtils.swift */; };
@@ -59,6 +60,7 @@
 		714B35AA218C87310079BAE1 /* ModelWithPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWithPicture.swift; sourceTree = "<group>"; };
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		715BD6D921E8C65500135A7B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		715BD6DB21E8E6A000135A7B /* RecipeHelpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeHelpView.xib; sourceTree = "<group>"; };
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		716BAFF821838774001119DD /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				718D315921E62FC9006A21E4 /* BuildingPanel.swift */,
 				718D315721E62991006A21E4 /* BuildingPanel.xib */,
 				710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */,
+				715BD6DB21E8E6A000135A7B /* RecipeHelpView.xib */,
 				71D55AAB216A14F400906BFD /* SingleRecipe.swift */,
 				716BAFF821838774001119DD /* ViewUtils.swift */,
 			);
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715BD6DC21E8E6A000135A7B /* RecipeHelpView.xib in Resources */,
 				718D315821E62991006A21E4 /* BuildingPanel.xib in Resources */,
 				718F671E215B4ABB00F59A5C /* .gitignore in Resources */,
 				718F6716215B481100F59A5C /* LaunchScreen.storyboard in Resources */,
@@ -424,7 +428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNGC395ZP7;
 				INFOPLIST_FILE = "tooskie-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,7 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNGC395ZP7;
 				INFOPLIST_FILE = "tooskie-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

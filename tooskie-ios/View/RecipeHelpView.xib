@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lss-hs-lTV">
+                    <rect key="frame" x="10" y="70" width="355" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVv-CP-TyU">
+                    <rect key="frame" x="325" y="35" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="cXi-O6-CII"/>
+                        <constraint firstAttribute="width" secondItem="XVv-CP-TyU" secondAttribute="height" multiplier="1:1" id="iFl-xr-tCL"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="Cancel"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vwh-LD-FeQ">
+                    <rect key="frame" x="112.5" y="105.5" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Vwh-LD-FeQ" secondAttribute="height" multiplier="1:1" id="eRK-xO-bhc"/>
+                        <constraint firstAttribute="width" constant="150" id="rbk-S8-bBZ"/>
+                    </constraints>
+                </imageView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WjI-kM-dMf">
+                    <rect key="frame" x="127" y="275.5" width="121" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="71A-OL-ccC"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4t-Hg-y2D">
+                    <rect key="frame" x="25" y="323.5" width="325" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="DN5-jE-uWz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XVv-CP-TyU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="4dg-9h-Rbl"/>
+                <constraint firstItem="WjI-kM-dMf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4v0-mu-sYi"/>
+                <constraint firstItem="B4t-Hg-y2D" firstAttribute="top" secondItem="WjI-kM-dMf" secondAttribute="bottom" constant="20" id="5oS-em-ObG"/>
+                <constraint firstItem="Lss-hs-lTV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ADt-w1-hwM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XVv-CP-TyU" secondAttribute="trailing" constant="15" id="SS2-hm-yik"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="B4t-Hg-y2D" secondAttribute="bottom" constant="20" id="SjO-co-GCJ"/>
+                <constraint firstItem="Vwh-LD-FeQ" firstAttribute="top" secondItem="Lss-hs-lTV" secondAttribute="bottom" constant="15" id="TVB-pU-4Cw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="B4t-Hg-y2D" secondAttribute="trailing" constant="25" id="UDI-hN-3UA"/>
+                <constraint firstItem="WjI-kM-dMf" firstAttribute="top" secondItem="Vwh-LD-FeQ" secondAttribute="bottom" constant="20" id="bBt-Ll-ugn"/>
+                <constraint firstItem="B4t-Hg-y2D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="cVe-9H-AmI"/>
+                <constraint firstItem="Vwh-LD-FeQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cif-4V-feK"/>
+                <constraint firstItem="Lss-hs-lTV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="irC-Xw-Lfp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lss-hs-lTV" secondAttribute="trailing" constant="10" id="p4z-uD-SiW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Cancel" width="228" height="229"/>
+    </resources>
+</document>

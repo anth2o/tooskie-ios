@@ -146,14 +146,6 @@ class RecipeViewController: UIViewController {
         self.tintView.isOpaque = false
     }
     
-//    private func createStepViews() {
-//        if let steps = self.recipe!.steps {
-//            for i in 0..<steps.count {
-//                let stepView =
-//            }
-//        }
-//    }
-    
     private func handleConstraint() {
         self.bottomConstraint.constant = self.bottomConstraintConstant
         self.topConstraint.constant = self.topConstraintConstant
