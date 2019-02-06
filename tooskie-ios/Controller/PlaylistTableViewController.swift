@@ -21,6 +21,7 @@ class PlaylistTableViewController: UITableViewController {
         if segue.identifier != nil && segue.identifier == "StartRecipeFromPlaylist" {
             let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
             destVC.recipe = self.recipeToStart
+            destVC.fromPlaylist = true
         }
     }
 

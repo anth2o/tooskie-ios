@@ -12,12 +12,14 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     
     var recipe: Recipe?
     var stringNumberOfPerson = ""
+    var fromPlaylist = false
     
     @IBOutlet weak var recipePicture: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var numberOfPersonText: UITextField! {
         didSet { numberOfPersonText?.addDoneCancelToolbar() }
     }
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var numberOfPersonStepper: UIStepper!
     
     var numberOfPerson = 1 {
@@ -53,6 +55,7 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
+        self.backButton.isEnabled = !fromPlaylist
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,6 +63,7 @@ class RecipeIntroViewController: UIViewController, UITextFieldDelegate {
             let destVC : RecipeViewController = segue.destination as! RecipeViewController
             destVC.recipe = self.recipe
             destVC.numberOfPerson = self.numberOfPerson
+            destVC.fromPlaylist = fromPlaylist
         }
     }
     

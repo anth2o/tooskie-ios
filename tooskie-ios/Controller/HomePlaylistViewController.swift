@@ -50,15 +50,28 @@ class HomePlaylistViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
     
-    private func getPlaylists() {
-        let recipe_1 = Recipe(name: "Test de poulet")
-        let recipe_2 = Recipe(name: "Test de fromage")
-        let playlist_1 = Playlist(picture: "https://pbs.twimg.com/profile_images/701739690374729729/p3wuB1i4_400x400.png")
-        playlist_1.name = "poulet"
-        playlist_1.recipes = [recipe_1, recipe_2]
-        let playlist_2 = Playlist(picture: "https://squaredwp.blob.core.windows.net/webmedia/2016/05/SearchSquared-240x240.png")
-        playlist_2.name = "fromage"
-        playlist_2.recipes = [recipe_1]
-        playlists = [playlist_1, playlist_2]
+    public func getPlaylists() {
+        let session = GlobalVariables.serverConfig.getSession()
+        let request = GlobalVariables.serverConfig.getRequest(path: "/api/tag/", method: "GET")
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            DispatchQueue.main.async {
+                if let error = responseError {
+                    print(error.localizedDescription)
+                } else if let jsonData = responseData {
+                    let decoder = JSONDecoder()
+                    do {
+                        let playlists = try decoder.decode([Playlist].self, from: jsonData)
+                        self.playlists = playlists
+                        self._collectionView.reloadData()
+                    } catch {
+                        print("Error")
+                    }
+                } else {
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data was not retrieved from request"]) as Error
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
     }
 }

@@ -19,6 +19,7 @@ class RecipeViewController: UIViewController {
     let topConstraintConstant = CGFloat(40)
     var helpHeight = CGFloat(0)
     let tintView = UIView()
+    var fromPlaylist = false
     
     enum Status {
         case back, forward, waiting
@@ -53,6 +54,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextStepDisplay: UIButton!
+    @IBOutlet weak var homeButton: UIButton!
     
     @IBAction func previousStep(_ sender: Any) {
         self.stepBack(swipe: false)
@@ -111,6 +113,7 @@ class RecipeViewController: UIViewController {
         self.view.addGestureRecognizer(panGestureRecognizer)
         self.updateViewDisplayed()
         progressStep.transform = progressStep.transform.scaledBy(x: 1, y: 5)
+        homeButton.isEnabled = !fromPlaylist
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

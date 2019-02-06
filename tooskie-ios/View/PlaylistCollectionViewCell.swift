@@ -21,6 +21,8 @@ class PlaylistCollectionViewCell: UICollectionViewCell {
 
     public func setPlaylist(playlist: Playlist){
         self.playlist = playlist
-        self.button.setImage(UIImage(data: playlist.getPictureData()!)!, for: .normal)
+        if let pictureData = playlist.getPictureData() {
+            self.button.setImage(UIImage(data: pictureData), for: .normal)
+        }
     }
 }
