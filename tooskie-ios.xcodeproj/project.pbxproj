@@ -10,6 +10,9 @@
 		710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */; };
 		7136B1302172394800712CC0 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B12F2172394800712CC0 /* Step.swift */; };
 		7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136B131217240B800712CC0 /* RecipeViewController.swift */; };
+		714157BF2209C546009E0B2C /* HomePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714157BE2209C546009E0B2C /* HomePlaylistViewController.swift */; };
+		714157C12209C632009E0B2C /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714157C02209C632009E0B2C /* PlaylistCollectionViewCell.swift */; };
+		714157C32209CB57009E0B2C /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714157C22209CB57009E0B2C /* Playlist.swift */; };
 		714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B35AA218C87310079BAE1 /* ModelWithPicture.swift */; };
 		714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714BB49921675F6E00ACB4B9 /* Recipe.swift */; };
 		715BD6DA21E8C65500135A7B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BD6D921E8C65500135A7B /* ShoppingListViewController.swift */; };
@@ -57,6 +60,9 @@
 		710D9239215FDBCA00E192C8 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		7136B12F2172394800712CC0 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		7136B131217240B800712CC0 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		714157BE2209C546009E0B2C /* HomePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlaylistViewController.swift; sourceTree = "<group>"; };
+		714157C02209C632009E0B2C /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
+		714157C22209CB57009E0B2C /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		714B35AA218C87310079BAE1 /* ModelWithPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWithPicture.swift; sourceTree = "<group>"; };
 		714BB49921675F6E00ACB4B9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		715BD6D921E8C65500135A7B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				716123B8215B6B7200B458A0 /* Pantry.swift */,
+				714157C22209CB57009E0B2C /* Playlist.swift */,
 				7184C49E21637B7F000886B0 /* ServerConfig.swift */,
 				7184C4A02163B840000886B0 /* ModelUtils.swift */,
 				716123BA215B6BC200B458A0 /* Ingredient.swift */,
@@ -148,6 +155,7 @@
 			children = (
 				71A05F6421E79DEF00495471 /* Main.storyboard */,
 				71A1637721B7F7A700F4EE44 /* ActivityView.swift */,
+				714157C02209C632009E0B2C /* PlaylistCollectionViewCell.swift */,
 				71A1637521B7F62900F4EE44 /* ActivityView.xib */,
 				718D315921E62FC9006A21E4 /* BuildingPanel.swift */,
 				718D315721E62991006A21E4 /* BuildingPanel.xib */,
@@ -173,6 +181,7 @@
 				71FD7EEB21E785E800FF20A9 /* SuggestionBarViewController.swift */,
 				71FD7EF121E7933200FF20A9 /* SearchTableViewController.swift */,
 				71FD7EF321E7978100FF20A9 /* SuggestedSearchTableViewController.swift */,
+				714157BE2209C546009E0B2C /* HomePlaylistViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,6 +282,8 @@
 				71FD7EEA21E7811700FF20A9 /* CustomNavigationController.swift in Sources */,
 				71A1637821B7F7A700F4EE44 /* ActivityView.swift in Sources */,
 				714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */,
+				714157C12209C632009E0B2C /* PlaylistCollectionViewCell.swift in Sources */,
+				714157C32209CB57009E0B2C /* Playlist.swift in Sources */,
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,
 				716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */,
 				716123B9215B6B7200B458A0 /* Pantry.swift in Sources */,
@@ -284,6 +295,7 @@
 				7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */,
 				7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */,
 				715BD6DA21E8C65500135A7B /* ShoppingListViewController.swift in Sources */,
+				714157BF2209C546009E0B2C /* HomePlaylistViewController.swift in Sources */,
 				718F670C215B481000F59A5C /* AppDelegate.swift in Sources */,
 				714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */,
 				71FD7EF221E7933200FF20A9 /* SearchTableViewController.swift in Sources */,

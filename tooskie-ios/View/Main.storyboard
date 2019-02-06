@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -140,125 +141,72 @@
         <!--Accueil-->
         <scene sceneID="cgQ-dr-2vI">
             <objects>
-                <viewController id="fk7-C5-N8o" sceneMemberID="viewController">
+                <viewController id="fk7-C5-N8o" customClass="HomePlaylistViewController" customModule="tooskie_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qQ0-Ug-J3o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-w9-qnm" customClass="BuildingPanel" customModule="tooskie_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aBf-ZS-TZH">
+                                <rect key="frame" x="30" y="87" width="315" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="y7l-kf-QVh"/>
-                                </constraints>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qaf-4T-sOr">
-                                <rect key="frame" x="0.0" y="220" width="375" height="375"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tGd-Ux-VrH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187.5"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-qY-Bce">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYN-8x-i69">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="zYN-8x-i69" secondAttribute="height" multiplier="1:1" id="FWu-px-Oca"/>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="sH6-Jv-Qwt"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button" image="PlaylistVG"/>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="zYN-8x-i69" firstAttribute="centerX" secondItem="Qmq-qY-Bce" secondAttribute="centerX" id="89S-Mz-pMy"/>
-                                                    <constraint firstItem="zYN-8x-i69" firstAttribute="centerY" secondItem="Qmq-qY-Bce" secondAttribute="centerY" id="IPd-0j-XuY"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zYN-8x-i69" secondAttribute="trailing" id="liF-3f-gy2"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufO-yz-78Z">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="187.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVZ-fr-vbZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="PVF-Y7-8hO"/>
-                                                            <constraint firstAttribute="width" secondItem="PVZ-fr-vbZ" secondAttribute="height" multiplier="1:1" id="fsp-sQ-zS4"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button" image="PlaylistChine"/>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PVZ-fr-vbZ" secondAttribute="trailing" id="RAi-If-3E4"/>
-                                                    <constraint firstItem="PVZ-fr-vbZ" firstAttribute="centerY" secondItem="ufO-yz-78Z" secondAttribute="centerY" id="qFJ-wV-79L"/>
-                                                    <constraint firstItem="PVZ-fr-vbZ" firstAttribute="centerX" secondItem="ufO-yz-78Z" secondAttribute="centerX" id="rm5-hu-Oh3"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="T4U-Ey-FzA">
-                                        <rect key="frame" x="0.0" y="187.5" width="375" height="187.5"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qy-WF-a7Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-ca-EWL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="GCf-Rh-N9b"/>
-                                                            <constraint firstAttribute="width" secondItem="LZo-ca-EWL" secondAttribute="height" multiplier="1:1" id="yGa-HF-XeF"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button" image="PlaylistTime"/>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LZo-ca-EWL" secondAttribute="trailing" id="Vac-rb-MzI"/>
-                                                    <constraint firstItem="LZo-ca-EWL" firstAttribute="centerX" secondItem="7qy-WF-a7Y" secondAttribute="centerX" id="X4H-V4-zhW"/>
-                                                    <constraint firstItem="LZo-ca-EWL" firstAttribute="centerY" secondItem="7qy-WF-a7Y" secondAttribute="centerY" id="ptv-65-zJ2"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyX-91-j2H">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="187.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOl-b9-f9O">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="JZS-I2-D94"/>
-                                                            <constraint firstAttribute="width" secondItem="pOl-b9-f9O" secondAttribute="height" multiplier="1:1" id="nSM-vx-3of"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button" image="PlaylistNew"/>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="pOl-b9-f9O" firstAttribute="centerX" secondItem="wyX-91-j2H" secondAttribute="centerX" id="aQP-CZ-Ofl"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pOl-b9-f9O" secondAttribute="trailing" id="dJc-og-Hk6"/>
-                                                    <constraint firstItem="pOl-b9-f9O" firstAttribute="centerY" secondItem="wyX-91-j2H" secondAttribute="centerY" id="g9F-7L-njO"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Qaf-4T-sOr" secondAttribute="height" multiplier="1:1" id="UZw-uf-zxG"/>
-                                </constraints>
-                            </stackView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="20" id="vhv-Wa-o0j">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="playlistCollectionViewCell" id="Oss-Gc-sF7" customClass="PlaylistCollectionViewCell" customModule="tooskie_ios" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR6-bN-A9C">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="DR6-bN-A9C" secondAttribute="height" multiplier="1:1" id="604-up-ukR"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DR6-bN-A9C" secondAttribute="trailing" id="M5v-GU-nze"/>
+                                            <constraint firstItem="DR6-bN-A9C" firstAttribute="top" secondItem="Oss-Gc-sF7" secondAttribute="top" id="cWn-2a-D5s"/>
+                                            <constraint firstAttribute="bottom" secondItem="DR6-bN-A9C" secondAttribute="bottom" id="dGJ-7O-7dg"/>
+                                            <constraint firstItem="DR6-bN-A9C" firstAttribute="leading" secondItem="Oss-Gc-sF7" secondAttribute="leading" id="tds-Eg-V67"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="button" destination="DR6-bN-A9C" id="Xxt-rO-34f"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En quête d'inspiration ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-lQ-5gf">
+                                <rect key="frame" x="30" y="40" width="315" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qaf-4T-sOr" firstAttribute="leading" secondItem="Hcu-fO-TuV" secondAttribute="leading" id="3tV-NR-NYZ"/>
-                            <constraint firstItem="Hcu-fO-TuV" firstAttribute="trailing" secondItem="DqJ-w9-qnm" secondAttribute="trailing" id="9qN-P1-GoL"/>
-                            <constraint firstItem="Qaf-4T-sOr" firstAttribute="top" secondItem="DqJ-w9-qnm" secondAttribute="bottom" id="AnE-5M-aea"/>
-                            <constraint firstItem="DqJ-w9-qnm" firstAttribute="leading" secondItem="Hcu-fO-TuV" secondAttribute="leading" id="DS1-zv-0XQ"/>
-                            <constraint firstItem="DqJ-w9-qnm" firstAttribute="top" secondItem="Hcu-fO-TuV" secondAttribute="top" id="Zhq-Lm-mk3"/>
-                            <constraint firstItem="Hcu-fO-TuV" firstAttribute="trailing" secondItem="Qaf-4T-sOr" secondAttribute="trailing" id="dAN-vL-Gw6"/>
+                            <constraint firstItem="Hcu-fO-TuV" firstAttribute="trailing" secondItem="AA5-lQ-5gf" secondAttribute="trailing" constant="30" id="0z1-FH-iDr"/>
+                            <constraint firstItem="Hcu-fO-TuV" firstAttribute="bottom" secondItem="aBf-ZS-TZH" secondAttribute="bottom" constant="30" id="7ze-qG-K3O"/>
+                            <constraint firstItem="aBf-ZS-TZH" firstAttribute="top" secondItem="AA5-lQ-5gf" secondAttribute="bottom" constant="20" id="Nlb-5K-ic2"/>
+                            <constraint firstItem="aBf-ZS-TZH" firstAttribute="leading" secondItem="Hcu-fO-TuV" secondAttribute="leading" constant="30" id="QqJ-oW-UlN"/>
+                            <constraint firstItem="AA5-lQ-5gf" firstAttribute="top" secondItem="Hcu-fO-TuV" secondAttribute="top" constant="20" id="UIu-hf-x64"/>
+                            <constraint firstItem="AA5-lQ-5gf" firstAttribute="leading" secondItem="Hcu-fO-TuV" secondAttribute="leading" constant="30" id="Za7-m3-fYx"/>
+                            <constraint firstItem="Hcu-fO-TuV" firstAttribute="trailing" secondItem="aBf-ZS-TZH" secondAttribute="trailing" constant="30" id="mNG-fY-cFu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hcu-fO-TuV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Accueil" image="Home" id="IbG-hT-0De"/>
+                    <connections>
+                        <outlet property="_collectionView" destination="aBf-ZS-TZH" id="pEY-Ji-Oh5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSh-YI-ui8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1715,10 +1663,6 @@
         <image name="LeftArrow" width="229" height="230"/>
         <image name="MinusButton" width="587" height="585"/>
         <image name="Pass" width="229" height="229"/>
-        <image name="PlaylistChine" width="1024" height="1024"/>
-        <image name="PlaylistNew" width="1024" height="1024"/>
-        <image name="PlaylistTime" width="1024" height="1024"/>
-        <image name="PlaylistVG" width="1024" height="1024"/>
         <image name="PreferencesLactose" width="1024" height="1024"/>
         <image name="PreferencesNew" width="1024" height="1024"/>
         <image name="PreferencesSeason" width="1024" height="1024"/>
