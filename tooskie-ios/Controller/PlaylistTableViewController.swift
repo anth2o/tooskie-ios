@@ -11,9 +11,17 @@ import UIKit
 class PlaylistTableViewController: UITableViewController {
     
     public var playlist: Playlist!
+    private var recipeToStart: Recipe!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != nil && segue.identifier == "StartRecipeFromPlaylist" {
+            let destVC : RecipeIntroViewController = segue.destination as! RecipeIntroViewController
+            destVC.recipe = self.recipeToStart
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,5 +34,10 @@ class PlaylistTableViewController: UITableViewController {
         cell.setRecipe(recipe: recipe)
         cell.selectionStyle = .none
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.recipeToStart = self.playlist.recipes[indexPath.row]
+        performSegue(withIdentifier: "StartRecipeFromPlaylist", sender: self)
     }
 }
