@@ -28,6 +28,10 @@ class Recipe: Codable {
         return nil
     }
     
+    init(name: String){
+        self.name = name
+    }
+    
     func getStep(stepNumber: Int) -> Step?{
         if let steps = self.steps {
             for i in 0..<steps.count {

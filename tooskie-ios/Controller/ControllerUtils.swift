@@ -98,4 +98,5 @@ extension Notification.Name {
     static let suggestionPressed = Notification.Name("suggestion-pressed")
     static let removeIngredient = Notification.Name("remove-ingredient")
     static let ingredientAdded = Notification.Name("ingredient-added")
+    static let startPlaylist = Notification.Name("start-playlist")
 }

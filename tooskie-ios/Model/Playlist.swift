@@ -9,6 +9,7 @@
 import Foundation
 
 class Playlist: Codable {
+    public var name: String?
     public var picture: String?
     public var pictureData: Data?
     public var recipes = [Recipe]()

@@ -10,9 +10,17 @@ import UIKit
 
 class PlaylistCollectionViewCell: UICollectionViewCell {
     
+    private var playlist: Playlist?
+    
     @IBOutlet var button: UIButton!
     
-    func displayContent(image: UIImage){
-        button.setImage(image, for: UIControl.State.normal)
+    @IBAction func startPlaylist(_ sender: Any) {
+        NotificationCenter.default.post(name: .startPlaylist, object: self, userInfo: ["playlist": self.playlist!])
+
+    }
+
+    public func setPlaylist(playlist: Playlist){
+        self.playlist = playlist
+        self.button.setImage(UIImage(data: playlist.getPictureData()!)!, for: .normal)
     }
 }
