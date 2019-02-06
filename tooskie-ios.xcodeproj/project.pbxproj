@@ -20,6 +20,8 @@
 		716123B9215B6B7200B458A0 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123B8215B6B7200B458A0 /* Pantry.swift */; };
 		716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716123BA215B6BC200B458A0 /* Ingredient.swift */; };
 		716BAFF921838774001119DD /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716BAFF821838774001119DD /* ViewUtils.swift */; };
+		717163ED220B121E008E0F7E /* PlaylistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717163EC220B121E008E0F7E /* PlaylistTableViewController.swift */; };
+		717163EF220B1373008E0F7E /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717163EE220B1373008E0F7E /* RecipeTableViewCell.swift */; };
 		718366F1218314F1002E4277 /* ControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718366F0218314F1002E4277 /* ControllerUtils.swift */; };
 		7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C49E21637B7F000886B0 /* ServerConfig.swift */; };
 		7184C4A12163B840000886B0 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184C4A02163B840000886B0 /* ModelUtils.swift */; };
@@ -70,6 +72,8 @@
 		716123B8215B6B7200B458A0 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 		716123BA215B6BC200B458A0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		716BAFF821838774001119DD /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		717163EC220B121E008E0F7E /* PlaylistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewController.swift; sourceTree = "<group>"; };
+		717163EE220B1373008E0F7E /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		718366F0218314F1002E4277 /* ControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerUtils.swift; sourceTree = "<group>"; };
 		7184C49E21637B7F000886B0 /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		7184C4A02163B840000886B0 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				71A05F6421E79DEF00495471 /* Main.storyboard */,
 				71A1637721B7F7A700F4EE44 /* ActivityView.swift */,
 				714157C02209C632009E0B2C /* PlaylistCollectionViewCell.swift */,
+				717163EE220B1373008E0F7E /* RecipeTableViewCell.swift */,
 				71A1637521B7F62900F4EE44 /* ActivityView.xib */,
 				718D315921E62FC9006A21E4 /* BuildingPanel.swift */,
 				718D315721E62991006A21E4 /* BuildingPanel.xib */,
@@ -177,6 +182,7 @@
 				718366F0218314F1002E4277 /* ControllerUtils.swift */,
 				7136B131217240B800712CC0 /* RecipeViewController.swift */,
 				71D44F2521726CA2009EE89F /* RecipeIntroViewController.swift */,
+				717163EC220B121E008E0F7E /* PlaylistTableViewController.swift */,
 				71D55AA7216A08D000906BFD /* RecipeSuggestionViewController.swift */,
 				71FD7EEB21E785E800FF20A9 /* SuggestionBarViewController.swift */,
 				71FD7EF121E7933200FF20A9 /* SearchTableViewController.swift */,
@@ -284,6 +290,7 @@
 				714B35AB218C87310079BAE1 /* ModelWithPicture.swift in Sources */,
 				714157C12209C632009E0B2C /* PlaylistCollectionViewCell.swift in Sources */,
 				714157C32209CB57009E0B2C /* Playlist.swift in Sources */,
+				717163EF220B1373008E0F7E /* RecipeTableViewCell.swift in Sources */,
 				710D923A215FDBCA00E192C8 /* IngredientTableViewCell.swift in Sources */,
 				716123BB215B6BC200B458A0 /* Ingredient.swift in Sources */,
 				716123B9215B6B7200B458A0 /* Pantry.swift in Sources */,
@@ -295,6 +302,7 @@
 				7136B132217240B800712CC0 /* RecipeViewController.swift in Sources */,
 				7184C49F21637B7F000886B0 /* ServerConfig.swift in Sources */,
 				715BD6DA21E8C65500135A7B /* ShoppingListViewController.swift in Sources */,
+				717163ED220B121E008E0F7E /* PlaylistTableViewController.swift in Sources */,
 				714157BF2209C546009E0B2C /* HomePlaylistViewController.swift in Sources */,
 				718F670C215B481000F59A5C /* AppDelegate.swift in Sources */,
 				714BB49A21675F6F00ACB4B9 /* Recipe.swift in Sources */,

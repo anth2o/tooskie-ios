@@ -10,6 +10,7 @@ import UIKit
 
 class HomePlaylistViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     private var playlists = [Playlist]()
+    private var playlistToStart: Playlist!
     
     @IBOutlet weak var _collectionView: UICollectionView!
     
@@ -26,9 +27,17 @@ class HomePlaylistViewController: UIViewController, UICollectionViewDelegate, UI
         if let data = notification.userInfo as? [String: Any]
         {
             let playlist = data["playlist"] as! Playlist
-            print(playlist.name!)
+            self.playlistToStart = playlist
+            performSegue(withIdentifier: "StartPlaylist", sender: self)
         }
-    }    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != nil && segue.identifier == "StartPlaylist" {
+            let destVC : PlaylistTableViewController = segue.destination as! PlaylistTableViewController
+            destVC.playlist = self.playlistToStart!
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return playlists.count

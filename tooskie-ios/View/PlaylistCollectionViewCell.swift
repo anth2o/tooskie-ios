@@ -10,12 +10,12 @@ import UIKit
 
 class PlaylistCollectionViewCell: UICollectionViewCell {
     
-    private var playlist: Playlist?
+    private var playlist: Playlist!
     
     @IBOutlet var button: UIButton!
     
     @IBAction func startPlaylist(_ sender: Any) {
-        NotificationCenter.default.post(name: .startPlaylist, object: self, userInfo: ["playlist": self.playlist!])
+        NotificationCenter.default.post(name: .startPlaylist, object: self, userInfo: ["playlist": self.playlist])
 
     }
 
