@@ -1,3 +1,5 @@
+*Note that ths code is an import from my private GitLab. Versioning may not be relevant and instructions may be outdated*
+
 ## First install
 
 - On home page of the GitLab project, click Open in Xcode
